@@ -132,7 +132,7 @@ for node in doneNodes:
     if node.nodeName in ["Integer", "IntConverter", "IntSwissKnife"]:
         print 'record(longin, "$(P)$(R)%s_RBV") {' % records[nodeName]
         print '  field(DTYP, "asynInt32")'
-        print '  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARVI_%s")' % nodeName
+        print '  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_Int_%s")' % nodeName
         print '  field(SCAN, "I/O Intr")'
         print '  field(DISA, "0")'        
         print '  info(autosaveFields, "%s")' % long_autosaveFields
@@ -142,7 +142,7 @@ for node in doneNodes:
             continue        
         print 'record(longout, "$(P)$(R)%s") {' % records[nodeName]
         print '  field(DTYP, "asynInt32")'
-        print '  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARVI_%s")' % nodeName
+        print '  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_Int_%s")' % nodeName
         print '  field(DISA, "0")'
         print '  info(autosaveFields, "%s PINI VAL")' % long_autosaveFields
         print '}'
@@ -150,7 +150,7 @@ for node in doneNodes:
     elif node.nodeName in ["Boolean"]:
         print 'record(bi, "$(P)$(R)%s_RBV") {' % records[nodeName]
         print '  field(DTYP, "asynInt32")'
-        print '  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARVI_%s")' % nodeName
+        print '  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_Int_%s")' % nodeName
         print '  field(SCAN, "I/O Intr")'
         print '  field(ZNAM, "No")'
         print '  field(ONAM, "Yes")'                        
@@ -162,7 +162,7 @@ for node in doneNodes:
             continue        
         print 'record(bo, "$(P)$(R)%s") {' % records[nodeName]
         print '  field(DTYP, "asynInt32")'
-        print '  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARVI_%s")' % nodeName
+        print '  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_Int_%s")' % nodeName
         print '  field(ZNAM, "No")'
         print '  field(ONAM, "Yes")'                                
         print '  field(DISA, "0")'
@@ -172,7 +172,7 @@ for node in doneNodes:
     elif node.nodeName in ["Float", "Converter", "SwissKnife"]:
         print 'record(ai, "$(P)$(R)%s_RBV") {' % records[nodeName]
         print '  field(DTYP, "asynFloat64")'
-        print '  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARVD_%s")' % nodeName
+        print '  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_Dbl_%s")' % nodeName
         print '  field(PREC, "3")'        
         print '  field(SCAN, "I/O Intr")'
         print '  field(DISA, "0")'
@@ -183,7 +183,7 @@ for node in doneNodes:
             continue    
         print 'record(ao, "$(P)$(R)%s") {' % records[nodeName]
         print '  field(DTYP, "asynFloat64")'
-        print '  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARVD_%s")' % nodeName
+        print '  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_Dbl_%s")' % nodeName
         print '  field(PREC, "3")'
         print '  field(DISA, "0")'
         print '  info(autosaveFields, "%s PINI VAL")' % a_autosaveFields
@@ -192,7 +192,7 @@ for node in doneNodes:
     elif node.nodeName in ["StringReg"]:
         print 'record(stringin, "$(P)$(R)%s_RBV") {' % records[nodeName]
         print '  field(DTYP, "asynOctetRead")'
-        print '  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARVS_%s")' % nodeName
+        print '  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_Str_%s")' % nodeName
         print '  field(SCAN, "I/O Intr")'
         print '  field(DISA, "0")'
         print '  info(autosaveFields, "%s")' % string_autosaveFields
@@ -201,7 +201,7 @@ for node in doneNodes:
     elif node.nodeName in ["Command"]:
         print 'record(longout, "$(P)$(R)%s") {' % records[nodeName]
         print '  field(DTYP, "asynInt32")'
-        print '  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARVI_%s")' % nodeName
+        print '  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_Int_%s")' % nodeName
         print '  field(DISA, "0")'
         print '  info(autosaveFields, "%s")' % long_autosaveFields
         print '}'
@@ -227,7 +227,7 @@ for node in doneNodes:
                 i += 1                
         print 'record(mbbi, "$(P)$(R)%s_RBV") {' % records[nodeName]
         print '  field(DTYP, "asynInt32")'
-        print '  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARVI_%s")' % nodeName
+        print '  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_Int_%s")' % nodeName
         print enumerations,
         print '  field(SCAN, "I/O Intr")'
         print '  field(DISA, "0")'
@@ -238,7 +238,7 @@ for node in doneNodes:
             continue        
         print 'record(mbbo, "$(P)$(R)%s") {' % records[nodeName]
         print '  field(DTYP, "asynInt32")'
-        print '  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))ARVI_%s")' % nodeName
+        print '  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_Int_%s")' % nodeName
         print '  field(DOL,  "%s")' % defaultVal
         print enumerations,       
         print '  field(DISA, "0")'
