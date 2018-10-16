@@ -8,7 +8,7 @@
 
 typedef enum 
 {
-    GCFeatureTypeInt,
+    GCFeatureTypeInteger,
     GCFeatureTypeBoolean,
     GCFeatureTypeEnum,
     GCFeatureTypeDouble,
@@ -19,23 +19,18 @@ typedef enum
     GCFeatureTypeUnknown
 } GCFeatureType_t;
 
-
 typedef enum 
 {
-    GCAccess_RO,
-    GCAccess_RW,
-    GCAccess_WO
-} GCAccessMode_t;
+    GCConvertToEPICS,
+    GCConvertFromEPICS,
+} GCConvertDirection_t;
 
-typedef struct 
-{
-    bool exists;
-    union
-    {
-        int valInt;
-        double valDouble;
-    };
-} GCMinMax_t;
+typedef enum {
+    GCAcquisitionMode_Continuous,
+    GCAcquisitionMode_SingleFrame,
+    GCAcquisitionMode_MultipleFrame,
+} GCAcquisitionMode_t;
+
 
 class GenICamFeatureSet;
 
@@ -43,21 +38,11 @@ class GenICamFeature
 {
 
 private:
-    GenICamFeatureSet *mSet;
     std::string mAsynName;
     asynParamType mAsynType;
-    std::string mName;
-    bool mRemote;
-
     int mAsynIndex;
-    GCFeatureType_t mType;
-    GCAccessMode_t mAccessMode;
-    GCMinMax_t mMin, mMax;
-    std::vector <std::string> mEnumValues;
-    double mEpsilon;
-    bool mCustomEnum;
-
-    int getEnumIndex (std::string const & value, size_t & index);
+    std::string mFeatureName;
+    GCFeatureType_t mFeatureType;
 
     int getParam (int & value);
     int getParam (double & value);
@@ -67,39 +52,57 @@ private:
     int setParam (double value);
     int setParam (std::string const & value);
 
-    int baseFetch (std::string & rawValue);
-    int basePut (std::string const & rawValue);
+protected:
+    GenICamFeatureSet *mSet;
 
 public:
-    GenICamFeature (GenICamFeatureSet *set, std::string const & asynName,
-            asynParamType asynType,
-            std::string const & name = "");
+    GenICamFeature (GenICamFeatureSet *set, 
+                    std::string const & asynName, asynParamType asynType, 
+                    std::string const & featureName, GCFeatureType_t featureType);
 
-    int getIndex (void);
-    void setEnumValues (std::vector<std::string> const & values);
-
-    // Get the underlying asyn parameter value
-    int get (bool & value);
-    int get (int & value);
-    int get (double & value);
-    int get (std::string & value);
-
-    // Fetch the current value from the detector, update underlying asyn parameter
-    // and return the value
-    int fetch (void);
-    int fetch (bool & value);
-    int fetch (int & value);
-    int fetch (double & value);
-    int fetch (std::string & value);
-
+    // These are the pure virtual functions that derived classes must implement
+    virtual bool isImplemented(void) = 0;
+    virtual bool isAvailable(void) = 0;
+    virtual bool isReadable(void) = 0;
+    virtual bool isWritable(void) = 0;
+    virtual int readInteger(void) = 0;
+    virtual int readIntegerMin(void) = 0;
+    virtual int readIntegerMax(void) = 0;
+    virtual int readIncrement(void) = 0;
+    virtual void writeInteger(int value) = 0;
+    virtual bool readBoolean(void) = 0;
+    virtual void writeBoolean (bool value) = 0;
+    virtual double readDouble(void) = 0;
+    virtual double readDoubleMin(void) = 0;
+    virtual double readDoubleMax(void) = 0;
+    virtual void writeDouble(double value) = 0;
+    virtual int readEnumIndex(void) = 0;
+    virtual void writeEnumIndex(int value) = 0;
+    virtual std::string readEnumString(void) = 0;
+    virtual void writeEnumString(std::string const & value) = 0;
+    virtual void readEnumChoices(std::vector<std::string>& enumStrings, std::vector<int>& enumValues) = 0;
+    virtual std::string readString(void) = 0;
+    virtual void writeString(std::string const & value) = 0;
+    virtual void writeCommand(void) = 0;
+   
     // Put the value both to the detector (if it is connected to a detector
     // parameter) and to the underlying asyn parameter if successful. Update
     // other modified parameters automatically.
-    int put (bool value);
-    int put (int value);
-    int put (double value);
-    int put (std::string const & value);
-    int put (const char *value);
+    int write(void *pValue, void *pReadbackValue, bool setParam);
+
+    // Fetch the current value from the detector, update underlying asyn parameter
+    // and return the value
+    int read(void *pValue, bool bSetParam);
+
+    int getAsynIndex(void);
+    std::string getFeatureName(void);
+    std::string getValueAsString(void);
+    GCFeatureType_t getFeatureType(void); 
+    void mapAsynIndex(int index, std::string featureName);
+
+
+    virtual int convertUnits(int inputValue, GCConvertDirection_t direction);
+    virtual double convertUnits(double inputValue, GCConvertDirection_t direction);
 };
 
 typedef std::map<std::string, GenICamFeature*> GCFeatureMap_t;
@@ -123,9 +126,9 @@ public:
     GenICamFeature *getByName (std::string const & name);
     GenICamFeature *getByIndex (int index);
     asynUser *getUser (void);
-    int fetchAll (void);
-
-    int fetchParams (std::vector<std::string> const & params);
+    int readAll (void);
+    int readFeatures (std::vector<std::string> const & params);
+    void report (FILE *fp, int details);
 };
 
 
