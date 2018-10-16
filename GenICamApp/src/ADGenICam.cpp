@@ -296,6 +296,10 @@ asynStatus ADGenICam::drvUserCreate(asynUser *pasynUser, const char *drvInfo,
             featureType = GCFeatureTypeBoolean;
             asynType = asynParamInt32;
             break;
+        case 'C':
+            featureType = GCFeatureTypeCmd;
+            asynType = asynParamInt32;
+            break;
         case 'D':
             featureType = GCFeatureTypeDouble;
             asynType = asynParamFloat64;
@@ -315,7 +319,7 @@ asynStatus ADGenICam::drvUserCreate(asynUser *pasynUser, const char *drvInfo,
         default:
             asynPrint(pasynUserSelf, ASYN_TRACE_ERROR, 
                 "%s::%s [%s] couldn't match %c to an asyn type", 
-                driverName, functionName, drvInfo,  drvInfo[6]);
+                driverName, functionName, drvInfo,  drvInfo[3]);
             return asynError;
         }
 
