@@ -202,6 +202,7 @@ asynStatus ADGenICam::readEnum(asynUser *pasynUser, char *strings[], int values[
 asynStatus ADGenICam::setImageParams()
 {
     std::vector<int> paramIndices;
+    GenICamFeature *pFeature;
     //static const char *functionName = "setImageParams";
     //bool resumeAcquire;
     unsigned i;
@@ -216,11 +217,13 @@ asynStatus ADGenICam::setImageParams()
     paramIndices.push_back(ADBinY);
 
     for(i=0; i<paramIndices.size(); i++) {
-        mGCFeatureSet.getByIndex(paramIndices[i])->write(0, 0, false);
+        pFeature = mGCFeatureSet.getByIndex(paramIndices[i]);
+        if (pFeature) pFeature->write(0, 0, false);
     }
 
     for(i=0; i<paramIndices.size(); i++) {
-        mGCFeatureSet.getByIndex(paramIndices[i])->read(0, true);
+        pFeature = mGCFeatureSet.getByIndex(paramIndices[i]);
+        if (pFeature) pFeature->read(0, true);
     }
  
     return asynSuccess;
@@ -323,7 +326,7 @@ asynStatus ADGenICam::drvUserCreate(asynUser *pasynUser, const char *drvInfo,
             return asynError;
         }
 
-        std::string featureName(drvInfo+7);
+        std::string featureName(drvInfo+5);
 
         GenICamFeature *p = createFeature(&mGCFeatureSet, drvInfo, asynType, featureName, featureType);
         if (!p)
