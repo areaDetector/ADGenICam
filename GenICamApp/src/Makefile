@@ -6,7 +6,7 @@ include $(TOP)/configure/CONFIG
 INC += GenICamFeature.h
 INC += ADGenICam.h
 
-LIBRARY_IOC += ADGenICAM
+LIBRARY_IOC += ADGenICam
 
 LIB_SRCS += GenICamFeature.cpp
 LIB_SRCS += ADGenICam.cpp
