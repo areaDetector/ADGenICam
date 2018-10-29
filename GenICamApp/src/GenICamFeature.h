@@ -38,12 +38,6 @@ class GenICamFeature
 {
 
 private:
-    std::string mAsynName;
-    asynParamType mAsynType;
-    int mAsynIndex;
-    std::string mFeatureName;
-    GCFeatureType_t mFeatureType;
-
     int getParam (int & value);
     int getParam (double & value);
     int getParam (std::string & value);
@@ -53,6 +47,12 @@ private:
     int setParam (std::string const & value);
 
 protected:
+    std::string mAsynName;
+    asynParamType mAsynType;
+    int mAsynIndex;
+    std::string mFeatureName;
+    GCFeatureType_t mFeatureType;
+
     GenICamFeatureSet *mSet;
 
 public:
