@@ -107,8 +107,12 @@ int GenICamFeature::write(void *pValue, void *pReadbackValue, bool bSetParam)
 {
     static const char *functionName = "write";
 
-    if (!isImplemented()) return asynError;
+printf("GenICamFeature::write mFeatureName=%s mFeatureType=%d\n", mFeatureName.c_str(), mFeatureType);
     try {
+        if (!isImplemented()) {
+             WARN_ARGS("node %s is not implemented\n", mFeatureName.c_str());
+             return EXIT_FAILURE;
+        }
         if (!isAvailable()) {
              WARN_ARGS("node %s is not available\n", mFeatureName.c_str());
              return EXIT_FAILURE;
@@ -361,41 +365,43 @@ std::string GenICamFeature::getValueAsString()
 //    static const char *functionName = "getValueAsString";
     std::string valueString = "Not available";
     char buff[100];
-
-    switch (mFeatureType) {
-        case GCFeatureTypeString: {
-            valueString = readString();
-            break;
-            }
-        case  GCFeatureTypeInteger: {
-            int temp = readInteger();
-            sprintf(buff, "%d", temp);
-            valueString = buff;
-            break; 
-            }
-
-        case GCFeatureTypeDouble: {
-            double temp = readDouble();
-            sprintf(buff, "%f", temp);
-            valueString = buff;
-            break;
-            }
-        case GCFeatureTypeBoolean: {
-            bool temp = readBoolean();
-            sprintf(buff, "%s", temp ? "true" : "false");
-            valueString = buff;
-            break;
-            }
-        case GCFeatureTypeCmd: {
-            valueString = "";
-            break;
-            }
-        case GCFeatureTypeEnum: {
-            valueString = readEnumString();
-            break;
-           }
-        default:
-           break; 
+    
+    if (isImplemented() && isReadable()) {
+        switch (mFeatureType) {
+            case GCFeatureTypeString: {
+                valueString = readString();
+                break;
+                }
+            case  GCFeatureTypeInteger: {
+                int temp = readInteger();
+                sprintf(buff, "%d", temp);
+                valueString = buff;
+                break; 
+                }
+    
+            case GCFeatureTypeDouble: {
+                double temp = readDouble();
+                sprintf(buff, "%f", temp);
+                valueString = buff;
+                break;
+                }
+            case GCFeatureTypeBoolean: {
+                bool temp = readBoolean();
+                sprintf(buff, "%s", temp ? "true" : "false");
+                valueString = buff;
+                break;
+                }
+            case GCFeatureTypeCmd: {
+                valueString = "";
+                break;
+                }
+            case GCFeatureTypeEnum: {
+                valueString = readEnumString();
+                break;
+               }
+            default:
+               break; 
+        }
     }
     return valueString;
 }
@@ -482,6 +488,7 @@ GenICamFeature *GenICamFeatureSet::getByName (string const & name)
 
 GenICamFeature *GenICamFeatureSet::getByIndex (int index)
 {
+printf("GenICamFeatureSet::getByIndex index=%d, mAsynMap.size()=%d\n", index, mAsynMap.size());
     GCAsynMap_t::iterator item(mAsynMap.find(index));
 
     if(item != mAsynMap.end())
