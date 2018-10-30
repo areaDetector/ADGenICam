@@ -14,7 +14,7 @@
 #define ERR_ARGS(fmt,...) asynPrint(mSet->getUser(), ASYN_TRACE_ERROR, \
     "Param[%s]::%s: "fmt"\n", mAsynName.c_str(), functionName, __VA_ARGS__);
 
-#define WARN_ARGS(fmt,...) asynPrint(mSet->getUser(), ASYN_TRACE_ERROR, \
+#define WARN_ARGS(fmt,...) asynPrint(mSet->getUser(), ASYN_TRACE_WARNING, \
     "Param[%s]::%s: "fmt"\n", mAsynName.c_str(), functionName, __VA_ARGS__);
 
 // Flow message formatters
@@ -107,7 +107,6 @@ int GenICamFeature::write(void *pValue, void *pReadbackValue, bool bSetParam)
 {
     static const char *functionName = "write";
 
-printf("GenICamFeature::write mFeatureName=%s mFeatureType=%d\n", mFeatureName.c_str(), mFeatureType);
     try {
         if (!isImplemented()) {
              WARN_ARGS("node %s is not implemented\n", mFeatureName.c_str());
@@ -264,7 +263,7 @@ int GenICamFeature::read(void *pValue, bool bSetParam)
     if (!isImplemented()) return EXIT_FAILURE;
     try {
         if ((mFeatureType == GCFeatureTypeEnum) &&
-            (!isAvailable() || !isWritable())) {
+            (!isImplemented() || !isAvailable() || !isWritable())) {
             char *enumStrings[1];
             int enumValues[1];
             int enumSeverities[1];
@@ -273,6 +272,10 @@ int GenICamFeature::read(void *pValue, bool bSetParam)
             enumSeverities[0] = 0;
             mSet->getPortDriver()->doCallbacksEnum(enumStrings, enumValues, enumSeverities, 
                                                    1, mAsynIndex, 0);
+        }
+        if (!isImplemented()) {
+             WARN_ARGS("node %s is not implemented\n", mFeatureName.c_str());
+             return EXIT_FAILURE;
         }
         if (!isAvailable()) {
              WARN_ARGS("node %s is not available\n", mFeatureName.c_str());
@@ -488,7 +491,6 @@ GenICamFeature *GenICamFeatureSet::getByName (string const & name)
 
 GenICamFeature *GenICamFeatureSet::getByIndex (int index)
 {
-printf("GenICamFeatureSet::getByIndex index=%d, mAsynMap.size()=%d\n", index, mAsynMap.size());
     GCAsynMap_t::iterator item(mAsynMap.find(index));
 
     if(item != mAsynMap.end())
