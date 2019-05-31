@@ -57,7 +57,7 @@ protected:
 
 public:
     GenICamFeature (GenICamFeatureSet *set, 
-                    std::string const & asynName, asynParamType asynType, 
+                    std::string const & asynName, asynParamType asynType, int asynIndex,
                     std::string const & featureName, GCFeatureType_t featureType);
 
     // These are the pure virtual functions that derived classes must implement
@@ -98,14 +98,12 @@ public:
     std::string getFeatureName(void);
     std::string getValueAsString(void);
     GCFeatureType_t getFeatureType(void); 
-    void mapAsynIndex(int index, std::string featureName);
-
 
     virtual int convertUnits(int inputValue, GCConvertDirection_t direction);
     virtual double convertUnits(double inputValue, GCConvertDirection_t direction);
 };
 
-typedef std::map<std::string, GenICamFeature*> GCFeatureMap_t;
+typedef std::multimap<std::string, GenICamFeature*> GCFeatureMap_t;
 typedef std::map<int, GenICamFeature*> GCAsynMap_t;
 
 class GenICamFeatureSet
@@ -130,7 +128,5 @@ public:
     int readFeatures (std::vector<std::string> const & params);
     void report (FILE *fp, int details);
 };
-
-
 
 #endif
