@@ -63,15 +63,10 @@ int GenICamFeature::setParam (std::string const & value)
 {
     return (int) mSet->getPortDriver()->setStringParam(mAsynIndex, value);
 }
-
-void GenICamFeature::mapAsynIndex(int index, std::string featureName)
-{
-    if (mFeatureName == featureName) mAsynIndex = index;
-}
-
-GenICamFeature::GenICamFeature (GenICamFeatureSet *set, string const & asynName,
-        asynParamType asynType, string const &featureName, GCFeatureType_t featureType)
-: mAsynName(asynName), mAsynType(asynType), mAsynIndex(-1),
+GenICamFeature::GenICamFeature (GenICamFeatureSet *set, 
+        string const & asynName, asynParamType asynType, int asynIndex,
+        string const &featureName, GCFeatureType_t featureType)
+: mAsynName(asynName), mAsynType(asynType), mAsynIndex(asynIndex),
   mFeatureName(featureName), mFeatureType(featureType), mSet(set)
 {
     const char *functionName = "GenICamFeature";
