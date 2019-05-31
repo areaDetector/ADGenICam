@@ -42,7 +42,7 @@ ADGenICam::ADGenICam(const char *portName, size_t maxMemory, int priority, int s
     : ADDriver(portName, 1, 0, 0, maxMemory,
             asynEnumMask, asynEnumMask,
             ASYN_CANBLOCK, 1, priority, stackSize),
-    mGCFeatureSet(this, pasynUserSelf)
+    mGCFeatureSet(this, pasynUserSelf), mFirstDrvUserCreateCall(true)
 {
     //static const char *functionName = "ADGenICam";
     
@@ -277,6 +277,13 @@ asynStatus ADGenICam::drvUserCreate(asynUser *pasynUser, const char *drvInfo,
             pasynUser, drvInfo, pptypeName, psize);*/
     int index;
 
+    // The first time this is called we first add the standard ADDriver parameters that map to
+    // GenICam features
+    if (mFirstDrvUserCreateCall) {
+        mFirstDrvUserCreateCall = false;
+        addADDriverFeatures();
+    }
+
     if (findParam(drvInfo, &index) && strlen(drvInfo) > 3 && !strncmp(drvInfo, "GC_", 3))
     {
         /* Parameters are of the format
@@ -292,7 +299,7 @@ asynStatus ADGenICam::drvUserCreate(asynUser *pasynUser, const char *drvInfo,
 
         asynParamType asynType;
         GCFeatureType_t featureType;
-
+        
         switch(drvInfo[3])
         {
         case 'B':
@@ -328,33 +335,53 @@ asynStatus ADGenICam::drvUserCreate(asynUser *pasynUser, const char *drvInfo,
 
         std::string featureName(drvInfo+5);
 
-        GenICamFeature *p = createFeature(&mGCFeatureSet, drvInfo, asynType, featureName, featureType);
+        GenICamFeature *p = createFeature(&mGCFeatureSet, drvInfo, asynType, -1, featureName, featureType);
         if (!p)
             return asynError;
-
-        // Map some asyn indices into the base class parameters
-        p->mapAsynIndex(ADImageMode,         "AcquisitionMode");
-        p->mapAsynIndex(ADSerialNumber,      "DeviceSerialNumber");
-        p->mapAsynIndex(ADFirmwareVersion,   "DeviceFirmwareVersion");
-        p->mapAsynIndex(ADManufacturer,      "DeviceVendorName");
-        p->mapAsynIndex(ADModel,             "DeviceModelName");
-        p->mapAsynIndex(ADMaxSizeX,          "WidthMax");
-        p->mapAsynIndex(ADMaxSizeY,          "HeightMax");
-        p->mapAsynIndex(ADSizeX,             "Width");
-        p->mapAsynIndex(ADSizeY,             "Height");
-        p->mapAsynIndex(ADMinX,              "OffsetX");
-        p->mapAsynIndex(ADMinY,              "OffsetY");
-        p->mapAsynIndex(ADBinX,              "BinningHorizontal");
-        p->mapAsynIndex(ADBinY,              "BinningVertical");
-        p->mapAsynIndex(ADNumImages,         "AcquisitionFrameCount");
-        p->mapAsynIndex(ADAcquireTime,       "ExposureTime");
-        p->mapAsynIndex(ADAcquirePeriod,     "AcquisitionFrameRate");
-        p->mapAsynIndex(ADGain,              "Gain");
-        p->mapAsynIndex(ADTriggerMode,       "TriggerMode");
-        p->mapAsynIndex(ADTemperatureActual, "DeviceTemperature");
 
         mGCFeatureSet.insert(p, featureName);
     }
     return ADDriver::drvUserCreate(pasynUser, drvInfo, pptypeName, psize);
+}
+
+asynStatus ADGenICam::addADDriverFeatures()
+{
+    typedef struct {
+        int index; 
+        std::string featureName;
+    } stdParam;
+    stdParam params[] = {
+        {ADImageMode,         "AcquisitionMode"},
+        {ADSerialNumber,      "DeviceSerialNumber"},
+        {ADImageMode,         "AcquisitionMode"},
+        {ADSerialNumber,      "DeviceSerialNumber"},
+        {ADFirmwareVersion,   "DeviceFirmwareVersion"},
+        {ADManufacturer,      "DeviceVendorName"},
+        {ADModel,             "DeviceModelName"},
+        {ADMaxSizeX,          "WidthMax"},
+        {ADMaxSizeY,          "HeightMax"},
+        {ADSizeX,             "Width"},
+        {ADSizeY,             "Height"},
+        {ADMinX,              "OffsetX"},
+        {ADMinY,              "OffsetY"},
+        {ADBinX,              "BinningHorizontal"},
+        {ADBinY,              "BinningVertical"},
+        {ADNumImages,         "AcquisitionFrameCount"},
+        {ADAcquireTime,       "ExposureTime"},
+        {ADAcquirePeriod,     "AcquisitionFrameRate"},
+        {ADGain,              "Gain"},
+        {ADTriggerMode,       "TriggerMode"},
+        {ADTemperatureActual, "DeviceTemperature"},
+    };
+    int numParams = sizeof(params)/sizeof(params[0]);
+    for (int i=0; i<numParams; i++) {
+        GenICamFeature *p = createFeature(&mGCFeatureSet, "", asynParamInt32, params[i].index, 
+                                          params[i].featureName, GCFeatureTypeUnknown);
+        if (!p)
+            return asynError;
+
+        mGCFeatureSet.insert(p, params[i].featureName);
+    }
+    return asynSuccess;
 }
 
