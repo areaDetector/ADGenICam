@@ -12,10 +12,10 @@
     mAsynName.c_str(), functionName, msg)
 
 #define ERR_ARGS(fmt,...) asynPrint(mSet->getUser(), ASYN_TRACE_ERROR, \
-    "Param[%s]::%s: "fmt"\n", mAsynName.c_str(), functionName, __VA_ARGS__);
+    "Param[%s]::%s: " fmt "\n", mAsynName.c_str(), functionName, __VA_ARGS__);
 
 #define WARN_ARGS(fmt,...) asynPrint(mSet->getUser(), ASYN_TRACE_WARNING, \
-    "Param[%s]::%s: "fmt"\n", mAsynName.c_str(), functionName, __VA_ARGS__);
+    "Param[%s]::%s: " fmt "\n", mAsynName.c_str(), functionName, __VA_ARGS__);
 
 // Flow message formatters
 #define FLOW(msg) asynPrint(mSet->getUser(), ASYN_TRACE_FLOW, \
@@ -23,16 +23,15 @@
     mAsynName.c_str(), functionName, msg)
 
 #define FLOW_ARGS(fmt,...) asynPrint(mSet->getUser(), ASYN_TRACE_FLOW, \
-    "Param[%s]::%s: "fmt"\n", mAsynName.c_str(), functionName, __VA_ARGS__);
+    "Param[%s]::%s: " fmt "\n", mAsynName.c_str(), functionName, __VA_ARGS__);
 
 #define TRACEIO_DRIVER_ARGS(fmt,...) asynPrint(mSet->getUser(), ASYN_TRACEIO_DRIVER, \
-    "Param[%s]::%s: "fmt"\n", mAsynName.c_str(), functionName, __VA_ARGS__);
+    "Param[%s]::%s: " fmt "\n", mAsynName.c_str(), functionName, __VA_ARGS__);
 
 using std::string;
 using std::vector;
 using std::map;
 using std::pair;
-
 
 int GenICamFeature::getParam (int & value)
 {
