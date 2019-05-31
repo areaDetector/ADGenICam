@@ -349,34 +349,35 @@ asynStatus ADGenICam::addADDriverFeatures()
     typedef struct {
         int index; 
         std::string featureName;
+        GCFeatureType_t featureType;
     } stdParam;
     stdParam params[] = {
-        {ADImageMode,         "AcquisitionMode"},
-        {ADSerialNumber,      "DeviceSerialNumber"},
-        {ADImageMode,         "AcquisitionMode"},
-        {ADSerialNumber,      "DeviceSerialNumber"},
-        {ADFirmwareVersion,   "DeviceFirmwareVersion"},
-        {ADManufacturer,      "DeviceVendorName"},
-        {ADModel,             "DeviceModelName"},
-        {ADMaxSizeX,          "WidthMax"},
-        {ADMaxSizeY,          "HeightMax"},
-        {ADSizeX,             "Width"},
-        {ADSizeY,             "Height"},
-        {ADMinX,              "OffsetX"},
-        {ADMinY,              "OffsetY"},
-        {ADBinX,              "BinningHorizontal"},
-        {ADBinY,              "BinningVertical"},
-        {ADNumImages,         "AcquisitionFrameCount"},
-        {ADAcquireTime,       "ExposureTime"},
-        {ADAcquirePeriod,     "AcquisitionFrameRate"},
-        {ADGain,              "Gain"},
-        {ADTriggerMode,       "TriggerMode"},
-        {ADTemperatureActual, "DeviceTemperature"},
+        {ADImageMode,         "AcquisitionMode",       GCFeatureTypeEnum},
+        {ADSerialNumber,      "DeviceSerialNumber",    GCFeatureTypeString},
+        {ADFirmwareVersion,   "DeviceFirmwareVersion", GCFeatureTypeString},
+        {ADManufacturer,      "DeviceVendorName",      GCFeatureTypeString},
+        {ADModel,             "DeviceModelName",       GCFeatureTypeString},
+        {ADMaxSizeX,          "WidthMax",              GCFeatureTypeInteger},
+        {ADMaxSizeY,          "HeightMax",             GCFeatureTypeInteger},
+        {ADSizeX,             "Width",                 GCFeatureTypeInteger},
+        {ADSizeY,             "Height",                GCFeatureTypeInteger},
+        {ADMinX,              "OffsetX",               GCFeatureTypeInteger},
+        {ADMinY,              "OffsetY",               GCFeatureTypeInteger},
+        {ADBinX,              "BinningHorizontal",     GCFeatureTypeInteger},
+        {ADBinY,              "BinningVertical",       GCFeatureTypeInteger},
+        {ADNumImages,         "AcquisitionFrameCount", GCFeatureTypeInteger},
+        {ADAcquireTime,       "ExposureTime",          GCFeatureTypeDouble},
+        {ADAcquirePeriod,     "AcquisitionFrameRate",  GCFeatureTypeDouble},
+        {ADGain,              "Gain",                  GCFeatureTypeDouble},
+        {ADTriggerMode,       "TriggerMode",           GCFeatureTypeEnum},
+        {ADTemperatureActual, "DeviceTemperature",     GCFeatureTypeDouble},
     };
     int numParams = sizeof(params)/sizeof(params[0]);
     for (int i=0; i<numParams; i++) {
-        GenICamFeature *p = createFeature(&mGCFeatureSet, "", asynParamInt32, params[i].index, 
-                                          params[i].featureName, GCFeatureTypeUnknown);
+        asynParamType paramType;
+        getParamType(params[i].index, &paramType);
+        GenICamFeature *p = createFeature(&mGCFeatureSet, "", paramType, params[i].index, 
+                                          params[i].featureName, params[i].featureType);
         if (!p)
             return asynError;
 
