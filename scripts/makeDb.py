@@ -49,9 +49,10 @@ def handle_node(node):
     elif node.hasAttribute("Name"):
         name = str(node.getAttribute("Name"))
         lookup[name] = node
-        recordName = name
-        if len(recordName) > 16:
-            recordName = recordName[:16]
+        # Add a leading GC_ to the name to prevent identical record names to those in ADBase.template
+        recordName = "GC_" + name
+        if len(recordName) > 20:
+            recordName = recordName[:20]
         i = 0
         while recordName in records.values():
             recordName = recordName[:-len(str(i))] + str(i)
