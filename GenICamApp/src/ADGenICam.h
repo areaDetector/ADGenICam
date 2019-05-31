@@ -25,8 +25,9 @@ public:
 
     // Pure virtual functions that all drivers must implement
     virtual GenICamFeature *createFeature(GenICamFeatureSet *set, 
-                                          std::string const & asynName, asynParamType asynType, 
+                                          std::string const & asynName, asynParamType asynType, int asynIndex,
                                           std::string const & featureName, GCFeatureType_t featureType) = 0;
+    virtual asynStatus addADDriverFeatures();
     virtual asynStatus startCapture() = 0;
     virtual asynStatus stopCapture() = 0;
 
@@ -35,6 +36,7 @@ protected:
     
 private:
     int mFirstParam;
+    bool mFirstDrvUserCreateCall;
 
 };
 
