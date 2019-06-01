@@ -317,8 +317,8 @@ int GenICamFeature::read(void *pValue, bool bSetParam)
                 value = convertUnits(value, GCConvertToEPICS);
                 if (pValue) *(epicsInt32*)pValue = value;
                 if (bSetParam) setParam(value);
-                // We don't want to replace enum values for ADImageMode
-                //if (mAsynIndex == ADImageMode) return EXIT_SUCCESS;
+                // We don't want to replace enum values for feature "AcquisitionMode" = ADImageMode
+                if (mFeatureName == "AcquisitionMode") return EXIT_SUCCESS;
                 std::vector<std::string> tempStrings;
                 std::vector<int> tempValues;
                 readEnumChoices(tempStrings, tempValues);
@@ -533,7 +533,10 @@ void GenICamFeatureSet::report (FILE *fp, int details)
         p = it->second;
         fprintf(fp, "\n      Node name: %s\n", p->getFeatureName().c_str());
         fprintf(fp, "      asynParam: %d\n",   p->getAsynIndex());
-        fprintf(fp, "  isImplemented: %d\n",   p->isImplemented());
+        fprintf(fp, "  isImplemented: %s\n",   p->isImplemented() ? "true" : "false");
+        fprintf(fp, "    isAvailable: %s\n",   p->isAvailable()   ? "true" : "false");
+        fprintf(fp, "     isReadable: %s\n",   p->isReadable()    ? "true" : "false");
+        fprintf(fp, "     isWritable: %s\n",   p->isWritable()    ? "true" : "false");
         fprintf(fp, "          value: %s\n",   p->getValueAsString().c_str());
     }
 }
