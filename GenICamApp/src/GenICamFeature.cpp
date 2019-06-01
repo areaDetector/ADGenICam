@@ -111,7 +111,7 @@ int GenICamFeature::write(void *pValue, void *pReadbackValue, bool bSetParam)
              return EXIT_FAILURE;
         }
         if (!isWritable()) {
-             WARN_ARGS("node %s is not writable\n", mFeatureName.c_str());
+             ERR_ARGS("node %s is not writable\n", mFeatureName.c_str());
              return EXIT_FAILURE;
         }
         switch (mFeatureType) {
