@@ -6,13 +6,21 @@ areaDetector GenICam base class driver
 
 .. contents:: Contents
 
+.. _GenICam:      https://www.emva.org/standards-technology/genicam
+.. _aravis:       https://github.com/AravisProject/aravis
+.. _ADGenICam:    https://github.com/areaDetector/ADGenICam
+.. _ADAravis:     https://github.com/areaDetector/ADAravis
+.. _aravisGigE:   https://github.com/areaDetector/aravisGigE
+.. _ADSpinnaker:  https://github.com/areaDetector/ADSpinnaker
+.. _ADVimba:      https://github.com/areaDetector/ADVimba
+.. _ADSupport:    https://github.com/areaDetector/ADSupport
+
 Overview
 --------
 
 This is an :doc:`../index` base class driver for GenICam cameras.
 
-`GenICam <https://www.emva.org/standards-technology/genicam/>`_ is a 
-Generic Interface for Cameras from the European Machine Vision Association (EMVA). 
+GenICam_ is a Generic Interface for Cameras from the European Machine Vision Association (EMVA). 
 The stated goal of GenICam is:
 
   The goal of GenICam (Generic Interface for Cameras) is to provide a generic programming interface for 
@@ -29,7 +37,7 @@ GenICam supports the following interface standards:
 - Camera Link HS
 - IIDC2 (Firewire)
 
-GenICam cameras are controlled via "features" such as ExposureTime, Gain, TriggerMode, etc.  Each feature has a
+GenICam cameras are controlled via *features* such as ExposureTime, Gain, TriggerMode, etc.  Each feature has a
 name, data type, flags indicating whether it can be read or written, etc.
 Many features are defined in the GenICam specification, and vendors must use these names
 for those features.  Vendors are also free to add new features that are specific to their cameras.
@@ -61,19 +69,24 @@ ADGenICam and aravis
 A problem with the GenICam standard is that while they provide a reference implementation, it is not
 open-source.  Source code derived from the reference implementation cannot be freely distributed.
 
-One solution to this is the `aravis project <https://github.com/AravisProject/aravis>`_, which is
+One solution to this is the aravis_ project, which is
 a reverse-engineered library and utilities for GenICam cameras available only on Linux.
-areaDetector has long had an `aravisGigE driver <https://github.com/areaDetector/aravisGigE>`_ based
-on aravis.  Although it is called aravisGigE the driver actually supports USB cameras as well as
+areaDetector has long had an aravisGigE_ driver based on aravis_.  
+Although it is called aravisGigE, the driver actually supports USB cameras as well as
 GigE and 10 GigE cameras.  
 
-There is a new `ADAravis driver <https://github.com/areaDetector/ADAravis>`_.  This driver also uses
-aravis, but it differs from aravisGigE by using this ADGenICam base class to significantly reduce the amount of code.
-Many of the ideas in ADGenICam were borrowed from aravisGigE.
+There is a new ADAravis_ driver.  This driver also uses
+aravis_, but it differs from aravisGigE_ by using this ADGenICam_ base class to significantly reduce the amount of code.
+Many of the ideas in ADGenICam_ were borrowed from aravisGigE_.
 
-aravisGigE builds the aravis package in its vendor/ directory.  You can also build aravis outside of
-areaDetector, for example in /usr/local.  aravis may be added to `ADSupport <https://github.com/areaDetector/ADSupport>`_
-in the future.
+The aravis_ package is required for aravisGigE_ and ADAravis_ drivers.  It is also required to extract
+the XML file from the camera, even when using drivers that are not based on aravis_, e.g. the
+ADSpinnaker_ driver or the ADVimba_ driver.  ADSpinnaker_ and ADVimba_ can run on Windows, but the XML
+file extraction must be done once on Linux.
+
+aravisGigE_ builds the aravis_ package in its vendor/ directory. 
+You can also build aravis_ outside of areaDetector, for example in /usr/local.
+aravis_ may be added to ADSupport_ in the future.
 
 Reading the XML file from the camera
 ------------------------------------
@@ -83,44 +96,110 @@ is the **arv-tool** program that is included in the aravis package.  This means 
 package is required to create the XML file, and so the camera must be available from a Linux
 system at least once initially.
 
-However, if using the `ADSpinnaker driver <https://github.com/areaDetector/ADSpinnaker>`_ or the
-`ADVimba driver <https://github.com/areaDetector/ADVimba>`_ aravis is not needed to build the
+However, if using the ADSpinnaker_ driver or the ADVimba_ driver aravis_ is not needed to build the
 driver or at run-time.
 
-To extract the XML file from the camera do the following:
+To extract the XML file from the camera first run the arv-tool program to make a list of all the 
+GenICam cameras that are visible from the Linux system, for example::
 
-- Run the arv-tool program to make a list of all the GenICam cameras that are visible from the
-  Linux system, for example:
-  
-::
+  TahoeU18:/corvette/home/epics/devel/areaDetector/ADGenICam> ../aravisGigE/bin/linux-x86_64/arv-tool-0.6
+  Allied Vision Technologies-02-2142A-06178 (164.54.160.58)
+  Allied Vision Technologies-02-2604A-07008 (164.54.160.104)
+  Allied Vision Technologies-50-0503317598 (164.54.160.62)
+  Allied Vision Technologies-50-0503419258 (164.54.160.21)
+  FLIR-18011754 (192.168.0.2)
+  PointGrey-13481965 (164.54.160.114)
 
+Then download the XML file with the command `arv-tool -n cameraName genicam > XML_file_name`, for example::
 
-TahoeU18:/corvette/home/epics/devel/areaDetector/ADGenICam> ../aravisGigE/bin/linux-x86_64/arv-tool-0.6
-Allied Vision Technologies-02-2142A-06178 (164.54.160.58)
-Allied Vision Technologies-02-2604A-07008 (164.54.160.104)
-Allied Vision Technologies-50-0503317598 (164.54.160.62)
-Allied Vision Technologies-50-0503419258 (164.54.160.21)
-FLIR-18011754 (192.168.0.2)
-PointGrey-13481965 (164.54.160.114)
-
-- Download the XML file with the command `arv-tool -n cameraName genicam > XML_file_name`.
-
-::
-
-TahoeU18:/corvette/home/epics/devel/areaDetector/ADGenICam> ../aravisGigE/bin/linux-x86_64/arv-tool-0.6 -n PointGrey-13481965 genicam > xml/PGR_Blackfly_20E4C.xml
-TahoeU18:/corvette/home/epics/devel/areaDetector/ADGenICam> ls -ltr xml
-total 1780
--rw-rw-r-- 1 epics domain users 332287 Oct  7  2018 PGR_Blackfly_50S5C.xml
--rw-rw-r-- 1 epics domain users 231493 Oct 29  2018 AVT_Manta_G507C.xml
--rw-r--r-- 1 epics domain users 932059 May 31 10:16 FLIR_ORX_10G_51S5.xml
--rw-r--r-- 1 epics domain users 317859 Jun  2 09:17 PGR_Blackfly_20E4C.xml
-
+  TahoeU18:/corvette/home/epics/devel/areaDetector/ADGenICam> ../aravisGigE/bin/linux-x86_64/arv-tool-0.6 -n PointGrey-13481965 genicam > xml/PGR_Blackfly_20E4C.xml
+  TahoeU18:/corvette/home/epics/devel/areaDetector/ADGenICam> ls -ltr xml
+  total 1780
+  -rw-rw-r-- 1 epics domain users 332287 Oct  7  2018 PGR_Blackfly_50S5C.xml
+  -rw-rw-r-- 1 epics domain users 231493 Oct 29  2018 AVT_Manta_G507C.xml
+  -rw-r--r-- 1 epics domain users 932059 May 31 10:16 FLIR_ORX_10G_51S5.xml
+  -rw-r--r-- 1 epics domain users 317859 Jun  2 09:17 PGR_Blackfly_20E4C.xml
 
 Python script to create EPICS database
 --------------------------------------
+**ADGenICam/scripts/makeDb.py** is a Python program to read the XML file and produce an EPICS database (.template) file.
+The first argument is the name of the XML file and the second argument is the name of the .template file.
+For example::
+
+  TahoeU18:/corvette/home/epics/devel/areaDetector/ADGenICam> python scripts/makeDb.py xml/PGR_Blackfly_20E4C.xml GenICamApp/Db/PGR_Blackfly_20E4C.template
+  More than 16 enum entries for PixelFormat mbbi record, discarding additional options.
+     If needed, edit the Enumeration tag for PixelFormat to select the 16 you want.
+  Don't know what to do with Register
+  More than 16 enum entries for GevSupportedOptionSelector mbbi record, discarding additional options.
+     If needed, edit the Enumeration tag for GevSupportedOptionSelector to select the 16 you want.
+  More than 16 enum entries for ChunkPixelFormat mbbi record, discarding additional options.
+     If needed, edit the Enumeration tag for ChunkPixelFormat to select the 16 you want.
+    
+  TahoeU18:/corvette/home/epics/devel/areaDetector/ADGenICam> ls -ltr GenICamApp/Db/*.template
+  -rw-rw-r-- 1 epics domain users 142961 Oct  8  2018 GenICamApp/Db/PGR_Blackfly_50S5C.template
+  -rw-rw-r-- 1 epics domain users 117222 Oct 30  2018 GenICamApp/Db/AVT_Manta_G507C.template
+  -rw-r--r-- 1 epics domain users 220518 May 31 10:43 GenICamApp/Db/FLIR_ORX_10G_51S5.template
+  -rw-r--r-- 1 epics domain users 137902 Jun  2 09:38 GenICamApp/Db/PGR_Blackfly_20E4C.template
+
+Note that there were some warnings from makeDb.py about more than 16 enumeration options.  Some GenICam cameras support
+more than 16 choices for some enumeration features, but EPICS mbbo/mbbi records are limited to 16.  If the options
+you need are not listed in the first 16 then you can edit the .template file to add them.  Ignore the warning about
+`Don't know what to do with Register`, the register entries are not needed.
+
+This is a portion of the PGR_Blackfly_20E4C.template created above for the ExposureAuto mbbi and mbbo records::
+
+  record(mbbi, "$(P)$(R)GC_ExposureAuto_RBV") {
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_E_ExposureAuto")
+    field(ZRST, "Off")
+    field(ZRVL, "0")
+    field(ONST, "Once")
+    field(ONVL, "1")
+    field(TWST, "Continuous")
+    field(TWVL, "2")
+    field(SCAN, "I/O Intr")
+    field(DISA, "0")
+    info(autosaveFields, "DESC ZRSV ONSV TWSV THSV FRSV FVSV SXSV SVSV EISV NISV TESV ELSV TVSV TTSV FTSV FFSV TSE")
+  }
+  
+  record(mbbo, "$(P)$(R)GC_ExposureAuto") {
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_E_ExposureAuto")
+    field(DOL,  "0")
+    field(ZRST, "Off")
+    field(ZRVL, "0")
+    field(ONST, "Once")
+    field(ONVL, "1")
+    field(TWST, "Continuous")
+    field(TWVL, "2")
+    field(DISA, "0")
+    info(autosaveFields, "DESC ZRSV ONSV TWSV THSV FRSV FVSV SXSV SVSV EISV NISV TESV ELSV TVSV TTSV FTSV FFSV TSE PINI VAL")
+  }
 
 Python script to create medm screens
 ------------------------------------
+**ADGenICam/scripts/makeAdl.py** is a Python program to read the XML file and produce a medm (.adl) files.
+The first argument is the name of the XML file and the second argument is the base name of the adl files.
+The medm files are **[baseFile]-features1.adl**, **[baseFile]-features2.adl**, etc.
+
+For example::
+
+  TahoeU18:/corvette/home/epics/devel/areaDetector/ADGenICam> python scripts/makeAdl.py xml/PGR_Blackfly_20E4C.xml GenICamApp/op/adl/PGR_Blackfly_20E4C
+  Don't know what to do with Register
+  TahoeU18:/corvette/home/epics/devel/areaDetector/ADGenICam> ls -ltr GenICamApp/op/adl/PGR_Blackfly_20E4C-features_*
+  -rw-r--r-- 1 epics domain users 54601 Jun  2 10:48 GenICamApp/op/adl/PGR_Blackfly_20E4C-features_1.adl
+  -rw-r--r-- 1 epics domain users 48944 Jun  2 10:48 GenICamApp/op/adl/PGR_Blackfly_20E4C-features_2.adl
+  -rw-r--r-- 1 epics domain users 21330 Jun  2 10:48 GenICamApp/op/adl/PGR_Blackfly_20E4C-features_3.adl
+
+The number of camera specific screens generated is determined by the number of features in a specific camera
+and by the maximum screen size specified in the Python program.  In this case 3 .adl files were created.
+These are shown in the `MEDM screens`_ section below.
+
+To change the maximum size of the adl files these 2 lines
+in makeAdl.py can be edited::
+
+  maxScreenWidth = 1600
+  maxScreenHeight = 850
 
 ADGenICam Classes
 -----------------
@@ -193,7 +272,7 @@ It contains the following methods:
 
 - **createFeature()** This is a pure virtual method that the derived class must implement.  It creates a detector-specific
   feature object derived from GenICamFeature.
-- **drvUserCreate()** This is the method that is called when EPICS base is initialize the records during iocInit.
+- **drvUserCreate()** This is the method that is called when EPICS base is initializing the records during iocInit.
   Most areaDetector drivers do not implement this method.  This is because they create their detector-specific parameters
   in their constructor, and the asynPortDriver base class implements **drvUserCreate**.  
   ADGenICam is different.  It creates the detector-specific parameters dynamically as the database file created by
