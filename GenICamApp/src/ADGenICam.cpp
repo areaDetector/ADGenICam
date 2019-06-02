@@ -375,8 +375,10 @@ asynStatus ADGenICam::addADDriverFeatures()
     int numParams = sizeof(params)/sizeof(params[0]);
     for (int i=0; i<numParams; i++) {
         asynParamType paramType;
+        const char *paramName;
         getParamType(params[i].index, &paramType);
-        GenICamFeature *p = createFeature(&mGCFeatureSet, "", paramType, params[i].index, 
+        getParamName(params[i].index, &paramName);
+        GenICamFeature *p = createFeature(&mGCFeatureSet, paramName, paramType, params[i].index, 
                                           params[i].featureName, params[i].featureType);
         if (!p)
             return asynError;
