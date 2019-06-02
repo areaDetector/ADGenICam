@@ -297,6 +297,161 @@ It contains the following methods:
 - **startCapture()** This is a pure virtual function that the derived class must implement to start the camera acquisition.
 - **stopCapture()**  This is a pure virtual function that the derived class must implement to stop the camera acquisition.
 
+The following is part of the output of the **asynReport 1 SP1** command for an ADSpinnaker driver, which inherits from ADGenICam.
+Note that it prints the list of features::
+
+  epics> asynReport 1 SP1
+  SP1 multiDevice:No canBlock:Yes autoConnect:Yes
+      enabled:Yes connected:Yes numberConnects 1
+      nDevices 0 nQueued 0 blocked:No
+      asynManagerLock:No synchronousLock:No
+      exceptionActive:No exceptionUsers 1 exceptionNotifys 0
+      traceMask:0x1 traceIOMask:0x2 traceInfoMask:0x1
+  
+  Number of cameras detected: 2
+  Camera 0
+  Device Vendor Name   (DeviceVendorName):Point Grey Research
+  Device Model Name (DeviceModelName):Blackfly BFLY-PGE-20E4C
+  Device Serial Number (DeviceSerialNumber):13481965
+  Device Version (DeviceVersion):FW:v1.43.3.00 FPGA:v2.02
+  Device Type (DeviceType):GEV
+  Camera 1
+  Device Vendor Name   (DeviceVendorName):FLIR
+  Device Model Name (DeviceModelName):Oryx ORX-10G-51S5M
+  Device Serial Number (DeviceSerialNumber):18011754
+  Device Version (DeviceVersion):1710.0.0.0
+  Device Type (DeviceType):GEV
+  Feature list
+  
+        Node name: AcquisitionFrameCount
+            value: Not available
+  
+        Node name: AcquisitionFrameCount
+            value: Not available
+  
+        Node name: AcquisitionFrameRate
+            value: 33.335640
+  
+        Node name: AcquisitionFrameRate
+            value: 33.335640
+  
+        Node name: AcquisitionFrameRateAuto
+            value: Continuous
+  
+        Node name: AcquisitionFrameRateEnabled
+            value: false
+  
+        Node name: AcquisitionMode
+            value: Continuous
+  ...
+
+This is the output of **asynReport** with **details** increased from 1 to 2 so additional information about each feature is printed::
+
+
+  epics> asynReport 2 SP1
+  SP1 multiDevice:No canBlock:Yes autoConnect:Yes
+      enabled:Yes connected:Yes numberConnects 1
+      nDevices 0 nQueued 0 blocked:No
+      asynManagerLock:No synchronousLock:No
+      exceptionActive:No exceptionUsers 1 exceptionNotifys 0
+      traceMask:0x1 traceIOMask:0x2 traceInfoMask:0x1
+      interposeInterfaceList
+          asynOctet pinterface 0x55d29a07ffa0 drvPvt 0x55d29c0ddc10
+      interfaceList
+          asynCommon pinterface 0x55d29a07eed0 drvPvt 0x55d29c0da100
+          asynDrvUser pinterface 0x55d29a07ecc0 drvPvt 0x55d29c0da100
+          asynOctet pinterface 0x55d29a07ede0 drvPvt 0x55d29c0da100
+          asynInt32 pinterface 0x55d29a07eea0 drvPvt 0x55d29c0da100
+          asynFloat64 pinterface 0x55d29a07ee40 drvPvt 0x55d29c0da100
+          asynInt32Array pinterface 0x55d29a07ed80 drvPvt 0x55d29c0da100
+          asynGenericPointer pinterface 0x55d29a07ed20 drvPvt 0x55d29c0da100
+          asynEnum pinterface 0x55d29a07ece0 drvPvt 0x55d29c0da100
+  
+  Number of cameras detected: 2
+  Camera 0
+  Device Vendor Name   (DeviceVendorName):Point Grey Research
+  Device Model Name (DeviceModelName):Blackfly BFLY-PGE-20E4C
+  Device Serial Number (DeviceSerialNumber):13481965
+  Device Version (DeviceVersion):FW:v1.43.3.00 FPGA:v2.02
+  Device Type (DeviceType):GEV
+  Camera 1
+  Device Vendor Name   (DeviceVendorName):FLIR
+  Device Model Name (DeviceModelName):Oryx ORX-10G-51S5M
+  Device Serial Number (DeviceSerialNumber):18011754
+  Device Version (DeviceVersion):1710.0.0.0
+  Device Type (DeviceType):GEV
+  Feature list
+  
+        Node name: AcquisitionFrameCount
+            value: Not available
+        asynIndex: 72
+         asynName: NIMAGES
+         asynType: 1
+    isImplemented: true
+      isAvailable: false
+       isReadable: false
+       isWritable: false
+  
+        Node name: AcquisitionFrameCount
+            value: Not available
+        asynIndex: 113
+         asynName: GC_I_AcquisitionFrameCount
+         asynType: 1
+    isImplemented: true
+      isAvailable: false
+       isReadable: false
+       isWritable: false
+  
+        Node name: AcquisitionFrameRate
+            value: 33.335640
+        asynIndex: 75
+         asynName: ACQ_PERIOD
+         asynType: 3
+    isImplemented: true
+      isAvailable: true
+       isReadable: true
+       isWritable: false
+  
+        Node name: AcquisitionFrameRate
+            value: 33.335640
+        asynIndex: 281
+         asynName: GC_D_AcquisitionFrameRate
+         asynType: 3
+    isImplemented: true
+      isAvailable: true
+       isReadable: true
+       isWritable: false
+  
+        Node name: AcquisitionFrameRateAuto
+            value: Continuous
+        asynIndex: 232
+         asynName: GC_E_AcquisitionFrameRateAuto
+         asynType: 1
+    isImplemented: true
+      isAvailable: true
+       isReadable: true
+       isWritable: false
+  
+        Node name: AcquisitionFrameRateEnabled
+            value: false
+        asynIndex: 295
+         asynName: GC_B_AcquisitionFrameRateEnabled
+         asynType: 1
+    isImplemented: true
+      isAvailable: true
+       isReadable: true
+       isWritable: true
+  
+        Node name: AcquisitionMode
+            value: Continuous
+        asynIndex: 69
+         asynName: IMAGE_MODE
+         asynType: 1
+    isImplemented: true
+      isAvailable: true
+       isReadable: true
+       isWritable: true
+  ...  
 
 MEDM screens
 ------------
