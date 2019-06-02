@@ -95,6 +95,8 @@ public:
     int read(void *pValue, bool bSetParam);
 
     int getAsynIndex(void);
+    std::string getAsynName(void);
+    asynParamType getAsynType(void);
     std::string getFeatureName(void);
     std::string getValueAsString(void);
     GCFeatureType_t getFeatureType(void); 
