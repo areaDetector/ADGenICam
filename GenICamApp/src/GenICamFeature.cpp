@@ -541,14 +541,17 @@ void GenICamFeatureSet::report (FILE *fp, int details)
     fprintf(fp, "Feature list\n");
     for (it=mFeatureMap.begin(); it != mFeatureMap.end(); it++) {
         p = it->second;
-        fprintf(fp, "\n      Node name: %s\n", p->getFeatureName().c_str());
-        fprintf(fp, "      asynIndex: %d\n",   p->getAsynIndex());
-        fprintf(fp, "       asynName: %s\n",   p->getAsynName().c_str());
-        fprintf(fp, "       asynType: %d\n",   p->getAsynType());
-        fprintf(fp, "  isImplemented: %s\n",   p->isImplemented() ? "true" : "false");
-        fprintf(fp, "    isAvailable: %s\n",   p->isAvailable()   ? "true" : "false");
-        fprintf(fp, "     isReadable: %s\n",   p->isReadable()    ? "true" : "false");
-        fprintf(fp, "     isWritable: %s\n",   p->isWritable()    ? "true" : "false");
+        fprintf(fp, "\n");
+        fprintf(fp, "      Node name: %s\n",   p->getFeatureName().c_str());
         fprintf(fp, "          value: %s\n",   p->getValueAsString().c_str());
+        if (details > 1) {
+            fprintf(fp, "      asynIndex: %d\n",   p->getAsynIndex());
+            fprintf(fp, "       asynName: %s\n",   p->getAsynName().c_str());
+            fprintf(fp, "       asynType: %d\n",   p->getAsynType());
+            fprintf(fp, "  isImplemented: %s\n",   p->isImplemented() ? "true" : "false");
+            fprintf(fp, "    isAvailable: %s\n",   p->isAvailable()   ? "true" : "false");
+            fprintf(fp, "     isReadable: %s\n",   p->isReadable()    ? "true" : "false");
+            fprintf(fp, "     isWritable: %s\n",   p->isWritable()    ? "true" : "false");
+       }
     }
 }
