@@ -87,6 +87,16 @@ int GenICamFeature::getAsynIndex (void)
     return mAsynIndex;
 }
 
+asynParamType GenICamFeature::getAsynType (void)
+{
+    return mAsynType;
+}
+
+std::string GenICamFeature::getAsynName (void)
+{
+    return mAsynName;
+}
+
 std::string GenICamFeature::getFeatureName (void)
 {
     return mFeatureName;
@@ -317,8 +327,8 @@ int GenICamFeature::read(void *pValue, bool bSetParam)
                 value = convertUnits(value, GCConvertToEPICS);
                 if (pValue) *(epicsInt32*)pValue = value;
                 if (bSetParam) setParam(value);
-                // We don't want to replace enum values for feature "AcquisitionMode" = ADImageMode
-                if (mFeatureName == "AcquisitionMode") return EXIT_SUCCESS;
+                // We don't want to replace enum values for EPICS IMAGE_MODE parameter
+                if (mAsynName == "IMAGE_MODE") return EXIT_SUCCESS;
                 std::vector<std::string> tempStrings;
                 std::vector<int> tempValues;
                 readEnumChoices(tempStrings, tempValues);
@@ -426,7 +436,7 @@ double GenICamFeature::convertUnits(double inputValue, GCConvertDirection_t dire
 int GenICamFeature::convertUnits(int inputValue, GCConvertDirection_t direction)
 {
     int outputValue = inputValue;
-    if (mFeatureName == "AcquisitionMode") {
+    if (mAsynName == "IMAGE_MODE") {
         // We want to use the EPICS enums
         if (direction == GCConvertToEPICS) {
             switch (inputValue) {
@@ -532,7 +542,9 @@ void GenICamFeatureSet::report (FILE *fp, int details)
     for (it=mFeatureMap.begin(); it != mFeatureMap.end(); it++) {
         p = it->second;
         fprintf(fp, "\n      Node name: %s\n", p->getFeatureName().c_str());
-        fprintf(fp, "      asynParam: %d\n",   p->getAsynIndex());
+        fprintf(fp, "      asynIndex: %d\n",   p->getAsynIndex());
+        fprintf(fp, "       asynName: %s\n",   p->getAsynName().c_str());
+        fprintf(fp, "       asynType: %d\n",   p->getAsynType());
         fprintf(fp, "  isImplemented: %s\n",   p->isImplemented() ? "true" : "false");
         fprintf(fp, "    isAvailable: %s\n",   p->isAvailable()   ? "true" : "false");
         fprintf(fp, "     isReadable: %s\n",   p->isReadable()    ? "true" : "false");
