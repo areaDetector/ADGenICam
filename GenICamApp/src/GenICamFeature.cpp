@@ -167,6 +167,7 @@ int GenICamFeature::write(void *pValue, void *pReadbackValue, bool bSetParam)
                 else
                     mSet->getPortDriver()->getIntegerParam(mAsynIndex, &value);
                 bool bValue = value ? true : false;
+                writeBoolean(bValue);
                 TRACEIO_DRIVER_ARGS("set property %s to %s\n", mFeatureName.c_str(), bValue ? "true" : "false");
                 if (isReadable()) {
                     bool readback = readBoolean();
@@ -426,7 +427,7 @@ double GenICamFeature::convertUnits(double inputValue, GCConvertDirection_t dire
         else
             outputValue = inputValue * 1.e6;
     } 
-    else if (mAsynName == "ACQUIRE_PERIOD") {
+    else if (mAsynName == "ACQ_PERIOD") {
         // EPICS uses period in seconds, GenICam uses rate in Hz
         outputValue = 1. / inputValue;
     }
