@@ -218,7 +218,8 @@ asynStatus ADGenICam::setImageParams()
 
     for(i=0; i<paramIndices.size(); i++) {
         pFeature = mGCFeatureSet.getByIndex(paramIndices[i]);
-        if (pFeature) pFeature->write(0, 0, false);
+        // On some cameras some features will not be writeable, so don't try if not
+        if (pFeature && pFeature->isWritable()) pFeature->write(0, 0, false);
     }
 
     for(i=0; i<paramIndices.size(); i++) {
@@ -340,6 +341,8 @@ asynStatus ADGenICam::drvUserCreate(asynUser *pasynUser, const char *drvInfo,
             return asynError;
 
         mGCFeatureSet.insert(p, featureName);
+        // Do an initial read of the feature so EPICS output records initialize to this value
+        p->read(NULL, true);
     }
     return ADDriver::drvUserCreate(pasynUser, drvInfo, pptypeName, psize);
 }
