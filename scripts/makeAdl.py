@@ -421,17 +421,18 @@ maxScreenHeight = 850
 headingHeight = 20
 labelWidth = 220
 maxLabelHeight = 20
-readonlyWidth = 150
+readonlyWidth = 240
 readonlyHeight = 18
-readbackWidth = 90
+readbackWidth = 120
 readbackHeight = 18
 textEntryWidth = 60
 textEntryHeight = 20
-menuWidth = 150
+menuWidth = 120
 menuHeight = 20
-messageButtonWidth = 150
+messageButtonWidth = 200
 messageButtonHeight = 20
-boxWidth = 5 + labelWidth + 5 + readonlyWidth + 5
+# boxWidth must be set to the widest combination of widgets in one row
+boxWidth = 5 + labelWidth + 5 + menuWidth + 5 + readbackWidth + 5
 w = boxWidth
 h = 40
 x = 5
@@ -511,6 +512,8 @@ for name, nodes in structure:
             text += make_rbv() 
         elif node.nodeName in ["Enumeration", "Boolean"]:
             text += make_menu()
+            nx += menuWidth + 5 
+            text += make_rbv() 
         elif node.nodeName in ["Command"]:
             text += make_cmd()
         else:
