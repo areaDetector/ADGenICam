@@ -234,24 +234,8 @@ asynStatus ADGenICam::setImageParams()
 asynStatus ADGenICam::readStatus()
 {
 //    static const char *functionName = "readStatus";
-
-//        const TransportLayerStream& camInfo = pCamera_->TLStream;
-//  		  cout << "Stream ID: " << camInfo.StreamID.ToString() << endl;
-//	  	  cout << "Stream Type: " << camInfo.StreamType.ToString() << endl;
-//		    cout << "Stream Buffer Count: " << camInfo.StreamDefaultBufferCount.ToString() << endl;
-//		    cout << "Stream Buffer Handling Mode: " << camInfo.StreamBufferHandlingMode.ToString() << endl;
-//        cout << "Stream Packets Received: " << camInfo.GevTotalPacketCount.ToString() << endl;
-//        getSPProperty(ADTemperatureActual);
-//printf("StreamBufferUnderrunCount = %d\n", (int)camInfo.StreamBufferUnderrunCount.GetValue());
-//        setIntegerParam(SPBufferUnderrunCount, (int)camInfo.StreamBufferUnderrunCount.GetValue());
-//        setIntegerParam(SPFailedBufferCount,   (int)camInfo.StreamFailedBufferCount.GetValue());
-//        if (camInfo.StreamType.GetIntValue() == StreamType_GEV) {
-//printf("GeVFailedPacketCount = %d\n", (int)camInfo.GevFailedPacketCount.GetValue());
-//            setIntegerParam(SPFailedPacketCount,   (int)camInfo.GevFailedPacketCount.GetValue());
-//printf("GeVTotalPacketCount = %d\n", (int)camInfo.GevTotalPacketCount.GetValue());
-//        }
-//    }
-//    callParamCallbacks();
+    mGCFeatureSet.readAll();
+    callParamCallbacks();
     return asynSuccess;
 }
 
