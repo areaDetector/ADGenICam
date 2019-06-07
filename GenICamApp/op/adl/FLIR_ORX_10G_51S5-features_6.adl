@@ -8,7 +8,7 @@
     		x=50
     		y=50
     		width=490
-    		height=235
+    		height=300
     	}
     	clr=14
     	bclr=4
@@ -110,7 +110,7 @@
 			"basic attribute" {
 				clr=54
 			}
-			textix="PGR_Blackfly_20E4C Features Screen #4 - $(P)$(R)"
+			textix="FLIR_ORX_10G_51S5 Features Screen #6 - $(P)$(R)"
 			align="horiz. centered"
 		}
     # (Rectangle)
@@ -119,7 +119,7 @@
     		x=5
     		y=40
     		width=480
-    		height=105
+    		height=255
     	}
     	"basic attribute" {
     		clr=14
@@ -148,7 +148,7 @@
     	"basic attribute" {
     		clr=54
     	}
-    	textix="  EventExposureEndData"
+    	textix="  TransferControl"
     	align="horiz. centered"
     }
     
@@ -163,35 +163,33 @@
 			"basic attribute" {
 				clr=14
 			}
-			textix="EventExposureEnd"
+			textix="TransferControlMode"
 			align="horiz. right"
 		}
-    # (Textentry)
-		"text entry" {
+    # (Menu Button)
+		menu {
 			object {
 				x=235
 				y=70
-				width=60
+				width=120
 				height=20
 			}
 			control {
-				chan="$(P)$(R)GC_EventExposureEnd"
+				chan="$(P)$(R)GC_TraControlMode"
 				clr=14
 				bclr=51
-			}
-			limits {
 			}
 		}
     # (Textupdate)
 		"text update" {
 			object {
-				x=300
+				x=360
 				y=70
 				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)GC_EventExposureEnd_RBV"
+				chan="$(P)$(R)GC_TraControlMode_RBV"
 				clr=54
 				bclr=4
 			}
@@ -206,40 +204,38 @@
 				x=10
 				y=95
 				width=220
-				height=16
+				height=20
 			}
 			"basic attribute" {
 				clr=14
 			}
-			textix="EventExposureEndTimestamp"
+			textix="TransferOperationMode"
 			align="horiz. right"
 		}
-    # (Textentry)
-		"text entry" {
+    # (Menu Button)
+		menu {
 			object {
 				x=235
 				y=95
-				width=60
+				width=120
 				height=20
 			}
 			control {
-				chan="$(P)$(R)GC_EveExpEndTim"
+				chan="$(P)$(R)GC_TraOperationMode"
 				clr=14
 				bclr=51
-			}
-			limits {
 			}
 		}
     # (Textupdate)
 		"text update" {
 			object {
-				x=300
+				x=360
 				y=95
 				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)GC_EveExpEndTim_RBV"
+				chan="$(P)$(R)GC_TraOperationMode_RBV"
 				clr=54
 				bclr=4
 			}
@@ -254,12 +250,12 @@
 				x=10
 				y=120
 				width=220
-				height=16
+				height=20
 			}
 			"basic attribute" {
 				clr=14
 			}
-			textix="EventExposureEndFrameID"
+			textix="TransferBlockCount"
 			align="horiz. right"
 		}
     # (Textentry)
@@ -271,7 +267,7 @@
 				height=20
 			}
 			control {
-				chan="$(P)$(R)GC_EveExpEndFrameID"
+				chan="$(P)$(R)GC_TraBlockCount"
 				clr=14
 				bclr=51
 			}
@@ -287,7 +283,7 @@
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)GC_EveExpEndFrameID_RBV"
+				chan="$(P)$(R)GC_TraBlockCount_RBV"
 				clr=54
 				bclr=4
 			}
@@ -295,134 +291,256 @@
 			limits {
 			}
 		}
-    # (Rectangle)
-    rectangle {
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=145
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="TransferQueueMaxBlockCount"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=145
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_TraQueMaxBloCount"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=145
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_TraQueMaxBloCount_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=170
+				width=220
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="TransferQueueCurrentBlockCount"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=170
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_TraQueCurBloCount"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=170
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_TraQueCurBloCount_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=195
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="TransferQueueOverflowCount"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=195
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_TraQueOveCount"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=195
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_TraQueOveCount_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=220
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="TransferQueueMode"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=220
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_TransferQueueMode"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=220
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_TransferQueueMode_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=245
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="TransferStart"
+			align="horiz. right"
+		}
+    # (Message Button)
+    "message button" {
     	object {
-    		x=5
-    		y=150
-    		width=480
-    		height=80
+    		x=235
+    		y=245
+    		width=200
+    		height=20
     	}
-    	"basic attribute" {
+    	control {
+    		chan="$(P)$(R)GC_TransferStart.PROC"
     		clr=14
-    		fill="outline"
+    		bclr=51
     	}
-    }
-    
-    rectangle {
-    	object {
-    		x=10
-    		y=155
-    		width=470
-    		height=20
-    	}
-    	"basic attribute" {
-    		clr=2
-    	}
-    }
-    text {
-    	object {
-    		x=10
-    		y=155
-    		width=470
-    		height=20
-    	}
-    	"basic attribute" {
-    		clr=54
-    	}
-    	textix="  RemoveParameterLimits"
-    	align="horiz. centered"
+    	label="TransferStart"
+    	press_msg="1"
     }
     
 # (Static Text)
 		text {
 			object {
 				x=10
-				y=180
+				y=270
 				width=220
 				height=20
 			}
 			"basic attribute" {
 				clr=14
 			}
-			textix="ParameterSelector"
+			textix="TransferStop"
 			align="horiz. right"
 		}
-    # (Menu Button)
-		menu {
-			object {
-				x=235
-				y=180
-				width=120
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GC_ParameterSelector"
-				clr=14
-				bclr=51
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=360
-				y=180
-				width=120
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GC_ParameterSelector_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=10
-				y=205
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="RemoveLimits"
-			align="horiz. right"
-		}
-    # (Menu Button)
-		menu {
-			object {
-				x=235
-				y=205
-				width=120
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GC_RemoveLimits"
-				clr=14
-				bclr=51
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=360
-				y=205
-				width=120
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GC_RemoveLimits_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
+    # (Message Button)
+    "message button" {
+    	object {
+    		x=235
+    		y=270
+    		width=200
+    		height=20
+    	}
+    	control {
+    		chan="$(P)$(R)GC_TransferStop.PROC"
+    		clr=14
+    		bclr=51
+    	}
+    	label="TransferStop"
+    	press_msg="1"
+    }
     
