@@ -150,10 +150,12 @@ For example::
   -rw-r--r-- 1 epics domain users 220518 May 31 10:43 GenICamApp/Db/FLIR_ORX_10G_51S5.template
   -rw-r--r-- 1 epics domain users 137902 Jun  2 09:38 GenICamApp/Db/PGR_Blackfly_20E4C.template
 
-Note that there were some warnings from makeDb.py about more than 16 enumeration options.  Some GenICam cameras support
-more than 16 choices for some enumeration features, but EPICS mbbo/mbbi records are limited to 16.  If the options
-you need are not listed in the first 16 then you can edit the .template file to add them.  Ignore the warning about
-`Don't know what to do with Register`, the register entries are not needed.
+Note that there were some warnings from makeDb.py about more than 16 enumeration options.
+Some GenICam cameras support more than 16 choices for some enumeration features, but EPICS mbbo/mbbi records are limited to 16. 
+Hoowever, this warning is usually not significant, because the XML file contains all possible values for the enum choices,
+but at run-time ADGenICam limits the choices to those actually available for the current camera and operating mode,
+and in practice appears never to be more than 16.
+Ignore the warning about `Don't know what to do with Register`, the register entries are not needed.
 
 This is a portion of the PGR_Blackfly_20E4C.template created above for the ExposureAuto mbbi and mbbo records::
 
@@ -184,6 +186,23 @@ This is a portion of the PGR_Blackfly_20E4C.template created above for the Expos
     field(DISA, "0")
     info(autosaveFields, "DESC ZRSV ONSV TWSV THSV FRSV FVSV SXSV SVSV EISV NISV TESV ELSV TVSV TTSV FTSV FFSV TSE PINI VAL")
   }
+
+This Python script, and the one to create medm screens described next, attempt to name the EPICS records as the name of the
+GenICam feature, preceded by the string `GC_` to prevent conflict with any record names already defined in areaDetector.
+However, many GenICam feature names are quite long and this would lead to record names that are too long, particularly
+since they will have IOC-specific prefixes added to them.  The Python scripts limit the record names to being 20 characters.
+This truncation is done by trimming *words* in the name to 3 characters, where words are defined to begin with an upper-case
+character.  The words are trimmed from left to right until the record name is no more than 20 characters.
+For example, the GenICam feature name `AutoExposureTimeLowerLimit` has the record name `GC_AutExpTimLowLimit`.
+This trimming algorithm is different from the one in aravisGigE_, and has the advantage that the names are more readable,
+and a given GenICam feature name will almost always result in the same record name, which was not true for aravisGigE_.
+In aravisGigE_ the feature names were truncated to 16, and a final digit was assigned in case of duplicate names.
+
+For example, for the GenICam property `AcquisitionFrameRate` on a Point Grey BlackFly 20E4C aravisGigE_ produces the record name
+`$(P)$(R)AcquisitionFram1`, while ADGenICam produces `$(P)$(R)GC_AcqFrameRate`, which is more understandable because it 
+includes the word `Rate`.  Furthermore ADGenICam produces this same record name for this feature on the FLIR Oryx 51S5, while
+aravisGigE produces `$(P)$(R)AcquisitionFram6`, which is different from what is produces for the BlackFly camera.
+This is because the number of duplicate names after truncation is different for the 2 cameras.
 
 Python script to create medm screens
 ------------------------------------
