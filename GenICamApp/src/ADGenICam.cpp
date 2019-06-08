@@ -45,6 +45,8 @@ ADGenICam::ADGenICam(const char *portName, size_t maxMemory, int priority, int s
     mGCFeatureSet(this, pasynUserSelf), mFirstDrvUserCreateCall(true)
 {
     //static const char *functionName = "ADGenICam";
+
+    createParam(GCFrameRateEnableString, asynParamInt32, &GCFrameRateEnable);
     
     /* Set initial values of some parameters */
     setIntegerParam(NDDataType, NDUInt8);
@@ -327,6 +329,16 @@ asynStatus ADGenICam::drvUserCreate(asynUser *pasynUser, const char *drvInfo,
         mGCFeatureSet.insert(p, featureName);
         // Do an initial read of the feature so EPICS output records initialize to this value
         p->read(NULL, true);
+        
+        // Process some special cases here
+        // Make a single parameter that maps to either AcquisitionFrameRateEnable or AcquisitionFrameRateEnabled
+        if ((featureName == "AcquisitionFrameRateEnable") || (featureName == "AcquisitionFrameRateEnabled")) {
+            GenICamFeature *p = createFeature(&mGCFeatureSet, GCFrameRateEnableString, asynParamInt32, GCFrameRateEnable,
+                                              featureName, featureType);
+            if (p) mGCFeatureSet.insert(p, featureName);
+            // Do an initial read of the feature so EPICS output records initialize to this value
+            p->read(NULL, true);
+        }
     }
     return ADDriver::drvUserCreate(pasynUser, drvInfo, pptypeName, psize);
 }
