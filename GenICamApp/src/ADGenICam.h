@@ -5,6 +5,8 @@
 
 #include "GenICamFeature.h"
 
+#define GCFrameRateEnableString     "GC_FRAMERATE_ENABLE"       // asynParamInt32, R/W
+
 class ADGenICam : public ADDriver
 {
 public:
@@ -32,6 +34,8 @@ public:
     virtual asynStatus stopCapture() = 0;
 
 protected:
+    int GCFrameRateEnable;
+
     GenICamFeatureSet mGCFeatureSet;
     
 private:
