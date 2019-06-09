@@ -129,6 +129,12 @@ public:
     int readAll (void);
     int readFeatures (std::vector<std::string> const & params);
     void report (FILE *fp, int details);
+    
+    // These are used for mapping between areaDetector ImageMode and GenICam AcquisitionMode
+    int mAcquisitionModeSingleFrame;
+    int mAcquisitionModeMultiFrame;
+    int mAcquisitionModeContinuous;
+
 };
 
 #endif
