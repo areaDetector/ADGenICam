@@ -439,28 +439,27 @@ int GenICamFeature::convertUnits(int inputValue, GCConvertDirection_t direction)
     int outputValue = inputValue;
     if (mAsynName == "IMAGE_MODE") {
         // We want to use the EPICS enums
+        // Cannot use switch because the things we are testing are not constants
         if (direction == GCConvertToEPICS) {
-            switch (inputValue) {
-                case GCAcquisitionMode_SingleFrame: 
-                    outputValue = ADImageSingle;
-                    break;
-                case GCAcquisitionMode_MultipleFrame:
-                    outputValue = ADImageMultiple;
-                    break;
-                case GCAcquisitionMode_Continuous:
-                    outputValue = ADImageContinuous;
-                    break;
+            if (inputValue == mSet->mAcquisitionModeSingleFrame) {
+                outputValue = ADImageSingle;
+            } 
+            else if (inputValue == mSet->mAcquisitionModeMultiFrame) {
+                outputValue = ADImageMultiple;
+            }
+            else if (inputValue == mSet->mAcquisitionModeContinuous) {
+                outputValue = ADImageContinuous;
             }
         } else {
             switch (inputValue) {
                 case ADImageSingle:
-                    outputValue = GCAcquisitionMode_SingleFrame;
+                    outputValue = mSet->mAcquisitionModeSingleFrame;
                     break;
                 case ADImageMultiple:
-                    outputValue = GCAcquisitionMode_MultipleFrame;
+                    outputValue = mSet->mAcquisitionModeMultiFrame;
                     break;
                 case ADImageContinuous:
-                    outputValue = GCAcquisitionMode_Continuous;
+                    outputValue = mSet->mAcquisitionModeContinuous;
                     break;
             }
         }
