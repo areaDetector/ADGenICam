@@ -46,7 +46,16 @@ ADGenICam::ADGenICam(const char *portName, size_t maxMemory, int priority, int s
 {
     //static const char *functionName = "ADGenICam";
 
-    createParam(GCFrameRateEnableString, asynParamInt32, &GCFrameRateEnable);
+    createParam(GCFrameRateString,       asynParamFloat64, &GCFrameRate);
+    mFirstParam = GCFrameRate;
+    createParam(GCFrameRateEnableString, asynParamInt32,   &GCFrameRateEnable);
+    createParam(GCTriggerSourceString,   asynParamInt32,   &GCTriggerSource);
+    createParam(GCTriggerOverlapString,  asynParamInt32,   &GCTriggerOverlap);
+    createParam(GCTriggerSoftwareString, asynParamInt32,   &GCTriggerSoftware);
+    createParam(GCExposureModeString,    asynParamInt32,   &GCExposureMode);
+    createParam(GCExposureAutoString,    asynParamInt32,   &GCExposureAuto);
+    createParam(GCGainAutoString,        asynParamInt32,   &GCGainAuto);
+    createParam(GCPixelFormatString,     asynParamInt32,   &GCPixelFormat);
     
     /* Set initial values of some parameters */
     setIntegerParam(NDDataType, NDUInt8);
@@ -322,13 +331,13 @@ asynStatus ADGenICam::drvUserCreate(asynUser *pasynUser, const char *drvInfo,
 
         std::string featureName(drvInfo+5);
 
-        GenICamFeature *p = createFeature(&mGCFeatureSet, drvInfo, asynType, -1, featureName, featureType);
-        if (!p)
+        GenICamFeature *pFeature = createFeature(&mGCFeatureSet, drvInfo, asynType, -1, featureName, featureType);
+        if (!pFeature)
             return asynError;
 
-        mGCFeatureSet.insert(p, featureName);
+        mGCFeatureSet.insert(pFeature, featureName);
         // Do an initial read of the feature so EPICS output records initialize to this value
-        p->read(NULL, true);
+        pFeature->read(NULL, true);
         
         // Process some special cases here
         // Make a single parameter that maps to either AcquisitionFrameRateEnable or AcquisitionFrameRateEnabled
@@ -338,6 +347,44 @@ asynStatus ADGenICam::drvUserCreate(asynUser *pasynUser, const char *drvInfo,
             if (p) mGCFeatureSet.insert(p, featureName);
             // Do an initial read of the feature so EPICS output records initialize to this value
             p->read(NULL, true);
+        }
+        
+        // Make a single parameter that maps to either ExposureTime or ExposureTimeAbs
+        if ((featureName == "ExposureTime") || (featureName == "ExposureTimeAbs")) {
+            GenICamFeature *p = createFeature(&mGCFeatureSet, ADAcquireTimeString, asynParamFloat64, ADAcquireTime,
+                                              featureName, featureType);
+            if (p) mGCFeatureSet.insert(p, featureName);
+            // Do an initial read of the feature so EPICS output records initialize to this value
+            p->read(NULL, true);
+        }
+
+        // Make a single parameter that maps to either AcquisitionFrameRate or AcquisitionFrameRateAbs
+        if ((featureName == "AcquisitionFrameRate") || (featureName == "AcquisitionFrameRateAbs")) {
+            GenICamFeature *p = createFeature(&mGCFeatureSet, GCFrameRateString, asynParamFloat64, GCFrameRate,
+                                              featureName, featureType);
+            if (p) mGCFeatureSet.insert(p, featureName);
+            // Do an initial read of the feature so EPICS output records initialize to this value
+            p->read(NULL, true);
+
+            // Make AcquirePeriod map to either FrameRate or FrameRateAbs
+            p = createFeature(&mGCFeatureSet, ADAcquirePeriodString, asynParamFloat64, ADAcquirePeriod,
+                                              featureName, featureType);
+            if (p) mGCFeatureSet.insert(p, featureName);
+            // Do an initial read of the feature so EPICS output records initialize to this value
+            p->read(NULL, true);
+        }
+
+        // We need to map the areaDetector ImageMode to the GenICam AcquisitionMode.
+        // GenICam seems to use consistent enum strings, but not enum values
+        if (featureName == "AcquisitionMode") {
+            std::vector<std::string> enumStrings;
+            std::vector<int> enumValues;
+            pFeature->readEnumChoices(enumStrings, enumValues);
+            for (size_t i=0; i<enumStrings.size(); i++) {
+                if (enumStrings[i] == "Continuous")  mGCFeatureSet.mAcquisitionModeContinuous  = enumValues[i];
+                if (enumStrings[i] == "MultiFrame")  mGCFeatureSet.mAcquisitionModeMultiFrame  = enumValues[i];
+                if (enumStrings[i] == "SingleFrame") mGCFeatureSet.mAcquisitionModeSingleFrame = enumValues[i];
+            }
         }
     }
     return ADDriver::drvUserCreate(pasynUser, drvInfo, pptypeName, psize);
@@ -365,11 +412,16 @@ asynStatus ADGenICam::addADDriverFeatures()
         {ADBinX,              "BinningHorizontal",     GCFeatureTypeInteger},
         {ADBinY,              "BinningVertical",       GCFeatureTypeInteger},
         {ADNumImages,         "AcquisitionFrameCount", GCFeatureTypeInteger},
-        {ADAcquireTime,       "ExposureTime",          GCFeatureTypeDouble},
-        {ADAcquirePeriod,     "AcquisitionFrameRate",  GCFeatureTypeDouble},
         {ADGain,              "Gain",                  GCFeatureTypeDouble},
         {ADTriggerMode,       "TriggerMode",           GCFeatureTypeEnum},
         {ADTemperatureActual, "DeviceTemperature",     GCFeatureTypeDouble},
+        {GCTriggerSource,     "TriggerSource",         GCFeatureTypeEnum},
+        {GCTriggerOverlap,    "TriggerOverlap",        GCFeatureTypeEnum},
+        {GCTriggerSoftware,   "TriggerSofyware",       GCFeatureTypeCmd},
+        {GCExposureMode,      "ExposureMode",          GCFeatureTypeEnum},
+        {GCExposureAuto,      "ExposureAuto",          GCFeatureTypeEnum},
+        {GCGainAuto,          "GainAuto",              GCFeatureTypeEnum},
+        {GCPixelFormat,       "PixelFormat",           GCFeatureTypeEnum},
     };
     int numParams = sizeof(params)/sizeof(params[0]);
     for (int i=0; i<numParams; i++) {
