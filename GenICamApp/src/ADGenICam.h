@@ -5,7 +5,15 @@
 
 #include "GenICamFeature.h"
 
+#define GCFrameRateString           "GC_FRAMERATE"              // asynParamFloat64, R/W
 #define GCFrameRateEnableString     "GC_FRAMERATE_ENABLE"       // asynParamInt32, R/W
+#define GCTriggerSourceString       "GC_TRIGGER_SOURCE"         // asynParamInt32, R/W
+#define GCTriggerOverlapString      "GC_TRIGGER_OVERLAP"        // asynParamInt32, R/W
+#define GCTriggerSoftwareString     "GC_TRIGGER_SOFTWARE"       // asynParamInt32, R/W
+#define GCExposureModeString        "GC_EXPOSURE_MODE"          // asynParamInt32, R/W
+#define GCExposureAutoString        "GC_EXPOSURE_AUTO"          // asynParamInt32, R/W
+#define GCGainAutoString            "GC_GAIN_AUTO"              // asynParamInt32, R/W
+#define GCPixelFormatString         "GC_PIXEL_FORMAT"           // asynParamInt32, R/W
 
 class ADGenICam : public ADDriver
 {
@@ -34,15 +42,23 @@ public:
     virtual asynStatus stopCapture() = 0;
 
 protected:
+    int GCFrameRate;
+    #define AD_GENICAM_FIRST_PARAM GCFrameRate
     int GCFrameRateEnable;
+    int GCTriggerSource;
+    int GCTriggerOverlap;
+    int GCTriggerSoftware;
+    int GCExposureMode;
+    int GCExposureAuto;
+    int GCGainAuto;
+    int GCPixelFormat;
+    #define AD_GENICAM_LAST_PARAM GCPixelFormat
 
     GenICamFeatureSet mGCFeatureSet;
     
 private:
     int mFirstParam;
     bool mFirstDrvUserCreateCall;
-
 };
 
 #endif
-
