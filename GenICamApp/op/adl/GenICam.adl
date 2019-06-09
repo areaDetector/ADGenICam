@@ -5,10 +5,10 @@ file {
 }
 display {
 	object {
-		x=575
-		y=50
-		width=715
-		height=950
+		x=391
+		y=58
+		width=1070
+		height=740
 	}
 	clr=14
 	bclr=4
@@ -87,570 +87,11 @@ display {
 		1a7309,
 	}
 }
-text {
-	object {
-		x=50
-		y=860
-		width=200
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Setup and statistics"
-	align="horiz. right"
-}
-"related display" {
-	object {
-		x=255
-		y=860
-		width=100
-		height=20
-	}
-	display[0] {
-		label="Setup and statistics"
-		name="aravisMore.adl"
-		args="P=$(P),R=$(R)"
-	}
-	clr=14
-	bclr=51
-}
-rectangle {
-	object {
-		x=127
-		y=467
-		width=107
-		height=21
-	}
-	"basic attribute" {
-		clr=2
-	}
-}
-rectangle {
-	object {
-		x=5
-		y=465
-		width=350
-		height=360
-	}
-	"basic attribute" {
-		clr=14
-		fill="outline"
-	}
-}
-text {
-	object {
-		x=145
-		y=468
-		width=70
-		height=20
-	}
-	"basic attribute" {
-		clr=54
-	}
-	textix="Readout"
-	align="horiz. centered"
-}
-text {
-	object {
-		x=176
-		y=495
-		width=10
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="X"
-	align="horiz. right"
-}
-text {
-	object {
-		x=266
-		y=495
-		width=10
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Y"
-	align="horiz. right"
-}
-"text entry" {
-	object {
-		x=148
-		y=565
-		width=60
-		height=20
-	}
-	control {
-		chan="$(P)$(R)BinX"
-		clr=14
-		bclr=51
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=241
-		y=565
-		width=60
-		height=20
-	}
-	control {
-		chan="$(P)$(R)BinY"
-		clr=14
-		bclr=51
-	}
-	limits {
-	}
-}
-"text update" {
-	object {
-		x=148
-		y=545
-		width=61
-		height=18
-	}
-	monitor {
-		chan="$(P)$(R)BinX_RBV"
-		clr=54
-		bclr=4
-	}
-	align="horiz. centered"
-	limits {
-	}
-}
-"text update" {
-	object {
-		x=241
-		y=545
-		width=61
-		height=18
-	}
-	monitor {
-		chan="$(P)$(R)BinY_RBV"
-		clr=54
-		bclr=4
-	}
-	align="horiz. centered"
-	limits {
-	}
-}
-text {
-	object {
-		x=70
-		y=565
-		width=70
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Binning"
-	align="horiz. right"
-}
-"text update" {
-	object {
-		x=148
-		y=590
-		width=61
-		height=18
-	}
-	monitor {
-		chan="$(P)$(R)MinX_RBV"
-		clr=54
-		bclr=4
-	}
-	align="horiz. centered"
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=148
-		y=610
-		width=60
-		height=20
-	}
-	control {
-		chan="$(P)$(R)MinX"
-		clr=14
-		bclr=51
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=241
-		y=610
-		width=60
-		height=20
-	}
-	control {
-		chan="$(P)$(R)MinY"
-		clr=14
-		bclr=51
-	}
-	limits {
-	}
-}
-"text update" {
-	object {
-		x=241
-		y=590
-		width=61
-		height=18
-	}
-	monitor {
-		chan="$(P)$(R)MinY_RBV"
-		clr=54
-		bclr=4
-	}
-	align="horiz. centered"
-	limits {
-	}
-}
-text {
-	object {
-		x=20
-		y=610
-		width=120
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Region start"
-	align="horiz. right"
-}
-text {
-	object {
-		x=30
-		y=655
-		width=110
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Region size"
-	align="horiz. right"
-}
-"text entry" {
-	object {
-		x=148
-		y=655
-		width=60
-		height=20
-	}
-	control {
-		chan="$(P)$(R)SizeX"
-		clr=14
-		bclr=51
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=241
-		y=655
-		width=60
-		height=20
-	}
-	control {
-		chan="$(P)$(R)SizeY"
-		clr=14
-		bclr=51
-	}
-	limits {
-	}
-}
-"text update" {
-	object {
-		x=148
-		y=635
-		width=61
-		height=18
-	}
-	monitor {
-		chan="$(P)$(R)SizeX_RBV"
-		clr=54
-		bclr=4
-	}
-	align="horiz. centered"
-	limits {
-	}
-}
-"text update" {
-	object {
-		x=241
-		y=635
-		width=61
-		height=18
-	}
-	monitor {
-		chan="$(P)$(R)SizeY_RBV"
-		clr=54
-		bclr=4
-	}
-	align="horiz. centered"
-	limits {
-	}
-}
-text {
-	object {
-		x=30
-		y=520
-		width=110
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Sensor size"
-	align="horiz. right"
-}
-"text update" {
-	object {
-		x=148
-		y=521
-		width=61
-		height=18
-	}
-	monitor {
-		chan="$(P)$(R)MaxSizeX_RBV"
-		clr=54
-		bclr=4
-	}
-	align="horiz. centered"
-	limits {
-	}
-}
-"text update" {
-	object {
-		x=241
-		y=521
-		width=61
-		height=18
-	}
-	monitor {
-		chan="$(P)$(R)MaxSizeY_RBV"
-		clr=54
-		bclr=4
-	}
-	align="horiz. centered"
-	limits {
-	}
-}
-text {
-	object {
-		x=40
-		y=720
-		width=180
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Image size (bytes)"
-	align="horiz. right"
-}
-"text update" {
-	object {
-		x=241
-		y=721
-		width=61
-		height=18
-	}
-	monitor {
-		chan="$(P)$(R)ArraySize_RBV"
-		clr=54
-		bclr=4
-	}
-	limits {
-	}
-}
-"text update" {
-	object {
-		x=241
-		y=746
-		width=61
-		height=18
-	}
-	monitor {
-		chan="$(P)$(R)Gain_RBV"
-		clr=54
-		bclr=4
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=148
-		y=745
-		width=60
-		height=20
-	}
-	control {
-		chan="$(P)$(R)Gain"
-		clr=14
-		bclr=51
-	}
-	limits {
-	}
-}
-text {
-	object {
-		x=100
-		y=745
-		width=40
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Gain"
-	align="horiz. right"
-}
-text {
-	object {
-		x=50
-		y=770
-		width=90
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Data type"
-	align="horiz. right"
-}
-menu {
-	object {
-		x=148
-		y=770
-		width=80
-		height=20
-	}
-	control {
-		chan="$(P)$(R)DataType"
-		clr=14
-		bclr=51
-	}
-}
-"text update" {
-	object {
-		x=241
-		y=771
-		width=79
-		height=18
-	}
-	monitor {
-		chan="$(P)$(R)DataType_RBV"
-		clr=54
-		bclr=4
-	}
-	format="string"
-	limits {
-	}
-}
-text {
-	object {
-		x=40
-		y=695
-		width=100
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Image size"
-	align="horiz. right"
-}
-"text update" {
-	object {
-		x=148
-		y=696
-		width=61
-		height=18
-	}
-	monitor {
-		chan="$(P)$(R)ArraySizeX_RBV"
-		clr=54
-		bclr=4
-	}
-	align="horiz. centered"
-	limits {
-	}
-}
-"text update" {
-	object {
-		x=241
-		y=696
-		width=61
-		height=18
-	}
-	monitor {
-		chan="$(P)$(R)ArraySizeY_RBV"
-		clr=54
-		bclr=4
-	}
-	limits {
-	}
-}
-text {
-	object {
-		x=40
-		y=795
-		width=100
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Color mode"
-	align="horiz. right"
-}
-menu {
-	object {
-		x=148
-		y=795
-		width=80
-		height=20
-	}
-	control {
-		chan="$(P)$(R)ColorMode"
-		clr=14
-		bclr=51
-	}
-}
-"text update" {
-	object {
-		x=241
-		y=796
-		width=79
-		height=18
-	}
-	monitor {
-		chan="$(P)$(R)ColorMode_RBV"
-		clr=54
-		bclr=4
-	}
-	format="string"
-	limits {
-	}
-}
 rectangle {
 	object {
 		x=0
 		y=4
-		width=715
+		width=1070
 		height=25
 	}
 	"basic attribute" {
@@ -661,7 +102,7 @@ text {
 	object {
 		x=0
 		y=5
-		width=715
+		width=1070
 		height=25
 	}
 	"basic attribute" {
@@ -702,8 +143,8 @@ composite {
 }
 composite {
 	object {
-		x=360
-		y=670
+		x=715
+		y=625
 		width=350
 		height=110
 	}
@@ -712,32 +153,130 @@ composite {
 }
 composite {
 	object {
-		x=487
-		y=207
-		width=105
-		height=21
+		x=5
+		y=466
+		width=350
+		height=160
 	}
 	"composite name"=""
-	children {
-		rectangle {
-			object {
-				x=487
-				y=207
-				width=105
-				height=21
-			}
-			"basic attribute" {
-				clr=2
-			}
-		}
-	}
+	"composite file"="ADBuffers.adl"
 }
-rectangle {
+composite {
 	object {
 		x=360
 		y=205
 		width=350
-		height=460
+		height=500
+	}
+	"composite name"=""
+	"composite file"="ADGenICamCollect.adl"
+}
+composite {
+	object {
+		x=10
+		y=635
+		width=345
+		height=20
+	}
+	"composite name"=""
+	children {
+		text {
+			object {
+				x=10
+				y=635
+				width=240
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="Camera-specific features"
+			align="horiz. right"
+		}
+		"related display" {
+			object {
+				x=255
+				y=635
+				width=100
+				height=20
+			}
+			display[0] {
+				label="Features (custom)"
+				name="$(C)-features.adl"
+				args="P=$(P),R=$(R)"
+			}
+			display[1] {
+				label="Features #1"
+				name="$(C)-features_1.adl"
+				args="P=$(P),R=$(R)"
+			}
+			display[2] {
+				label="Features #2"
+				name="$(C)-features_2.adl"
+				args="P=$(P),R=$(R)"
+			}
+			display[3] {
+				label="Features #3"
+				name="$(C)-features_3.adl"
+				args="P=$(P),R=$(R)"
+			}
+			display[4] {
+				label="Features #4"
+				name="$(C)-features_4.adl"
+				args="P=$(P),R=$(R)"
+			}
+			display[5] {
+				label="Features #5"
+				name="$(C)-features_5.adl"
+				args="P=$(P),R=$(R)"
+			}
+			display[6] {
+				label="Features #6"
+				name="$(C)-features_6.adl"
+				args="P=$(P),R=$(R)"
+			}
+			display[7] {
+				label="Features #7"
+				name="$(C)-features_7.adl"
+				args="P=$(P),R=$(R)"
+			}
+			display[8] {
+				label="Features #8"
+				name="$(C)-features_8.adl"
+				args="P=$(P),R=$(R)"
+			}
+			clr=14
+			bclr=51
+		}
+	}
+}
+composite {
+	object {
+		x=715
+		y=35
+		width=350
+		height=155
+	}
+	"composite name"=""
+	"composite file"="ADGenICamTrigger.adl"
+}
+rectangle {
+	object {
+		x=837
+		y=197
+		width=107
+		height=21
+	}
+	"basic attribute" {
+		clr=2
+	}
+}
+rectangle {
+	object {
+		x=715
+		y=195
+		width=350
+		height=425
 	}
 	"basic attribute" {
 		clr=14
@@ -746,560 +285,39 @@ rectangle {
 }
 text {
 	object {
-		x=510
-		y=208
+		x=855
+		y=198
 		width=70
 		height=20
 	}
 	"basic attribute" {
 		clr=54
 	}
-	textix="Collect"
+	textix="Readout"
 	align="horiz. centered"
 }
 text {
 	object {
-		x=406
-		y=229
-		width=130
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Exposure time"
-	align="horiz. right"
-}
-"text entry" {
-	object {
-		x=545
-		y=229
-		width=59
-		height=20
-	}
-	control {
-		chan="$(P)$(R)AcquireTime"
-		clr=14
-		bclr=51
-	}
-	limits {
-	}
-}
-"text update" {
-	object {
-		x=611
-		y=230
-		width=79
-		height=18
-	}
-	monitor {
-		chan="$(P)$(R)AcquireTime_RBV"
-		clr=54
-		bclr=4
-	}
-	limits {
-	}
-}
-text {
-	object {
-		x=396
-		y=254
-		width=140
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Acquire period"
-	align="horiz. right"
-}
-"text entry" {
-	object {
-		x=545
-		y=254
-		width=59
-		height=20
-	}
-	control {
-		chan="$(P)$(R)AcquirePeriod"
-		clr=14
-		bclr=51
-	}
-	limits {
-	}
-}
-"text update" {
-	object {
-		x=611
-		y=255
-		width=79
-		height=18
-	}
-	monitor {
-		chan="$(P)$(R)AcquirePeriod_RBV"
-		clr=54
-		bclr=4
-	}
-	limits {
-	}
-}
-text {
-	object {
-		x=456
-		y=279
-		width=80
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="# Images"
-	align="horiz. right"
-}
-"text entry" {
-	object {
-		x=545
-		y=279
-		width=59
-		height=20
-	}
-	control {
-		chan="$(P)$(R)NumImages"
-		clr=14
-		bclr=51
-	}
-	limits {
-	}
-}
-"text update" {
-	object {
-		x=611
-		y=280
-		width=79
-		height=18
-	}
-	monitor {
-		chan="$(P)$(R)NumImages_RBV"
-		clr=54
-		bclr=4
-	}
-	limits {
-	}
-}
-text {
-	object {
-		x=366
-		y=304
-		width=170
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="# Images complete"
-	align="horiz. right"
-}
-"text update" {
-	object {
-		x=611
-		y=305
-		width=67
-		height=18
-	}
-	monitor {
-		chan="$(P)$(R)NumImagesCounter_RBV"
-		clr=54
-		bclr=4
-	}
-	limits {
-	}
-}
-menu {
-	object {
-		x=494
-		y=329
-		width=120
-		height=20
-	}
-	control {
-		chan="$(P)$(R)ImageMode"
-		clr=14
-		bclr=51
-	}
-}
-text {
-	object {
-		x=385
-		y=329
-		width=100
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Image mode"
-	align="horiz. right"
-}
-"text update" {
-	object {
-		x=621
-		y=331
-		width=79
-		height=18
-	}
-	monitor {
-		chan="$(P)$(R)ImageMode_RBV"
-		clr=54
-		bclr=4
-	}
-	format="string"
-	limits {
-	}
-}
-text {
-	object {
-		x=364
-		y=354
-		width=120
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Trigger mode"
-	align="horiz. right"
-}
-menu {
-	object {
-		x=493
-		y=354
-		width=120
-		height=20
-	}
-	control {
-		chan="$(P)$(R)TriggerMode"
-		clr=14
-		bclr=51
-	}
-}
-"text update" {
-	object {
-		x=620
-		y=356
-		width=79
-		height=18
-	}
-	monitor {
-		chan="$(P)$(R)TriggerMode_RBV"
-		clr=54
-		bclr=4
-	}
-	format="string"
-	limits {
-	}
-}
-"message button" {
-	object {
-		x=545
-		y=382
-		width=59
-		height=20
-	}
-	control {
-		chan="$(P)$(R)GC_TriggerSoftware"
-		clr=14
-		bclr=51
-	}
-	label="Trigger"
-	press_msg="1"
-}
-text {
-	object {
-		x=376
-		y=382
-		width=160
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Software trigger"
-	align="horiz. right"
-}
-text {
-	object {
-		x=453
-		y=438
-		width=70
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Acquire"
-	align="horiz. right"
-}
-composite {
-	object {
-		x=530
-		y=418
-		width=126
-		height=40
-	}
-	"composite name"=""
-	children {
-		text {
-			object {
-				x=573
-				y=418
-				width=40
-				height=20
-			}
-			"basic attribute" {
-				clr=63
-			}
-			"dynamic attribute" {
-				vis="if zero"
-				calc="A"
-				chan="$(P)$(R)Acquire"
-			}
-			textix="Done"
-			align="horiz. centered"
-		}
-		text {
-			object {
-				x=544
-				y=418
-				width=100
-				height=20
-			}
-			"basic attribute" {
-				clr=30
-			}
-			"dynamic attribute" {
-				vis="if not zero"
-				calc="A"
-				chan="$(P)$(R)Acquire"
-			}
-			textix="Collecting"
-			align="horiz. centered"
-		}
-		"message button" {
-			object {
-				x=530
-				y=438
-				width=59
-				height=20
-			}
-			control {
-				chan="$(P)$(R)Acquire"
-				clr=14
-				bclr=51
-			}
-			label="Start"
-			press_msg="1"
-		}
-		"message button" {
-			object {
-				x=597
-				y=438
-				width=59
-				height=20
-			}
-			control {
-				chan="$(P)$(R)Acquire"
-				clr=14
-				bclr=51
-			}
-			label="Stop"
-			press_msg="0"
-		}
-	}
-}
-composite {
-	object {
-		x=360
-		y=785
-		width=350
-		height=160
-	}
-	"composite name"=""
-	"composite file"="ADBuffers.adl"
-}
-text {
-	object {
-		x=383
-		y=565
-		width=140
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Time remaining"
-	align="horiz. right"
-}
-"text update" {
-	object {
-		x=530
-		y=566
-		width=67
-		height=18
-	}
-	monitor {
-		chan="$(P)$(R)TimeRemaining_RBV"
-		clr=54
-		bclr=4
-	}
-	limits {
-	}
-}
-text {
-	object {
-		x=383
-		y=540
-		width=140
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Detector state"
-	align="horiz. right"
-}
-"text update" {
-	object {
-		x=530
-		y=540
-		width=158
-		height=18
-	}
-	monitor {
-		chan="$(P)$(R)DetectorState_RBV"
-		clr=54
-		bclr=2
-	}
-	clrmod="alarm"
-	limits {
-	}
-}
-composite {
-	object {
-		x=530
-		y=590
-		width=166
-		height=20
-	}
-	"composite name"=""
-	children {
-		"text entry" {
-			object {
-				x=530
-				y=590
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)ArrayCounter"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-		"text update" {
-			object {
-				x=596
-				y=591
-				width=100
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)ArrayCounter_RBV"
-				clr=54
-				bclr=4
-			}
-			limits {
-			}
-		}
-	}
-}
-text {
-	object {
-		x=393
-		y=590
-		width=130
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Image counter"
-	align="horiz. right"
-}
-text {
-	object {
-		x=423
-		y=615
-		width=100
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Image rate"
-	align="horiz. right"
-}
-"text update" {
-	object {
-		x=530
-		y=616
-		width=100
-		height=18
-	}
-	monitor {
-		chan="$(P)$(R)ArrayRate_RBV"
-		clr=54
-		bclr=4
-	}
-	limits {
-	}
-}
-text {
-	object {
-		x=373
-		y=640
-		width=150
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Array callbacks"
-	align="horiz. right"
-}
-menu {
-	object {
-		x=530
-		y=640
+		x=760
+		y=515
 		width=90
 		height=20
 	}
-	control {
-		chan="$(P)$(R)ArrayCallbacks"
+	"basic attribute" {
 		clr=14
-		bclr=51
 	}
+	textix="Data type"
+	align="horiz. right"
 }
 "text update" {
 	object {
-		x=625
-		y=642
-		width=79
+		x=856
+		y=516
+		width=80
 		height=18
 	}
 	monitor {
-		chan="$(P)$(R)ArrayCallbacks_RBV"
+		chan="$(P)$(R)DataType_RBV"
 		clr=54
 		bclr=4
 	}
@@ -1310,154 +328,571 @@ menu {
 }
 text {
 	object {
-		x=375
-		y=463
-		width=150
+		x=740
+		y=250
+		width=110
 		height=20
 	}
 	"basic attribute" {
 		clr=14
 	}
-	textix="# Queued arrays"
+	textix="Sensor size"
 	align="horiz. right"
-}
-"text update" {
-	object {
-		x=530
-		y=464
-		width=60
-		height=18
-	}
-	monitor {
-		chan="$(P)$(R)NumQueuedArrays"
-		clr=54
-		bclr=4
-	}
-	align="horiz. right"
-	limits {
-	}
 }
 text {
 	object {
-		x=365
-		y=488
-		width=160
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Wait for plugins"
-	align="horiz. right"
-}
-menu {
-	object {
-		x=530
-		y=488
-		width=80
-		height=20
-	}
-	control {
-		chan="$(P)$(R)WaitForPlugins"
-		clr=14
-		bclr=51
-	}
-}
-text {
-	object {
-		x=405
-		y=513
+		x=730
+		y=300
 		width=120
 		height=20
 	}
 	"basic attribute" {
 		clr=14
 	}
-	textix="Acquire busy"
+	textix="Region start"
+	align="horiz. right"
+}
+text {
+	object {
+		x=740
+		y=345
+		width=110
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Region size"
+	align="horiz. right"
+}
+text {
+	object {
+		x=780
+		y=390
+		width=70
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Binning"
+	align="horiz. right"
+}
+text {
+	object {
+		x=881
+		y=225
+		width=10
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="X"
 	align="horiz. right"
 }
 "text update" {
 	object {
-		x=530
-		y=514
-		width=160
+		x=856
+		y=251
+		width=61
 		height=18
 	}
 	monitor {
-		chan="$(P)$(R)AcquireBusy"
+		chan="$(P)$(R)MaxSizeX_RBV"
 		clr=54
-		bclr=2
+		bclr=4
 	}
-	clrmod="alarm"
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=856
+		y=280
+		width=61
+		height=18
+	}
+	monitor {
+		chan="$(P)$(R)MinX_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=856
+		y=300
+		width=60
+		height=20
+	}
+	control {
+		chan="$(P)$(R)MinX"
+		clr=14
+		bclr=51
+	}
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=856
+		y=345
+		width=60
+		height=20
+	}
+	control {
+		chan="$(P)$(R)SizeX"
+		clr=14
+		bclr=51
+	}
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=856
+		y=325
+		width=61
+		height=18
+	}
+	monitor {
+		chan="$(P)$(R)SizeX_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=856
+		y=390
+		width=60
+		height=20
+	}
+	control {
+		chan="$(P)$(R)BinX"
+		clr=14
+		bclr=51
+	}
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=856
+		y=370
+		width=61
+		height=18
+	}
+	monitor {
+		chan="$(P)$(R)BinX_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+text {
+	object {
+		x=974
+		y=225
+		width=10
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Y"
+	align="horiz. right"
+}
+"text update" {
+	object {
+		x=949
+		y=251
+		width=61
+		height=18
+	}
+	monitor {
+		chan="$(P)$(R)MaxSizeY_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=949
+		y=300
+		width=60
+		height=20
+	}
+	control {
+		chan="$(P)$(R)MinY"
+		clr=14
+		bclr=51
+	}
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=949
+		y=280
+		width=61
+		height=18
+	}
+	monitor {
+		chan="$(P)$(R)MinY_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=949
+		y=345
+		width=60
+		height=20
+	}
+	control {
+		chan="$(P)$(R)SizeY"
+		clr=14
+		bclr=51
+	}
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=949
+		y=325
+		width=61
+		height=18
+	}
+	monitor {
+		chan="$(P)$(R)SizeY_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=949
+		y=390
+		width=60
+		height=20
+	}
+	control {
+		chan="$(P)$(R)BinY"
+		clr=14
+		bclr=51
+	}
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=949
+		y=370
+		width=61
+		height=18
+	}
+	monitor {
+		chan="$(P)$(R)BinY_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+text {
+	object {
+		x=750
+		y=415
+		width=100
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Image size"
+	align="horiz. right"
+}
+text {
+	object {
+		x=750
+		y=440
+		width=180
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Image size (bytes)"
+	align="horiz. right"
+}
+"text update" {
+	object {
+		x=949
+		y=441
+		width=61
+		height=18
+	}
+	monitor {
+		chan="$(P)$(R)ArraySize_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=856
+		y=416
+		width=61
+		height=18
+	}
+	monitor {
+		chan="$(P)$(R)ArraySizeX_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=949
+		y=416
+		width=61
+		height=18
+	}
+	monitor {
+		chan="$(P)$(R)ArraySizeY_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+text {
+	object {
+		x=810
+		y=465
+		width=40
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Gain"
+	align="horiz. right"
+}
+"text update" {
+	object {
+		x=949
+		y=466
+		width=61
+		height=18
+	}
+	monitor {
+		chan="$(P)$(R)Gain_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=856
+		y=465
+		width=80
+		height=20
+	}
+	control {
+		chan="$(P)$(R)Gain"
+		clr=14
+		bclr=51
+	}
+	limits {
+	}
+}
+menu {
+	object {
+		x=855
+		y=490
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)GainAuto"
+		clr=14
+		bclr=51
+	}
+}
+text {
+	object {
+		x=760
+		y=490
+		width=90
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Gain auto"
+	align="horiz. right"
+}
+"text update" {
+	object {
+		x=960
+		y=491
+		width=100
+		height=18
+	}
+	monitor {
+		chan="$(P)$(R)GainAuto_RBV"
+		clr=54
+		bclr=4
+	}
 	format="string"
 	limits {
 	}
 }
 text {
 	object {
-		x=10
-		y=835
-		width=240
+		x=750
+		y=540
+		width=100
 		height=20
 	}
 	"basic attribute" {
 		clr=14
 	}
-	textix="Camera-specific features"
+	textix="Color mode"
 	align="horiz. right"
 }
-"related display" {
+"text update" {
 	object {
-		x=255
-		y=835
+		x=856
+		y=541
+		width=80
+		height=18
+	}
+	monitor {
+		chan="$(P)$(R)ColorMode_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	format="string"
+	limits {
+	}
+}
+text {
+	object {
+		x=720
+		y=590
+		width=140
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Convert format"
+	align="horiz. right"
+}
+menu {
+	object {
+		x=866
+		y=591
 		width=100
 		height=20
 	}
-	display[0] {
-		label="Features (custom)"
-		name="$(C)-features.adl"
-		args="P=$(P),R=$(R)"
+	control {
+		chan="$(P)$(R)ConvertPixelFormat"
+		clr=14
+		bclr=51
 	}
-	display[1] {
-		label="Features #1"
-		name="$(C)-features_1.adl"
-		args="P=$(P),R=$(R)"
+}
+"text update" {
+	object {
+		x=970
+		y=591
+		width=80
+		height=18
 	}
-	display[2] {
-		label="Features #2"
-		name="$(C)-features_2.adl"
-		args="P=$(P),R=$(R)"
+	monitor {
+		chan="$(P)$(R)ConvertPixelFormat_RBV"
+		clr=54
+		bclr=4
 	}
-	display[3] {
-		label="Features #3"
-		name="$(C)-features_3.adl"
-		args="P=$(P),R=$(R)"
+	format="string"
+	limits {
 	}
-	display[4] {
-		label="Features #4"
-		name="$(C)-features_4.adl"
-		args="P=$(P),R=$(R)"
+}
+text {
+	object {
+		x=740
+		y=565
+		width=120
+		height=20
 	}
-	display[5] {
-		label="Features #5"
-		name="$(C)-features_5.adl"
-		args="P=$(P),R=$(R)"
+	"basic attribute" {
+		clr=14
 	}
-	display[6] {
-		label="Features #6"
-		name="$(C)-features_6.adl"
-		args="P=$(P),R=$(R)"
+	textix="Pixel format"
+	align="horiz. right"
+}
+menu {
+	object {
+		x=866
+		y=566
+		width=100
+		height=20
 	}
-	display[7] {
-		label="Features #7"
-		name="$(C)-features_7.adl"
-		args="P=$(P),R=$(R)"
+	control {
+		chan="$(P)$(R)PixelFormat"
+		clr=14
+		bclr=51
 	}
-	display[8] {
-		label="Features #8"
-		name="$(C)-features_8.adl"
-		args="P=$(P),R=$(R)"
+}
+"text update" {
+	object {
+		x=970
+		y=566
+		width=80
+		height=18
 	}
-	clr=14
-	bclr=51
+	monitor {
+		chan="$(P)$(R)PixelFormat_RBV"
+		clr=54
+		bclr=4
+	}
+	format="string"
+	limits {
+	}
 }
