@@ -5,7 +5,7 @@ minor 0
 release 1
 x 50
 y 50
-w 1565
+w 1460
 h 830
 font "helvetica-medium-r-18.0"
 ctlFont "helvetica-bold-r-10.0"
@@ -32,7 +32,7 @@ minor 0
 release 0
 x 0
 y 4
-w 1564
+w 1459
 h 24
 lineColor rgb 55808 55808 55808
 fill
@@ -48,7 +48,7 @@ minor 1
 release 1
 x 0
 y 5
-w 1565
+w 1460
 h 24
 font "helvetica-medium-r-18.0"
 fontAlign "center"
@@ -68,7 +68,7 @@ minor 0
 release 0
 x 5
 y 40
-w 385
+w 480
 h 330
 lineColor rgb 0 0 0
 fillColor rgb 0 0 0
@@ -83,7 +83,7 @@ minor 0
 release 0
 x 10
 y 45
-w 374
+w 469
 h 19
 lineColor rgb 55808 55808 55808
 fill
@@ -99,7 +99,7 @@ minor 1
 release 1
 x 10
 y 45
-w 375
+w 470
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "center"
@@ -165,7 +165,7 @@ minor 7
 release 0
 x 300
 y 70
-w 90
+w 120
 h 18
 controlPv "$(P)$(R)GC_FirmwareVerMajor_RBV"
 format "decimal"
@@ -235,7 +235,7 @@ minor 7
 release 0
 x 300
 y 95
-w 90
+w 120
 h 18
 controlPv "$(P)$(R)GC_FirmwareVerMinor_RBV"
 format "decimal"
@@ -305,7 +305,7 @@ minor 7
 release 0
 x 300
 y 120
-w 90
+w 120
 h 18
 controlPv "$(P)$(R)GC_FirmwareVerBuild_RBV"
 format "decimal"
@@ -339,6 +339,30 @@ useDisplayBg
 value {
   "SensorType"
 }
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 360
+y 145
+w 120
+h 18
+controlPv "$(P)$(R)GC_SensorType_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
 endObjectProperties
 
 # (Static Text)
@@ -395,7 +419,7 @@ minor 7
 release 0
 x 300
 y 170
-w 90
+w 120
 h 18
 controlPv "$(P)$(R)GC_SensorBits_RBV"
 format "decimal"
@@ -439,7 +463,7 @@ minor 7
 release 0
 x 235
 y 195
-w 150
+w 240
 h 18
 controlPv "$(P)$(R)GC_DeviceVendorName_RBV"
 format "decimal"
@@ -483,7 +507,7 @@ minor 7
 release 0
 x 235
 y 220
-w 150
+w 240
 h 18
 controlPv "$(P)$(R)GC_DeviceModelName_RBV"
 format "decimal"
@@ -527,9 +551,9 @@ minor 7
 release 0
 x 235
 y 245
-w 150
+w 240
 h 18
-controlPv "$(P)$(R)GC_DeviceFirmwareVer_RBV"
+controlPv "$(P)$(R)GC_DevFirVersion_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "left"
@@ -571,7 +595,7 @@ minor 7
 release 0
 x 235
 y 270
-w 150
+w 240
 h 18
 controlPv "$(P)$(R)GC_DeviceID_RBV"
 format "decimal"
@@ -615,7 +639,7 @@ minor 7
 release 0
 x 235
 y 295
-w 150
+w 240
 h 18
 controlPv "$(P)$(R)GC_DeviceUserID_RBV"
 format "decimal"
@@ -659,7 +683,7 @@ minor 7
 release 0
 x 235
 y 320
-w 150
+w 240
 h 18
 controlPv "$(P)$(R)GC_DevicePartNumber_RBV"
 format "decimal"
@@ -695,6 +719,30 @@ value {
 }
 endObjectProperties
 
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 360
+y 345
+w 120
+h 18
+controlPv "$(P)$(R)GC_DeviceScanType_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
 # (Rectangle)
 object activeRectangleClass
 beginObjectProperties
@@ -703,7 +751,7 @@ minor 0
 release 0
 x 5
 y 375
-w 385
+w 480
 h 80
 lineColor rgb 0 0 0
 fillColor rgb 0 0 0
@@ -718,7 +766,7 @@ minor 0
 release 0
 x 10
 y 380
-w 374
+w 469
 h 19
 lineColor rgb 55808 55808 55808
 fill
@@ -734,7 +782,7 @@ minor 1
 release 1
 x 10
 y 380
-w 375
+w 470
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "center"
@@ -764,6 +812,30 @@ useDisplayBg
 value {
   "DeviceTemperatureSelector"
 }
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 360
+y 405
+w 120
+h 18
+controlPv "$(P)$(R)GC_DevTemSelector_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
 endObjectProperties
 
 # (Static Text)
@@ -796,7 +868,7 @@ x 235
 y 430
 w 60
 h 20
-controlPv "$(P)$(R)GC_DeviceTemperatur0"
+controlPv "$(P)$(R)GC_DeviceTemperature"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -820,9 +892,9 @@ minor 7
 release 0
 x 300
 y 430
-w 90
+w 120
 h 18
-controlPv "$(P)$(R)GC_DeviceTemperatur0_RBV"
+controlPv "$(P)$(R)GC_DeviceTemperature_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "left"
@@ -844,7 +916,7 @@ minor 0
 release 0
 x 5
 y 460
-w 385
+w 480
 h 205
 lineColor rgb 0 0 0
 fillColor rgb 0 0 0
@@ -859,7 +931,7 @@ minor 0
 release 0
 x 10
 y 465
-w 374
+w 469
 h 19
 lineColor rgb 55808 55808 55808
 fill
@@ -875,7 +947,7 @@ minor 1
 release 1
 x 10
 y 465
-w 375
+w 470
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "center"
@@ -917,7 +989,7 @@ x 235
 y 490
 w 60
 h 20
-controlPv "$(P)$(R)GC_StreamBytesPerSec"
+controlPv "$(P)$(R)GC_StrBytesPerSecond"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -941,9 +1013,9 @@ minor 7
 release 0
 x 300
 y 490
-w 90
+w 120
 h 18
-controlPv "$(P)$(R)GC_StreamBytesPerSec_RBV"
+controlPv "$(P)$(R)GC_StrBytesPerSecond_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "left"
@@ -975,6 +1047,30 @@ useDisplayBg
 value {
   "BandwidthControlMode"
 }
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 360
+y 515
+w 120
+h 18
+controlPv "$(P)$(R)GC_BanControlMode_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
 endObjectProperties
 
 # (Static Text)
@@ -1031,7 +1127,7 @@ minor 7
 release 0
 x 300
 y 540
-w 90
+w 120
 h 18
 controlPv "$(P)$(R)GC_GevSCPSPacketSize_RBV"
 format "decimal"
@@ -1065,6 +1161,30 @@ useDisplayBg
 value {
   "ChunkModeActive"
 }
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 360
+y 565
+w 120
+h 18
+controlPv "$(P)$(R)GC_ChunkModeActive_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
 endObjectProperties
 
 # (Static Text)
@@ -1121,7 +1241,7 @@ minor 7
 release 0
 x 300
 y 590
-w 90
+w 120
 h 18
 controlPv "$(P)$(R)GC_PayloadSize_RBV"
 format "decimal"
@@ -1167,7 +1287,7 @@ x 235
 y 615
 w 60
 h 20
-controlPv "$(P)$(R)GC_NonImagePayloadSi"
+controlPv "$(P)$(R)GC_NonImaPayloadSize"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -1191,9 +1311,9 @@ minor 7
 release 0
 x 300
 y 615
-w 90
+w 120
 h 18
-controlPv "$(P)$(R)GC_NonImagePayloadSi_RBV"
+controlPv "$(P)$(R)GC_NonImaPayloadSize_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "left"
@@ -1227,6 +1347,30 @@ value {
 }
 endObjectProperties
 
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 360
+y 640
+w 120
+h 18
+controlPv "$(P)$(R)GC_StrFraRatCon_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
 # (Rectangle)
 object activeRectangleClass
 beginObjectProperties
@@ -1235,7 +1379,7 @@ minor 0
 release 0
 x 5
 y 670
-w 385
+w 480
 h 80
 lineColor rgb 0 0 0
 fillColor rgb 0 0 0
@@ -1250,7 +1394,7 @@ minor 0
 release 0
 x 10
 y 675
-w 374
+w 469
 h 19
 lineColor rgb 55808 55808 55808
 fill
@@ -1266,7 +1410,7 @@ minor 1
 release 1
 x 10
 y 675
-w 375
+w 470
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "center"
@@ -1296,6 +1440,30 @@ useDisplayBg
 value {
   "StreamHoldEnable"
 }
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 360
+y 700
+w 120
+h 18
+controlPv "$(P)$(R)GC_StreamHoldEnable_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
 endObjectProperties
 
 # (Static Text)
@@ -1328,7 +1496,7 @@ x 235
 y 725
 w 60
 h 20
-controlPv "$(P)$(R)GC_StreamHoldCapacit"
+controlPv "$(P)$(R)GC_StrHoldCapacity"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -1352,9 +1520,9 @@ minor 7
 release 0
 x 300
 y 725
-w 90
+w 120
 h 18
-controlPv "$(P)$(R)GC_StreamHoldCapacit_RBV"
+controlPv "$(P)$(R)GC_StrHoldCapacity_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "left"
@@ -1374,9 +1542,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 395
+x 490
 y 40
-w 385
+w 480
 h 130
 lineColor rgb 0 0 0
 fillColor rgb 0 0 0
@@ -1389,9 +1557,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 400
+x 495
 y 45
-w 374
+w 469
 h 19
 lineColor rgb 55808 55808 55808
 fill
@@ -1405,9 +1573,9 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 400
+x 495
 y 45
-w 375
+w 470
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "center"
@@ -1425,7 +1593,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 400
+x 495
 y 70
 w 220
 h 16
@@ -1445,11 +1613,11 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 625
+x 720
 y 70
 w 60
 h 20
-controlPv "$(P)$(R)GC_GevTimestampTickF"
+controlPv "$(P)$(R)GC_GevTimTicFre"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -1471,11 +1639,11 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 690
+x 785
 y 70
-w 90
+w 120
 h 18
-controlPv "$(P)$(R)GC_GevTimestampTickF_RBV"
+controlPv "$(P)$(R)GC_GevTimTicFre_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "left"
@@ -1495,7 +1663,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 400
+x 495
 y 95
 w 220
 h 16
@@ -1515,7 +1683,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 400
+x 495
 y 120
 w 220
 h 16
@@ -1535,7 +1703,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 400
+x 495
 y 145
 w 220
 h 20
@@ -1555,7 +1723,7 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 625
+x 720
 y 145
 w 60
 h 20
@@ -1581,9 +1749,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 690
+x 785
 y 145
-w 90
+w 120
 h 18
 controlPv "$(P)$(R)GC_GevTimestampValue_RBV"
 format "decimal"
@@ -1605,9 +1773,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 395
+x 490
 y 175
-w 385
+w 480
 h 105
 lineColor rgb 0 0 0
 fillColor rgb 0 0 0
@@ -1620,9 +1788,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 400
+x 495
 y 180
-w 374
+w 469
 h 19
 lineColor rgb 55808 55808 55808
 fill
@@ -1636,9 +1804,9 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 400
+x 495
 y 180
-w 375
+w 470
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "center"
@@ -1656,7 +1824,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 400
+x 495
 y 205
 w 220
 h 20
@@ -1670,13 +1838,37 @@ value {
 }
 endObjectProperties
 
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 845
+y 205
+w 120
+h 18
+controlPv "$(P)$(R)GC_PtpMode_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
 release 1
-x 400
+x 495
 y 230
 w 220
 h 20
@@ -1690,13 +1882,37 @@ value {
 }
 endObjectProperties
 
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 845
+y 230
+w 120
+h 18
+controlPv "$(P)$(R)GC_PtpStatus_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
 release 1
-x 400
+x 495
 y 255
 w 220
 h 20
@@ -1716,11 +1932,11 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 625
+x 720
 y 255
 w 60
 h 20
-controlPv "$(P)$(R)GC_PtpAcquisitionGat"
+controlPv "$(P)$(R)GC_PtpAcqGateTime"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -1742,11 +1958,11 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 690
+x 785
 y 255
-w 90
+w 120
 h 18
-controlPv "$(P)$(R)GC_PtpAcquisitionGat_RBV"
+controlPv "$(P)$(R)GC_PtpAcqGateTime_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "left"
@@ -1766,9 +1982,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 395
+x 490
 y 285
-w 385
+w 480
 h 230
 lineColor rgb 0 0 0
 fillColor rgb 0 0 0
@@ -1781,9 +1997,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 400
+x 495
 y 290
-w 374
+w 469
 h 19
 lineColor rgb 55808 55808 55808
 fill
@@ -1797,9 +2013,9 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 400
+x 495
 y 290
-w 375
+w 470
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "center"
@@ -1817,7 +2033,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 400
+x 495
 y 315
 w 220
 h 20
@@ -1837,7 +2053,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 400
+x 495
 y 340
 w 220
 h 20
@@ -1857,7 +2073,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 400
+x 495
 y 365
 w 220
 h 20
@@ -1877,7 +2093,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 400
+x 495
 y 390
 w 220
 h 20
@@ -1891,13 +2107,37 @@ value {
 }
 endObjectProperties
 
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 845
+y 390
+w 120
+h 18
+controlPv "$(P)$(R)GC_AcquisitionMode_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
 release 1
-x 400
+x 495
 y 415
 w 220
 h 20
@@ -1917,11 +2157,11 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 625
+x 720
 y 415
 w 60
 h 20
-controlPv "$(P)$(R)GC_AcquisitionFrameC"
+controlPv "$(P)$(R)GC_AcqFrameCount"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -1943,11 +2183,11 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 690
+x 785
 y 415
-w 90
+w 120
 h 18
-controlPv "$(P)$(R)GC_AcquisitionFrameC_RBV"
+controlPv "$(P)$(R)GC_AcqFrameCount_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "left"
@@ -1967,7 +2207,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 400
+x 495
 y 440
 w 220
 h 16
@@ -1987,11 +2227,11 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 625
+x 720
 y 440
 w 60
 h 20
-controlPv "$(P)$(R)GC_AcquisitionFrameR"
+controlPv "$(P)$(R)GC_AcqFrameRateAbs"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -2013,11 +2253,11 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 690
+x 785
 y 440
-w 90
+w 120
 h 18
-controlPv "$(P)$(R)GC_AcquisitionFrameR_RBV"
+controlPv "$(P)$(R)GC_AcqFrameRateAbs_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "left"
@@ -2037,7 +2277,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 400
+x 495
 y 465
 w 220
 h 16
@@ -2057,11 +2297,11 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 625
+x 720
 y 465
 w 60
 h 20
-controlPv "$(P)$(R)GC_AcquisitionFrame0"
+controlPv "$(P)$(R)GC_AcqFrameRateLimit"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -2083,11 +2323,11 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 690
+x 785
 y 465
-w 90
+w 120
 h 18
-controlPv "$(P)$(R)GC_AcquisitionFrame0_RBV"
+controlPv "$(P)$(R)GC_AcqFrameRateLimit_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "left"
@@ -2107,7 +2347,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 400
+x 495
 y 490
 w 220
 h 20
@@ -2127,11 +2367,11 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 625
+x 720
 y 490
 w 60
 h 20
-controlPv "$(P)$(R)GC_RecorderPreEventC"
+controlPv "$(P)$(R)GC_RecPreEventCount"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -2153,11 +2393,11 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 690
+x 785
 y 490
-w 90
+w 120
 h 18
-controlPv "$(P)$(R)GC_RecorderPreEventC_RBV"
+controlPv "$(P)$(R)GC_RecPreEventCount_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "left"
@@ -2177,9 +2417,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 395
+x 490
 y 520
-w 385
+w 480
 h 205
 lineColor rgb 0 0 0
 fillColor rgb 0 0 0
@@ -2192,9 +2432,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 400
+x 495
 y 525
-w 374
+w 469
 h 19
 lineColor rgb 55808 55808 55808
 fill
@@ -2208,9 +2448,9 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 400
+x 495
 y 525
-w 375
+w 470
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "center"
@@ -2228,7 +2468,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 400
+x 495
 y 550
 w 220
 h 20
@@ -2242,13 +2482,37 @@ value {
 }
 endObjectProperties
 
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 845
+y 550
+w 120
+h 18
+controlPv "$(P)$(R)GC_TriggerSelector_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
 release 1
-x 400
+x 495
 y 575
 w 220
 h 20
@@ -2262,13 +2526,37 @@ value {
 }
 endObjectProperties
 
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 845
+y 575
+w 120
+h 18
+controlPv "$(P)$(R)GC_TriggerMode_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
 release 1
-x 400
+x 495
 y 600
 w 220
 h 20
@@ -2288,7 +2576,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 400
+x 495
 y 625
 w 220
 h 20
@@ -2302,13 +2590,37 @@ value {
 }
 endObjectProperties
 
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 845
+y 625
+w 120
+h 18
+controlPv "$(P)$(R)GC_TriggerSource_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
 release 1
-x 400
+x 495
 y 650
 w 220
 h 20
@@ -2322,13 +2634,37 @@ value {
 }
 endObjectProperties
 
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 845
+y 650
+w 120
+h 18
+controlPv "$(P)$(R)GC_TriggerActivation_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
 release 1
-x 400
+x 495
 y 675
 w 220
 h 20
@@ -2342,13 +2678,37 @@ value {
 }
 endObjectProperties
 
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 845
+y 675
+w 120
+h 18
+controlPv "$(P)$(R)GC_TriggerOverlap_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
 release 1
-x 400
+x 495
 y 700
 w 220
 h 20
@@ -2368,7 +2728,7 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 625
+x 720
 y 700
 w 60
 h 20
@@ -2394,9 +2754,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 690
+x 785
 y 700
-w 90
+w 120
 h 18
 controlPv "$(P)$(R)GC_TriggerDelayAbs_RBV"
 format "decimal"
@@ -2418,9 +2778,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 785
+x 975
 y 40
-w 385
+w 480
 h 280
 lineColor rgb 0 0 0
 fillColor rgb 0 0 0
@@ -2433,9 +2793,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 790
+x 980
 y 45
-w 374
+w 469
 h 19
 lineColor rgb 55808 55808 55808
 fill
@@ -2449,9 +2809,9 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 45
-w 375
+w 470
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "center"
@@ -2469,7 +2829,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 70
 w 220
 h 20
@@ -2489,7 +2849,7 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1015
+x 1205
 y 70
 w 60
 h 20
@@ -2515,9 +2875,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1080
+x 1270
 y 70
-w 90
+w 120
 h 18
 controlPv "$(P)$(R)GC_SensorWidth_RBV"
 format "decimal"
@@ -2539,7 +2899,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 95
 w 220
 h 20
@@ -2559,7 +2919,7 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1015
+x 1205
 y 95
 w 60
 h 20
@@ -2585,9 +2945,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1080
+x 1270
 y 95
-w 90
+w 120
 h 18
 controlPv "$(P)$(R)GC_SensorHeight_RBV"
 format "decimal"
@@ -2609,7 +2969,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 120
 w 220
 h 20
@@ -2623,13 +2983,37 @@ value {
 }
 endObjectProperties
 
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 1330
+y 120
+w 120
+h 18
+controlPv "$(P)$(R)GC_SensorTaps_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 145
 w 220
 h 20
@@ -2643,13 +3027,37 @@ value {
 }
 endObjectProperties
 
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 1330
+y 145
+w 120
+h 18
+controlPv "$(P)$(R)GC_SenDigTaps_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 170
 w 220
 h 20
@@ -2669,7 +3077,7 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1015
+x 1205
 y 170
 w 60
 h 20
@@ -2695,9 +3103,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1080
+x 1270
 y 170
-w 90
+w 120
 h 18
 controlPv "$(P)$(R)GC_BinningHorizontal_RBV"
 format "decimal"
@@ -2719,7 +3127,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 195
 w 220
 h 20
@@ -2739,7 +3147,7 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1015
+x 1205
 y 195
 w 60
 h 20
@@ -2765,9 +3173,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1080
+x 1270
 y 195
-w 90
+w 120
 h 18
 controlPv "$(P)$(R)GC_BinningVertical_RBV"
 format "decimal"
@@ -2789,7 +3197,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 220
 w 220
 h 20
@@ -2809,11 +3217,11 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1015
+x 1205
 y 220
 w 60
 h 20
-controlPv "$(P)$(R)GC_DecimationHorizon"
+controlPv "$(P)$(R)GC_DecHorizontal"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -2835,11 +3243,11 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1080
+x 1270
 y 220
-w 90
+w 120
 h 18
-controlPv "$(P)$(R)GC_DecimationHorizon_RBV"
+controlPv "$(P)$(R)GC_DecHorizontal_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "left"
@@ -2859,7 +3267,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 245
 w 220
 h 20
@@ -2879,11 +3287,11 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1015
+x 1205
 y 245
 w 60
 h 20
-controlPv "$(P)$(R)GC_DecimationVertica"
+controlPv "$(P)$(R)GC_DecVertical"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -2905,11 +3313,11 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1080
+x 1270
 y 245
-w 90
+w 120
 h 18
-controlPv "$(P)$(R)GC_DecimationVertica_RBV"
+controlPv "$(P)$(R)GC_DecVertical_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "left"
@@ -2929,7 +3337,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 270
 w 220
 h 20
@@ -2943,13 +3351,37 @@ value {
 }
 endObjectProperties
 
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 1330
+y 270
+w 120
+h 18
+controlPv "$(P)$(R)GC_ReverseX_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 295
 w 220
 h 20
@@ -2963,15 +3395,39 @@ value {
 }
 endObjectProperties
 
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 1330
+y 295
+w 120
+h 18
+controlPv "$(P)$(R)GC_ReverseY_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
 # (Rectangle)
 object activeRectangleClass
 beginObjectProperties
 major 4
 minor 0
 release 0
-x 785
+x 975
 y 325
-w 385
+w 480
 h 230
 lineColor rgb 0 0 0
 fillColor rgb 0 0 0
@@ -2984,9 +3440,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 790
+x 980
 y 330
-w 374
+w 469
 h 19
 lineColor rgb 55808 55808 55808
 fill
@@ -3000,9 +3456,9 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 330
-w 375
+w 470
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "center"
@@ -3020,7 +3476,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 355
 w 220
 h 20
@@ -3040,7 +3496,7 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1015
+x 1205
 y 355
 w 60
 h 20
@@ -3066,9 +3522,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1080
+x 1270
 y 355
-w 90
+w 120
 h 18
 controlPv "$(P)$(R)GC_WidthMax_RBV"
 format "decimal"
@@ -3090,7 +3546,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 380
 w 220
 h 20
@@ -3110,7 +3566,7 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1015
+x 1205
 y 380
 w 60
 h 20
@@ -3136,9 +3592,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1080
+x 1270
 y 380
-w 90
+w 120
 h 18
 controlPv "$(P)$(R)GC_HeightMax_RBV"
 format "decimal"
@@ -3160,7 +3616,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 405
 w 220
 h 20
@@ -3174,13 +3630,37 @@ value {
 }
 endObjectProperties
 
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 1330
+y 405
+w 120
+h 18
+controlPv "$(P)$(R)GC_PixelFormat_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 430
 w 220
 h 20
@@ -3200,7 +3680,7 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1015
+x 1205
 y 430
 w 60
 h 20
@@ -3226,9 +3706,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1080
+x 1270
 y 430
-w 90
+w 120
 h 18
 controlPv "$(P)$(R)GC_Width_RBV"
 format "decimal"
@@ -3250,7 +3730,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 455
 w 220
 h 20
@@ -3270,7 +3750,7 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1015
+x 1205
 y 455
 w 60
 h 20
@@ -3296,9 +3776,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1080
+x 1270
 y 455
-w 90
+w 120
 h 18
 controlPv "$(P)$(R)GC_Height_RBV"
 format "decimal"
@@ -3320,7 +3800,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 480
 w 220
 h 20
@@ -3340,7 +3820,7 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1015
+x 1205
 y 480
 w 60
 h 20
@@ -3366,9 +3846,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1080
+x 1270
 y 480
-w 90
+w 120
 h 18
 controlPv "$(P)$(R)GC_OffsetX_RBV"
 format "decimal"
@@ -3390,7 +3870,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 505
 w 220
 h 20
@@ -3410,7 +3890,7 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1015
+x 1205
 y 505
 w 60
 h 20
@@ -3436,9 +3916,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1080
+x 1270
 y 505
-w 90
+w 120
 h 18
 controlPv "$(P)$(R)GC_OffsetY_RBV"
 format "decimal"
@@ -3460,7 +3940,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 530
 w 220
 h 20
@@ -3480,7 +3960,7 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1015
+x 1205
 y 530
 w 60
 h 20
@@ -3506,9 +3986,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1080
+x 1270
 y 530
-w 90
+w 120
 h 18
 controlPv "$(P)$(R)GC_ImageSize_RBV"
 format "decimal"
@@ -3530,9 +4010,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 785
+x 975
 y 560
-w 385
+w 480
 h 130
 lineColor rgb 0 0 0
 fillColor rgb 0 0 0
@@ -3545,9 +4025,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 790
+x 980
 y 565
-w 374
+w 469
 h 19
 lineColor rgb 55808 55808 55808
 fill
@@ -3561,9 +4041,9 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 565
-w 375
+w 470
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "center"
@@ -3581,7 +4061,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 590
 w 220
 h 20
@@ -3601,7 +4081,7 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1015
+x 1205
 y 590
 w 60
 h 20
@@ -3627,9 +4107,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1080
+x 1270
 y 590
-w 90
+w 120
 h 18
 controlPv "$(P)$(R)GC_Gamma_RBV"
 format "decimal"
@@ -3651,7 +4131,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 615
 w 220
 h 20
@@ -3665,13 +4145,37 @@ value {
 }
 endObjectProperties
 
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 1330
+y 615
+w 120
+h 18
+controlPv "$(P)$(R)GC_DefectMaskEnable_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 640
 w 220
 h 20
@@ -3691,7 +4195,7 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1015
+x 1205
 y 640
 w 60
 h 20
@@ -3717,9 +4221,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1080
+x 1270
 y 640
-w 90
+w 120
 h 18
 controlPv "$(P)$(R)GC_Hue_RBV"
 format "decimal"
@@ -3741,7 +4245,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 665
 w 220
 h 20
@@ -3761,7 +4265,7 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1015
+x 1205
 y 665
 w 60
 h 20
@@ -3787,9 +4291,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1080
+x 1270
 y 665
-w 90
+w 120
 h 18
 controlPv "$(P)$(R)GC_Saturation_RBV"
 format "decimal"
@@ -3811,9 +4315,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 785
+x 975
 y 695
-w 385
+w 480
 h 130
 lineColor rgb 0 0 0
 fillColor rgb 0 0 0
@@ -3826,9 +4330,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 790
+x 980
 y 700
-w 374
+w 469
 h 19
 lineColor rgb 55808 55808 55808
 fill
@@ -3842,9 +4346,9 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 700
-w 375
+w 470
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "center"
@@ -3862,7 +4366,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 725
 w 220
 h 20
@@ -3882,7 +4386,7 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1015
+x 1205
 y 725
 w 60
 h 20
@@ -3908,9 +4412,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1080
+x 1270
 y 725
-w 90
+w 120
 h 18
 controlPv "$(P)$(R)GC_DSPSubregionLeft_RBV"
 format "decimal"
@@ -3932,7 +4436,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 750
 w 220
 h 20
@@ -3952,7 +4456,7 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1015
+x 1205
 y 750
 w 60
 h 20
@@ -3978,9 +4482,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1080
+x 1270
 y 750
-w 90
+w 120
 h 18
 controlPv "$(P)$(R)GC_DSPSubregionTop_RBV"
 format "decimal"
@@ -4002,7 +4506,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 775
 w 220
 h 20
@@ -4022,7 +4526,7 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1015
+x 1205
 y 775
 w 60
 h 20
@@ -4048,9 +4552,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1080
+x 1270
 y 775
-w 90
+w 120
 h 18
 controlPv "$(P)$(R)GC_DSPSubregionRight_RBV"
 format "decimal"
@@ -4072,7 +4576,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 790
+x 980
 y 800
 w 220
 h 20
@@ -4092,11 +4596,11 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1015
+x 1205
 y 800
 w 60
 h 20
-controlPv "$(P)$(R)GC_DSPSubregionBotto"
+controlPv "$(P)$(R)GC_DSPSubBottom"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -4118,1576 +4622,11 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 1080
+x 1270
 y 800
-w 90
+w 120
 h 18
-controlPv "$(P)$(R)GC_DSPSubregionBotto_RBV"
-format "decimal"
-font "helvetica-medium-r-14.0"
-fontAlign "left"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 1175
-y 40
-w 385
-h 130
-lineColor rgb 0 0 0
-fillColor rgb 0 0 0
-lineWidth 0
-endObjectProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 1180
-y 45
-w 374
-h 19
-lineColor rgb 55808 55808 55808
-fill
-fillColor rgb 55808 55808 55808
-lineWidth 0
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 1180
-y 45
-w 375
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor index 3
-useDisplayBg
-value {
-  "  Exposure"
-}
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 1180
-y 70
-w 220
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor rgb 0 0 0
-bgColor index 3
-useDisplayBg
-value {
-  "ExposureAuto"
-}
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 1180
-y 95
-w 220
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor rgb 0 0 0
-bgColor index 3
-useDisplayBg
-value {
-  "ExposureMode"
-}
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 1180
-y 120
-w 220
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor rgb 0 0 0
-bgColor index 3
-useDisplayBg
-value {
-  "ExposureTimeAbs"
-}
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1405
-y 120
-w 60
-h 20
-controlPv "$(P)$(R)GC_ExposureTimeAbs"
-format "decimal"
-font "helvetica-medium-r-12.0"
-fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-editable
-motifWidget
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1470
-y 120
-w 90
-h 18
-controlPv "$(P)$(R)GC_ExposureTimeAbs_RBV"
-format "decimal"
-font "helvetica-medium-r-14.0"
-fontAlign "left"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 1180
-y 145
-w 220
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor rgb 0 0 0
-bgColor index 3
-useDisplayBg
-value {
-  "ExposureTimeIncrement"
-}
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1405
-y 145
-w 60
-h 20
-controlPv "$(P)$(R)GC_ExposureTimeIncre"
-format "decimal"
-font "helvetica-medium-r-12.0"
-fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-editable
-motifWidget
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1470
-y 145
-w 90
-h 18
-controlPv "$(P)$(R)GC_ExposureTimeIncre_RBV"
-format "decimal"
-font "helvetica-medium-r-14.0"
-fontAlign "left"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 1175
-y 175
-w 385
-h 205
-lineColor rgb 0 0 0
-fillColor rgb 0 0 0
-lineWidth 0
-endObjectProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 1180
-y 180
-w 374
-h 19
-lineColor rgb 55808 55808 55808
-fill
-fillColor rgb 55808 55808 55808
-lineWidth 0
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 1180
-y 180
-w 375
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor index 3
-useDisplayBg
-value {
-  "  ExposureAutoControl"
-}
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 1180
-y 205
-w 220
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor rgb 0 0 0
-bgColor index 3
-useDisplayBg
-value {
-  "ExposureAutoTarget"
-}
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1405
-y 205
-w 60
-h 20
-controlPv "$(P)$(R)GC_ExposureAutoTarge"
-format "decimal"
-font "helvetica-medium-r-12.0"
-fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-editable
-motifWidget
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1470
-y 205
-w 90
-h 18
-controlPv "$(P)$(R)GC_ExposureAutoTarge_RBV"
-format "decimal"
-font "helvetica-medium-r-14.0"
-fontAlign "left"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 1180
-y 230
-w 220
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor rgb 0 0 0
-bgColor index 3
-useDisplayBg
-value {
-  "ExposureAutoAlg"
-}
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 1180
-y 255
-w 220
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor rgb 0 0 0
-bgColor index 3
-useDisplayBg
-value {
-  "ExposureAutoMin"
-}
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1405
-y 255
-w 60
-h 20
-controlPv "$(P)$(R)GC_ExposureAutoMin"
-format "decimal"
-font "helvetica-medium-r-12.0"
-fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-editable
-motifWidget
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1470
-y 255
-w 90
-h 18
-controlPv "$(P)$(R)GC_ExposureAutoMin_RBV"
-format "decimal"
-font "helvetica-medium-r-14.0"
-fontAlign "left"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 1180
-y 280
-w 220
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor rgb 0 0 0
-bgColor index 3
-useDisplayBg
-value {
-  "ExposureAutoMax"
-}
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1405
-y 280
-w 60
-h 20
-controlPv "$(P)$(R)GC_ExposureAutoMax"
-format "decimal"
-font "helvetica-medium-r-12.0"
-fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-editable
-motifWidget
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1470
-y 280
-w 90
-h 18
-controlPv "$(P)$(R)GC_ExposureAutoMax_RBV"
-format "decimal"
-font "helvetica-medium-r-14.0"
-fontAlign "left"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 1180
-y 305
-w 220
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor rgb 0 0 0
-bgColor index 3
-useDisplayBg
-value {
-  "ExposureAutoRate"
-}
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1405
-y 305
-w 60
-h 20
-controlPv "$(P)$(R)GC_ExposureAutoRate"
-format "decimal"
-font "helvetica-medium-r-12.0"
-fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-editable
-motifWidget
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1470
-y 305
-w 90
-h 18
-controlPv "$(P)$(R)GC_ExposureAutoRate_RBV"
-format "decimal"
-font "helvetica-medium-r-14.0"
-fontAlign "left"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 1180
-y 330
-w 220
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor rgb 0 0 0
-bgColor index 3
-useDisplayBg
-value {
-  "ExposureAutoOutliers"
-}
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1405
-y 330
-w 60
-h 20
-controlPv "$(P)$(R)GC_ExposureAutoOutli"
-format "decimal"
-font "helvetica-medium-r-12.0"
-fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-editable
-motifWidget
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1470
-y 330
-w 90
-h 18
-controlPv "$(P)$(R)GC_ExposureAutoOutli_RBV"
-format "decimal"
-font "helvetica-medium-r-14.0"
-fontAlign "left"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 1180
-y 355
-w 220
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor rgb 0 0 0
-bgColor index 3
-useDisplayBg
-value {
-  "ExposureAutoAdjustTol"
-}
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1405
-y 355
-w 60
-h 20
-controlPv "$(P)$(R)GC_ExposureAutoAdjus"
-format "decimal"
-font "helvetica-medium-r-12.0"
-fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-editable
-motifWidget
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1470
-y 355
-w 90
-h 18
-controlPv "$(P)$(R)GC_ExposureAutoAdjus_RBV"
-format "decimal"
-font "helvetica-medium-r-14.0"
-fontAlign "left"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 1175
-y 385
-w 385
-h 130
-lineColor rgb 0 0 0
-fillColor rgb 0 0 0
-lineWidth 0
-endObjectProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 1180
-y 390
-w 374
-h 19
-lineColor rgb 55808 55808 55808
-fill
-fillColor rgb 55808 55808 55808
-lineWidth 0
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 1180
-y 390
-w 375
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor index 3
-useDisplayBg
-value {
-  "  GainControl"
-}
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 1180
-y 415
-w 220
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor rgb 0 0 0
-bgColor index 3
-useDisplayBg
-value {
-  "GainSelector"
-}
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 1180
-y 440
-w 220
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor rgb 0 0 0
-bgColor index 3
-useDisplayBg
-value {
-  "Gain"
-}
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1405
-y 440
-w 60
-h 20
-controlPv "$(P)$(R)GC_Gain"
-format "decimal"
-font "helvetica-medium-r-12.0"
-fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-editable
-motifWidget
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1470
-y 440
-w 90
-h 18
-controlPv "$(P)$(R)GC_Gain_RBV"
-format "decimal"
-font "helvetica-medium-r-14.0"
-fontAlign "left"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 1180
-y 465
-w 220
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor rgb 0 0 0
-bgColor index 3
-useDisplayBg
-value {
-  "GainRaw"
-}
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1405
-y 465
-w 60
-h 20
-controlPv "$(P)$(R)GC_GainRaw"
-format "decimal"
-font "helvetica-medium-r-12.0"
-fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-editable
-motifWidget
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1470
-y 465
-w 90
-h 18
-controlPv "$(P)$(R)GC_GainRaw_RBV"
-format "decimal"
-font "helvetica-medium-r-14.0"
-fontAlign "left"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 1180
-y 490
-w 220
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor rgb 0 0 0
-bgColor index 3
-useDisplayBg
-value {
-  "GainAuto"
-}
-endObjectProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 1175
-y 520
-w 385
-h 180
-lineColor rgb 0 0 0
-fillColor rgb 0 0 0
-lineWidth 0
-endObjectProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 1180
-y 525
-w 374
-h 19
-lineColor rgb 55808 55808 55808
-fill
-fillColor rgb 55808 55808 55808
-lineWidth 0
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 1180
-y 525
-w 375
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor index 3
-useDisplayBg
-value {
-  "  GainAutoControl"
-}
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 1180
-y 550
-w 220
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor rgb 0 0 0
-bgColor index 3
-useDisplayBg
-value {
-  "GainAutoTarget"
-}
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1405
-y 550
-w 60
-h 20
-controlPv "$(P)$(R)GC_GainAutoTarget"
-format "decimal"
-font "helvetica-medium-r-12.0"
-fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-editable
-motifWidget
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1470
-y 550
-w 90
-h 18
-controlPv "$(P)$(R)GC_GainAutoTarget_RBV"
-format "decimal"
-font "helvetica-medium-r-14.0"
-fontAlign "left"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 1180
-y 575
-w 220
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor rgb 0 0 0
-bgColor index 3
-useDisplayBg
-value {
-  "GainAutoMin"
-}
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1405
-y 575
-w 60
-h 20
-controlPv "$(P)$(R)GC_GainAutoMin"
-format "decimal"
-font "helvetica-medium-r-12.0"
-fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-editable
-motifWidget
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1470
-y 575
-w 90
-h 18
-controlPv "$(P)$(R)GC_GainAutoMin_RBV"
-format "decimal"
-font "helvetica-medium-r-14.0"
-fontAlign "left"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 1180
-y 600
-w 220
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor rgb 0 0 0
-bgColor index 3
-useDisplayBg
-value {
-  "GainAutoMax"
-}
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1405
-y 600
-w 60
-h 20
-controlPv "$(P)$(R)GC_GainAutoMax"
-format "decimal"
-font "helvetica-medium-r-12.0"
-fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-editable
-motifWidget
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1470
-y 600
-w 90
-h 18
-controlPv "$(P)$(R)GC_GainAutoMax_RBV"
-format "decimal"
-font "helvetica-medium-r-14.0"
-fontAlign "left"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 1180
-y 625
-w 220
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor rgb 0 0 0
-bgColor index 3
-useDisplayBg
-value {
-  "GainAutoRate"
-}
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1405
-y 625
-w 60
-h 20
-controlPv "$(P)$(R)GC_GainAutoRate"
-format "decimal"
-font "helvetica-medium-r-12.0"
-fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-editable
-motifWidget
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1470
-y 625
-w 90
-h 18
-controlPv "$(P)$(R)GC_GainAutoRate_RBV"
-format "decimal"
-font "helvetica-medium-r-14.0"
-fontAlign "left"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 1180
-y 650
-w 220
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor rgb 0 0 0
-bgColor index 3
-useDisplayBg
-value {
-  "GainAutoOutliers"
-}
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1405
-y 650
-w 60
-h 20
-controlPv "$(P)$(R)GC_GainAutoOutliers"
-format "decimal"
-font "helvetica-medium-r-12.0"
-fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-editable
-motifWidget
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1470
-y 650
-w 90
-h 18
-controlPv "$(P)$(R)GC_GainAutoOutliers_RBV"
-format "decimal"
-font "helvetica-medium-r-14.0"
-fontAlign "left"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 1180
-y 675
-w 220
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor rgb 0 0 0
-bgColor index 3
-useDisplayBg
-value {
-  "GainAutoAdjustTol"
-}
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1405
-y 675
-w 60
-h 20
-controlPv "$(P)$(R)GC_GainAutoAdjustTol"
-format "decimal"
-font "helvetica-medium-r-12.0"
-fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-editable
-motifWidget
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1470
-y 675
-w 90
-h 18
-controlPv "$(P)$(R)GC_GainAutoAdjustTol_RBV"
-format "decimal"
-font "helvetica-medium-r-14.0"
-fontAlign "left"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 1175
-y 705
-w 385
-h 80
-lineColor rgb 0 0 0
-fillColor rgb 0 0 0
-lineWidth 0
-endObjectProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 1180
-y 710
-w 374
-h 19
-lineColor rgb 55808 55808 55808
-fill
-fillColor rgb 55808 55808 55808
-lineWidth 0
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 1180
-y 710
-w 375
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "center"
-fgColor rgb 2560 0 47104
-bgColor index 3
-useDisplayBg
-value {
-  "  BlackLevelControl"
-}
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 1180
-y 735
-w 220
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor rgb 0 0 0
-bgColor index 3
-useDisplayBg
-value {
-  "BlackLevelSelector"
-}
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 1180
-y 760
-w 220
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor rgb 0 0 0
-bgColor index 3
-useDisplayBg
-value {
-  "BlackLevel"
-}
-endObjectProperties
-
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1405
-y 760
-w 60
-h 20
-controlPv "$(P)$(R)GC_BlackLevel"
-format "decimal"
-font "helvetica-medium-r-12.0"
-fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-editable
-motifWidget
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1470
-y 760
-w 90
-h 18
-controlPv "$(P)$(R)GC_BlackLevel_RBV"
+controlPv "$(P)$(R)GC_DSPSubBottom_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "left"
@@ -5709,7 +4648,7 @@ minor 0
 release 0
 x 235
 y 145
-w 150
+w 120
 h 20
 fgColor rgb 0 0 0
 bgColor rgb 29440 57088 65280
@@ -5729,7 +4668,7 @@ minor 0
 release 0
 x 235
 y 345
-w 150
+w 120
 h 20
 fgColor rgb 0 0 0
 bgColor rgb 29440 57088 65280
@@ -5749,15 +4688,15 @@ minor 0
 release 0
 x 235
 y 405
-w 150
+w 120
 h 20
 fgColor rgb 0 0 0
 bgColor rgb 29440 57088 65280
 inconsistentColor rgb 17920 17920 17920
 topShadowColor rgb 55808 55808 55808
 botShadowColor rgb 17920 17920 17920
-controlPv "$(P)$(R)GC_DeviceTemperature"
-indicatorPv "$(P)$(R)GC_DeviceTemperature"
+controlPv "$(P)$(R)GC_DevTemSelector"
+indicatorPv "$(P)$(R)GC_DevTemSelector"
 font "helvetica-medium-r-12.0"
 endObjectProperties
 
@@ -5769,15 +4708,15 @@ minor 0
 release 0
 x 235
 y 515
-w 150
+w 120
 h 20
 fgColor rgb 0 0 0
 bgColor rgb 29440 57088 65280
 inconsistentColor rgb 17920 17920 17920
 topShadowColor rgb 55808 55808 55808
 botShadowColor rgb 17920 17920 17920
-controlPv "$(P)$(R)GC_BandwidthControlM"
-indicatorPv "$(P)$(R)GC_BandwidthControlM"
+controlPv "$(P)$(R)GC_BanControlMode"
+indicatorPv "$(P)$(R)GC_BanControlMode"
 font "helvetica-medium-r-12.0"
 endObjectProperties
 
@@ -5789,7 +4728,7 @@ minor 0
 release 0
 x 235
 y 565
-w 150
+w 120
 h 20
 fgColor rgb 0 0 0
 bgColor rgb 29440 57088 65280
@@ -5809,15 +4748,15 @@ minor 0
 release 0
 x 235
 y 640
-w 150
+w 120
 h 20
 fgColor rgb 0 0 0
 bgColor rgb 29440 57088 65280
 inconsistentColor rgb 17920 17920 17920
 topShadowColor rgb 55808 55808 55808
 botShadowColor rgb 17920 17920 17920
-controlPv "$(P)$(R)GC_StreamFrameRateCo"
-indicatorPv "$(P)$(R)GC_StreamFrameRateCo"
+controlPv "$(P)$(R)GC_StrFraRatCon"
+indicatorPv "$(P)$(R)GC_StrFraRatCon"
 font "helvetica-medium-r-12.0"
 endObjectProperties
 
@@ -5829,7 +4768,7 @@ minor 0
 release 0
 x 235
 y 700
-w 150
+w 120
 h 20
 fgColor rgb 0 0 0
 bgColor rgb 29440 57088 65280
@@ -5847,16 +4786,16 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 625
+x 720
 y 95
-w 150
+w 200
 h 20
 fgColor rgb 0 0 0
 onColor rgb 29440 57088 65280
 offColor rgb 29440 57088 65280
 topShadowColor rgb 65280 65280 65280
 botShadowColor rgb 0 0 0
-controlPv "$(P)$(R)GC_GevTimestampContr.PROC"
+controlPv "$(P)$(R)GC_GevTimConLatch.PROC"
 pressValue "1"
 releaseValue 
 onLabel "GevTimestampControlLatch"
@@ -5872,16 +4811,16 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 625
+x 720
 y 120
-w 150
+w 200
 h 20
 fgColor rgb 0 0 0
 onColor rgb 29440 57088 65280
 offColor rgb 29440 57088 65280
 topShadowColor rgb 65280 65280 65280
 botShadowColor rgb 0 0 0
-controlPv "$(P)$(R)GC_GevTimestampCont0.PROC"
+controlPv "$(P)$(R)GC_GevTimConReset.PROC"
 pressValue "1"
 releaseValue 
 onLabel "GevTimestampControlReset"
@@ -5897,9 +4836,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 625
+x 720
 y 205
-w 150
+w 120
 h 20
 fgColor rgb 0 0 0
 bgColor rgb 29440 57088 65280
@@ -5917,9 +4856,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 625
+x 720
 y 230
-w 150
+w 120
 h 20
 fgColor rgb 0 0 0
 bgColor rgb 29440 57088 65280
@@ -5937,9 +4876,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 625
+x 720
 y 315
-w 150
+w 200
 h 20
 fgColor rgb 0 0 0
 onColor rgb 29440 57088 65280
@@ -5962,9 +4901,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 625
+x 720
 y 340
-w 150
+w 200
 h 20
 fgColor rgb 0 0 0
 onColor rgb 29440 57088 65280
@@ -5987,9 +4926,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 625
+x 720
 y 365
-w 150
+w 200
 h 20
 fgColor rgb 0 0 0
 onColor rgb 29440 57088 65280
@@ -6012,9 +4951,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 625
+x 720
 y 390
-w 150
+w 120
 h 20
 fgColor rgb 0 0 0
 bgColor rgb 29440 57088 65280
@@ -6032,9 +4971,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 625
+x 720
 y 550
-w 150
+w 120
 h 20
 fgColor rgb 0 0 0
 bgColor rgb 29440 57088 65280
@@ -6052,9 +4991,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 625
+x 720
 y 575
-w 150
+w 120
 h 20
 fgColor rgb 0 0 0
 bgColor rgb 29440 57088 65280
@@ -6072,9 +5011,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 625
+x 720
 y 600
-w 150
+w 200
 h 20
 fgColor rgb 0 0 0
 onColor rgb 29440 57088 65280
@@ -6097,9 +5036,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 625
+x 720
 y 625
-w 150
+w 120
 h 20
 fgColor rgb 0 0 0
 bgColor rgb 29440 57088 65280
@@ -6117,9 +5056,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 625
+x 720
 y 650
-w 150
+w 120
 h 20
 fgColor rgb 0 0 0
 bgColor rgb 29440 57088 65280
@@ -6137,9 +5076,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 625
+x 720
 y 675
-w 150
+w 120
 h 20
 fgColor rgb 0 0 0
 bgColor rgb 29440 57088 65280
@@ -6157,9 +5096,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 1015
+x 1205
 y 120
-w 150
+w 120
 h 20
 fgColor rgb 0 0 0
 bgColor rgb 29440 57088 65280
@@ -6177,17 +5116,17 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 1015
+x 1205
 y 145
-w 150
+w 120
 h 20
 fgColor rgb 0 0 0
 bgColor rgb 29440 57088 65280
 inconsistentColor rgb 17920 17920 17920
 topShadowColor rgb 55808 55808 55808
 botShadowColor rgb 17920 17920 17920
-controlPv "$(P)$(R)GC_SensorDigitizatio"
-indicatorPv "$(P)$(R)GC_SensorDigitizatio"
+controlPv "$(P)$(R)GC_SenDigTaps"
+indicatorPv "$(P)$(R)GC_SenDigTaps"
 font "helvetica-medium-r-12.0"
 endObjectProperties
 
@@ -6197,9 +5136,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 1015
+x 1205
 y 270
-w 150
+w 120
 h 20
 fgColor rgb 0 0 0
 bgColor rgb 29440 57088 65280
@@ -6217,9 +5156,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 1015
+x 1205
 y 295
-w 150
+w 120
 h 20
 fgColor rgb 0 0 0
 bgColor rgb 29440 57088 65280
@@ -6237,9 +5176,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 1015
+x 1205
 y 405
-w 150
+w 120
 h 20
 fgColor rgb 0 0 0
 bgColor rgb 29440 57088 65280
@@ -6257,9 +5196,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 1015
+x 1205
 y 615
-w 150
+w 120
 h 20
 fgColor rgb 0 0 0
 bgColor rgb 29440 57088 65280
@@ -6268,126 +5207,6 @@ topShadowColor rgb 55808 55808 55808
 botShadowColor rgb 17920 17920 17920
 controlPv "$(P)$(R)GC_DefectMaskEnable"
 indicatorPv "$(P)$(R)GC_DefectMaskEnable"
-font "helvetica-medium-r-12.0"
-endObjectProperties
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 1405
-y 70
-w 150
-h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
-controlPv "$(P)$(R)GC_ExposureAuto"
-indicatorPv "$(P)$(R)GC_ExposureAuto"
-font "helvetica-medium-r-12.0"
-endObjectProperties
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 1405
-y 95
-w 150
-h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
-controlPv "$(P)$(R)GC_ExposureMode"
-indicatorPv "$(P)$(R)GC_ExposureMode"
-font "helvetica-medium-r-12.0"
-endObjectProperties
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 1405
-y 230
-w 150
-h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
-controlPv "$(P)$(R)GC_ExposureAutoAlg"
-indicatorPv "$(P)$(R)GC_ExposureAutoAlg"
-font "helvetica-medium-r-12.0"
-endObjectProperties
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 1405
-y 415
-w 150
-h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
-controlPv "$(P)$(R)GC_GainSelector"
-indicatorPv "$(P)$(R)GC_GainSelector"
-font "helvetica-medium-r-12.0"
-endObjectProperties
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 1405
-y 490
-w 150
-h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
-controlPv "$(P)$(R)GC_GainAuto"
-indicatorPv "$(P)$(R)GC_GainAuto"
-font "helvetica-medium-r-12.0"
-endObjectProperties
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 1405
-y 735
-w 150
-h 20
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-inconsistentColor rgb 17920 17920 17920
-topShadowColor rgb 55808 55808 55808
-botShadowColor rgb 17920 17920 17920
-controlPv "$(P)$(R)GC_BlackLevelSelecto"
-indicatorPv "$(P)$(R)GC_BlackLevelSelecto"
 font "helvetica-medium-r-12.0"
 endObjectProperties
 

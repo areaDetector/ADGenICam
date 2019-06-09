@@ -7,7 +7,7 @@
     	object {
     		x=50
     		y=50
-    		width=1565
+    		width=1460
     		height=830
     	}
     	clr=14
@@ -92,7 +92,7 @@
     	object {
     		x=0
     		y=4
-    		width=1565
+    		width=1460
     		height=25
     	}
     	"basic attribute" {
@@ -104,7 +104,7 @@
 			object {
 				x=0
 				y=5
-				width=1565
+				width=1460
 				height=24
 			}
 			"basic attribute" {
@@ -118,7 +118,7 @@
     	object {
     		x=5
     		y=40
-    		width=385
+    		width=480
     		height=330
     	}
     	"basic attribute" {
@@ -131,7 +131,7 @@
     	object {
     		x=10
     		y=45
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -142,7 +142,7 @@
     	object {
     		x=10
     		y=45
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -187,7 +187,7 @@
 			object {
 				x=300
 				y=70
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
@@ -235,7 +235,7 @@
 			object {
 				x=300
 				y=95
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
@@ -283,7 +283,7 @@
 			object {
 				x=300
 				y=120
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
@@ -315,13 +315,30 @@
 			object {
 				x=235
 				y=145
-				width=150
+				width=120
 				height=20
 			}
 			control {
 				chan="$(P)$(R)GC_SensorType"
 				clr=14
 				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=145
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_SensorType_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
 			}
 		}
     
@@ -360,7 +377,7 @@
 			object {
 				x=300
 				y=170
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
@@ -392,7 +409,7 @@
 			object {
 				x=235
 				y=195
-				width=150
+				width=240
 				height=18
 			}
 			monitor {
@@ -424,7 +441,7 @@
 			object {
 				x=235
 				y=220
-				width=150
+				width=240
 				height=18
 			}
 			monitor {
@@ -456,11 +473,11 @@
 			object {
 				x=235
 				y=245
-				width=150
+				width=240
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)GC_DeviceFirmwareVer_RBV"
+				chan="$(P)$(R)GC_DevFirVersion_RBV"
 				clr=54
 				bclr=4
 			}
@@ -488,7 +505,7 @@
 			object {
 				x=235
 				y=270
-				width=150
+				width=240
 				height=18
 			}
 			monitor {
@@ -520,7 +537,7 @@
 			object {
 				x=235
 				y=295
-				width=150
+				width=240
 				height=18
 			}
 			monitor {
@@ -552,7 +569,7 @@
 			object {
 				x=235
 				y=320
-				width=150
+				width=240
 				height=18
 			}
 			monitor {
@@ -584,7 +601,7 @@
 			object {
 				x=235
 				y=345
-				width=150
+				width=120
 				height=20
 			}
 			control {
@@ -593,12 +610,29 @@
 				bclr=51
 			}
 		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=345
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_DeviceScanType_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
     # (Rectangle)
     rectangle {
     	object {
     		x=5
     		y=375
-    		width=385
+    		width=480
     		height=80
     	}
     	"basic attribute" {
@@ -611,7 +645,7 @@
     	object {
     		x=10
     		y=380
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -622,7 +656,7 @@
     	object {
     		x=10
     		y=380
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -651,13 +685,30 @@
 			object {
 				x=235
 				y=405
-				width=150
+				width=120
 				height=20
 			}
 			control {
-				chan="$(P)$(R)GC_DeviceTemperature"
+				chan="$(P)$(R)GC_DevTemSelector"
 				clr=14
 				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=405
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_DevTemSelector_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
 			}
 		}
     
@@ -684,7 +735,7 @@
 				height=20
 			}
 			control {
-				chan="$(P)$(R)GC_DeviceTemperatur0"
+				chan="$(P)$(R)GC_DeviceTemperature"
 				clr=14
 				bclr=51
 			}
@@ -696,11 +747,11 @@
 			object {
 				x=300
 				y=430
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)GC_DeviceTemperatur0_RBV"
+				chan="$(P)$(R)GC_DeviceTemperature_RBV"
 				clr=54
 				bclr=4
 			}
@@ -713,7 +764,7 @@
     	object {
     		x=5
     		y=460
-    		width=385
+    		width=480
     		height=205
     	}
     	"basic attribute" {
@@ -726,7 +777,7 @@
     	object {
     		x=10
     		y=465
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -737,7 +788,7 @@
     	object {
     		x=10
     		y=465
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -770,7 +821,7 @@
 				height=20
 			}
 			control {
-				chan="$(P)$(R)GC_StreamBytesPerSec"
+				chan="$(P)$(R)GC_StrBytesPerSecond"
 				clr=14
 				bclr=51
 			}
@@ -782,11 +833,11 @@
 			object {
 				x=300
 				y=490
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)GC_StreamBytesPerSec_RBV"
+				chan="$(P)$(R)GC_StrBytesPerSecond_RBV"
 				clr=54
 				bclr=4
 			}
@@ -814,13 +865,30 @@
 			object {
 				x=235
 				y=515
-				width=150
+				width=120
 				height=20
 			}
 			control {
-				chan="$(P)$(R)GC_BandwidthControlM"
+				chan="$(P)$(R)GC_BanControlMode"
 				clr=14
 				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=515
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_BanControlMode_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
 			}
 		}
     
@@ -859,7 +927,7 @@
 			object {
 				x=300
 				y=540
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
@@ -891,13 +959,30 @@
 			object {
 				x=235
 				y=565
-				width=150
+				width=120
 				height=20
 			}
 			control {
 				chan="$(P)$(R)GC_ChunkModeActive"
 				clr=14
 				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=565
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_ChunkModeActive_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
 			}
 		}
     
@@ -936,7 +1021,7 @@
 			object {
 				x=300
 				y=590
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
@@ -972,7 +1057,7 @@
 				height=20
 			}
 			control {
-				chan="$(P)$(R)GC_NonImagePayloadSi"
+				chan="$(P)$(R)GC_NonImaPayloadSize"
 				clr=14
 				bclr=51
 			}
@@ -984,11 +1069,11 @@
 			object {
 				x=300
 				y=615
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)GC_NonImagePayloadSi_RBV"
+				chan="$(P)$(R)GC_NonImaPayloadSize_RBV"
 				clr=54
 				bclr=4
 			}
@@ -1016,13 +1101,30 @@
 			object {
 				x=235
 				y=640
-				width=150
+				width=120
 				height=20
 			}
 			control {
-				chan="$(P)$(R)GC_StreamFrameRateCo"
+				chan="$(P)$(R)GC_StrFraRatCon"
 				clr=14
 				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=640
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_StrFraRatCon_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
 			}
 		}
     # (Rectangle)
@@ -1030,7 +1132,7 @@
     	object {
     		x=5
     		y=670
-    		width=385
+    		width=480
     		height=80
     	}
     	"basic attribute" {
@@ -1043,7 +1145,7 @@
     	object {
     		x=10
     		y=675
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -1054,7 +1156,7 @@
     	object {
     		x=10
     		y=675
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -1083,13 +1185,30 @@
 			object {
 				x=235
 				y=700
-				width=150
+				width=120
 				height=20
 			}
 			control {
 				chan="$(P)$(R)GC_StreamHoldEnable"
 				clr=14
 				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=700
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_StreamHoldEnable_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
 			}
 		}
     
@@ -1116,7 +1235,7 @@
 				height=20
 			}
 			control {
-				chan="$(P)$(R)GC_StreamHoldCapacit"
+				chan="$(P)$(R)GC_StrHoldCapacity"
 				clr=14
 				bclr=51
 			}
@@ -1128,11 +1247,11 @@
 			object {
 				x=300
 				y=725
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)GC_StreamHoldCapacit_RBV"
+				chan="$(P)$(R)GC_StrHoldCapacity_RBV"
 				clr=54
 				bclr=4
 			}
@@ -1143,9 +1262,9 @@
     # (Rectangle)
     rectangle {
     	object {
-    		x=395
+    		x=490
     		y=40
-    		width=385
+    		width=480
     		height=130
     	}
     	"basic attribute" {
@@ -1156,9 +1275,9 @@
     
     rectangle {
     	object {
-    		x=400
+    		x=495
     		y=45
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -1167,9 +1286,9 @@
     }
     text {
     	object {
-    		x=400
+    		x=495
     		y=45
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -1182,7 +1301,7 @@
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=495
 				y=70
 				width=220
 				height=16
@@ -1196,13 +1315,13 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=625
+				x=720
 				y=70
 				width=60
 				height=20
 			}
 			control {
-				chan="$(P)$(R)GC_GevTimestampTickF"
+				chan="$(P)$(R)GC_GevTimTicFre"
 				clr=14
 				bclr=51
 			}
@@ -1212,13 +1331,13 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=690
+				x=785
 				y=70
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)GC_GevTimestampTickF_RBV"
+				chan="$(P)$(R)GC_GevTimTicFre_RBV"
 				clr=54
 				bclr=4
 			}
@@ -1230,7 +1349,7 @@
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=495
 				y=95
 				width=220
 				height=16
@@ -1244,13 +1363,13 @@
     # (Message Button)
     "message button" {
     	object {
-    		x=625
+    		x=720
     		y=95
-    		width=150
+    		width=200
     		height=20
     	}
     	control {
-    		chan="$(P)$(R)GC_GevTimestampContr.PROC"
+    		chan="$(P)$(R)GC_GevTimConLatch.PROC"
     		clr=14
     		bclr=51
     	}
@@ -1261,7 +1380,7 @@
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=495
 				y=120
 				width=220
 				height=16
@@ -1275,13 +1394,13 @@
     # (Message Button)
     "message button" {
     	object {
-    		x=625
+    		x=720
     		y=120
-    		width=150
+    		width=200
     		height=20
     	}
     	control {
-    		chan="$(P)$(R)GC_GevTimestampCont0.PROC"
+    		chan="$(P)$(R)GC_GevTimConReset.PROC"
     		clr=14
     		bclr=51
     	}
@@ -1292,7 +1411,7 @@
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=495
 				y=145
 				width=220
 				height=20
@@ -1306,7 +1425,7 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=625
+				x=720
 				y=145
 				width=60
 				height=20
@@ -1322,9 +1441,9 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=690
+				x=785
 				y=145
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
@@ -1339,9 +1458,9 @@
     # (Rectangle)
     rectangle {
     	object {
-    		x=395
+    		x=490
     		y=175
-    		width=385
+    		width=480
     		height=105
     	}
     	"basic attribute" {
@@ -1352,9 +1471,9 @@
     
     rectangle {
     	object {
-    		x=400
+    		x=495
     		y=180
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -1363,9 +1482,9 @@
     }
     text {
     	object {
-    		x=400
+    		x=495
     		y=180
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -1378,7 +1497,7 @@
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=495
 				y=205
 				width=220
 				height=20
@@ -1392,9 +1511,9 @@
     # (Menu Button)
 		menu {
 			object {
-				x=625
+				x=720
 				y=205
-				width=150
+				width=120
 				height=20
 			}
 			control {
@@ -1403,11 +1522,28 @@
 				bclr=51
 			}
 		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=205
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_PtpMode_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
     
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=495
 				y=230
 				width=220
 				height=20
@@ -1421,9 +1557,9 @@
     # (Menu Button)
 		menu {
 			object {
-				x=625
+				x=720
 				y=230
-				width=150
+				width=120
 				height=20
 			}
 			control {
@@ -1432,11 +1568,28 @@
 				bclr=51
 			}
 		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=230
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_PtpStatus_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
     
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=495
 				y=255
 				width=220
 				height=20
@@ -1450,13 +1603,13 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=625
+				x=720
 				y=255
 				width=60
 				height=20
 			}
 			control {
-				chan="$(P)$(R)GC_PtpAcquisitionGat"
+				chan="$(P)$(R)GC_PtpAcqGateTime"
 				clr=14
 				bclr=51
 			}
@@ -1466,13 +1619,13 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=690
+				x=785
 				y=255
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)GC_PtpAcquisitionGat_RBV"
+				chan="$(P)$(R)GC_PtpAcqGateTime_RBV"
 				clr=54
 				bclr=4
 			}
@@ -1483,9 +1636,9 @@
     # (Rectangle)
     rectangle {
     	object {
-    		x=395
+    		x=490
     		y=285
-    		width=385
+    		width=480
     		height=230
     	}
     	"basic attribute" {
@@ -1496,9 +1649,9 @@
     
     rectangle {
     	object {
-    		x=400
+    		x=495
     		y=290
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -1507,9 +1660,9 @@
     }
     text {
     	object {
-    		x=400
+    		x=495
     		y=290
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -1522,7 +1675,7 @@
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=495
 				y=315
 				width=220
 				height=20
@@ -1536,9 +1689,9 @@
     # (Message Button)
     "message button" {
     	object {
-    		x=625
+    		x=720
     		y=315
-    		width=150
+    		width=200
     		height=20
     	}
     	control {
@@ -1553,7 +1706,7 @@
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=495
 				y=340
 				width=220
 				height=20
@@ -1567,9 +1720,9 @@
     # (Message Button)
     "message button" {
     	object {
-    		x=625
+    		x=720
     		y=340
-    		width=150
+    		width=200
     		height=20
     	}
     	control {
@@ -1584,7 +1737,7 @@
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=495
 				y=365
 				width=220
 				height=20
@@ -1598,9 +1751,9 @@
     # (Message Button)
     "message button" {
     	object {
-    		x=625
+    		x=720
     		y=365
-    		width=150
+    		width=200
     		height=20
     	}
     	control {
@@ -1615,7 +1768,7 @@
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=495
 				y=390
 				width=220
 				height=20
@@ -1629,9 +1782,9 @@
     # (Menu Button)
 		menu {
 			object {
-				x=625
+				x=720
 				y=390
-				width=150
+				width=120
 				height=20
 			}
 			control {
@@ -1640,11 +1793,28 @@
 				bclr=51
 			}
 		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=390
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_AcquisitionMode_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
     
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=495
 				y=415
 				width=220
 				height=20
@@ -1658,13 +1828,13 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=625
+				x=720
 				y=415
 				width=60
 				height=20
 			}
 			control {
-				chan="$(P)$(R)GC_AcquisitionFrameC"
+				chan="$(P)$(R)GC_AcqFrameCount"
 				clr=14
 				bclr=51
 			}
@@ -1674,13 +1844,13 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=690
+				x=785
 				y=415
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)GC_AcquisitionFrameC_RBV"
+				chan="$(P)$(R)GC_AcqFrameCount_RBV"
 				clr=54
 				bclr=4
 			}
@@ -1692,7 +1862,7 @@
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=495
 				y=440
 				width=220
 				height=16
@@ -1706,13 +1876,13 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=625
+				x=720
 				y=440
 				width=60
 				height=20
 			}
 			control {
-				chan="$(P)$(R)GC_AcquisitionFrameR"
+				chan="$(P)$(R)GC_AcqFrameRateAbs"
 				clr=14
 				bclr=51
 			}
@@ -1722,13 +1892,13 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=690
+				x=785
 				y=440
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)GC_AcquisitionFrameR_RBV"
+				chan="$(P)$(R)GC_AcqFrameRateAbs_RBV"
 				clr=54
 				bclr=4
 			}
@@ -1740,7 +1910,7 @@
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=495
 				y=465
 				width=220
 				height=16
@@ -1754,13 +1924,13 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=625
+				x=720
 				y=465
 				width=60
 				height=20
 			}
 			control {
-				chan="$(P)$(R)GC_AcquisitionFrame0"
+				chan="$(P)$(R)GC_AcqFrameRateLimit"
 				clr=14
 				bclr=51
 			}
@@ -1770,13 +1940,13 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=690
+				x=785
 				y=465
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)GC_AcquisitionFrame0_RBV"
+				chan="$(P)$(R)GC_AcqFrameRateLimit_RBV"
 				clr=54
 				bclr=4
 			}
@@ -1788,7 +1958,7 @@
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=495
 				y=490
 				width=220
 				height=20
@@ -1802,13 +1972,13 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=625
+				x=720
 				y=490
 				width=60
 				height=20
 			}
 			control {
-				chan="$(P)$(R)GC_RecorderPreEventC"
+				chan="$(P)$(R)GC_RecPreEventCount"
 				clr=14
 				bclr=51
 			}
@@ -1818,13 +1988,13 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=690
+				x=785
 				y=490
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)GC_RecorderPreEventC_RBV"
+				chan="$(P)$(R)GC_RecPreEventCount_RBV"
 				clr=54
 				bclr=4
 			}
@@ -1835,9 +2005,9 @@
     # (Rectangle)
     rectangle {
     	object {
-    		x=395
+    		x=490
     		y=520
-    		width=385
+    		width=480
     		height=205
     	}
     	"basic attribute" {
@@ -1848,9 +2018,9 @@
     
     rectangle {
     	object {
-    		x=400
+    		x=495
     		y=525
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -1859,9 +2029,9 @@
     }
     text {
     	object {
-    		x=400
+    		x=495
     		y=525
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -1874,7 +2044,7 @@
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=495
 				y=550
 				width=220
 				height=20
@@ -1888,9 +2058,9 @@
     # (Menu Button)
 		menu {
 			object {
-				x=625
+				x=720
 				y=550
-				width=150
+				width=120
 				height=20
 			}
 			control {
@@ -1899,11 +2069,28 @@
 				bclr=51
 			}
 		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=550
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_TriggerSelector_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
     
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=495
 				y=575
 				width=220
 				height=20
@@ -1917,9 +2104,9 @@
     # (Menu Button)
 		menu {
 			object {
-				x=625
+				x=720
 				y=575
-				width=150
+				width=120
 				height=20
 			}
 			control {
@@ -1928,11 +2115,28 @@
 				bclr=51
 			}
 		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=575
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_TriggerMode_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
     
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=495
 				y=600
 				width=220
 				height=20
@@ -1946,9 +2150,9 @@
     # (Message Button)
     "message button" {
     	object {
-    		x=625
+    		x=720
     		y=600
-    		width=150
+    		width=200
     		height=20
     	}
     	control {
@@ -1963,7 +2167,7 @@
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=495
 				y=625
 				width=220
 				height=20
@@ -1977,9 +2181,9 @@
     # (Menu Button)
 		menu {
 			object {
-				x=625
+				x=720
 				y=625
-				width=150
+				width=120
 				height=20
 			}
 			control {
@@ -1988,11 +2192,28 @@
 				bclr=51
 			}
 		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=625
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_TriggerSource_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
     
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=495
 				y=650
 				width=220
 				height=20
@@ -2006,9 +2227,9 @@
     # (Menu Button)
 		menu {
 			object {
-				x=625
+				x=720
 				y=650
-				width=150
+				width=120
 				height=20
 			}
 			control {
@@ -2017,11 +2238,28 @@
 				bclr=51
 			}
 		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=650
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_TriggerActivation_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
     
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=495
 				y=675
 				width=220
 				height=20
@@ -2035,9 +2273,9 @@
     # (Menu Button)
 		menu {
 			object {
-				x=625
+				x=720
 				y=675
-				width=150
+				width=120
 				height=20
 			}
 			control {
@@ -2046,11 +2284,28 @@
 				bclr=51
 			}
 		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=675
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_TriggerOverlap_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
     
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=495
 				y=700
 				width=220
 				height=20
@@ -2064,7 +2319,7 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=625
+				x=720
 				y=700
 				width=60
 				height=20
@@ -2080,9 +2335,9 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=690
+				x=785
 				y=700
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
@@ -2097,9 +2352,9 @@
     # (Rectangle)
     rectangle {
     	object {
-    		x=785
+    		x=975
     		y=40
-    		width=385
+    		width=480
     		height=280
     	}
     	"basic attribute" {
@@ -2110,9 +2365,9 @@
     
     rectangle {
     	object {
-    		x=790
+    		x=980
     		y=45
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -2121,9 +2376,9 @@
     }
     text {
     	object {
-    		x=790
+    		x=980
     		y=45
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -2136,7 +2391,7 @@
 # (Static Text)
 		text {
 			object {
-				x=790
+				x=980
 				y=70
 				width=220
 				height=20
@@ -2150,7 +2405,7 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=1015
+				x=1205
 				y=70
 				width=60
 				height=20
@@ -2166,9 +2421,9 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=1080
+				x=1270
 				y=70
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
@@ -2184,7 +2439,7 @@
 # (Static Text)
 		text {
 			object {
-				x=790
+				x=980
 				y=95
 				width=220
 				height=20
@@ -2198,7 +2453,7 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=1015
+				x=1205
 				y=95
 				width=60
 				height=20
@@ -2214,9 +2469,9 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=1080
+				x=1270
 				y=95
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
@@ -2232,7 +2487,7 @@
 # (Static Text)
 		text {
 			object {
-				x=790
+				x=980
 				y=120
 				width=220
 				height=20
@@ -2246,9 +2501,9 @@
     # (Menu Button)
 		menu {
 			object {
-				x=1015
+				x=1205
 				y=120
-				width=150
+				width=120
 				height=20
 			}
 			control {
@@ -2257,11 +2512,28 @@
 				bclr=51
 			}
 		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=120
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_SensorTaps_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
     
 # (Static Text)
 		text {
 			object {
-				x=790
+				x=980
 				y=145
 				width=220
 				height=20
@@ -2275,22 +2547,39 @@
     # (Menu Button)
 		menu {
 			object {
-				x=1015
+				x=1205
 				y=145
-				width=150
+				width=120
 				height=20
 			}
 			control {
-				chan="$(P)$(R)GC_SensorDigitizatio"
+				chan="$(P)$(R)GC_SenDigTaps"
 				clr=14
 				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=145
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_SenDigTaps_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
 			}
 		}
     
 # (Static Text)
 		text {
 			object {
-				x=790
+				x=980
 				y=170
 				width=220
 				height=20
@@ -2304,7 +2593,7 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=1015
+				x=1205
 				y=170
 				width=60
 				height=20
@@ -2320,9 +2609,9 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=1080
+				x=1270
 				y=170
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
@@ -2338,7 +2627,7 @@
 # (Static Text)
 		text {
 			object {
-				x=790
+				x=980
 				y=195
 				width=220
 				height=20
@@ -2352,7 +2641,7 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=1015
+				x=1205
 				y=195
 				width=60
 				height=20
@@ -2368,9 +2657,9 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=1080
+				x=1270
 				y=195
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
@@ -2386,7 +2675,7 @@
 # (Static Text)
 		text {
 			object {
-				x=790
+				x=980
 				y=220
 				width=220
 				height=20
@@ -2400,13 +2689,13 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=1015
+				x=1205
 				y=220
 				width=60
 				height=20
 			}
 			control {
-				chan="$(P)$(R)GC_DecimationHorizon"
+				chan="$(P)$(R)GC_DecHorizontal"
 				clr=14
 				bclr=51
 			}
@@ -2416,13 +2705,13 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=1080
+				x=1270
 				y=220
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)GC_DecimationHorizon_RBV"
+				chan="$(P)$(R)GC_DecHorizontal_RBV"
 				clr=54
 				bclr=4
 			}
@@ -2434,7 +2723,7 @@
 # (Static Text)
 		text {
 			object {
-				x=790
+				x=980
 				y=245
 				width=220
 				height=20
@@ -2448,13 +2737,13 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=1015
+				x=1205
 				y=245
 				width=60
 				height=20
 			}
 			control {
-				chan="$(P)$(R)GC_DecimationVertica"
+				chan="$(P)$(R)GC_DecVertical"
 				clr=14
 				bclr=51
 			}
@@ -2464,13 +2753,13 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=1080
+				x=1270
 				y=245
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)GC_DecimationVertica_RBV"
+				chan="$(P)$(R)GC_DecVertical_RBV"
 				clr=54
 				bclr=4
 			}
@@ -2482,7 +2771,7 @@
 # (Static Text)
 		text {
 			object {
-				x=790
+				x=980
 				y=270
 				width=220
 				height=20
@@ -2496,9 +2785,9 @@
     # (Menu Button)
 		menu {
 			object {
-				x=1015
+				x=1205
 				y=270
-				width=150
+				width=120
 				height=20
 			}
 			control {
@@ -2507,11 +2796,28 @@
 				bclr=51
 			}
 		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=270
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_ReverseX_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
     
 # (Static Text)
 		text {
 			object {
-				x=790
+				x=980
 				y=295
 				width=220
 				height=20
@@ -2525,9 +2831,9 @@
     # (Menu Button)
 		menu {
 			object {
-				x=1015
+				x=1205
 				y=295
-				width=150
+				width=120
 				height=20
 			}
 			control {
@@ -2536,12 +2842,29 @@
 				bclr=51
 			}
 		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=295
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_ReverseY_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
     # (Rectangle)
     rectangle {
     	object {
-    		x=785
+    		x=975
     		y=325
-    		width=385
+    		width=480
     		height=230
     	}
     	"basic attribute" {
@@ -2552,9 +2875,9 @@
     
     rectangle {
     	object {
-    		x=790
+    		x=980
     		y=330
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -2563,9 +2886,9 @@
     }
     text {
     	object {
-    		x=790
+    		x=980
     		y=330
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -2578,7 +2901,7 @@
 # (Static Text)
 		text {
 			object {
-				x=790
+				x=980
 				y=355
 				width=220
 				height=20
@@ -2592,7 +2915,7 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=1015
+				x=1205
 				y=355
 				width=60
 				height=20
@@ -2608,9 +2931,9 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=1080
+				x=1270
 				y=355
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
@@ -2626,7 +2949,7 @@
 # (Static Text)
 		text {
 			object {
-				x=790
+				x=980
 				y=380
 				width=220
 				height=20
@@ -2640,7 +2963,7 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=1015
+				x=1205
 				y=380
 				width=60
 				height=20
@@ -2656,9 +2979,9 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=1080
+				x=1270
 				y=380
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
@@ -2674,7 +2997,7 @@
 # (Static Text)
 		text {
 			object {
-				x=790
+				x=980
 				y=405
 				width=220
 				height=20
@@ -2688,9 +3011,9 @@
     # (Menu Button)
 		menu {
 			object {
-				x=1015
+				x=1205
 				y=405
-				width=150
+				width=120
 				height=20
 			}
 			control {
@@ -2699,11 +3022,28 @@
 				bclr=51
 			}
 		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=405
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_PixelFormat_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
     
 # (Static Text)
 		text {
 			object {
-				x=790
+				x=980
 				y=430
 				width=220
 				height=20
@@ -2717,7 +3057,7 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=1015
+				x=1205
 				y=430
 				width=60
 				height=20
@@ -2733,9 +3073,9 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=1080
+				x=1270
 				y=430
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
@@ -2751,7 +3091,7 @@
 # (Static Text)
 		text {
 			object {
-				x=790
+				x=980
 				y=455
 				width=220
 				height=20
@@ -2765,7 +3105,7 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=1015
+				x=1205
 				y=455
 				width=60
 				height=20
@@ -2781,9 +3121,9 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=1080
+				x=1270
 				y=455
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
@@ -2799,7 +3139,7 @@
 # (Static Text)
 		text {
 			object {
-				x=790
+				x=980
 				y=480
 				width=220
 				height=20
@@ -2813,7 +3153,7 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=1015
+				x=1205
 				y=480
 				width=60
 				height=20
@@ -2829,9 +3169,9 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=1080
+				x=1270
 				y=480
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
@@ -2847,7 +3187,7 @@
 # (Static Text)
 		text {
 			object {
-				x=790
+				x=980
 				y=505
 				width=220
 				height=20
@@ -2861,7 +3201,7 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=1015
+				x=1205
 				y=505
 				width=60
 				height=20
@@ -2877,9 +3217,9 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=1080
+				x=1270
 				y=505
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
@@ -2895,7 +3235,7 @@
 # (Static Text)
 		text {
 			object {
-				x=790
+				x=980
 				y=530
 				width=220
 				height=20
@@ -2909,7 +3249,7 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=1015
+				x=1205
 				y=530
 				width=60
 				height=20
@@ -2925,9 +3265,9 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=1080
+				x=1270
 				y=530
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
@@ -2942,9 +3282,9 @@
     # (Rectangle)
     rectangle {
     	object {
-    		x=785
+    		x=975
     		y=560
-    		width=385
+    		width=480
     		height=130
     	}
     	"basic attribute" {
@@ -2955,9 +3295,9 @@
     
     rectangle {
     	object {
-    		x=790
+    		x=980
     		y=565
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -2966,9 +3306,9 @@
     }
     text {
     	object {
-    		x=790
+    		x=980
     		y=565
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -2981,7 +3321,7 @@
 # (Static Text)
 		text {
 			object {
-				x=790
+				x=980
 				y=590
 				width=220
 				height=20
@@ -2995,7 +3335,7 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=1015
+				x=1205
 				y=590
 				width=60
 				height=20
@@ -3011,9 +3351,9 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=1080
+				x=1270
 				y=590
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
@@ -3029,7 +3369,7 @@
 # (Static Text)
 		text {
 			object {
-				x=790
+				x=980
 				y=615
 				width=220
 				height=20
@@ -3043,9 +3383,9 @@
     # (Menu Button)
 		menu {
 			object {
-				x=1015
+				x=1205
 				y=615
-				width=150
+				width=120
 				height=20
 			}
 			control {
@@ -3054,11 +3394,28 @@
 				bclr=51
 			}
 		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=615
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_DefectMaskEnable_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
     
 # (Static Text)
 		text {
 			object {
-				x=790
+				x=980
 				y=640
 				width=220
 				height=20
@@ -3072,7 +3429,7 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=1015
+				x=1205
 				y=640
 				width=60
 				height=20
@@ -3088,9 +3445,9 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=1080
+				x=1270
 				y=640
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
@@ -3106,7 +3463,7 @@
 # (Static Text)
 		text {
 			object {
-				x=790
+				x=980
 				y=665
 				width=220
 				height=20
@@ -3120,7 +3477,7 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=1015
+				x=1205
 				y=665
 				width=60
 				height=20
@@ -3136,9 +3493,9 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=1080
+				x=1270
 				y=665
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
@@ -3153,9 +3510,9 @@
     # (Rectangle)
     rectangle {
     	object {
-    		x=785
+    		x=975
     		y=695
-    		width=385
+    		width=480
     		height=130
     	}
     	"basic attribute" {
@@ -3166,9 +3523,9 @@
     
     rectangle {
     	object {
-    		x=790
+    		x=980
     		y=700
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -3177,9 +3534,9 @@
     }
     text {
     	object {
-    		x=790
+    		x=980
     		y=700
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -3192,7 +3549,7 @@
 # (Static Text)
 		text {
 			object {
-				x=790
+				x=980
 				y=725
 				width=220
 				height=20
@@ -3206,7 +3563,7 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=1015
+				x=1205
 				y=725
 				width=60
 				height=20
@@ -3222,9 +3579,9 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=1080
+				x=1270
 				y=725
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
@@ -3240,7 +3597,7 @@
 # (Static Text)
 		text {
 			object {
-				x=790
+				x=980
 				y=750
 				width=220
 				height=20
@@ -3254,7 +3611,7 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=1015
+				x=1205
 				y=750
 				width=60
 				height=20
@@ -3270,9 +3627,9 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=1080
+				x=1270
 				y=750
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
@@ -3288,7 +3645,7 @@
 # (Static Text)
 		text {
 			object {
-				x=790
+				x=980
 				y=775
 				width=220
 				height=20
@@ -3302,7 +3659,7 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=1015
+				x=1205
 				y=775
 				width=60
 				height=20
@@ -3318,9 +3675,9 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=1080
+				x=1270
 				y=775
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
@@ -3336,7 +3693,7 @@
 # (Static Text)
 		text {
 			object {
-				x=790
+				x=980
 				y=800
 				width=220
 				height=20
@@ -3350,13 +3707,13 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=1015
+				x=1205
 				y=800
 				width=60
 				height=20
 			}
 			control {
-				chan="$(P)$(R)GC_DSPSubregionBotto"
+				chan="$(P)$(R)GC_DSPSubBottom"
 				clr=14
 				bclr=51
 			}
@@ -3366,1193 +3723,13 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=1080
+				x=1270
 				y=800
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)GC_DSPSubregionBotto_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    # (Rectangle)
-    rectangle {
-    	object {
-    		x=1175
-    		y=40
-    		width=385
-    		height=130
-    	}
-    	"basic attribute" {
-    		clr=14
-    		fill="outline"
-    	}
-    }
-    
-    rectangle {
-    	object {
-    		x=1180
-    		y=45
-    		width=375
-    		height=20
-    	}
-    	"basic attribute" {
-    		clr=2
-    	}
-    }
-    text {
-    	object {
-    		x=1180
-    		y=45
-    		width=375
-    		height=20
-    	}
-    	"basic attribute" {
-    		clr=54
-    	}
-    	textix="  Exposure"
-    	align="horiz. centered"
-    }
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=70
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="ExposureAuto"
-			align="horiz. right"
-		}
-    # (Menu Button)
-		menu {
-			object {
-				x=1405
-				y=70
-				width=150
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GC_ExposureAuto"
-				clr=14
-				bclr=51
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=95
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="ExposureMode"
-			align="horiz. right"
-		}
-    # (Menu Button)
-		menu {
-			object {
-				x=1405
-				y=95
-				width=150
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GC_ExposureMode"
-				clr=14
-				bclr=51
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=120
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="ExposureTimeAbs"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=120
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GC_ExposureTimeAbs"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=120
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GC_ExposureTimeAbs_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=145
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="ExposureTimeIncrement"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=145
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GC_ExposureTimeIncre"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=145
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GC_ExposureTimeIncre_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    # (Rectangle)
-    rectangle {
-    	object {
-    		x=1175
-    		y=175
-    		width=385
-    		height=205
-    	}
-    	"basic attribute" {
-    		clr=14
-    		fill="outline"
-    	}
-    }
-    
-    rectangle {
-    	object {
-    		x=1180
-    		y=180
-    		width=375
-    		height=20
-    	}
-    	"basic attribute" {
-    		clr=2
-    	}
-    }
-    text {
-    	object {
-    		x=1180
-    		y=180
-    		width=375
-    		height=20
-    	}
-    	"basic attribute" {
-    		clr=54
-    	}
-    	textix="  ExposureAutoControl"
-    	align="horiz. centered"
-    }
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=205
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="ExposureAutoTarget"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=205
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GC_ExposureAutoTarge"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=205
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GC_ExposureAutoTarge_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=230
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="ExposureAutoAlg"
-			align="horiz. right"
-		}
-    # (Menu Button)
-		menu {
-			object {
-				x=1405
-				y=230
-				width=150
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GC_ExposureAutoAlg"
-				clr=14
-				bclr=51
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=255
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="ExposureAutoMin"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=255
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GC_ExposureAutoMin"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=255
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GC_ExposureAutoMin_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=280
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="ExposureAutoMax"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=280
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GC_ExposureAutoMax"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=280
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GC_ExposureAutoMax_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=305
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="ExposureAutoRate"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=305
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GC_ExposureAutoRate"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=305
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GC_ExposureAutoRate_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=330
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="ExposureAutoOutliers"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=330
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GC_ExposureAutoOutli"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=330
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GC_ExposureAutoOutli_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=355
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="ExposureAutoAdjustTol"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=355
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GC_ExposureAutoAdjus"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=355
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GC_ExposureAutoAdjus_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    # (Rectangle)
-    rectangle {
-    	object {
-    		x=1175
-    		y=385
-    		width=385
-    		height=130
-    	}
-    	"basic attribute" {
-    		clr=14
-    		fill="outline"
-    	}
-    }
-    
-    rectangle {
-    	object {
-    		x=1180
-    		y=390
-    		width=375
-    		height=20
-    	}
-    	"basic attribute" {
-    		clr=2
-    	}
-    }
-    text {
-    	object {
-    		x=1180
-    		y=390
-    		width=375
-    		height=20
-    	}
-    	"basic attribute" {
-    		clr=54
-    	}
-    	textix="  GainControl"
-    	align="horiz. centered"
-    }
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=415
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GainSelector"
-			align="horiz. right"
-		}
-    # (Menu Button)
-		menu {
-			object {
-				x=1405
-				y=415
-				width=150
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GC_GainSelector"
-				clr=14
-				bclr=51
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=440
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="Gain"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=440
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GC_Gain"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=440
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GC_Gain_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=465
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GainRaw"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=465
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GC_GainRaw"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=465
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GC_GainRaw_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=490
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GainAuto"
-			align="horiz. right"
-		}
-    # (Menu Button)
-		menu {
-			object {
-				x=1405
-				y=490
-				width=150
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GC_GainAuto"
-				clr=14
-				bclr=51
-			}
-		}
-    # (Rectangle)
-    rectangle {
-    	object {
-    		x=1175
-    		y=520
-    		width=385
-    		height=180
-    	}
-    	"basic attribute" {
-    		clr=14
-    		fill="outline"
-    	}
-    }
-    
-    rectangle {
-    	object {
-    		x=1180
-    		y=525
-    		width=375
-    		height=20
-    	}
-    	"basic attribute" {
-    		clr=2
-    	}
-    }
-    text {
-    	object {
-    		x=1180
-    		y=525
-    		width=375
-    		height=20
-    	}
-    	"basic attribute" {
-    		clr=54
-    	}
-    	textix="  GainAutoControl"
-    	align="horiz. centered"
-    }
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=550
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GainAutoTarget"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=550
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GC_GainAutoTarget"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=550
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GC_GainAutoTarget_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=575
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GainAutoMin"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=575
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GC_GainAutoMin"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=575
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GC_GainAutoMin_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=600
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GainAutoMax"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=600
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GC_GainAutoMax"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=600
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GC_GainAutoMax_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=625
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GainAutoRate"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=625
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GC_GainAutoRate"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=625
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GC_GainAutoRate_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=650
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GainAutoOutliers"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=650
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GC_GainAutoOutliers"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=650
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GC_GainAutoOutliers_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=675
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GainAutoAdjustTol"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=675
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GC_GainAutoAdjustTol"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=675
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GC_GainAutoAdjustTol_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    # (Rectangle)
-    rectangle {
-    	object {
-    		x=1175
-    		y=705
-    		width=385
-    		height=80
-    	}
-    	"basic attribute" {
-    		clr=14
-    		fill="outline"
-    	}
-    }
-    
-    rectangle {
-    	object {
-    		x=1180
-    		y=710
-    		width=375
-    		height=20
-    	}
-    	"basic attribute" {
-    		clr=2
-    	}
-    }
-    text {
-    	object {
-    		x=1180
-    		y=710
-    		width=375
-    		height=20
-    	}
-    	"basic attribute" {
-    		clr=54
-    	}
-    	textix="  BlackLevelControl"
-    	align="horiz. centered"
-    }
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=735
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="BlackLevelSelector"
-			align="horiz. right"
-		}
-    # (Menu Button)
-		menu {
-			object {
-				x=1405
-				y=735
-				width=150
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GC_BlackLevelSelecto"
-				clr=14
-				bclr=51
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=760
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="BlackLevel"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=760
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GC_BlackLevel"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=760
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GC_BlackLevel_RBV"
+				chan="$(P)$(R)GC_DSPSubBottom_RBV"
 				clr=54
 				bclr=4
 			}
