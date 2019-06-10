@@ -43,7 +43,6 @@ public:
 
 protected:
     int GCFrameRate;
-    #define AD_GENICAM_FIRST_PARAM GCFrameRate
     int GCFrameRateEnable;
     int GCTriggerSource;
     int GCTriggerOverlap;
@@ -52,7 +51,6 @@ protected:
     int GCExposureAuto;
     int GCGainAuto;
     int GCPixelFormat;
-    #define AD_GENICAM_LAST_PARAM GCPixelFormat
 
     GenICamFeatureSet mGCFeatureSet;
     
