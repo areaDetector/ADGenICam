@@ -261,7 +261,7 @@ void ADGenICam::report(FILE *fp, int details)
   
     //static const char *functionName = "report";
 
-    mGCFeatureSet.report(fp, details);
+    if (details > 0) mGCFeatureSet.report(fp, details);
     ADDriver::report(fp, details);
     return;
 }
