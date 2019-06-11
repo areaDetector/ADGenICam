@@ -52,6 +52,8 @@ protected:
     int mAsynIndex;
     std::string mFeatureName;
     GCFeatureType_t mFeatureType;
+    std::vector<std::string> mEnumStrings;
+    std::vector<int> mEnumValues;
 
     GenICamFeatureSet *mSet;
 
@@ -93,6 +95,8 @@ public:
     // Fetch the current value from the detector, update underlying asyn parameter
     // and return the value
     int read(void *pValue, bool bSetParam);
+
+    void report (FILE *fp, int details);
 
     int getAsynIndex(void);
     std::string getAsynName(void);
