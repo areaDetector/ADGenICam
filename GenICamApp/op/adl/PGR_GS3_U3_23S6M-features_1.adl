@@ -1,0 +1,3008 @@
+
+    file {
+    	name="/home/epics/devel/areaDetector-3-3-1/aravisGigE/aravisGigEApp/op/adl/aravisCamera.adl"
+    	version=030109
+    }
+    display {
+    	object {
+    		x=50
+    		y=50
+    		width=1460
+    		height=875
+    	}
+    	clr=14
+    	bclr=4
+    	cmap=""
+    	gridSpacing=5
+    	gridOn=0
+    	snapToGrid=0
+    }
+    "color map" {
+    	ncolors=65
+    	colors {
+    		ffffff,
+    		ececec,
+    		dadada,
+    		c8c8c8,
+    		bbbbbb,
+    		aeaeae,
+    		9e9e9e,
+    		919191,
+    		858585,
+    		787878,
+    		696969,
+    		5a5a5a,
+    		464646,
+    		2d2d2d,
+    		000000,
+    		00d800,
+    		1ebb00,
+    		339900,
+    		2d7f00,
+    		216c00,
+    		fd0000,
+    		de1309,
+    		be190b,
+    		a01207,
+    		820400,
+    		5893ff,
+    		597ee1,
+    		4b6ec7,
+    		3a5eab,
+    		27548d,
+    		fbf34a,
+    		f9da3c,
+    		eeb62b,
+    		e19015,
+    		cd6100,
+    		ffb0ff,
+    		d67fe2,
+    		ae4ebc,
+    		8b1a96,
+    		610a75,
+    		a4aaff,
+    		8793e2,
+    		6a73c1,
+    		4d52a4,
+    		343386,
+    		c7bb6d,
+    		b79d5c,
+    		a47e3c,
+    		7d5627,
+    		58340f,
+    		99ffff,
+    		73dfff,
+    		4ea5f9,
+    		2a63e4,
+    		0a00b8,
+    		ebf1b5,
+    		d4db9d,
+    		bbc187,
+    		a6a462,
+    		8b8239,
+    		73ff6b,
+    		52da3b,
+    		3cb420,
+    		289315,
+    		1a7309,
+    	}
+    }
+
+    rectangle {
+    	object {
+    		x=0
+    		y=4
+    		width=1460
+    		height=25
+    	}
+    	"basic attribute" {
+    		clr=2
+    	}
+    }
+    
+		text {
+			object {
+				x=0
+				y=5
+				width=1460
+				height=24
+			}
+			"basic attribute" {
+				clr=54
+			}
+			textix="PGR_GS3_U3_23S6M Features Screen #1 - $(P)$(R)"
+			align="horiz. centered"
+		}
+    # (Rectangle)
+    rectangle {
+    	object {
+    		x=5
+    		y=40
+    		width=480
+    		height=580
+    	}
+    	"basic attribute" {
+    		clr=14
+    		fill="outline"
+    	}
+    }
+    
+    rectangle {
+    	object {
+    		x=10
+    		y=45
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=2
+    	}
+    }
+    text {
+    	object {
+    		x=10
+    		y=45
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=54
+    	}
+    	textix="  AnalogControl"
+    	align="horiz. centered"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=70
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GainSelector"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=70
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_GainSelector"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=70
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_GainSelector_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=95
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GainAuto"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=95
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_GainAuto"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=95
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_GainAuto_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=120
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="Gain"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=120
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_Gain"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=120
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_Gain_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=145
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="AutoGainLowerLimit"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=145
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_AutGainLowerLimit"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=145
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_AutGainLowerLimit_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=170
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="AutoGainUpperLimit"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=170
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_AutGainUpperLimit"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=170
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_AutGainUpperLimit_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=195
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="BlackLevel"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=195
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_BlackLevel"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=195
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_BlackLevel_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=220
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="BlackLevelAuto"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=220
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_BlackLevelAuto"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=220
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_BlackLevelAuto_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=245
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="BlackLevelClampingEnable"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=245
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_BlaLevClaEnable"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=245
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_BlaLevClaEnable_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=270
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="Gamma"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=270
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_Gamma"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=270
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_Gamma_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=295
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="GammaEnabled"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=295
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_GammaEnabled"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=295
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_GammaEnabled_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=320
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="Sharpness"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=320
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_Sharpness"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=320
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_Sharpness_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=345
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SharpnessEnabled"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=345
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_SharpnessEnabled"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=345
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_SharpnessEnabled_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=370
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SharpnessAuto"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=370
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_SharpnessAuto"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=370
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_SharpnessAuto_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=395
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="Hue"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=395
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_Hue"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=395
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_Hue_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=420
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="HueEnabled"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=420
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_HueEnabled"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=420
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_HueEnabled_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=445
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="HueAuto"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=445
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_HueAuto"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=445
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_HueAuto_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=470
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="Saturation"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=470
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_Saturation"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=470
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_Saturation_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=495
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SaturationEnabled"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=495
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_SaturationEnabled"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=495
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_SaturationEnabled_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=520
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SaturationAuto"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=520
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_SaturationAuto"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=520
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_SaturationAuto_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=545
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="BalanceWhiteAuto"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=545
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_BalanceWhiteAuto"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=545
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_BalanceWhiteAuto_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=570
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="BalanceRatioSelector"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=570
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_BalRatioSelector"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=570
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_BalRatioSelector_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=595
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="BalanceRatio"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=595
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_BalanceRatio"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=595
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_BalanceRatio_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    # (Rectangle)
+    rectangle {
+    	object {
+    		x=490
+    		y=40
+    		width=480
+    		height=830
+    	}
+    	"basic attribute" {
+    		clr=14
+    		fill="outline"
+    	}
+    }
+    
+    rectangle {
+    	object {
+    		x=495
+    		y=45
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=2
+    	}
+    }
+    text {
+    	object {
+    		x=495
+    		y=45
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=54
+    	}
+    	textix="  DeviceControl"
+    	align="horiz. centered"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=70
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceVendorName"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=720
+				y=70
+				width=240
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_DeviceVendorName_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=95
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceModelName"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=720
+				y=95
+				width=240
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_DeviceModelName_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=120
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceVersion"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=720
+				y=120
+				width=240
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_DeviceVersion_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=145
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceSerialNumber"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=720
+				y=145
+				width=240
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_DevSerialNumber_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=170
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceID"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=720
+				y=170
+				width=240
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_DeviceID_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=195
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceUserID"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=720
+				y=195
+				width=240
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_DeviceUserID_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=220
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceGenCpVersionMajor"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=720
+				y=220
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_DevGenCpVerMajor"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=785
+				y=220
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_DevGenCpVerMajor_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=245
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceGenCPVersionMinor"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=720
+				y=245
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_DevGenCPVerMinor"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=785
+				y=245
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_DevGenCPVerMinor_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=270
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceFamilyName"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=720
+				y=270
+				width=240
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_DeviceFamilyName_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=295
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="Timestamp"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=720
+				y=295
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_Timestamp"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=785
+				y=295
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_Timestamp_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=320
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="TimestampLatch"
+			align="horiz. right"
+		}
+    # (Message Button)
+    "message button" {
+    	object {
+    		x=720
+    		y=320
+    		width=200
+    		height=20
+    	}
+    	control {
+    		chan="$(P)$(R)GC_TimestampLatch.PROC"
+    		clr=14
+    		bclr=51
+    	}
+    	label="TimestampLatch"
+    	press_msg="1"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=345
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="TimestampIncrement"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=720
+				y=345
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_TimIncrement"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=785
+				y=345
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_TimIncrement_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=370
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="pgrSensorDescription"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=720
+				y=370
+				width=240
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_pSenDescription_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=395
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceSVNVersion"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=720
+				y=395
+				width=240
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_DeviceSVNVersion_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=420
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceFirmwareVersion"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=720
+				y=420
+				width=240
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_DevFirVersion_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=445
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceScanType"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=720
+				y=445
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_DeviceScanType"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=445
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_DeviceScanType_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=470
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceTemperature"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=720
+				y=470
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_DeviceTemperature"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=785
+				y=470
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_DeviceTemperature_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=495
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceReset"
+			align="horiz. right"
+		}
+    # (Message Button)
+    "message button" {
+    	object {
+    		x=720
+    		y=495
+    		width=200
+    		height=20
+    	}
+    	control {
+    		chan="$(P)$(R)GC_DeviceReset.PROC"
+    		clr=14
+    		bclr=51
+    	}
+    	label="DeviceReset"
+    	press_msg="1"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=520
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="pgrDeviceUptime"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=720
+				y=520
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_pgrDeviceUptime"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=785
+				y=520
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_pgrDeviceUptime_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=545
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="AutoFunctionAOIsControl"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=720
+				y=545
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_AutFunAOIsControl"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=545
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_AutFunAOIsControl_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=570
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="AutoFunctionAOIWidth"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=720
+				y=570
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_AutFunAOIWidth"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=785
+				y=570
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_AutFunAOIWidth_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=595
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="AutoFunctionAOIHeight"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=720
+				y=595
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_AutFunAOIHeight"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=785
+				y=595
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_AutFunAOIHeight_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=620
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="AutoFunctionAOIOffsetX"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=720
+				y=620
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_AutFunAOIOffsetX"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=785
+				y=620
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_AutFunAOIOffsetX_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=645
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="AutoFunctionAOIOffsetY"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=720
+				y=645
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_AutFunAOIOffsetY"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=785
+				y=645
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_AutFunAOIOffsetY_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=670
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="pgrDevicePowerSupplySelector"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=720
+				y=670
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_pDevPowSupSel"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=670
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_pDevPowSupSel_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=695
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="pgrPowerSourcePresent"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=720
+				y=695
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_pPowSourcePresent"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=695
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_pPowSourcePresent_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=720
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="pgrPowerSupplyEnable"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=720
+				y=720
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_pPowSupplyEnable"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=720
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_pPowSupplyEnable_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=745
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="pgrPowerSupplyVoltage"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=720
+				y=745
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_pPowSupplyVoltage"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=785
+				y=745
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_pPowSupplyVoltage_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=770
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="pgrPowerSupplyCurrent"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=720
+				y=770
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_pPowSupplyCurrent"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=785
+				y=770
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_pPowSupplyCurrent_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=795
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceMaxThroughput"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=720
+				y=795
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_DevMaxThroughput"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=785
+				y=795
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_DevMaxThroughput_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=820
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DeviceLinkThroughputLimit"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=720
+				y=820
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_DevLinThrLimit"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=785
+				y=820
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_DevLinThrLimit_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=845
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="TestPendingAck"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=720
+				y=845
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_TestPendingAck"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=785
+				y=845
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_TestPendingAck_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    # (Rectangle)
+    rectangle {
+    	object {
+    		x=975
+    		y=40
+    		width=480
+    		height=255
+    	}
+    	"basic attribute" {
+    		clr=14
+    		fill="outline"
+    	}
+    }
+    
+    rectangle {
+    	object {
+    		x=980
+    		y=45
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=2
+    	}
+    }
+    text {
+    	object {
+    		x=980
+    		y=45
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=54
+    	}
+    	textix="  U3VDeviceCapability"
+    	align="horiz. centered"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=70
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="UserNameAvailable"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1205
+				y=70
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_UserNameAvailable"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=70
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_UserNameAvailable_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=95
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="AccessPrivilegeAvailable"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1205
+				y=95
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_AccPriAvailable"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=95
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_AccPriAvailable_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=120
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="MessageChannelSupported"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1205
+				y=120
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_MesChaSupported"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=120
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_MesChaSupported_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=145
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="TimestampSupported"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1205
+				y=145
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_TimSupported"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=145
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_TimSupported_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=170
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="StringEncoding"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=1205
+				y=170
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_StringEncoding"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1270
+				y=170
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_StringEncoding_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=195
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="FamilyRegisterAvailable"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1205
+				y=195
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_FamRegAvailable"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=195
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_FamRegAvailable_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=220
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SBRMSupported"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1205
+				y=220
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_SBRMSupported"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=220
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_SBRMSupported_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=245
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="EndianessRegistersSupported"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1205
+				y=245
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_EndRegSupported"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=245
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_EndRegSupported_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=270
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="WrittenLengthFieldSupported"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1205
+				y=270
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_WriLenFieSup"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=270
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_WriLenFieSup_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
