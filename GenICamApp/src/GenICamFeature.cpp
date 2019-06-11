@@ -8,25 +8,25 @@
 
 // Error message formatters
 #define ERR(msg) asynPrint(mSet->getUser(), ASYN_TRACE_ERROR,\
-    "Param[%s]::%s: %s\n", \
+    "Param[%s] %s: %s\n", \
     mAsynName.c_str(), functionName, msg)
 
 #define ERR_ARGS(fmt,...) asynPrint(mSet->getUser(), ASYN_TRACE_ERROR, \
-    "Param[%s]::%s: " fmt "\n", mAsynName.c_str(), functionName, __VA_ARGS__);
+    "Param[%s] %s: " fmt "\n", mAsynName.c_str(), functionName, __VA_ARGS__);
 
 #define WARN_ARGS(fmt,...) asynPrint(mSet->getUser(), ASYN_TRACE_WARNING, \
-    "Param[%s]::%s: " fmt "\n", mAsynName.c_str(), functionName, __VA_ARGS__);
+    "Param[%s] %s: " fmt "\n", mAsynName.c_str(), functionName, __VA_ARGS__);
 
 // Flow message formatters
 #define FLOW(msg) asynPrint(mSet->getUser(), ASYN_TRACE_FLOW, \
-    "Param[%s]::%s: %s\n", \
+    "Param[%s] %s: %s\n", \
     mAsynName.c_str(), functionName, msg)
 
 #define FLOW_ARGS(fmt,...) asynPrint(mSet->getUser(), ASYN_TRACE_FLOW, \
-    "Param[%s]::%s: " fmt "\n", mAsynName.c_str(), functionName, __VA_ARGS__);
+    "Param[%s] %s: " fmt "\n", mAsynName.c_str(), functionName, __VA_ARGS__);
 
 #define TRACEIO_DRIVER_ARGS(fmt,...) asynPrint(mSet->getUser(), ASYN_TRACEIO_DRIVER, \
-    "Param[%s]::%s: " fmt "\n", mAsynName.c_str(), functionName, __VA_ARGS__);
+    "Param[%s] %s: " fmt "\n", mAsynName.c_str(), functionName, __VA_ARGS__);
 
 using std::string;
 using std::vector;
@@ -110,7 +110,7 @@ GCFeatureType_t GenICamFeature::getFeatureType (void)
 
 int GenICamFeature::write(void *pValue, void *pReadbackValue, bool bSetParam)
 {
-    static const char *functionName = "write";
+    static const char *functionName = "GenICamFeature::write";
 
     try {
         if (!isImplemented()) {
@@ -264,9 +264,10 @@ int GenICamFeature::write(void *pValue, void *pReadbackValue, bool bSetParam)
 
 int GenICamFeature::read(void *pValue, bool bSetParam)
 {
-    static const char *functionName = "read";
+    static const char *functionName = "GenICamFeature::read";
 
     if (!isImplemented()) return EXIT_FAILURE;
+    FLOW_ARGS("reading %s", mFeatureName.c_str());
     try {
         if ((mFeatureType == GCFeatureTypeEnum) &&
             (!isImplemented() || !isAvailable() || !isWritable())) {
@@ -359,7 +360,7 @@ int GenICamFeature::read(void *pValue, bool bSetParam)
                 break;
             }
             case GCFeatureTypeString: {
-                std::string value = readString().c_str();
+                std::string value = readString();
                 if (pValue) *(std::string *)pValue = value;
                 if (bSetParam) setParam(value);
                 break;
@@ -381,7 +382,7 @@ int GenICamFeature::read(void *pValue, bool bSetParam)
 
 std::string GenICamFeature::getValueAsString()
 {
-//    static const char *functionName = "getValueAsString";
+//    static const char *functionName = "GenICamFeature::getValueAsString";
     std::string valueString = "Not available";
     char buff[100];
     
