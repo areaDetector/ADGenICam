@@ -62,6 +62,7 @@ int GenICamFeature::setParam (std::string const & value)
 {
     return (int) mSet->getPortDriver()->setStringParam(mAsynIndex, value);
 }
+
 GenICamFeature::GenICamFeature (GenICamFeatureSet *set, 
         string const & asynName, asynParamType asynType, int asynIndex,
         string const &featureName, GCFeatureType_t featureType)
@@ -75,7 +76,7 @@ GenICamFeature::GenICamFeature (GenICamFeatureSet *set,
     // Check if asyn parameter already exists, create if it doesn't
     if(mAsynIndex == -1) {
         status = mSet->getPortDriver()->createParam(mAsynName.c_str(), mAsynType, &mAsynIndex);
-        if(status) {
+        if (status) {
             ERR_ARGS("[param=%s] failed to create param", mAsynName.c_str());
             throw std::runtime_error(mAsynName);
         }
@@ -269,14 +270,20 @@ int GenICamFeature::read(void *pValue, bool bSetParam)
     try {
         if ((mFeatureType == GCFeatureTypeEnum) &&
             (!isImplemented() || !isAvailable() || !isWritable())) {
-            char *enumStrings[1];
-            int enumValues[1];
-            int enumSeverities[1];
-            enumStrings[0] = epicsStrDup("N.A.");
-            enumValues[0] = 0;
-            enumSeverities[0] = 0;
-            mSet->getPortDriver()->doCallbacksEnum(enumStrings, enumValues, enumSeverities, 
-                                                   1, mAsynIndex, 0);
+            if (mEnumStrings.empty() || (mEnumStrings[0] != "N.A.")) {
+                mEnumStrings.clear();
+                mEnumStrings.push_back("N.A.");
+                mEnumValues.clear();
+                mEnumValues.push_back(0);
+                char *enumStrings[1];
+                int enumValues[1];
+                int enumSeverities[1];
+                enumStrings[0] = epicsStrDup("N.A.");
+                enumValues[0] = 0;
+                enumSeverities[0] = 0;
+                mSet->getPortDriver()->doCallbacksEnum(enumStrings, enumValues, enumSeverities, 
+                                                       1, mAsynIndex, 0);
+            }
         }
         if (!isImplemented()) {
              WARN_ARGS("node %s is not implemented\n", mFeatureName.c_str());
@@ -333,18 +340,22 @@ int GenICamFeature::read(void *pValue, bool bSetParam)
                 std::vector<std::string> tempStrings;
                 std::vector<int> tempValues;
                 readEnumChoices(tempStrings, tempValues);
-                int numEnums = (int)tempStrings.size();
-                char **enumStrings = new char*[numEnums];
-                int *enumValues = new int[numEnums];
-                int *enumSeverities = new int[numEnums];
-                for (int i=0; i<numEnums; i++) {
-                    enumStrings[i] = epicsStrDup(tempStrings[i].c_str());
-                    enumValues[i] = tempValues[i];
-                    enumSeverities[i] = 0;
+                if ((tempStrings != mEnumStrings) || (tempValues != mEnumValues)) {
+                    mEnumStrings = tempStrings;
+                    mEnumValues = tempValues;
+                    int numEnums = (int)mEnumStrings.size();
+                    char **enumStrings = new char*[numEnums];
+                    int *enumValues = new int[numEnums];
+                    int *enumSeverities = new int[numEnums];
+                    for (int i=0; i<numEnums; i++) {
+                        enumStrings[i] = epicsStrDup(mEnumStrings[i].c_str());
+                        enumValues[i] = mEnumValues[i];
+                        enumSeverities[i] = 0;
+                    }
+                    mSet->getPortDriver()->doCallbacksEnum(enumStrings, enumValues, enumSeverities, 
+                                                           numEnums, mAsynIndex, 0);
+                    delete [] enumStrings; delete [] enumValues; delete [] enumSeverities;
                 }
-                mSet->getPortDriver()->doCallbacksEnum(enumStrings, enumValues, enumSeverities, 
-                                                     numEnums, mAsynIndex, 0);
-                delete [] enumStrings; delete [] enumValues; delete [] enumSeverities;
                 break;
             }
             case GCFeatureTypeString: {
@@ -533,6 +544,26 @@ int GenICamFeatureSet::readFeatures (vector<string> const & params)
     return status;
 }
 
+void GenICamFeature::report (FILE *fp, int details)
+{
+    fprintf(fp, "      Node name: %s\n",   mFeatureName.c_str());
+    fprintf(fp, "          value: %s\n",   getValueAsString().c_str());
+    if (details > 1) {
+        fprintf(fp, "      asynIndex: %d\n",   mAsynIndex);
+        fprintf(fp, "       asynName: %s\n",   mAsynName.c_str());
+        fprintf(fp, "       asynType: %d\n",   mAsynType);
+        fprintf(fp, "  isImplemented: %s\n",   isImplemented() ? "true" : "false");
+        fprintf(fp, "    isAvailable: %s\n",   isAvailable()   ? "true" : "false");
+        fprintf(fp, "     isReadable: %s\n",   isReadable()    ? "true" : "false");
+        fprintf(fp, "     isWritable: %s\n",   isWritable()    ? "true" : "false");
+        if (mFeatureType == GCFeatureTypeEnum) {
+            for (size_t i=0; i<mEnumStrings.size(); i++) {
+                fprintf(fp, "      enums [%d]: %s: %d\n", (int)i, mEnumStrings[i].c_str(), mEnumValues[i]);
+            }
+        }
+    }
+}
+
 void GenICamFeatureSet::report (FILE *fp, int details)
 {
     // Print out feature set
@@ -542,16 +573,6 @@ void GenICamFeatureSet::report (FILE *fp, int details)
     for (it=mFeatureMap.begin(); it != mFeatureMap.end(); it++) {
         p = it->second;
         fprintf(fp, "\n");
-        fprintf(fp, "      Node name: %s\n",   p->getFeatureName().c_str());
-        fprintf(fp, "          value: %s\n",   p->getValueAsString().c_str());
-        if (details > 1) {
-            fprintf(fp, "      asynIndex: %d\n",   p->getAsynIndex());
-            fprintf(fp, "       asynName: %s\n",   p->getAsynName().c_str());
-            fprintf(fp, "       asynType: %d\n",   p->getAsynType());
-            fprintf(fp, "  isImplemented: %s\n",   p->isImplemented() ? "true" : "false");
-            fprintf(fp, "    isAvailable: %s\n",   p->isAvailable()   ? "true" : "false");
-            fprintf(fp, "     isReadable: %s\n",   p->isReadable()    ? "true" : "false");
-            fprintf(fp, "     isWritable: %s\n",   p->isWritable()    ? "true" : "false");
-       }
+        p->report(fp, details);
     }
 }
