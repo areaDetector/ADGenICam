@@ -1,5 +1,5 @@
 ======================================
-areaDetector GenICam base class driver
+ADGenICam
 ======================================
 
 :author: Mark Rivers, University of Chicago
@@ -88,6 +88,10 @@ There is a new ADAravis_ driver.  This driver also uses
 aravis_, but it differs from aravisGigE_ by using this ADGenICam_ base class to significantly reduce the amount of code.
 Many of the ideas in ADGenICam_ were borrowed from aravisGigE_.
 
+.. _ADGenICam_Installing_aravis:
+
+Installing aravis
+-----------------
 The aravis_ package is required for aravisGigE_ and ADAravis_ drivers.  It is also required to extract
 the XML file from the camera, even when using drivers that are not based on aravis_, e.g. the
 ADSpinnaker_ driver or the ADVimba_ driver.  ADSpinnaker_ and ADVimba_ can run on Windows, but the XML
@@ -97,8 +101,9 @@ aravisGigE_ builds the aravis_ package in its vendor/ directory.
 You can also build aravis_ outside of areaDetector, for example in /usr/local.
 aravis_ may be added to ADSupport_ in the future.
 
-Reading the XML file from the camera
-------------------------------------
+
+Downloading the XML file
+------------------------
 To use the ADGenICam driver it is first necessary to download the XML file from the camera.
 To my knowledge the only code available to download the XML file from any GenICam camera
 is the **arv-tool** program that is included in the aravis package.  This means that the aravis
@@ -129,8 +134,13 @@ Then download the XML file with the command `arv-tool -n cameraName genicam > XM
   -rw-r--r-- 1 epics domain users 932059 May 31 10:16 FLIR_ORX_10G_51S5.xml
   -rw-r--r-- 1 epics domain users 317859 Jun  2 09:17 PGR_Blackfly_20E4C.xml
 
+.. _ADGenICam_Python_scripts:
+
+Python scripts
+--------------
+
 Python script to create EPICS database
---------------------------------------
+======================================
 **ADGenICam/scripts/makeDb.py** is a Python program to read the XML file and produce an EPICS database (.template) file.
 The first argument is the name of the XML file and the second argument is the name of the .template file.
 For example::
@@ -205,7 +215,7 @@ aravisGigE produces `$(P)$(R)AcquisitionFram6`, which is different from what is 
 This is because the number of duplicate names after truncation is different for the 2 cameras.
 
 Python script to create medm screens
-------------------------------------
+====================================
 **ADGenICam/scripts/makeAdl.py** is a Python program to read the XML file and produce a medm (.adl) files.
 The first argument is the name of the XML file and the second argument is the base name of the adl files.
 The medm files are **[baseFile]-features1.adl**, **[baseFile]-features2.adl**, etc.
