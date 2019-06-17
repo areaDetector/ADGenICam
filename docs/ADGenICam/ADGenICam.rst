@@ -503,6 +503,22 @@ described above.  These parameters are intended to abstract the most commonly us
 - Exist even if there is no corresponding GenICam feature for a specific camera, so that OPI screens don't show invalid widgets
   and scripts will not generate errors due to non-existent PVs.
 
+.. cssclass:: table-bordered table-striped table-hover
+.. csv-table::
+   :header: Record names, Record types, GenICam features
+   :delim: |
+   :widths: auto
+
+   FrameRate, FrameRate_RBV | ao, ai | FrameRate or FrameRateAbs
+   FrameRateEnable, FrameRateEnable_RBV | bo, bi| FrameRateEnable or FrameRateEnabled
+   TriggerSource, TriggerSource_RBV | mbbo, mbbi | TriggerSource
+   TriggerOverlap, TriggerOverlap_RBV | mbbo, mbbi | TriggerOverlap
+   TriggerSoftware | bo | TriggerSoftware
+   ExposureMode, ExposureMode_RBV | mbbo, mbbi | ExposureMode
+   ExposureAuto, ExposureAuto_RBV | mbbo, mbbi | ExposureAuto
+   GainAuto, GainAuto_RBV | mbbo, mbbi | GainAuto
+   PixelFormat, PixelFormat_RBV | mbbo, mbbi | PixelFormat
+   
 .. _ADGenICam_Linux_System_Settings:
 
 Linux USB and GigE System Settings
