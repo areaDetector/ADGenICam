@@ -504,20 +504,50 @@ described above.  These parameters are intended to abstract the most commonly us
   and scripts will not generate errors due to non-existent PVs.
 
 .. cssclass:: table-bordered table-striped table-hover
-.. csv-table::
-   :header: Record names, Record types, GenICam features
-   :delim: |
+.. list-table::
+   :header-rows: 1
    :widths: auto
 
-   FrameRate, FrameRate_RBV | ao, ai | FrameRate or FrameRateAbs
-   FrameRateEnable, FrameRateEnable_RBV | bo, bi| FrameRateEnable or FrameRateEnabled
-   TriggerSource, TriggerSource_RBV | mbbo, mbbi | TriggerSource
-   TriggerOverlap, TriggerOverlap_RBV | mbbo, mbbi | TriggerOverlap
-   TriggerSoftware | bo | TriggerSoftware
-   ExposureMode, ExposureMode_RBV | mbbo, mbbi | ExposureMode
-   ExposureAuto, ExposureAuto_RBV | mbbo, mbbi | ExposureAuto
-   GainAuto, GainAuto_RBV | mbbo, mbbi | GainAuto
-   PixelFormat, PixelFormat_RBV | mbbo, mbbi | PixelFormat
+   * - Record names
+     - Record types
+     - GenICam features
+     - Description
+   * - FrameRate, FrameRate_RBV
+     - ao, ai
+     - FrameRate or FrameRateAbs
+     - Frame rate in frames/s
+   * - FrameRateEnable, FrameRateEnable_RBV
+     - bo, bi
+     - FrameRateEnable or FrameRateEnabled
+     - Enables/disables frame rate.  If disabled then exposure time or readout time determines frame rate.
+   * - TriggerSource, TriggerSource_RBV
+     - mbbo, mbbi
+     - TriggerSource
+     - Source of trigger signals.
+   * - TriggerOverlap, TriggerOverlap_RBV
+     - mbbo, mbbi
+     - TriggerOverlap
+     - Controls whether trigger signals can overlap the exposure or readout.
+   * - TriggerSoftware
+     - bo
+     - TriggerSoftware
+     - Generates a software trigger when processed.
+   * - ExposureMode, ExposureMode_RBV
+     - mbbo, mbbi
+     - ExposureMode
+     - Typical values are **Timed** and **TriggerWidth**.
+   * - ExposureAuto, ExposureAuto_RBV
+     - mbbo, mbbi
+     - ExposureAuto
+     - Enables automatically changing the **ExposureTime** for optimal image.
+   * - GainAuto, GainAuto_RBV
+     - mbbo, mbbi
+     - GainAuto
+     - Enables automatically changing the **Gain** for optimal image.
+   * - PixelFormat, PixelFormat_RBV
+     - mbbo, mbbi
+     - PixelFormat
+     - Typical values are **Mono8**, **Mono16**, **RGB8Packed**, etc. 
    
 .. _ADGenICam_Linux_System_Settings:
 
