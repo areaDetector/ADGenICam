@@ -23,7 +23,7 @@ This is an :doc:`../index` base class driver for GenICam cameras.
 GenICam_ is a Generic Interface for Cameras from the European Machine Vision Association (EMVA). 
 The stated goal of GenICam is:
 
-  The goal of GenICam (Generic Interface for Cameras) is to provide a generic programming interface for 
+- The goal of GenICam (Generic Interface for Cameras) is to provide a generic programming interface for 
   all kinds of devices (mainly cameras), no matter what interface technology (GigE Vision, USB3 Vision, CoaXPress, 
   Camera Link HS, Camera Link etc.) they are using or what features they are implementing. 
   The result is that the application programming interface (API) will be identical regardless 
@@ -492,6 +492,72 @@ This is the output of **asynReport** with **details** increased from 1 to 2 so a
        isReadable: true
        isWritable: true
   ...  
+
+ADGenICam driver parameters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ADGenICam adds a number of driver parameters, beyond those in the ADDriver base class and the camera-specific parameters
+described above.  These parameters are intended to abstract the most commonly used GenICam features so that they:
+
+- Have the same EPICS record names regardless of the actual GenICam feature name.
+- Exist even if there is no corresponding GenICam feature for a specific camera, so that OPI screens don't show invalid widgets
+  and scripts will not generate errors due to non-existent PVs.
+
+.. _ADGenICam_Linux_System_Settings:
+
+Linux USB and GigE System Settings
+----------------------------------
+
+In order to run GigE and USB-3 cameras at their full frame rates on Linux it is necessary to change some
+of the default Linux system settings.
+
+For GigE cameras the default values of the net.core.rmem_max and net.core.rmem_default are typically much to low
+(~200 KB) for optimal performance of GigE and 10 GigE cameras.  These should be increased to 8 MB.  To set the
+values immediately execute the following commands as root::
+
+  sysctl -w net.core.rmem_max=8388608 net.core.rmem_default=8388608
+
+
+To make the settings permanent add these lines to /etc/sysctl.conf::
+
+  net.core.rmem_max=8388608
+  net.core.rmem_default=8388608
+
+
+For USB-3 cameras by default Linux limits image capture to 2 MB. 
+To capture images over 2 MB, extend the USBFS limit on how many buffers can be locked into the driver. 
+This is done by updating the boot params in grub. You can set the memory limit until the next reboot, or set it permanently.
+
+To set the maximum usbfs memory limit until the next reboot, run this command as root::
+ 
+  modprobe usbcore usbfs_memory_mb=1000
+
+
+This method does not work with Ubuntu 14.04 or newer. With Ubuntu 14.04, users must set the memory limit permanently.
+
+To set the maximum usbfs memory limit permanently:
+
+Open the /etc/default/grub file in any text editor. Find and replace::
+
+  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+
+with this::
+
+  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash usbcore.usbfs_memory_mb=1000"
+
+Update grub with these settings::
+
+  update-grub
+
+Reboot and test a USB 3 camera.
+
+If this method fails to set the memory limit, run the following command::
+
+  sh -c 'echo 1000 > /sys/module/usbcore/parameters/usbfs_memory_mb'
+
+To confirm that you have successfully updated the memory limit, run the following command::
+
+  cat /sys/module/usbcore/parameters/usbfs_memory_mb
 
 MEDM screens
 ------------
