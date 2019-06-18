@@ -417,7 +417,7 @@ asynStatus ADGenICam::addADDriverFeatures()
         {ADTemperatureActual, "DeviceTemperature",     GCFeatureTypeDouble},
         {GCTriggerSource,     "TriggerSource",         GCFeatureTypeEnum},
         {GCTriggerOverlap,    "TriggerOverlap",        GCFeatureTypeEnum},
-        {GCTriggerSoftware,   "TriggerSofyware",       GCFeatureTypeCmd},
+        {GCTriggerSoftware,   "TriggerSoftware",       GCFeatureTypeCmd},
         {GCExposureMode,      "ExposureMode",          GCFeatureTypeEnum},
         {GCExposureAuto,      "ExposureAuto",          GCFeatureTypeEnum},
         {GCGainAuto,          "GainAuto",              GCFeatureTypeEnum},
