@@ -557,9 +557,10 @@ void GenICamFeature::report (FILE *fp, int details)
         fprintf(fp, "    isAvailable: %s\n",   isAvailable()   ? "true" : "false");
         fprintf(fp, "     isReadable: %s\n",   isReadable()    ? "true" : "false");
         fprintf(fp, "     isWritable: %s\n",   isWritable()    ? "true" : "false");
-        if (mFeatureType == GCFeatureTypeEnum) {
-            for (size_t i=0; i<mEnumStrings.size(); i++) {
-                fprintf(fp, "      enums [%d]: %s: %d\n", (int)i, mEnumStrings[i].c_str(), mEnumValues[i]);
+        if ((mFeatureType == GCFeatureTypeEnum) && (mEnumStrings.size() > 0)) {
+            fprintf(fp, "          enums: %d: %s\n", mEnumValues[0], mEnumStrings[0].c_str());
+            for (size_t i=1; i<mEnumStrings.size(); i++) {
+                fprintf(fp, "                 %d: %s\n", mEnumValues[i], mEnumStrings[i].c_str());
             }
         }
     }
