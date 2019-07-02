@@ -269,7 +269,7 @@ int GenICamFeature::read(void *pValue, bool bSetParam)
     if (!isImplemented()) return EXIT_FAILURE;
     FLOW_ARGS("reading %s", mFeatureName.c_str());
     try {
-        if ((mFeatureType == GCFeatureTypeEnum) &&
+        if ((mFeatureType == GCFeatureTypeEnum) && (mAsynName != "IMAGE_MODE") &&
             (!isImplemented() || !isAvailable() || !isWritable())) {
             if (mEnumStrings.empty() || (mEnumStrings[0] != "N.A.")) {
                 mEnumStrings.clear();
