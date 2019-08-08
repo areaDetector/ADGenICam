@@ -4,6 +4,7 @@
 #include <epicsString.h>
 #include <ADDriver.h>
 
+#include <epicsExport.h>
 #include "GenICamFeature.h"
 
 // Error message formatters
