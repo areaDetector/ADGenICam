@@ -34,7 +34,7 @@ typedef enum {
 
 class GenICamFeatureSet;
 
-class GenICamFeature
+class epicsShareClass GenICamFeature
 {
 
 private:
@@ -112,7 +112,7 @@ public:
 typedef std::multimap<std::string, GenICamFeature*> GCFeatureMap_t;
 typedef std::map<int, GenICamFeature*> GCAsynMap_t;
 
-class GenICamFeatureSet
+class epicsShareClass GenICamFeatureSet
 {
 private:
     asynPortDriver *mPortDriver;
