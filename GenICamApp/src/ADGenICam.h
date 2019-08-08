@@ -15,7 +15,7 @@
 #define GCGainAutoString            "GC_GAIN_AUTO"              // asynParamInt32, R/W
 #define GCPixelFormatString         "GC_PIXEL_FORMAT"           // asynParamInt32, R/W
 
-class ADGenICam : public ADDriver
+class epicsShareClass ADGenICam : public ADDriver
 {
 public:
     ADGenICam(const char *portName, size_t maxMemory, int priority, int stackSize);
