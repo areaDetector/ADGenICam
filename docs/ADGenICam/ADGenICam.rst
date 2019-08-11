@@ -174,7 +174,7 @@ For example::
 
 Note that there were some warnings from makeDb.py about more than 16 enumeration options.
 Some GenICam cameras support more than 16 choices for some enumeration features, but EPICS mbbo/mbbi records are limited to 16. 
-Hoowever, this warning is usually not significant, because the XML file contains all possible values for the enum choices,
+However, this warning is usually not significant, because the XML file contains all possible values for the enum choices,
 but at run-time ADGenICam limits the choices to those actually available for the current camera and operating mode,
 and in practice appears never to be more than 16.
 Ignore the warning about `Don't know what to do with Register`, the register entries are not needed.
