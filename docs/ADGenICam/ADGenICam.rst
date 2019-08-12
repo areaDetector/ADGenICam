@@ -114,6 +114,8 @@ The following shows the steps to build and install aravis 0.6.3 on a Centos 7 ma
 The steps above will be different if you do not have root access and need to install elsewhere,
 or if you are running another OS like Ubuntu where `apt install` is used in place of `yum install`.
 
+.. _ADGenICam_Download_XML:
+
 Downloading the XML file
 ------------------------
 To use the ADGenICam driver it is first necessary to download the XML file from the camera.
@@ -757,3 +759,19 @@ and by the maximum screen size specified in the Python program.
 
 .. figure:: ADGenICam_features4.png
     :align: center
+
+
+Known issues
+------------    
+- New cameras use the Gain feature, which is a double.  Some old cameras use GainRaw or GainRawChannelB which is an integer.
+  The ADGain parameter cannot be used for GainRawChannelB because the data types don't match, so one must use feature itself.
+
+- Some cameras use an integer for the AcquireTime or AcquirePeriod features.  These won't work, the data types won't match, so one must use raw feature.
+
+  - These problems could possibly be fixed by checking for the case when asynType is different from expected.
+
+- BinningMode feature is only supported by raw feature.  I have no way to test this, I don't have any cameras with that feature.
+
+  - aravisGige allowed setting the binning with ADBinX and ADBinY even if BinningMode only supported certain enums.
+
+
