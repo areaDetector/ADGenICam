@@ -13,7 +13,7 @@ files respectively, in the configure/ directory of the appropriate release of th
 Release Notes
 =============
 
-R1-0 (11-August-2019)
+R1-0 (12-August-2019)
 ----
 * Initial release
 
