@@ -1,5 +1,5 @@
 #!/bin/env python
-import os, sys
+import os, sys, re
 from xml.dom.minidom import parseString
 from optparse import OptionParser
 
@@ -58,9 +58,20 @@ def handle_node(node):
     elif node.hasAttribute("Name"):
         name = str(node.getAttribute("Name"))
         lookup[name] = node
-        recordName = name
-        if len(recordName) > 16:
-            recordName = recordName[:16]
+        # Add a leading GC_ to the name to prevent identical record names to those in ADBase.template
+        recordName = "GC_" + name
+        if len(recordName) > 20:
+            words=re.findall('[a-zA-Z][^A-Z]*', recordName)
+            for i in range(len(words)):
+                word = words[i]
+                if (len(word) > 3):
+                    word = word[:3]
+                    words[i] = word
+                    s = ''
+                    recordName = s.join(words)
+                    if (len(recordName) <= 20): break
+        if len(recordName) > 20:                    
+            recordName = recordName[:20]
         i = 0
         while recordName in records.values():
             recordName = recordName[:-len(str(i))] + str(i)
@@ -627,7 +638,7 @@ release 0
 x 0
 y 470
 w 390
-h 110
+h 140
 fgColor index 14
 bgColor index 3
 topShadowColor index 1
