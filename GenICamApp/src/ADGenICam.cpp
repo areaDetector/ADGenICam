@@ -374,6 +374,15 @@ asynStatus ADGenICam::drvUserCreate(asynUser *pasynUser, const char *drvInfo,
             p->read(NULL, true);
         }
 
+        // Make a single parameter that maps to either DeviceSerialNumber or DeviceID (used by AVT)
+        if ((featureName == "DeviceSerialNumber") || (featureName == "DeviceID")) {
+            GenICamFeature *p = createFeature(&mGCFeatureSet, ADSerialNumberString, asynParamOctet, ADSerialNumber,
+                                              featureName, featureType);
+            if (p) mGCFeatureSet.insert(p, featureName);
+            // Do an initial read of the feature so EPICS output records initialize to this value
+            p->read(NULL, true);
+        }
+
         // We need to map the areaDetector ImageMode to the GenICam AcquisitionMode.
         // GenICam seems to use consistent enum strings, but not enum values
         if (featureName == "AcquisitionMode") {
@@ -399,7 +408,6 @@ asynStatus ADGenICam::addADDriverFeatures()
     } stdParam;
     stdParam params[] = {
         {ADImageMode,         "AcquisitionMode",       GCFeatureTypeEnum},
-        {ADSerialNumber,      "DeviceSerialNumber",    GCFeatureTypeString},
         {ADFirmwareVersion,   "DeviceFirmwareVersion", GCFeatureTypeString},
         {ADManufacturer,      "DeviceVendorName",      GCFeatureTypeString},
         {ADModel,             "DeviceModelName",       GCFeatureTypeString},
