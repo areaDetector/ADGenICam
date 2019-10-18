@@ -7,8 +7,8 @@
     	object {
     		x=50
     		y=50
-    		width=1565
-    		height=875
+    		width=1460
+    		height=820
     	}
     	clr=14
     	bclr=4
@@ -92,7 +92,7 @@
     	object {
     		x=0
     		y=4
-    		width=1565
+    		width=1460
     		height=25
     	}
     	"basic attribute" {
@@ -104,7 +104,7 @@
 			object {
 				x=0
 				y=5
-				width=1565
+				width=1460
 				height=24
 			}
 			"basic attribute" {
@@ -118,8 +118,8 @@
     	object {
     		x=5
     		y=40
-    		width=385
-    		height=230
+    		width=480
+    		height=55
     	}
     	"basic attribute" {
     		clr=14
@@ -131,7 +131,7 @@
     	object {
     		x=10
     		y=45
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -142,7 +142,1401 @@
     	object {
     		x=10
     		y=45
-    		width=375
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=54
+    	}
+    	textix="  AcquisitionControl2"
+    	align="horiz. centered"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=70
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="pgrHDR_GainAbs"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=70
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_pgrHDR_GainAbs"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=70
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_pgrHDR_GainAbs_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    # (Rectangle)
+    rectangle {
+    	object {
+    		x=5
+    		y=100
+    		width=480
+    		height=705
+    	}
+    	"basic attribute" {
+    		clr=14
+    		fill="outline"
+    	}
+    }
+    
+    rectangle {
+    	object {
+    		x=10
+    		y=105
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=2
+    	}
+    }
+    text {
+    	object {
+    		x=10
+    		y=105
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=54
+    	}
+    	textix="  ImageFormatControl"
+    	align="horiz. centered"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=130
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="PixelFormat"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=130
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_PixelFormat"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=130
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_PixelFormat_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=155
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="PixelCoding"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=155
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_PixelCoding"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=155
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_PixelCoding_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=180
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="pgrPixelBigEndian"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=180
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_pgrPixelBigEndian"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=180
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_pgrPixelBigEndian_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=205
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="OnBoardColorProcessEnabled"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=205
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_OnBoaColProEna"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=205
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_OnBoaColProEna_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=230
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="Width"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=230
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_Width"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=230
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_Width_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=255
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="Height"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=255
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_Height"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=255
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_Height_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=280
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="OffsetX"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=280
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_OffsetX"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=280
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_OffsetX_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=305
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="OffsetY"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=305
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_OffsetY"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=305
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_OffsetY_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=330
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SensorWidth"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=330
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_SensorWidth"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=330
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_SensorWidth_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=355
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SensorHeight"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=355
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_SensorHeight"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=355
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_SensorHeight_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=380
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SensorShutterMode"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=380
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_SensorShutterMode"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=380
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_SensorShutterMode_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=405
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="WidthMax"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=405
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_WidthMax"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=405
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_WidthMax_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=430
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="HeightMax"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=430
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_HeightMax"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=430
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_HeightMax_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=455
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="VideoMode"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=455
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_VideoMode"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=455
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_VideoMode_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=480
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="BinningHorizontal"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=480
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_BinningHorizontal"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=480
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_BinningHorizontal_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=505
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="BinningVertical"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=505
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_BinningVertical"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=505
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_BinningVertical_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=530
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="BinningControl"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=530
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_BinningControl"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=530
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_BinningControl_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=555
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DecimationHorizontal"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=555
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_DecHorizontal"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=555
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_DecHorizontal_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=580
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DecimationVertical"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=580
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_DecVertical"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=580
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_DecVertical_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=605
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="ReverseX"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=605
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_ReverseX"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=605
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_ReverseX_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=630
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="ReverseY"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=630
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_ReverseY"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=630
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_ReverseY_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=655
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="PixelSize"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=655
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_PixelSize"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=655
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_PixelSize_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=680
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="PixelColorFilter"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=680
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_PixelColorFilter"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=680
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_PixelColorFilter_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=705
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="PixelDynamicRangeMin"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=705
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_PixDynRangeMin"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=705
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_PixDynRangeMin_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=730
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="PixelDynamicRangeMax"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=730
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_PixDynRangeMax"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=730
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_PixDynRangeMax_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=755
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="TestImageSelector"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=755
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_TestImageSelector"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=755
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_TestImageSelector_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=780
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="TestPattern"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=780
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_TestPattern"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=780
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_TestPattern_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    # (Rectangle)
+    rectangle {
+    	object {
+    		x=490
+    		y=40
+    		width=480
+    		height=230
+    	}
+    	"basic attribute" {
+    		clr=14
+    		fill="outline"
+    	}
+    }
+    
+    rectangle {
+    	object {
+    		x=495
+    		y=45
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=2
+    	}
+    }
+    text {
+    	object {
+    		x=495
+    		y=45
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -155,7 +1549,7 @@
 # (Static Text)
 		text {
 			object {
-				x=10
+				x=495
 				y=70
 				width=220
 				height=16
@@ -169,22 +1563,39 @@
     # (Menu Button)
 		menu {
 			object {
-				x=235
+				x=720
 				y=70
-				width=150
+				width=120
 				height=20
 			}
 			control {
-				chan="$(P)$(R)pgrDefectPixelCo"
+				chan="$(P)$(R)GC_pDefPixCorType"
 				clr=14
 				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=70
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_pDefPixCorType_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
 			}
 		}
     
 # (Static Text)
 		text {
 			object {
-				x=10
+				x=495
 				y=95
 				width=220
 				height=14
@@ -198,22 +1609,39 @@
     # (Menu Button)
 		menu {
 			object {
-				x=235
+				x=720
 				y=95
-				width=150
+				width=120
 				height=20
 			}
 			control {
-				chan="$(P)$(R)pgrDefectPixelC0"
+				chan="$(P)$(R)GC_pDefPixCorEnable"
 				clr=14
 				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=95
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_pDefPixCorEnable_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
 			}
 		}
     
 # (Static Text)
 		text {
 			object {
-				x=10
+				x=495
 				y=120
 				width=220
 				height=14
@@ -227,22 +1655,39 @@
     # (Menu Button)
 		menu {
 			object {
-				x=235
+				x=720
 				y=120
-				width=150
+				width=120
 				height=20
 			}
 			control {
-				chan="$(P)$(R)pgrDefectPixelC1"
+				chan="$(P)$(R)GC_pDefPixCorTesMode"
 				clr=14
 				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=120
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_pDefPixCorTesMode_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
 			}
 		}
     
 # (Static Text)
 		text {
 			object {
-				x=10
+				x=495
 				y=145
 				width=220
 				height=14
@@ -256,13 +1701,13 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=235
+				x=720
 				y=145
 				width=60
 				height=20
 			}
 			control {
-				chan="$(P)$(R)pgrCurrentCorrec"
+				chan="$(P)$(R)GC_pCurCorPixelCount"
 				clr=14
 				bclr=51
 			}
@@ -272,13 +1717,13 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=300
+				x=785
 				y=145
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)pgrCurrentCorrec_RBV"
+				chan="$(P)$(R)GC_pCurCorPixelCount_RBV"
 				clr=54
 				bclr=4
 			}
@@ -290,7 +1735,7 @@
 # (Static Text)
 		text {
 			object {
-				x=10
+				x=495
 				y=170
 				width=220
 				height=14
@@ -304,13 +1749,13 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=235
+				x=720
 				y=170
 				width=60
 				height=20
 			}
 			control {
-				chan="$(P)$(R)pgrCurrentCorre0"
+				chan="$(P)$(R)GC_pCurCorPixelIndex"
 				clr=14
 				bclr=51
 			}
@@ -320,13 +1765,13 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=300
+				x=785
 				y=170
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)pgrCurrentCorre0_RBV"
+				chan="$(P)$(R)GC_pCurCorPixelIndex_RBV"
 				clr=54
 				bclr=4
 			}
@@ -338,7 +1783,7 @@
 # (Static Text)
 		text {
 			object {
-				x=10
+				x=495
 				y=195
 				width=220
 				height=14
@@ -352,13 +1797,13 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=235
+				x=720
 				y=195
 				width=60
 				height=20
 			}
 			control {
-				chan="$(P)$(R)pgrCurrentCorre1"
+				chan="$(P)$(R)GC_pCurCorPixOffsetX"
 				clr=14
 				bclr=51
 			}
@@ -368,13 +1813,13 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=300
+				x=785
 				y=195
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)pgrCurrentCorre1_RBV"
+				chan="$(P)$(R)GC_pCurCorPixOffsetX_RBV"
 				clr=54
 				bclr=4
 			}
@@ -386,7 +1831,7 @@
 # (Static Text)
 		text {
 			object {
-				x=10
+				x=495
 				y=220
 				width=220
 				height=14
@@ -400,13 +1845,13 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=235
+				x=720
 				y=220
 				width=60
 				height=20
 			}
 			control {
-				chan="$(P)$(R)pgrCurrentCorre2"
+				chan="$(P)$(R)GC_pCurCorPixOffsetY"
 				clr=14
 				bclr=51
 			}
@@ -416,13 +1861,13 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=300
+				x=785
 				y=220
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)pgrCurrentCorre2_RBV"
+				chan="$(P)$(R)GC_pCurCorPixOffsetY_RBV"
 				clr=54
 				bclr=4
 			}
@@ -434,7 +1879,7 @@
 # (Static Text)
 		text {
 			object {
-				x=10
+				x=495
 				y=245
 				width=220
 				height=16
@@ -448,13 +1893,13 @@
     # (Message Button)
     "message button" {
     	object {
-    		x=235
+    		x=720
     		y=245
-    		width=150
+    		width=200
     		height=20
     	}
     	control {
-    		chan="$(P)$(R)pgrCurrentCorre3.PROC"
+    		chan="$(P)$(R)GC_pCurCorPixelSave.PROC"
     		clr=14
     		bclr=51
     	}
@@ -464,9 +1909,9 @@
     # (Rectangle)
     rectangle {
     	object {
-    		x=5
+    		x=490
     		y=275
-    		width=385
+    		width=480
     		height=180
     	}
     	"basic attribute" {
@@ -477,9 +1922,9 @@
     
     rectangle {
     	object {
-    		x=10
+    		x=495
     		y=280
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -488,9 +1933,9 @@
     }
     text {
     	object {
-    		x=10
+    		x=495
     		y=280
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -503,7 +1948,7 @@
 # (Static Text)
 		text {
 			object {
-				x=10
+				x=495
 				y=305
 				width=220
 				height=20
@@ -517,13 +1962,13 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=235
+				x=720
 				y=305
 				width=60
 				height=20
 			}
 			control {
-				chan="$(P)$(R)UserSetCurrent"
+				chan="$(P)$(R)GC_UserSetCurrent"
 				clr=14
 				bclr=51
 			}
@@ -533,13 +1978,13 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=300
+				x=785
 				y=305
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)UserSetCurrent_RBV"
+				chan="$(P)$(R)GC_UserSetCurrent_RBV"
 				clr=54
 				bclr=4
 			}
@@ -551,7 +1996,7 @@
 # (Static Text)
 		text {
 			object {
-				x=10
+				x=495
 				y=330
 				width=220
 				height=20
@@ -565,22 +2010,39 @@
     # (Menu Button)
 		menu {
 			object {
-				x=235
+				x=720
 				y=330
-				width=150
+				width=120
 				height=20
 			}
 			control {
-				chan="$(P)$(R)UserSetSelector"
+				chan="$(P)$(R)GC_UserSetSelector"
 				clr=14
 				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=330
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_UserSetSelector_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
 			}
 		}
     
 # (Static Text)
 		text {
 			object {
-				x=10
+				x=495
 				y=355
 				width=220
 				height=20
@@ -594,13 +2056,13 @@
     # (Message Button)
     "message button" {
     	object {
-    		x=235
+    		x=720
     		y=355
-    		width=150
+    		width=200
     		height=20
     	}
     	control {
-    		chan="$(P)$(R)UserSetLoad.PROC"
+    		chan="$(P)$(R)GC_UserSetLoad.PROC"
     		clr=14
     		bclr=51
     	}
@@ -611,7 +2073,7 @@
 # (Static Text)
 		text {
 			object {
-				x=10
+				x=495
 				y=380
 				width=220
 				height=20
@@ -625,13 +2087,13 @@
     # (Message Button)
     "message button" {
     	object {
-    		x=235
+    		x=720
     		y=380
-    		width=150
+    		width=200
     		height=20
     	}
     	control {
-    		chan="$(P)$(R)UserSetSave.PROC"
+    		chan="$(P)$(R)GC_UserSetSave.PROC"
     		clr=14
     		bclr=51
     	}
@@ -642,7 +2104,7 @@
 # (Static Text)
 		text {
 			object {
-				x=10
+				x=495
 				y=405
 				width=220
 				height=20
@@ -656,22 +2118,39 @@
     # (Menu Button)
 		menu {
 			object {
-				x=235
+				x=720
 				y=405
-				width=150
+				width=120
 				height=20
 			}
 			control {
-				chan="$(P)$(R)UserSetDefault"
+				chan="$(P)$(R)GC_UserSetDefault"
 				clr=14
 				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=405
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_UserSetDefault_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
 			}
 		}
     
 # (Static Text)
 		text {
 			object {
-				x=10
+				x=495
 				y=430
 				width=220
 				height=20
@@ -685,23 +2164,40 @@
     # (Menu Button)
 		menu {
 			object {
-				x=235
+				x=720
 				y=430
-				width=150
+				width=120
 				height=20
 			}
 			control {
-				chan="$(P)$(R)UserSetDefaultSe"
+				chan="$(P)$(R)GC_UseSetDefSelector"
 				clr=14
 				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=430
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_UseSetDefSelector_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
 			}
 		}
     # (Rectangle)
     rectangle {
     	object {
-    		x=5
+    		x=490
     		y=460
-    		width=385
+    		width=480
     		height=355
     	}
     	"basic attribute" {
@@ -712,9 +2208,9 @@
     
     rectangle {
     	object {
-    		x=10
+    		x=495
     		y=465
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -723,9 +2219,9 @@
     }
     text {
     	object {
-    		x=10
+    		x=495
     		y=465
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -738,7 +2234,7 @@
 # (Static Text)
 		text {
 			object {
-				x=10
+				x=495
 				y=490
 				width=220
 				height=20
@@ -752,22 +2248,39 @@
     # (Menu Button)
 		menu {
 			object {
-				x=235
+				x=720
 				y=490
-				width=150
+				width=120
 				height=20
 			}
 			control {
-				chan="$(P)$(R)LineSelector"
+				chan="$(P)$(R)GC_LineSelector"
 				clr=14
 				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=490
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_LineSelector_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
 			}
 		}
     
 # (Static Text)
 		text {
 			object {
-				x=10
+				x=495
 				y=515
 				width=220
 				height=20
@@ -781,22 +2294,39 @@
     # (Menu Button)
 		menu {
 			object {
-				x=235
+				x=720
 				y=515
-				width=150
+				width=120
 				height=20
 			}
 			control {
-				chan="$(P)$(R)LineMode"
+				chan="$(P)$(R)GC_LineMode"
 				clr=14
 				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=515
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_LineMode_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
 			}
 		}
     
 # (Static Text)
 		text {
 			object {
-				x=10
+				x=495
 				y=540
 				width=220
 				height=20
@@ -810,22 +2340,39 @@
     # (Menu Button)
 		menu {
 			object {
-				x=235
+				x=720
 				y=540
-				width=150
+				width=120
 				height=20
 			}
 			control {
-				chan="$(P)$(R)LineSource"
+				chan="$(P)$(R)GC_LineSource"
 				clr=14
 				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=540
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_LineSource_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
 			}
 		}
     
 # (Static Text)
 		text {
 			object {
-				x=10
+				x=495
 				y=565
 				width=220
 				height=20
@@ -839,22 +2386,39 @@
     # (Menu Button)
 		menu {
 			object {
-				x=235
+				x=720
 				y=565
-				width=150
+				width=120
 				height=20
 			}
 			control {
-				chan="$(P)$(R)LineInverter"
+				chan="$(P)$(R)GC_LineInverter"
 				clr=14
 				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=565
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_LineInverter_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
 			}
 		}
     
 # (Static Text)
 		text {
 			object {
-				x=10
+				x=495
 				y=590
 				width=220
 				height=20
@@ -868,13 +2432,13 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=235
+				x=720
 				y=590
 				width=60
 				height=20
 			}
 			control {
-				chan="$(P)$(R)StrobeDelay"
+				chan="$(P)$(R)GC_StrobeDelay"
 				clr=14
 				bclr=51
 			}
@@ -884,13 +2448,13 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=300
+				x=785
 				y=590
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)StrobeDelay_RBV"
+				chan="$(P)$(R)GC_StrobeDelay_RBV"
 				clr=54
 				bclr=4
 			}
@@ -902,7 +2466,7 @@
 # (Static Text)
 		text {
 			object {
-				x=10
+				x=495
 				y=615
 				width=220
 				height=20
@@ -916,13 +2480,13 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=235
+				x=720
 				y=615
 				width=60
 				height=20
 			}
 			control {
-				chan="$(P)$(R)StrobeDuration"
+				chan="$(P)$(R)GC_StrobeDuration"
 				clr=14
 				bclr=51
 			}
@@ -932,13 +2496,13 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=300
+				x=785
 				y=615
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)StrobeDuration_RBV"
+				chan="$(P)$(R)GC_StrobeDuration_RBV"
 				clr=54
 				bclr=4
 			}
@@ -950,7 +2514,7 @@
 # (Static Text)
 		text {
 			object {
-				x=10
+				x=495
 				y=640
 				width=220
 				height=20
@@ -964,13 +2528,13 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=235
+				x=720
 				y=640
 				width=60
 				height=20
 			}
 			control {
-				chan="$(P)$(R)LineDebouncerTim"
+				chan="$(P)$(R)GC_LinDebTimeRaw"
 				clr=14
 				bclr=51
 			}
@@ -980,13 +2544,13 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=300
+				x=785
 				y=640
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)LineDebouncerTim_RBV"
+				chan="$(P)$(R)GC_LinDebTimeRaw_RBV"
 				clr=54
 				bclr=4
 			}
@@ -998,7 +2562,7 @@
 # (Static Text)
 		text {
 			object {
-				x=10
+				x=495
 				y=665
 				width=220
 				height=20
@@ -1012,22 +2576,39 @@
     # (Menu Button)
 		menu {
 			object {
-				x=235
+				x=720
 				y=665
-				width=150
+				width=120
 				height=20
 			}
 			control {
-				chan="$(P)$(R)LineStatus"
+				chan="$(P)$(R)GC_LineStatus"
 				clr=14
 				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=665
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_LineStatus_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
 			}
 		}
     
 # (Static Text)
 		text {
 			object {
-				x=10
+				x=495
 				y=690
 				width=220
 				height=20
@@ -1041,13 +2622,13 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=235
+				x=720
 				y=690
 				width=60
 				height=20
 			}
 			control {
-				chan="$(P)$(R)LineStatusAll"
+				chan="$(P)$(R)GC_LineStatusAll"
 				clr=14
 				bclr=51
 			}
@@ -1057,13 +2638,13 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=300
+				x=785
 				y=690
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)LineStatusAll_RBV"
+				chan="$(P)$(R)GC_LineStatusAll_RBV"
 				clr=54
 				bclr=4
 			}
@@ -1075,7 +2656,7 @@
 # (Static Text)
 		text {
 			object {
-				x=10
+				x=495
 				y=715
 				width=220
 				height=20
@@ -1089,22 +2670,39 @@
     # (Menu Button)
 		menu {
 			object {
-				x=235
+				x=720
 				y=715
-				width=150
+				width=120
 				height=20
 			}
 			control {
-				chan="$(P)$(R)ExposureActiveMo"
+				chan="$(P)$(R)GC_ExpActiveMode"
 				clr=14
 				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=715
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_ExpActiveMode_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
 			}
 		}
     
 # (Static Text)
 		text {
 			object {
-				x=10
+				x=495
 				y=740
 				width=220
 				height=20
@@ -1118,22 +2716,39 @@
     # (Menu Button)
 		menu {
 			object {
-				x=235
+				x=720
 				y=740
-				width=150
+				width=120
 				height=20
 			}
 			control {
-				chan="$(P)$(R)UserOutputSelect"
+				chan="$(P)$(R)GC_UseOutputSelector"
 				clr=14
 				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=740
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_UseOutputSelector_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
 			}
 		}
     
 # (Static Text)
 		text {
 			object {
-				x=10
+				x=495
 				y=765
 				width=220
 				height=20
@@ -1147,22 +2762,39 @@
     # (Menu Button)
 		menu {
 			object {
-				x=235
+				x=720
 				y=765
-				width=150
+				width=120
 				height=20
 			}
 			control {
-				chan="$(P)$(R)UserOutputValue"
+				chan="$(P)$(R)GC_UserOutputValue"
 				clr=14
 				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=765
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_UserOutputValue_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
 			}
 		}
     
 # (Static Text)
 		text {
 			object {
-				x=10
+				x=495
 				y=790
 				width=220
 				height=20
@@ -1176,23 +2808,40 @@
     # (Menu Button)
 		menu {
 			object {
-				x=235
+				x=720
 				y=790
-				width=150
+				width=120
 				height=20
 			}
 			control {
-				chan="$(P)$(R)V3_3Enable"
+				chan="$(P)$(R)GC_V3_3Enable"
 				clr=14
 				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=790
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_V3_3Enable_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
 			}
 		}
     # (Rectangle)
     rectangle {
     	object {
-    		x=395
+    		x=975
     		y=40
-    		width=385
+    		width=480
     		height=180
     	}
     	"basic attribute" {
@@ -1203,9 +2852,9 @@
     
     rectangle {
     	object {
-    		x=400
+    		x=980
     		y=45
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -1214,9 +2863,9 @@
     }
     text {
     	object {
-    		x=400
+    		x=980
     		y=45
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -1229,7 +2878,7 @@
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=980
 				y=70
 				width=220
 				height=20
@@ -1243,13 +2892,13 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=625
+				x=1205
 				y=70
 				width=60
 				height=20
 			}
 			control {
-				chan="$(P)$(R)DataFlashPageSiz"
+				chan="$(P)$(R)GC_DataFlashPageSize"
 				clr=14
 				bclr=51
 			}
@@ -1259,13 +2908,13 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=690
+				x=1270
 				y=70
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)DataFlashPageSiz_RBV"
+				chan="$(P)$(R)GC_DataFlashPageSize_RBV"
 				clr=54
 				bclr=4
 			}
@@ -1277,7 +2926,7 @@
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=980
 				y=95
 				width=220
 				height=20
@@ -1291,13 +2940,13 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=625
+				x=1205
 				y=95
 				width=60
 				height=20
 			}
 			control {
-				chan="$(P)$(R)DataFlashPageCou"
+				chan="$(P)$(R)GC_DatFlashPageCount"
 				clr=14
 				bclr=51
 			}
@@ -1307,13 +2956,13 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=690
+				x=1270
 				y=95
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)DataFlashPageCou_RBV"
+				chan="$(P)$(R)GC_DatFlashPageCount_RBV"
 				clr=54
 				bclr=4
 			}
@@ -1325,7 +2974,7 @@
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=980
 				y=120
 				width=220
 				height=20
@@ -1339,13 +2988,13 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=625
+				x=1205
 				y=120
 				width=60
 				height=20
 			}
 			control {
-				chan="$(P)$(R)ActivePageNumber"
+				chan="$(P)$(R)GC_ActivePageNumber"
 				clr=14
 				bclr=51
 			}
@@ -1355,13 +3004,13 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=690
+				x=1270
 				y=120
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)ActivePageNumber_RBV"
+				chan="$(P)$(R)GC_ActivePageNumber_RBV"
 				clr=54
 				bclr=4
 			}
@@ -1373,7 +3022,7 @@
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=980
 				y=145
 				width=220
 				height=20
@@ -1387,13 +3036,13 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=625
+				x=1205
 				y=145
 				width=60
 				height=20
 			}
 			control {
-				chan="$(P)$(R)ActivePageOffset"
+				chan="$(P)$(R)GC_ActivePageOffset"
 				clr=14
 				bclr=51
 			}
@@ -1403,13 +3052,13 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=690
+				x=1270
 				y=145
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)ActivePageOffset_RBV"
+				chan="$(P)$(R)GC_ActivePageOffset_RBV"
 				clr=54
 				bclr=4
 			}
@@ -1421,7 +3070,7 @@
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=980
 				y=170
 				width=220
 				height=20
@@ -1435,13 +3084,13 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=625
+				x=1205
 				y=170
 				width=60
 				height=20
 			}
 			control {
-				chan="$(P)$(R)ActivePageValue"
+				chan="$(P)$(R)GC_ActivePageValue"
 				clr=14
 				bclr=51
 			}
@@ -1451,13 +3100,13 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=690
+				x=1270
 				y=170
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)ActivePageValue_RBV"
+				chan="$(P)$(R)GC_ActivePageValue_RBV"
 				clr=54
 				bclr=4
 			}
@@ -1469,7 +3118,7 @@
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=980
 				y=195
 				width=220
 				height=20
@@ -1483,13 +3132,13 @@
     # (Message Button)
     "message button" {
     	object {
-    		x=625
+    		x=1205
     		y=195
-    		width=150
+    		width=200
     		height=20
     	}
     	control {
-    		chan="$(P)$(R)ActivePageSave.PROC"
+    		chan="$(P)$(R)GC_ActivePageSave.PROC"
     		clr=14
     		bclr=51
     	}
@@ -1499,9 +3148,9 @@
     # (Rectangle)
     rectangle {
     	object {
-    		x=395
+    		x=975
     		y=225
-    		width=385
+    		width=480
     		height=155
     	}
     	"basic attribute" {
@@ -1512,9 +3161,9 @@
     
     rectangle {
     	object {
-    		x=400
+    		x=980
     		y=230
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -1523,9 +3172,9 @@
     }
     text {
     	object {
-    		x=400
+    		x=980
     		y=230
-    		width=375
+    		width=470
     		height=20
     	}
     	"basic attribute" {
@@ -1538,7 +3187,7 @@
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=980
 				y=255
 				width=220
 				height=20
@@ -1552,22 +3201,39 @@
     # (Menu Button)
 		menu {
 			object {
-				x=625
+				x=1205
 				y=255
-				width=150
+				width=120
 				height=20
 			}
 			control {
-				chan="$(P)$(R)LUTSelector"
+				chan="$(P)$(R)GC_LUTSelector"
 				clr=14
 				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=255
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_LUTSelector_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
 			}
 		}
     
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=980
 				y=280
 				width=220
 				height=20
@@ -1581,22 +3247,39 @@
     # (Menu Button)
 		menu {
 			object {
-				x=625
+				x=1205
 				y=280
-				width=150
+				width=120
 				height=20
 			}
 			control {
-				chan="$(P)$(R)LUTEnable"
+				chan="$(P)$(R)GC_LUTEnable"
 				clr=14
 				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=280
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_LUTEnable_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
 			}
 		}
     
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=980
 				y=305
 				width=220
 				height=20
@@ -1610,13 +3293,13 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=625
+				x=1205
 				y=305
 				width=60
 				height=20
 			}
 			control {
-				chan="$(P)$(R)LUTIndex"
+				chan="$(P)$(R)GC_LUTIndex"
 				clr=14
 				bclr=51
 			}
@@ -1626,13 +3309,13 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=690
+				x=1270
 				y=305
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)LUTIndex_RBV"
+				chan="$(P)$(R)GC_LUTIndex_RBV"
 				clr=54
 				bclr=4
 			}
@@ -1644,7 +3327,7 @@
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=980
 				y=330
 				width=220
 				height=20
@@ -1658,13 +3341,13 @@
     # (Textentry)
 		"text entry" {
 			object {
-				x=625
+				x=1205
 				y=330
 				width=60
 				height=20
 			}
 			control {
-				chan="$(P)$(R)LUTValue"
+				chan="$(P)$(R)GC_LUTValue"
 				clr=14
 				bclr=51
 			}
@@ -1674,13 +3357,13 @@
     # (Textupdate)
 		"text update" {
 			object {
-				x=690
+				x=1270
 				y=330
-				width=90
+				width=120
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)LUTValue_RBV"
+				chan="$(P)$(R)GC_LUTValue_RBV"
 				clr=54
 				bclr=4
 			}
@@ -1692,7 +3375,7 @@
 # (Static Text)
 		text {
 			object {
-				x=400
+				x=980
 				y=355
 				width=220
 				height=20
@@ -1703,2083 +3386,4 @@
 			textix="LUTValueAll"
 			align="horiz. right"
 		}
-    # (Rectangle)
-    rectangle {
-    	object {
-    		x=785
-    		y=40
-    		width=385
-    		height=830
-    	}
-    	"basic attribute" {
-    		clr=14
-    		fill="outline"
-    	}
-    }
-    
-    rectangle {
-    	object {
-    		x=790
-    		y=45
-    		width=375
-    		height=20
-    	}
-    	"basic attribute" {
-    		clr=2
-    	}
-    }
-    text {
-    	object {
-    		x=790
-    		y=45
-    		width=375
-    		height=20
-    	}
-    	"basic attribute" {
-    		clr=54
-    	}
-    	textix="  TransportLayerControl1"
-    	align="horiz. centered"
-    }
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=70
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevSCPSPacketSize"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1015
-				y=70
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevSCPSPacketSiz"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1080
-				y=70
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevSCPSPacketSiz_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=95
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevSCPD"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1015
-				y=95
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevSCPD"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1080
-				y=95
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevSCPD_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=120
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevCurrentIPAddress"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1015
-				y=120
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevCurrentIPAddr"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1080
-				y=120
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevCurrentIPAddr_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=145
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevCurrentSubnetMask"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1015
-				y=145
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevCurrentSubnet"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1080
-				y=145
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevCurrentSubnet_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=170
-				width=220
-				height=16
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevCurrentDefaultGateway"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1015
-				y=170
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevCurrentDefaul"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1080
-				y=170
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevCurrentDefaul_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=195
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevPersistentIPAddress"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1015
-				y=195
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevPersistentIPA"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1080
-				y=195
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevPersistentIPA_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=220
-				width=220
-				height=16
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevPersistentSubnetMask"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1015
-				y=220
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevPersistentSub"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1080
-				y=220
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevPersistentSub_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=245
-				width=220
-				height=16
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevPersistentDefaultGateway"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1015
-				y=245
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevPersistentDef"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1080
-				y=245
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevPersistentDef_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=270
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevHeartbeatTimeout"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1015
-				y=270
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevHeartbeatTime"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1080
-				y=270
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevHeartbeatTime_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=295
-				width=220
-				height=16
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevGVCPHeartbeatDisable"
-			align="horiz. right"
-		}
-    # (Menu Button)
-		menu {
-			object {
-				x=1015
-				y=295
-				width=150
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevGVCPHeartbeat"
-				clr=14
-				bclr=51
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=320
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevGVCPPendingAck"
-			align="horiz. right"
-		}
-    # (Menu Button)
-		menu {
-			object {
-				x=1015
-				y=320
-				width=150
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevGVCPPendingAc"
-				clr=14
-				bclr=51
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=345
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevGVCPPendingTimeout"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1015
-				y=345
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevGVCPPendingTi"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1080
-				y=345
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevGVCPPendingTi_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=370
-				width=220
-				height=16
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevTimestampTickFrequency"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1015
-				y=370
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevTimestampTick"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1080
-				y=370
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevTimestampTick_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=395
-				width=220
-				height=16
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevTimestampControlLatch"
-			align="horiz. right"
-		}
-    # (Message Button)
-    "message button" {
-    	object {
-    		x=1015
-    		y=395
-    		width=150
-    		height=20
-    	}
-    	control {
-    		chan="$(P)$(R)GevTimestampCon0.PROC"
-    		clr=14
-    		bclr=51
-    	}
-    	label="GevTimestampControlLatch"
-    	press_msg="1"
-    }
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=420
-				width=220
-				height=16
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevTimestampControlReset"
-			align="horiz. right"
-		}
-    # (Message Button)
-    "message button" {
-    	object {
-    		x=1015
-    		y=420
-    		width=150
-    		height=20
-    	}
-    	control {
-    		chan="$(P)$(R)GevTimestampCont.PROC"
-    		clr=14
-    		bclr=51
-    	}
-    	label="GevTimestampControlReset"
-    	press_msg="1"
-    }
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=445
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevTimestampValue"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1015
-				y=445
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevTimestampValu"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1080
-				y=445
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevTimestampValu_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=470
-				width=220
-				height=16
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevStreamChannelSelector"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1015
-				y=470
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevStreamChanne0"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1080
-				y=470
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevStreamChanne0_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=495
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevStreamChannelCount"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1015
-				y=495
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevStreamChannel"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1080
-				y=495
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevStreamChannel_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=520
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevCCP"
-			align="horiz. right"
-		}
-    # (Menu Button)
-		menu {
-			object {
-				x=1015
-				y=520
-				width=150
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevCCP"
-				clr=14
-				bclr=51
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=545
-				width=220
-				height=16
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevSupportedOptionSelector"
-			align="horiz. right"
-		}
-    # (Menu Button)
-		menu {
-			object {
-				x=1015
-				y=545
-				width=150
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevSupportedOpti"
-				clr=14
-				bclr=51
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=570
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevSupportedOption"
-			align="horiz. right"
-		}
-    # (Menu Button)
-		menu {
-			object {
-				x=1015
-				y=570
-				width=150
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevSupportedOpt1"
-				clr=14
-				bclr=51
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=595
-				width=220
-				height=16
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevCurrentIPConfigurationLLA"
-			align="horiz. right"
-		}
-    # (Menu Button)
-		menu {
-			object {
-				x=1015
-				y=595
-				width=150
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevCurrentIPConf"
-				clr=14
-				bclr=51
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=620
-				width=220
-				height=14
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevCurrentIPConfigurationDHCP"
-			align="horiz. right"
-		}
-    # (Menu Button)
-		menu {
-			object {
-				x=1015
-				y=620
-				width=150
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevCurrentIPCon0"
-				clr=14
-				bclr=51
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=645
-				width=220
-				height=12
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevCurrentIPConfigurationPersistentIP"
-			align="horiz. right"
-		}
-    # (Menu Button)
-		menu {
-			object {
-				x=1015
-				y=645
-				width=150
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevCurrentIPCon1"
-				clr=14
-				bclr=51
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=670
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevVersionMajor"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1015
-				y=670
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevVersionMajor"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1080
-				y=670
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevVersionMajor_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=695
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevVersionMinor"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1015
-				y=695
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevVersionMinor"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1080
-				y=695
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevVersionMinor_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=720
-				width=220
-				height=16
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevDeviceModeIsBigEndian"
-			align="horiz. right"
-		}
-    # (Menu Button)
-		menu {
-			object {
-				x=1015
-				y=720
-				width=150
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevDeviceModeIsB"
-				clr=14
-				bclr=51
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=745
-				width=220
-				height=16
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevDeviceModeCharacterSet"
-			align="horiz. right"
-		}
-    # (Menu Button)
-		menu {
-			object {
-				x=1015
-				y=745
-				width=150
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevDeviceModeCha"
-				clr=14
-				bclr=51
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=770
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevInterfaceSelector"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1015
-				y=770
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevInterfaceSele"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1080
-				y=770
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevInterfaceSele_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=795
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevMACAddress"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1015
-				y=795
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevMACAddress"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1080
-				y=795
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevMACAddress_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=820
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevFirstURL"
-			align="horiz. right"
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1015
-				y=820
-				width=150
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevFirstURL_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=790
-				y=845
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevSecondURL"
-			align="horiz. right"
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1015
-				y=845
-				width=150
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevSecondURL_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    # (Rectangle)
-    rectangle {
-    	object {
-    		x=1175
-    		y=40
-    		width=385
-    		height=455
-    	}
-    	"basic attribute" {
-    		clr=14
-    		fill="outline"
-    	}
-    }
-    
-    rectangle {
-    	object {
-    		x=1180
-    		y=45
-    		width=375
-    		height=20
-    	}
-    	"basic attribute" {
-    		clr=2
-    	}
-    }
-    text {
-    	object {
-    		x=1180
-    		y=45
-    		width=375
-    		height=20
-    	}
-    	"basic attribute" {
-    		clr=54
-    	}
-    	textix="  TransportLayerControl2"
-    	align="horiz. centered"
-    }
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=70
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevNumberOfInterfaces"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=70
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevNumberOfInter"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=70
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevNumberOfInter_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=95
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevLinkSpeed"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=95
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevLinkSpeed"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=95
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevLinkSpeed_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=120
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevMessageChannelCount"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=120
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevMessageChanne"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=120
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevMessageChanne_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=145
-				width=220
-				height=16
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevPrimaryApplicationSocket"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=145
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevPrimaryApplic"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=145
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevPrimaryApplic_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=170
-				width=220
-				height=14
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevPrimaryApplicationIPAddress"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=170
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevPrimaryAppli0"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=170
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevPrimaryAppli0_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=195
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevSCPInterfaceIndex"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=195
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevSCPInterfaceI"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=195
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevSCPInterfaceI_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=220
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevSCPHostPort"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=220
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevSCPHostPort"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=220
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevSCPHostPort_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=245
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevSCPDirection"
-			align="horiz. right"
-		}
-    # (Menu Button)
-		menu {
-			object {
-				x=1405
-				y=245
-				width=150
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevSCPDirection"
-				clr=14
-				bclr=51
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=270
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevSCPSFireTestPacket"
-			align="horiz. right"
-		}
-    # (Menu Button)
-		menu {
-			object {
-				x=1405
-				y=270
-				width=150
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevSCPSFireTestP"
-				clr=14
-				bclr=51
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=295
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevSCPSDoNotFragment"
-			align="horiz. right"
-		}
-    # (Menu Button)
-		menu {
-			object {
-				x=1405
-				y=295
-				width=150
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevSCPSDoNotFrag"
-				clr=14
-				bclr=51
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=320
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevSCPSBigEndian"
-			align="horiz. right"
-		}
-    # (Menu Button)
-		menu {
-			object {
-				x=1405
-				y=320
-				width=150
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevSCPSBigEndian"
-				clr=14
-				bclr=51
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=345
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevSCDA"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=345
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevSCDA"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=345
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevSCDA_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=370
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="GevSCSP"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=370
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)GevSCSP"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=370
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)GevSCSP_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=395
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="TLParamsLocked"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=395
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)TLParamsLocked"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=395
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)TLParamsLocked_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=420
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="PayloadSize"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=420
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)PayloadSize"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=420
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)PayloadSize_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=445
-				width=220
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="TransmitFailureCount"
-			align="horiz. right"
-		}
-    # (Textentry)
-		"text entry" {
-			object {
-				x=1405
-				y=445
-				width=60
-				height=20
-			}
-			control {
-				chan="$(P)$(R)TransmitFailureC"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-    # (Textupdate)
-		"text update" {
-			object {
-				x=1470
-				y=445
-				width=90
-				height=18
-			}
-			monitor {
-				chan="$(P)$(R)TransmitFailureC_RBV"
-				clr=54
-				bclr=4
-			}
-			align="horiz. left"
-			limits {
-			}
-		}
-    
-# (Static Text)
-		text {
-			object {
-				x=1180
-				y=470
-				width=220
-				height=16
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="TransmitFailureCountReset"
-			align="horiz. right"
-		}
-    # (Message Button)
-    "message button" {
-    	object {
-    		x=1405
-    		y=470
-    		width=150
-    		height=20
-    	}
-    	control {
-    		chan="$(P)$(R)TransmitFailure0.PROC"
-    		clr=14
-    		bclr=51
-    	}
-    	label="TransmitFailureCountReset"
-    	press_msg="1"
-    }
     
