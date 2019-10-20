@@ -13,6 +13,14 @@ files respectively, in the configure/ directory of the appropriate release of th
 Release Notes
 =============
 
+R1-1 (XXX-October-2019)
+----
+* Changed ADSerialNumber to use either DeviceSerialNumber or DeviceID feature.  
+  AVT uses DeviceID for at least some of its cameras.
+* Changed makeDb.py to remove the autosaveFields info nodes because they were not useful.
+* Rebuilt all the template files using the new version of makeDb.py so they no longer have the autosaveFields tags.
+* Added new camera xml, template and OPI files for AVT_GC1380CH and PGR_PGE_23S6C cameras.
+
 R1-0 (12-August-2019)
 ----
 * Initial release
