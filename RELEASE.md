@@ -13,7 +13,7 @@ files respectively, in the configure/ directory of the appropriate release of th
 Release Notes
 =============
 
-R1-1 (XXX-October-2019)
+R1-1 (20-October-2019)
 ----
 * Changed ADSerialNumber to use either DeviceSerialNumber or DeviceID feature.  
   AVT uses DeviceID for at least some of its cameras.
