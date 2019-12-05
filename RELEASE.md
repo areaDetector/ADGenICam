@@ -12,9 +12,14 @@ files respectively, in the configure/ directory of the appropriate release of th
 
 Release Notes
 =============
+R1-2 (XXXX-December-2019)
+----------------------
+* Fixed problems with some EPICS PVs not getting their initial values from the camera correctly.
+  This showed up the first time the IOC was run if autosave was being used, or every time the
+  IOC was run if autosave was not being used.  
 
 R1-1 (20-October-2019)
-----
+----------------------
 * Changed ADSerialNumber to use either DeviceSerialNumber or DeviceID feature.  
   AVT uses DeviceID for at least some of its cameras.
 * Changed makeDb.py to remove the autosaveFields info nodes because they were not useful.
