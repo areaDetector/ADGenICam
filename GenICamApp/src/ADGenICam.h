@@ -55,6 +55,9 @@ protected:
     GenICamFeatureSet mGCFeatureSet;
     
 private:
+    asynStatus createMultiFeature(std::string const & asynName, asynParamType asynType, int asynIndex,
+                                  std::string const & featureName1, std::string const & featureName2, 
+                                  GCFeatureType_t featureType);
     int mFirstParam;
     bool mFirstDrvUserCreateCall;
 };
