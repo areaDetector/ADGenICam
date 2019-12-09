@@ -349,11 +349,11 @@ asynStatus ADGenICam::createMultiFeature(std::string const & asynName, asynParam
 {
     std::string featureName = featureName1;
     GenICamFeature *pFeature = createFeature(&mGCFeatureSet, asynName, asynType, asynIndex, featureName, featureType);
-    if (!pFeature) {
+    if (!pFeature->isImplemented()) {
         featureName = featureName2;
         pFeature = createFeature(&mGCFeatureSet, asynName, asynType, asynIndex, featureName, featureType);
     }
-    if (pFeature) {
+    if (pFeature->isImplemented()) {
         mGCFeatureSet.insert(pFeature, featureName);
         // Do an initial read of the feature so EPICS output records initialize to this value
         pFeature->read(NULL, true);
@@ -404,7 +404,7 @@ asynStatus ADGenICam::addADDriverFeatures()
         getParamName(params[i].index, &paramName);
         pFeature = createFeature(&mGCFeatureSet, paramName, paramType, params[i].index, 
                                  params[i].featureName, params[i].featureType);
-        if (pFeature) {
+        if (pFeature->isImplemented()) {
             mGCFeatureSet.insert(pFeature, params[i].featureName);
             // We map the areaDetector ImageMode to the GenICam AcquisitionMode.
             // GenICam seems to use consistent enum strings, but not enum values
