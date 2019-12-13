@@ -16,7 +16,12 @@ R1-2 (XXXX-December-2019)
 ----------------------
 * Fixed problems with some EPICS PVs not getting their initial values from the camera correctly.
   This showed up the first time the IOC was run if autosave was being used, or every time the
-  IOC was run if autosave was not being used.  
+  IOC was run if autosave was not being used.
+* Changed makeDb.py and makeAdl.py to use Python 3, rather than Python 2.
+* Added a number of new AVT cameras.
+* Added addCamera.sh which is a simple script that runs both makeDb.py and makeAdl.py.
+  It is run from the top-level ADGenICam directory and is passed the name of the camera,
+  i.e. the name of the XML file without the path and without the .xml extension.
 
 R1-1 (20-October-2019)
 ----------------------

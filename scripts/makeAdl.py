@@ -24,8 +24,8 @@ genicam_lines = open(args[0]).readlines()
 try:
     start_line = min(i for i in range(2) if genicam_lines[i].lstrip().startswith("<"))
 except:
-    print "Neither of these lines looks like valid XML:"
-    print "".join(genicam_lines[:2])
+    print("Neither of these lines looks like valid XML:")
+    print("".join(genicam_lines[:2]))
     sys.exit(1)
 
 # parse xml file to dom object
@@ -77,7 +77,7 @@ def handle_node(node):
         if node.nodeName == "Category":
             categories.append(name)
     elif node.nodeName != "StructReg":
-        print "Node has no Name attribute", node
+        print("Node has no Name attribute", node)
 
 # list of all nodes    
 for node in elements(elements(xml_root)[0]):
@@ -418,7 +418,7 @@ def write_adl_file(fileName):
 		}
     """ %globals())
     
-    adl_file.write(text.encode('ascii', 'replace'))
+    adl_file.write(text)
     adl_file.close()
 
 
@@ -527,7 +527,7 @@ for name, nodes in structure:
         elif node.nodeName in ["Command"]:
             text += make_cmd()
         else:
-            print "Don't know what to do with", node.nodeName
+            print("Don't know what to do with", node.nodeName)
         y += 25
     y += 5
     h = max(y, h)
