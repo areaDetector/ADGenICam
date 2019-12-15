@@ -34,7 +34,19 @@ using std::vector;
 using std::map;
 using std::pair;
 
-int GenICamFeature::getParam (int & value)
+int GenICamFeature::getParam (epicsInt64 & value)
+{
+    if (mAsynType == asynParamInt32) {
+        epicsInt32 temp;
+        int status = mSet->getPortDriver()->getIntegerParam(mAsynIndex, &temp);
+        value = temp;
+        return status;
+    }
+    return (int) mSet->getPortDriver()->getInteger64Param(mAsynIndex, &value);
+
+}
+
+int GenICamFeature::getParam (epicsInt32& value)
 {
     return (int) mSet->getPortDriver()->getIntegerParam(mAsynIndex, &value);
 }
@@ -49,7 +61,15 @@ int GenICamFeature::getParam (std::string & value)
     return (int) mSet->getPortDriver()->getStringParam(mAsynIndex, value);
 }
 
-int GenICamFeature::setParam (int value)
+int GenICamFeature::setParam (epicsInt64 value)
+{
+    if (mAsynType == asynParamInt32) {
+        return (int) mSet->getPortDriver()->setIntegerParam(mAsynIndex, (epicsInt32)value);
+    } 
+    return (int) mSet->getPortDriver()->setInteger64Param(mAsynIndex, value);
+}
+
+int GenICamFeature::setParam (epicsInt32 value)
 {
     return (int) mSet->getPortDriver()->setIntegerParam(mAsynIndex, value);
 }
@@ -62,6 +82,11 @@ int GenICamFeature::setParam (double value)
 int GenICamFeature::setParam (std::string const & value)
 {
     return (int) mSet->getPortDriver()->setStringParam(mAsynIndex, value);
+}
+
+int GenICamFeature::setParam (bool value)
+{
+    return (int) mSet->getPortDriver()->setIntegerParam(mAsynIndex, (int) value);
 }
 
 GenICamFeature::GenICamFeature (GenICamFeatureSet *set, 
@@ -128,36 +153,34 @@ int GenICamFeature::write(void *pValue, void *pReadbackValue, bool bSetParam)
         }
         switch (mFeatureType) {
             case GCFeatureTypeInteger: {
-                epicsInt32 value;
+                epicsInt64 value;
                 if (pValue)
-                    value = *(epicsInt32*)pValue;
+                    value = *(epicsInt64*)pValue;
                 else 
-                    mSet->getPortDriver()->getIntegerParam(mAsynIndex, &value);
-                value = convertUnits(value, GCConvertFromEPICS);
+                    getParam(value);
                 // Check against the min and max
-                int max = readIntegerMax();
-                int min = readIntegerMin();
-                int inc = readIncrement();
+                epicsInt64 max = readIntegerMax();
+                epicsInt64 min = readIntegerMin();
+                epicsInt64 inc = readIncrement();
                 if (inc != 1) {
                     value = (value/inc) * inc;
                 }
                 if (value < min) {
-                   WARN_ARGS("node %s value %d is less than minimum %d, setting to minimum\n",
+                   WARN_ARGS("node %s value %lld is less than minimum %lld, setting to minimum\n",
                              mFeatureName.c_str(), value, min);
                     value = min;
                 }
                 if (value > max) {
-                   WARN_ARGS("node %s value %d is greater than maximum %d, setting to maximum\n",
+                   WARN_ARGS("node %s value %lld is greater than maximum %lld, setting to maximum\n",
                              mFeatureName.c_str(), value, max);
                     value = max;
                 }
                 writeInteger(value);
-                TRACEIO_DRIVER_ARGS("set property %s to %d\n", mFeatureName.c_str(), value);
+                TRACEIO_DRIVER_ARGS("set property %s to %lld\n", mFeatureName.c_str(), value);
                 if (isReadable()) {
-                    epicsInt32 readback = readInteger();
-                    readback = convertUnits(readback, GCConvertToEPICS);
-                    if (pReadbackValue) *(epicsInt32*)pReadbackValue = readback;
-                    TRACEIO_DRIVER_ARGS("readback property %s is %d\n", mFeatureName.c_str(), readback);
+                    epicsInt64 readback = readInteger();
+                    if (pReadbackValue) *(epicsInt64*)pReadbackValue = readback;
+                    TRACEIO_DRIVER_ARGS("readback property %s is %lld\n", mFeatureName.c_str(), readback);
                     if (bSetParam) setParam(readback);
                 }
                 break;
@@ -167,7 +190,7 @@ int GenICamFeature::write(void *pValue, void *pReadbackValue, bool bSetParam)
                 if (pValue) 
                     value = *(epicsInt32*)pValue;
                 else
-                    mSet->getPortDriver()->getIntegerParam(mAsynIndex, &value);
+                    getParam(value);
                 bool bValue = value ? true : false;
                 writeBoolean(bValue);
                 TRACEIO_DRIVER_ARGS("set property %s to %s\n", mFeatureName.c_str(), bValue ? "true" : "false");
@@ -184,8 +207,8 @@ int GenICamFeature::write(void *pValue, void *pReadbackValue, bool bSetParam)
                 if (pValue) 
                     value = *(epicsFloat64*)pValue;
                 else
-                    mSet->getPortDriver()->getDoubleParam(mAsynIndex, &value);
-                value = convertUnits(value, GCConvertFromEPICS);
+                    getParam(value);
+                value = convertDoubleUnits(value, GCConvertFromEPICS);
                 // Check against the min and max
                 double max = readDoubleMax();
                 double min = readDoubleMin();
@@ -203,7 +226,7 @@ int GenICamFeature::write(void *pValue, void *pReadbackValue, bool bSetParam)
                 TRACEIO_DRIVER_ARGS("set property %s to %f\n", mFeatureName.c_str(), value);
                 if (isReadable()) {
                     double readback = readDouble();
-                    readback = convertUnits(readback, GCConvertToEPICS);
+                    readback = convertDoubleUnits(readback, GCConvertToEPICS);
                     if (pReadbackValue) *(epicsFloat64*)pReadbackValue = readback;
                     TRACEIO_DRIVER_ARGS("readback property %s is %f\n", mFeatureName.c_str(), readback);
                     if (bSetParam) setParam(readback);
@@ -215,13 +238,13 @@ int GenICamFeature::write(void *pValue, void *pReadbackValue, bool bSetParam)
                 if (pValue) 
                     value = *(epicsInt32*)pValue;
                 else
-                    mSet->getPortDriver()->getIntegerParam(mAsynIndex, &value);
-                value = convertUnits(value, GCConvertFromEPICS);
+                    getParam(value);
+                value = convertEnum(value, GCConvertFromEPICS);
                 writeEnumIndex(value);
                 TRACEIO_DRIVER_ARGS("set property %s to %d\n", mFeatureName.c_str(), value);
                 if (isReadable()) {
                     epicsInt32 readback = readEnumIndex();
-                    readback = convertUnits(readback, GCConvertToEPICS);
+                    readback = convertEnum(readback, GCConvertToEPICS);
                     if (pReadbackValue) *(epicsInt32*)pReadbackValue = readback;
                     TRACEIO_DRIVER_ARGS("readback property %s is %d\n", mFeatureName.c_str(), readback);
                     if (bSetParam) setParam(readback);
@@ -301,9 +324,8 @@ int GenICamFeature::read(void *pValue, bool bSetParam)
         }
         switch (mFeatureType) {
             case GCFeatureTypeInteger: {
-                epicsInt32 value = readInteger();
-                value = convertUnits(value, GCConvertToEPICS);
-                if (pValue) *(epicsInt32*)pValue = value;
+                epicsInt64 value = readInteger();
+                if (pValue) *(epicsInt64*)pValue = value;
                 if (bSetParam) setParam(value);
                 break;
             }
@@ -315,26 +337,26 @@ int GenICamFeature::read(void *pValue, bool bSetParam)
             }
             case GCFeatureTypeDouble: {
                 epicsFloat64 value = readDouble();
-                value = convertUnits(value, GCConvertToEPICS);
+                value = convertDoubleUnits(value, GCConvertToEPICS);
                 if (pValue) *(epicsFloat64*)pValue = value;
                 if (bSetParam) setParam(value);
                 break;
             }
             case GCFeatureTypeDoubleMin: {
                 epicsFloat64 value = readDoubleMin();
-                value = convertUnits(value, GCConvertToEPICS);
+                value = convertDoubleUnits(value, GCConvertToEPICS);
                 setParam(value);
                 break;
             }
             case GCFeatureTypeDoubleMax: {
                 epicsFloat64 value = readDoubleMax();
-                value = convertUnits(value, GCConvertToEPICS);
+                value = convertDoubleUnits(value, GCConvertToEPICS);
                 setParam(value);
                 break;
             }
             case GCFeatureTypeEnum: {
                 epicsInt32 value = readEnumIndex();
-                value = convertUnits(value, GCConvertToEPICS);
+                value = convertEnum(value, GCConvertToEPICS);
                 if (pValue) *(epicsInt32*)pValue = value;
                 if (bSetParam) setParam(value);
                 // We don't want to replace enum values for EPICS IMAGE_MODE parameter
@@ -394,8 +416,8 @@ std::string GenICamFeature::getValueAsString()
                 break;
                 }
             case  GCFeatureTypeInteger: {
-                int temp = readInteger();
-                sprintf(buff, "%d", temp);
+                epicsInt64 temp = readInteger();
+                sprintf(buff, "%lld", temp);
                 valueString = buff;
                 break; 
                 }
@@ -428,7 +450,7 @@ std::string GenICamFeature::getValueAsString()
 }
 
 
-double GenICamFeature::convertUnits(double inputValue, GCConvertDirection_t direction)
+double GenICamFeature::convertDoubleUnits(double inputValue, GCConvertDirection_t direction)
 {
     double outputValue = inputValue;
     if ((mFeatureName == "ExposureTime") ||
@@ -447,9 +469,9 @@ double GenICamFeature::convertUnits(double inputValue, GCConvertDirection_t dire
     return outputValue;
 }
 
-int GenICamFeature::convertUnits(int inputValue, GCConvertDirection_t direction)
+int GenICamFeature::convertEnum(epicsInt32 inputValue, GCConvertDirection_t direction)
 {
-    int outputValue = inputValue;
+    epicsInt32 outputValue = inputValue;
     if (mAsynName == "IMAGE_MODE") {
         // We want to use the EPICS enums
         // Cannot use switch because the things we are testing are not constants

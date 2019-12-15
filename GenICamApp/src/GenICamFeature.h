@@ -38,13 +38,16 @@ class epicsShareClass GenICamFeature
 {
 
 private:
-    int getParam (int & value);
+    int getParam (epicsInt64 & value);
+    int getParam (epicsInt32 & value);
     int getParam (double & value);
     int getParam (std::string & value);
 
-    int setParam (int value);
+    int setParam (epicsInt64 value);
+    int setParam (epicsInt32 value);
     int setParam (double value);
     int setParam (std::string const & value);
+    int setParam (bool value);
 
 protected:
     std::string mAsynName;
@@ -67,11 +70,11 @@ public:
     virtual bool isAvailable(void) = 0;
     virtual bool isReadable(void) = 0;
     virtual bool isWritable(void) = 0;
-    virtual int readInteger(void) = 0;
-    virtual int readIntegerMin(void) = 0;
-    virtual int readIntegerMax(void) = 0;
-    virtual int readIncrement(void) = 0;
-    virtual void writeInteger(int value) = 0;
+    virtual epicsInt64 readInteger(void) = 0;
+    virtual epicsInt64 readIntegerMin(void) = 0;
+    virtual epicsInt64 readIntegerMax(void) = 0;
+    virtual epicsInt64 readIncrement(void) = 0;
+    virtual void writeInteger(epicsInt64 value) = 0;
     virtual bool readBoolean(void) = 0;
     virtual void writeBoolean (bool value) = 0;
     virtual double readDouble(void) = 0;
@@ -105,8 +108,8 @@ public:
     std::string getValueAsString(void);
     GCFeatureType_t getFeatureType(void); 
 
-    virtual int convertUnits(int inputValue, GCConvertDirection_t direction);
-    virtual double convertUnits(double inputValue, GCConvertDirection_t direction);
+    virtual epicsInt32 convertEnum(epicsInt32 inputValue, GCConvertDirection_t direction);
+    virtual double convertDoubleUnits(double inputValue, GCConvertDirection_t direction);
 };
 
 typedef std::multimap<std::string, GenICamFeature*> GCFeatureMap_t;
