@@ -115,7 +115,12 @@ asynStatus ADGenICam::writeInt32( asynUser *pasynUser, epicsInt32 value)
     } 
     GenICamFeature *pFeature = mGCFeatureSet.getByIndex(function);
     if (pFeature) {
-        pFeature->write(&value, NULL, true);
+        if (pFeature->getFeatureType() == GCFeatureTypeInteger) {
+            epicsInt64 i64value = value;
+            pFeature->write(&i64value, NULL, true);
+        } else {
+            pFeature->write(&value, NULL, true);
+        } 
         mGCFeatureSet.readAll();
     }
 
@@ -126,6 +131,31 @@ asynStatus ADGenICam::writeInt32( asynUser *pasynUser, epicsInt32 value)
     callParamCallbacks();
     return status;
 }
+
+/** Reads an int32 parameter.
+  * \param[in] pasynUser asynUser structure that contains the function code in pasynUser->reason. 
+  * \param[in] value The value for this parameter 
+  */
+
+asynStatus ADGenICam::readInt32( asynUser *pasynUser, epicsInt32 *value)
+{
+    asynStatus status = asynSuccess;
+    int function = pasynUser->reason;
+    epicsInt64 int64value;
+    //static const char *functionName = "readInt32";
+
+    // For now we are not using asynInt64 device support so we convert int64 parameters to int32.
+    GenICamFeature *pFeature = mGCFeatureSet.getByIndex(function);
+    if (pFeature) {
+        if (pFeature->getAsynName().find("GC_I_") != std::string::npos) {
+            status = getInteger64Param(function, &int64value);
+            *value = int64value;
+            return status;
+        }
+    }
+    return ADDriver::readInt32(pasynUser, value);
+}
+
 
 /** Sets an float64 parameter.
   * \param[in] pasynUser asynUser structure that contains the function code in pasynUser->reason. 
@@ -316,7 +346,7 @@ asynStatus ADGenICam::drvUserCreate(asynUser *pasynUser, const char *drvInfo,
             break;
         case 'I':
             featureType = GCFeatureTypeInteger;
-            asynType = asynParamInt32;
+            asynType = asynParamInt64;
             break;
         case 'S':
             featureType = GCFeatureTypeString;
