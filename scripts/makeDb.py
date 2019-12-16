@@ -5,11 +5,19 @@ from optparse import OptionParser
 
 # parse args
 parser = OptionParser("""%prog <xmlFile> <templateFile>
-
-This script parses a genicam xml file and creates a database template""")
+This script parses a GenICam xml file and creates an EPICS database template""")
+parser.add_option("", "--devInt64",
+                  action="store_true", dest="devInt64", default=False,
+                  help="use int64in and int64out records. Requires at least EPICS base 3.16.1 or EPICS 7.")
 options, args = parser.parse_args()
 if len(args) != 2:
     parser.error("Incorrect number of arguments")
+if (options.devInt64):
+  GCIntegerInputRecordType = "int64in"
+  GCIntegerOutputRecordType = "int64out"
+else:
+  GCIntegerInputRecordType = "ai"
+  GCIntegerOutputRecordType = "ao"
 
 # Check the first two lines of the feature xml file to see if arv-tool left
 # the camera id there, thus creating an unparsable file
@@ -135,7 +143,7 @@ for node in doneNodes:
         if str(n.nodeName) == "AccessMode" and getText(n) == "RO":
             ro = True
     if node.nodeName in ["Integer", "IntConverter", "IntSwissKnife"]:
-        print('record(int64in, "$(P)$(R)%s_RBV") {' % records[nodeName])
+        print('record(%s, "$(P)$(R)%s_RBV") {' % (GCIntegerInputRecordType, records[nodeName]))
         print('  field(DTYP, "asynInt64")')
         print('  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_I_%s")' % nodeName)
         print('  field(SCAN, "I/O Intr")')
@@ -144,7 +152,7 @@ for node in doneNodes:
         print()
         if ro:
             continue        
-        print('record(int64out, "$(P)$(R)%s") {' % records[nodeName])
+        print('record(%s, "$(P)$(R)%s") {' % (GCIntegerOutputRecordType, records[nodeName]))
         print('  field(DTYP, "asynInt64")')
         print('  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_I_%s")' % nodeName)
         print('  field(DISA, "0")')
