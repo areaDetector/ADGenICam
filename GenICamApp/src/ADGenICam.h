@@ -22,7 +22,6 @@ public:
 
     // virtual methods to override from ADDriver
     virtual asynStatus writeInt32( asynUser *pasynUser, epicsInt32 value);
-    virtual asynStatus readInt32( asynUser *pasynUser, epicsInt32 *value);
     virtual asynStatus writeInt64( asynUser *pasynUser, epicsInt64 value);
     virtual asynStatus writeFloat64( asynUser *pasynUser, epicsFloat64 value);
     //virtual asynStatus writeOctet(asynUser *pasynUser, const char *value,
