@@ -40,7 +40,8 @@ static const char *driverName = "ADGenICam";
  */
 ADGenICam::ADGenICam(const char *portName, size_t maxMemory, int priority, int stackSize)
     : ADDriver(portName, 1, 0, 0, maxMemory,
-            asynEnumMask, asynEnumMask,
+            asynInt64Mask | asynEnumMask, 
+            asynInt64Mask | asynEnumMask,
             ASYN_CANBLOCK, 1, priority, stackSize),
     mGCFeatureSet(this, pasynUserSelf), mFirstDrvUserCreateCall(true)
 {
@@ -154,6 +155,39 @@ asynStatus ADGenICam::readInt32( asynUser *pasynUser, epicsInt32 *value)
         }
     }
     return ADDriver::readInt32(pasynUser, value);
+}
+
+/** Sets an int64 parameter.
+  * \param[in] pasynUser asynUser structure that contains the function code in pasynUser->reason. 
+  * \param[in] value The value for this parameter 
+  */
+
+asynStatus ADGenICam::writeInt64( asynUser *pasynUser, epicsInt64 value)
+{
+    asynStatus status = asynSuccess;
+    int function = pasynUser->reason;
+    static const char *functionName = "writeInt64";
+
+    // Set the value in the parameter library.  This may change later but that's OK
+    status = setInteger64Param(function, value);
+
+    if (function < mFirstParam) {
+        // If this parameter belongs to a base class call its method
+        status = ADDriver::writeInt64(pasynUser, value);
+    } 
+
+    GenICamFeature *pFeature = mGCFeatureSet.getByIndex(function);
+    if (pFeature) {
+        pFeature->write(&value, NULL, true);
+        mGCFeatureSet.readAll();
+    }
+
+    asynPrint(pasynUserSelf, ASYN_TRACEIO_DRIVER, 
+        "%s::%s function=%d, value=%lld, status=%d\n",
+        driverName, functionName, function, value, status);
+            
+    callParamCallbacks();
+    return status;
 }
 
 
