@@ -6,11 +6,8 @@ from optparse import OptionParser
 # parse args
 parser = OptionParser("""%prog <xmlFile> <adlFileBase>
 
-This script parses a genicam xml file and creates medm screens to go with it. 
-The medm screen should be used as indication of what
-the driver supports, and the generated summary screen should be edited to make
-a more sensible summary. 
-and the medm files will be called:
+This script parses a GenICam xml file and creates medm screens to go with it. 
+The medm files will be called:
     <adlFile>-features_[1-N].adl""")
 options, args = parser.parse_args()
 if len(args) != 2:
