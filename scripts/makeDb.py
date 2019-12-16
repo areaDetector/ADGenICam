@@ -135,8 +135,8 @@ for node in doneNodes:
         if str(n.nodeName) == "AccessMode" and getText(n) == "RO":
             ro = True
     if node.nodeName in ["Integer", "IntConverter", "IntSwissKnife"]:
-        print('record(longin, "$(P)$(R)%s_RBV") {' % records[nodeName])
-        print('  field(DTYP, "asynInt32")')
+        print('record(int64in, "$(P)$(R)%s_RBV") {' % records[nodeName])
+        print('  field(DTYP, "asynInt64")')
         print('  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_I_%s")' % nodeName)
         print('  field(SCAN, "I/O Intr")')
         print('  field(DISA, "0")')
@@ -144,8 +144,8 @@ for node in doneNodes:
         print()
         if ro:
             continue        
-        print('record(longout, "$(P)$(R)%s") {' % records[nodeName])
-        print('  field(DTYP, "asynInt32")')
+        print('record(int64out, "$(P)$(R)%s") {' % records[nodeName])
+        print('  field(DTYP, "asynInt64")')
         print('  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_I_%s")' % nodeName)
         print('  field(DISA, "0")')
         print('}')
