@@ -157,6 +157,7 @@ Python script to create EPICS database
 ======================================
 **ADGenICam/scripts/makeDb.py** is a Python program to read the XML file and produce an EPICS database (.template) file.
 The first argument is the name of the XML file and the second argument is the name of the .template file.
+
 For example::
 
   TahoeU18:/corvette/home/epics/devel/areaDetector/ADGenICam> python scripts/makeDb.py xml/PGR_Blackfly_20E4C.xml GenICamApp/Db/PGR_Blackfly_20E4C.template
@@ -210,6 +211,16 @@ This is a portion of the PGR_Blackfly_20E4C.template created above for the Expos
     field(DISA, "0")
     info(autosaveFields, "DESC ZRSV ONSV TWSV THSV FRSV FVSV SXSV SVSV EISV NISV TESV ELSV TVSV TTSV FTSV FFSV TSE PINI VAL")
   }
+
+GenICam integer features are 64 bit integers.  Prior to R1-2 of ADGenICam EPICS longin and longout records were used
+for these features.  However, longin and longout records are limited to 32 bits, and thus cannot represent the features
+when the value is larger than 32 bits.  In EPICS base 3.16.1 or 7.0 and higher int64in and int64out records can be used for
+these 64-bit integer features.  Prior to base 3.6.1 ai and ao record can be used.  These are 64-bit floats, which can exactly
+represent integers up to 52 bits, which is a significant improvement over the 32 bit limitation of longin and longout records.  
+
+In R1-2 makeDb.py makeDb.py was changed to accept a `--devInt64` flag.  If this flag is present then the database will use
+int64in and int64out records.  This is recommended when using base 3.16.1 or 7.0 or higher.  For previous versions of base
+the `--devInt64` flag must not be used, and makeDb.py will create ai and ao records instead.
 
 This Python script, and the one to create medm screens described next, attempt to name the EPICS records as the name of the
 GenICam feature, preceded by the string `GC_` to prevent conflict with any record names already defined in areaDetector.
