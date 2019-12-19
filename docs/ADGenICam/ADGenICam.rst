@@ -266,6 +266,17 @@ in makeAdl.py can be edited::
   maxScreenWidth = 1600
   maxScreenHeight = 850
 
+Shell scripts
+-------------
+`addCamera.sh` is a simple script that runs both makeDb.py and makeAdl.py.
+It is run from the top-level ADGenICam directory and is passed the name of the camera,
+i.e. the name of the XML file without the path and without the .xml extension.
+It can be edited to enable or disable the --devInt64 flag for makeDb.py.
+
+`updateCameras.sh` is a simple script that runs `addCamera.sh` for all cameras in the 
+xml/ directory.  It is useful for updating all databases and OPI screens when the Python
+scripts are changed.
+
 ADGenICam Classes
 -----------------
 ADGenICam provides three classes that are used by derived classes for real cameras.
