@@ -12,7 +12,7 @@ files respectively, in the configure/ directory of the appropriate release of th
 
 Release Notes
 =============
-R1-2 (XXXX-December-2019)
+R1-2 (5-January-2020)
 ------------------------
 * Change GenICam integer feature support from 32-bit integers to 64-bit integers, which is what GenICam specifies.  
   This requires asyn R4-38 which adds asynInt64 support for the ai, ao, longin, and longout records.
@@ -26,6 +26,8 @@ R1-2 (XXXX-December-2019)
   It is run from the top-level ADGenICam directory and is passed the name of the camera,
   i.e. the name of the XML file without the path and without the .xml extension.
   It can be edited to enable or disable the --devInt64 flag for makeDb.py.
+* Added updateCameras.sh which runs addCamera.sh for each camera in the xml directory. 
+  It builds the databases and medm screens for all of the cameras.
 * Fixed problems with some EPICS PVs not getting their initial values from the camera correctly.
   This showed up the first time the IOC was run if autosave was being used, or every time the
   IOC was run if autosave was not being used.
