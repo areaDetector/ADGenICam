@@ -225,7 +225,7 @@ asynStatus ADGenICam::readEnum(asynUser *pasynUser, char *strings[], int values[
     }
 
     *nIn = 0;
-    if (!pFeature->isImplemented() || !pFeature->isAvailable() || !pFeature->isWritable()) {
+    if (!pFeature->isImplemented() || !pFeature->isAvailable()) {
         if (strings[0]) free(strings[0]);
         strings[0] = epicsStrDup("N.A.");
         values[0] = 0;
