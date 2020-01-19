@@ -12,6 +12,14 @@ files respectively, in the configure/ directory of the appropriate release of th
 
 Release Notes
 =============
+R1-3 (XXX-January-2020)
+------------------------
+* Fix an error when creating the enum choices for GenICam features that are not writable.
+  This cause the readback value to be invalid because it was not one of the allowed enum values.
+  This generated errors in medm (and probably other OPIs) when opening screens containing these records.
+* Added a number of new FLIR/Point Grey cameras.
+* Fixed addCamera.sh to specify that Python 3 should be used.
+
 R1-2 (5-January-2020)
 ------------------------
 * Change GenICam integer feature support from 32-bit integers to 64-bit integers, which is what GenICam specifies.  
