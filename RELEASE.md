@@ -12,13 +12,15 @@ files respectively, in the configure/ directory of the appropriate release of th
 
 Release Notes
 =============
-R1-3 (XXX-January-2020)
+R1-3 (24-February-2020)
 ------------------------
 * Fix an error when creating the enum choices for GenICam features that are not writable.
   This cause the readback value to be invalid because it was not one of the allowed enum values.
   This generated errors in medm (and probably other OPIs) when opening screens containing these records.
-* Added a number of new FLIR/Point Grey cameras.
+* Added xml, template, and OPI files for a number of additional Allied Vision Technologies/Prosilica 
+  and FLIR/Point Grey cameras.
 * Fixed addCamera.sh to specify that Python 3 should be used.
+* Added autoconverted .bob files for Phoebus Display Manager.
 
 R1-2 (5-January-2020)
 ------------------------
