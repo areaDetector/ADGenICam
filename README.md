@@ -18,4 +18,4 @@ The following drivers currently derive from this base class:
 
 Additional information:
 * [Documentation](https://areadetector.github.io/master/ADGenICam/ADGenICam.html)
-* [Release notes](RELEASE.md).
+* [Release notes](RELEASE.md)
