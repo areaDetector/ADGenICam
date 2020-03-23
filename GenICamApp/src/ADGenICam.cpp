@@ -75,7 +75,7 @@ ADGenICam::ADGenICam(const char *portName, size_t maxMemory, int priority, int s
   * \param[in] value The value for this parameter 
   *
   * Takes action if the function code requires it.  ADAcquire, ADSizeX, and many other
-  * function codes make calls to the Spinnaker library from this function. */
+  * function codes make calls to the underlying library from this function. */
 
 asynStatus ADGenICam::writeInt32( asynUser *pasynUser, epicsInt32 value)
 {
@@ -98,17 +98,13 @@ asynStatus ADGenICam::writeInt32( asynUser *pasynUser, epicsInt32 value)
         } else {
             status = stopCapture();
         }
-
     } 
     else if ((function == ADSizeX)       ||
              (function == ADSizeY)       ||
              (function == ADMinX)        ||
              (function == ADMinY)        ||
              (function == ADBinX)        ||
-             (function == ADBinY)        ||
-             (function == ADImageMode)   ||
-             (function == ADNumImages)   ||
-             (function == NDDataType)) {    
+             (function == ADBinY)) {    
         status = setImageParams();
     } 
     else if (function == ADReadStatus) {
@@ -259,7 +255,6 @@ asynStatus ADGenICam::setImageParams()
     unsigned i;
     //if (!pCamera_) return asynError;
     
-    paramIndices.push_back(ADImageMode);
     paramIndices.push_back(ADSizeX);
     paramIndices.push_back(ADSizeY);
     paramIndices.push_back(ADMinX);
