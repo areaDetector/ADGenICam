@@ -106,10 +106,14 @@ asynStatus ADGenICam::writeInt32( asynUser *pasynUser, epicsInt32 value)
              (function == ADBinX)        ||
              (function == ADBinY)) {    
         status = setImageParams();
-    } 
+    }
     else if (function == ADReadStatus) {
         status = readStatus();
     } 
+   if ((function == GCPixelFormat) ||
+       (function == ADNumImages)) {
+       pauseAcquisition();
+    }
     GenICamFeature *pFeature = mGCFeatureSet.getByIndex(function);
     if (pFeature) {
         if (pFeature->getFeatureType() == GCFeatureTypeInteger) {
@@ -119,6 +123,10 @@ asynStatus ADGenICam::writeInt32( asynUser *pasynUser, epicsInt32 value)
             pFeature->write(&value, NULL, true);
         }
         mGCFeatureSet.readAll();
+    }
+   if ((function == GCPixelFormat) ||
+       (function == ADNumImages)) {
+       resumeAcquisition();
     }
 
     asynPrint(pasynUserSelf, ASYN_TRACEIO_DRIVER, 
@@ -245,6 +253,24 @@ asynStatus ADGenICam::readEnum(asynUser *pasynUser, char *strings[], int values[
     return asynSuccess;   
 }
 
+asynStatus ADGenICam::pauseAcquisition()
+{
+    int acquiring;
+    getIntegerParam(ADAcquire, &acquiring);
+    mWasAcquiring = acquiring ? true : false;
+    if (mWasAcquiring) {
+        stopCapture();
+    }
+    return asynSuccess;
+}
+
+asynStatus ADGenICam::resumeAcquisition()
+{
+    if (mWasAcquiring) {
+        startCapture();
+    }
+    return asynSuccess;
+}
 
 asynStatus ADGenICam::setImageParams()
 {
@@ -255,6 +281,7 @@ asynStatus ADGenICam::setImageParams()
     unsigned i;
     //if (!pCamera_) return asynError;
     
+    pauseAcquisition();
     paramIndices.push_back(ADSizeX);
     paramIndices.push_back(ADSizeY);
     paramIndices.push_back(ADMinX);
@@ -272,7 +299,7 @@ asynStatus ADGenICam::setImageParams()
         pFeature = mGCFeatureSet.getByIndex(paramIndices[i]);
         if (pFeature) pFeature->read(0, true);
     }
- 
+    resumeAcquisition();
     return asynSuccess;
 }
 

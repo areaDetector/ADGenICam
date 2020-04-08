@@ -33,6 +33,8 @@ public:
                                      const char **pptypeName, size_t *psize);
     virtual asynStatus readStatus();
     virtual asynStatus setImageParams();
+    virtual asynStatus pauseAcquisition();
+    virtual asynStatus resumeAcquisition();
 
     // Pure virtual functions that all drivers must implement
     virtual GenICamFeature *createFeature(GenICamFeatureSet *set, 
@@ -61,6 +63,7 @@ private:
                                   GCFeatureType_t featureType);
     int mFirstParam;
     bool mFirstDrvUserCreateCall;
+    bool mWasAcquiring;
 };
 
 #endif
