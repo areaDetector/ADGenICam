@@ -20,6 +20,7 @@ R1-4 (8-April-2020)
   - ADBinX, ADBinY
   - ADNumImages
   - GCPixelFormat
+
   Previously changing these parameters while acquiring had no effect.
 * Don't call setImageParams when ADImageMode, ADNumImages, or NDDataType change.
   This is not necessary and writes to the binning features which can have undesired side effects.
