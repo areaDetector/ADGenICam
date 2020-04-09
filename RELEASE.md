@@ -15,7 +15,7 @@ Release Notes
 R1-4 (8-April-2020)
 -------------------
 * Added logic to pause and resume acquisition when any of the following parameters are changed:
-  - ADMinX, ADMinY, 
+  - ADMinX, ADMinY 
   - ADSizeX, ADSizeY
   - ADBinX, ADBinY
   - ADNumImages
