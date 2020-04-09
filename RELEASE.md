@@ -12,7 +12,7 @@ files respectively, in the configure/ directory of the appropriate release of th
 
 Release Notes
 =============
-R1-4 (8-April-2020)
+R1-4 (9-April-2020)
 -------------------
 * Added logic to pause and resume acquisition when any of the following parameters are changed:
   - ADMinX, ADMinY 
