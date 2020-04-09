@@ -773,7 +773,7 @@
 			"basic attribute" {
 				clr=14
 			}
-			textix="EventLine3RisingEdge"
+			textix="EventFrameTriggerReady"
 			align="horiz. right"
 		}
     # (Textentry)
@@ -785,7 +785,7 @@
 				height=20
 			}
 			control {
-				chan="$(P)$(R)GC_EveLinRisingEdg1"
+				chan="$(P)$(R)GC_EveFraTriReady"
 				clr=14
 				bclr=51
 			}
@@ -801,7 +801,7 @@
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)GC_EveLinRisingEdg1_RBV"
+				chan="$(P)$(R)GC_EveFraTriReady_RBV"
 				clr=54
 				bclr=4
 			}
@@ -821,7 +821,7 @@
 			"basic attribute" {
 				clr=14
 			}
-			textix="EventLine3FallingEdge"
+			textix="EventExposureStart"
 			align="horiz. right"
 		}
     # (Textentry)
@@ -833,7 +833,7 @@
 				height=20
 			}
 			control {
-				chan="$(P)$(R)GC_EveLinFallingEdg1"
+				chan="$(P)$(R)GC_EveExposureStart"
 				clr=14
 				bclr=51
 			}
@@ -849,7 +849,7 @@
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)GC_EveLinFallingEdg1_RBV"
+				chan="$(P)$(R)GC_EveExposureStart_RBV"
 				clr=54
 				bclr=4
 			}
@@ -869,7 +869,7 @@
 			"basic attribute" {
 				clr=14
 			}
-			textix="EventLine4RisingEdge"
+			textix="EventAction0"
 			align="horiz. right"
 		}
     # (Textentry)
@@ -881,7 +881,7 @@
 				height=20
 			}
 			control {
-				chan="$(P)$(R)GC_EveLinRisingEdg2"
+				chan="$(P)$(R)GC_EventAction0"
 				clr=14
 				bclr=51
 			}
@@ -897,7 +897,7 @@
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)GC_EveLinRisingEdg2_RBV"
+				chan="$(P)$(R)GC_EventAction0_RBV"
 				clr=54
 				bclr=4
 			}
@@ -917,7 +917,7 @@
 			"basic attribute" {
 				clr=14
 			}
-			textix="EventLine4FallingEdge"
+			textix="EventAction1"
 			align="horiz. right"
 		}
     # (Textentry)
@@ -929,7 +929,7 @@
 				height=20
 			}
 			control {
-				chan="$(P)$(R)GC_EveLinFallingEdg2"
+				chan="$(P)$(R)GC_EventAction1"
 				clr=14
 				bclr=51
 			}
@@ -945,7 +945,7 @@
 				height=18
 			}
 			monitor {
-				chan="$(P)$(R)GC_EveLinFallingEdg2_RBV"
+				chan="$(P)$(R)GC_EventAction1_RBV"
 				clr=54
 				bclr=4
 			}
@@ -1343,7 +1343,7 @@
     		x=490
     		y=40
     		width=480
-    		height=430
+    		height=180
     	}
     	"basic attribute" {
     		clr=14
@@ -1372,7 +1372,7 @@
     	"basic attribute" {
     		clr=54
     	}
-    	textix="  PvApi"
+    	textix="  ActionControl"
     	align="horiz. centered"
     }
     
@@ -1381,6 +1381,330 @@
 			object {
 				x=495
 				y=70
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="ActionUnconditionalMode"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=720
+				y=70
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_ActUncMode"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=70
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_ActUncMode_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=95
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="ActionDeviceKey"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=720
+				y=95
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_ActionDeviceKey"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=785
+				y=95
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_ActionDeviceKey_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=120
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="ActionQueueSize"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=720
+				y=120
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_ActionQueueSize"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=785
+				y=120
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_ActionQueueSize_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=145
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="ActionSelector"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=720
+				y=145
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_ActionSelector"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=785
+				y=145
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_ActionSelector_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=170
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="ActionGroupMask"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=720
+				y=170
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_ActionGroupMask"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=785
+				y=170
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_ActionGroupMask_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=195
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="ActionGroupKey"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=720
+				y=195
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_ActionGroupKey"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=785
+				y=195
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_ActionGroupKey_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    # (Rectangle)
+    rectangle {
+    	object {
+    		x=490
+    		y=225
+    		width=480
+    		height=455
+    	}
+    	"basic attribute" {
+    		clr=14
+    		fill="outline"
+    	}
+    }
+    
+    rectangle {
+    	object {
+    		x=495
+    		y=230
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=2
+    	}
+    }
+    text {
+    	object {
+    		x=495
+    		y=230
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=54
+    	}
+    	textix="  PvApi"
+    	align="horiz. centered"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=255
 				width=220
 				height=20
 			}
@@ -1394,7 +1718,7 @@
 		menu {
 			object {
 				x=720
-				y=70
+				y=255
 				width=120
 				height=20
 			}
@@ -1408,7 +1732,7 @@
 		"text update" {
 			object {
 				x=845
-				y=70
+				y=255
 				width=120
 				height=18
 			}
@@ -1426,7 +1750,7 @@
 		text {
 			object {
 				x=495
-				y=95
+				y=280
 				width=220
 				height=16
 			}
@@ -1440,7 +1764,7 @@
 		menu {
 			object {
 				x=720
-				y=95
+				y=280
 				width=120
 				height=20
 			}
@@ -1454,7 +1778,7 @@
 		"text update" {
 			object {
 				x=845
-				y=95
+				y=280
 				width=120
 				height=18
 			}
@@ -1472,7 +1796,7 @@
 		text {
 			object {
 				x=495
-				y=120
+				y=305
 				width=220
 				height=20
 			}
@@ -1486,7 +1810,7 @@
 		menu {
 			object {
 				x=720
-				y=120
+				y=305
 				width=120
 				height=20
 			}
@@ -1500,7 +1824,7 @@
 		"text update" {
 			object {
 				x=845
-				y=120
+				y=305
 				width=120
 				height=18
 			}
@@ -1518,7 +1842,7 @@
 		text {
 			object {
 				x=495
-				y=145
+				y=330
 				width=220
 				height=20
 			}
@@ -1532,7 +1856,7 @@
 		"text entry" {
 			object {
 				x=720
-				y=145
+				y=330
 				width=60
 				height=20
 			}
@@ -1548,7 +1872,7 @@
 		"text update" {
 			object {
 				x=785
-				y=145
+				y=330
 				width=120
 				height=18
 			}
@@ -1566,7 +1890,53 @@
 		text {
 			object {
 				x=495
-				y=170
+				y=355
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="ExposureModeValue"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=720
+				y=355
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_ExposureModeValue"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=355
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_ExposureModeValue_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=380
 				width=220
 				height=20
 			}
@@ -1580,7 +1950,7 @@
 		"text entry" {
 			object {
 				x=720
-				y=170
+				y=380
 				width=60
 				height=20
 			}
@@ -1596,7 +1966,7 @@
 		"text update" {
 			object {
 				x=785
-				y=170
+				y=380
 				width=120
 				height=18
 			}
@@ -1614,7 +1984,7 @@
 		text {
 			object {
 				x=495
-				y=195
+				y=405
 				width=220
 				height=20
 			}
@@ -1628,7 +1998,7 @@
 		"text entry" {
 			object {
 				x=720
-				y=195
+				y=405
 				width=60
 				height=20
 			}
@@ -1644,7 +2014,7 @@
 		"text update" {
 			object {
 				x=785
-				y=195
+				y=405
 				width=120
 				height=18
 			}
@@ -1662,7 +2032,7 @@
 		text {
 			object {
 				x=495
-				y=220
+				y=430
 				width=220
 				height=20
 			}
@@ -1676,7 +2046,7 @@
 		"text entry" {
 			object {
 				x=720
-				y=220
+				y=430
 				width=60
 				height=20
 			}
@@ -1692,7 +2062,7 @@
 		"text update" {
 			object {
 				x=785
-				y=220
+				y=430
 				width=120
 				height=18
 			}
@@ -1710,7 +2080,7 @@
 		text {
 			object {
 				x=495
-				y=245
+				y=455
 				width=220
 				height=20
 			}
@@ -1724,7 +2094,7 @@
 		"text entry" {
 			object {
 				x=720
-				y=245
+				y=455
 				width=60
 				height=20
 			}
@@ -1740,7 +2110,7 @@
 		"text update" {
 			object {
 				x=785
-				y=245
+				y=455
 				width=120
 				height=18
 			}
@@ -1758,7 +2128,7 @@
 		text {
 			object {
 				x=495
-				y=270
+				y=480
 				width=220
 				height=20
 			}
@@ -1772,7 +2142,7 @@
 		"text entry" {
 			object {
 				x=720
-				y=270
+				y=480
 				width=60
 				height=20
 			}
@@ -1788,7 +2158,7 @@
 		"text update" {
 			object {
 				x=785
-				y=270
+				y=480
 				width=120
 				height=18
 			}
@@ -1806,7 +2176,7 @@
 		text {
 			object {
 				x=495
-				y=295
+				y=505
 				width=220
 				height=20
 			}
@@ -1820,7 +2190,7 @@
 		"text update" {
 			object {
 				x=720
-				y=295
+				y=505
 				width=240
 				height=18
 			}
@@ -1838,7 +2208,7 @@
 		text {
 			object {
 				x=495
-				y=320
+				y=530
 				width=220
 				height=20
 			}
@@ -1852,7 +2222,7 @@
 		"text entry" {
 			object {
 				x=720
-				y=320
+				y=530
 				width=60
 				height=20
 			}
@@ -1868,7 +2238,7 @@
 		"text update" {
 			object {
 				x=785
-				y=320
+				y=530
 				width=120
 				height=18
 			}
@@ -1886,7 +2256,7 @@
 		text {
 			object {
 				x=495
-				y=345
+				y=555
 				width=220
 				height=20
 			}
@@ -1900,7 +2270,7 @@
 		"text entry" {
 			object {
 				x=720
-				y=345
+				y=555
 				width=60
 				height=20
 			}
@@ -1916,7 +2286,7 @@
 		"text update" {
 			object {
 				x=785
-				y=345
+				y=555
 				width=120
 				height=18
 			}
@@ -1934,7 +2304,7 @@
 		text {
 			object {
 				x=495
-				y=370
+				y=580
 				width=220
 				height=20
 			}
@@ -1948,7 +2318,7 @@
 		"text entry" {
 			object {
 				x=720
-				y=370
+				y=580
 				width=60
 				height=20
 			}
@@ -1964,7 +2334,7 @@
 		"text update" {
 			object {
 				x=785
-				y=370
+				y=580
 				width=120
 				height=18
 			}
@@ -1982,7 +2352,7 @@
 		text {
 			object {
 				x=495
-				y=395
+				y=605
 				width=220
 				height=20
 			}
@@ -1996,7 +2366,7 @@
 		"text entry" {
 			object {
 				x=720
-				y=395
+				y=605
 				width=60
 				height=20
 			}
@@ -2012,7 +2382,7 @@
 		"text update" {
 			object {
 				x=785
-				y=395
+				y=605
 				width=120
 				height=18
 			}
@@ -2030,7 +2400,7 @@
 		text {
 			object {
 				x=495
-				y=420
+				y=630
 				width=220
 				height=16
 			}
@@ -2044,7 +2414,7 @@
 		"text entry" {
 			object {
 				x=720
-				y=420
+				y=630
 				width=60
 				height=20
 			}
@@ -2060,7 +2430,7 @@
 		"text update" {
 			object {
 				x=785
-				y=420
+				y=630
 				width=120
 				height=18
 			}
@@ -2078,7 +2448,7 @@
 		text {
 			object {
 				x=495
-				y=445
+				y=655
 				width=220
 				height=16
 			}
@@ -2092,7 +2462,7 @@
 		"text entry" {
 			object {
 				x=720
-				y=445
+				y=655
 				width=60
 				height=20
 			}
@@ -2108,7 +2478,7 @@
 		"text update" {
 			object {
 				x=785
-				y=445
+				y=655
 				width=120
 				height=18
 			}
