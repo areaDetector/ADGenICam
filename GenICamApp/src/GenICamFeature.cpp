@@ -491,7 +491,12 @@ int GenICamFeature::convertEnum(epicsInt32 inputValue, GCConvertDirection_t dire
                     outputValue = mSet->mAcquisitionModeSingleFrame;
                     break;
                 case ADImageMultiple:
-                    outputValue = mSet->mAcquisitionModeMultiFrame;
+                    // Some cameras, e.g. JAI don't support MultiFrame so we convert to Continuous
+                    if (mSet->mAcquisitionModeMultiFrame != -1) {
+                        outputValue = mSet->mAcquisitionModeMultiFrame;
+                    } else {
+                        outputValue = mSet->mAcquisitionModeContinuous;
+                    }
                     break;
                 case ADImageContinuous:
                     outputValue = mSet->mAcquisitionModeContinuous;
@@ -503,7 +508,8 @@ int GenICamFeature::convertEnum(epicsInt32 inputValue, GCConvertDirection_t dire
 }
 
 GenICamFeatureSet::GenICamFeatureSet (asynPortDriver *portDriver, asynUser *user)
-: mPortDriver(portDriver), mUser(user), mFeatureMap(), mAsynMap()
+: mPortDriver(portDriver), mUser(user), mFeatureMap(), mAsynMap(),
+  mAcquisitionModeSingleFrame(-1), mAcquisitionModeMultiFrame(-1), mAcquisitionModeContinuous(-1)
 {}
 
 void GenICamFeatureSet::insert(GenICamFeature *pFeature, string const & name)
