@@ -93,7 +93,7 @@ GenICamFeature::GenICamFeature (GenICamFeatureSet *set,
         string const & asynName, asynParamType asynType, int asynIndex,
         string const &featureName, GCFeatureType_t featureType)
 : mAsynName(asynName), mAsynType(asynType), mAsynIndex(asynIndex),
-  mFeatureName(featureName), mFeatureType(featureType), mSet(set)
+  mFeatureName(featureName), mFeatureType(featureType), mImageMode(0), mSet(set)
 {
     const char *functionName = "GenICamFeature";
 
@@ -485,6 +485,11 @@ int GenICamFeature::convertEnum(epicsInt32 inputValue, GCConvertDirection_t dire
             else if (inputValue == mSet->mAcquisitionModeContinuous) {
                 outputValue = ADImageContinuous;
             }
+            // If MultiFrame is not supported then we can't use readback.
+            // Use the value that was last stored when converting from EPICS
+            if (mSet->mAcquisitionModeMultiFrame == -1) {
+                outputValue = mImageMode;
+            }
         } else {
             switch (inputValue) {
                 case ADImageSingle:
@@ -502,6 +507,8 @@ int GenICamFeature::convertEnum(epicsInt32 inputValue, GCConvertDirection_t dire
                     outputValue = mSet->mAcquisitionModeContinuous;
                     break;
             }
+            // Need to store the mode that was set because readback won't work if not all modes are supported
+            mImageMode = inputValue;
         }
     }
     return outputValue;

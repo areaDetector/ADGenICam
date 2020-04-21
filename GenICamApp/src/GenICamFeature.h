@@ -57,6 +57,7 @@ protected:
     GCFeatureType_t mFeatureType;
     std::vector<std::string> mEnumStrings;
     std::vector<int> mEnumValues;
+    int mImageMode;
 
     GenICamFeatureSet *mSet;
 
