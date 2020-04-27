@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 #include <set>
 
@@ -113,6 +114,7 @@ asynStatus ADGenICam::writeInt32( asynUser *pasynUser, epicsInt32 value)
    if ((function == GCPixelFormat) ||
        (function == ADNumImages)) {
        pauseAcquisition();
+       usleep(100000);
     }
     GenICamFeature *pFeature = mGCFeatureSet.getByIndex(function);
     if (pFeature) {
@@ -126,6 +128,7 @@ asynStatus ADGenICam::writeInt32( asynUser *pasynUser, epicsInt32 value)
     }
    if ((function == GCPixelFormat) ||
        (function == ADNumImages)) {
+       usleep(100000);
        resumeAcquisition();
     }
 
