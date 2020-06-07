@@ -113,6 +113,7 @@ asynStatus ADGenICam::writeInt32( asynUser *pasynUser, epicsInt32 value)
    if ((function == GCPixelFormat) ||
        (function == ADNumImages)) {
        pauseAcquisition();
+       epicsThreadSleep(0.1);
     }
     GenICamFeature *pFeature = mGCFeatureSet.getByIndex(function);
     if (pFeature) {
@@ -126,6 +127,7 @@ asynStatus ADGenICam::writeInt32( asynUser *pasynUser, epicsInt32 value)
     }
    if ((function == GCPixelFormat) ||
        (function == ADNumImages)) {
+       epicsThreadSleep(0.1);
        resumeAcquisition();
     }
 
