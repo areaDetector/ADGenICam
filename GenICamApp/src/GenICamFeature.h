@@ -7,6 +7,8 @@
 
 #include <asynPortDriver.h>
 
+#include "ADGenICamAPI.h"
+
 typedef enum 
 {
     GCFeatureTypeInteger,

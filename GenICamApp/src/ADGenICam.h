@@ -3,6 +3,7 @@
 
 #include <ADDriver.h>
 
+#include "ADGenICamAPI.h"
 #include "GenICamFeature.h"
 
 #define GCFrameRateString           "GC_FRAMERATE"              // asynParamFloat64, R/W
