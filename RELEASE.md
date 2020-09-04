@@ -12,6 +12,21 @@ files respectively, in the configure/ directory of the appropriate release of th
 
 Release Notes
 =============
+R1-4 (9-April-2020)
+-------------------
+* Added logic to pause and resume acquisition when any of the following parameters are changed:
+  - ADMinX, ADMinY 
+  - ADSizeX, ADSizeY
+  - ADBinX, ADBinY
+  - ADNumImages
+  - GCPixelFormat
+
+  Previously changing these parameters while acquiring had no effect.
+* Don't call setImageParams when ADImageMode, ADNumImages, or NDDataType change.
+  This is not necessary and writes to the binning features which can have undesired side effects.
+* Added xml, template, and OPI files for a number of additional Allied Vision Technologies/Prosilica 
+  and Basler cameras.
+
 R1-3 (24-February-2020)
 ------------------------
 * Fix an error when creating the enum choices for GenICam features that are not writable.

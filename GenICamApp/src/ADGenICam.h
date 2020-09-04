@@ -3,6 +3,7 @@
 
 #include <ADDriver.h>
 
+#include "ADGenICamAPI.h"
 #include "GenICamFeature.h"
 
 #define GCFrameRateString           "GC_FRAMERATE"              // asynParamFloat64, R/W
@@ -15,7 +16,7 @@
 #define GCGainAutoString            "GC_GAIN_AUTO"              // asynParamInt32, R/W
 #define GCPixelFormatString         "GC_PIXEL_FORMAT"           // asynParamInt32, R/W
 
-class epicsShareClass ADGenICam : public ADDriver
+class ADGENICAM_API ADGenICam : public ADDriver
 {
 public:
     ADGenICam(const char *portName, size_t maxMemory, int priority, int stackSize);
@@ -33,6 +34,8 @@ public:
                                      const char **pptypeName, size_t *psize);
     virtual asynStatus readStatus();
     virtual asynStatus setImageParams();
+    virtual asynStatus pauseAcquisition();
+    virtual asynStatus resumeAcquisition();
 
     // Pure virtual functions that all drivers must implement
     virtual GenICamFeature *createFeature(GenICamFeatureSet *set, 
@@ -61,6 +64,7 @@ private:
                                   GCFeatureType_t featureType);
     int mFirstParam;
     bool mFirstDrvUserCreateCall;
+    bool mWasAcquiring;
 };
 
 #endif

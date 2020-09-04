@@ -5,6 +5,10 @@ include $(TOP)/configure/CONFIG
 
 INC += GenICamFeature.h
 INC += ADGenICam.h
+INC += ADGenICamAPI.h
+
+# This flag is what switches to declspec(dllexport) when building the library
+USR_CPPFLAGS += -DBUILDING_ADGenICam_API
 
 LIBRARY_IOC += ADGenICam
 

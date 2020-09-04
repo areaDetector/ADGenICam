@@ -743,6 +743,10 @@ with this::
 Update grub with these settings::
 
   update-grub
+  
+On some Linux systems the update-grub command does not exist, so use this instead:
+
+grub2-mkconfig -o /boot/grub2/grub.cfg
 
 Reboot and test a USB 3 camera.
 

@@ -4,7 +4,10 @@
 #include <string>
 #include <vector>
 #include <map>
+
 #include <asynPortDriver.h>
+
+#include "ADGenICamAPI.h"
 
 typedef enum 
 {
@@ -34,7 +37,7 @@ typedef enum {
 
 class GenICamFeatureSet;
 
-class epicsShareClass GenICamFeature
+class ADGENICAM_API GenICamFeature
 {
 
 private:
@@ -57,6 +60,7 @@ protected:
     GCFeatureType_t mFeatureType;
     std::vector<std::string> mEnumStrings;
     std::vector<int> mEnumValues;
+    int mImageMode;
 
     GenICamFeatureSet *mSet;
 
@@ -115,7 +119,7 @@ public:
 typedef std::multimap<std::string, GenICamFeature*> GCFeatureMap_t;
 typedef std::map<int, GenICamFeature*> GCAsynMap_t;
 
-class epicsShareClass GenICamFeatureSet
+class ADGENICAM_API GenICamFeatureSet
 {
 private:
     asynPortDriver *mPortDriver;

@@ -93,7 +93,7 @@ GenICamFeature::GenICamFeature (GenICamFeatureSet *set,
         string const & asynName, asynParamType asynType, int asynIndex,
         string const &featureName, GCFeatureType_t featureType)
 : mAsynName(asynName), mAsynType(asynType), mAsynIndex(asynIndex),
-  mFeatureName(featureName), mFeatureType(featureType), mSet(set)
+  mFeatureName(featureName), mFeatureType(featureType), mImageMode(0), mSet(set)
 {
     const char *functionName = "GenICamFeature";
 
@@ -485,25 +485,38 @@ int GenICamFeature::convertEnum(epicsInt32 inputValue, GCConvertDirection_t dire
             else if (inputValue == mSet->mAcquisitionModeContinuous) {
                 outputValue = ADImageContinuous;
             }
+            // If MultiFrame is not supported then we can't use readback.
+            // Use the value that was last stored when converting from EPICS
+            if (mSet->mAcquisitionModeMultiFrame == -1) {
+                outputValue = mImageMode;
+            }
         } else {
             switch (inputValue) {
                 case ADImageSingle:
                     outputValue = mSet->mAcquisitionModeSingleFrame;
                     break;
                 case ADImageMultiple:
-                    outputValue = mSet->mAcquisitionModeMultiFrame;
+                    // Some cameras, e.g. JAI don't support MultiFrame so we convert to Continuous
+                    if (mSet->mAcquisitionModeMultiFrame != -1) {
+                        outputValue = mSet->mAcquisitionModeMultiFrame;
+                    } else {
+                        outputValue = mSet->mAcquisitionModeContinuous;
+                    }
                     break;
                 case ADImageContinuous:
                     outputValue = mSet->mAcquisitionModeContinuous;
                     break;
             }
+            // Need to store the mode that was set because readback won't work if not all modes are supported
+            mImageMode = inputValue;
         }
     }
     return outputValue;
 }
 
 GenICamFeatureSet::GenICamFeatureSet (asynPortDriver *portDriver, asynUser *user)
-: mPortDriver(portDriver), mUser(user), mFeatureMap(), mAsynMap()
+: mPortDriver(portDriver), mUser(user), mFeatureMap(), mAsynMap(),
+  mAcquisitionModeSingleFrame(-1), mAcquisitionModeMultiFrame(-1), mAcquisitionModeContinuous(-1)
 {}
 
 void GenICamFeatureSet::insert(GenICamFeature *pFeature, string const & name)
