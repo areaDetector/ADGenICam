@@ -12,6 +12,23 @@ files respectively, in the configure/ directory of the appropriate release of th
 
 Release Notes
 =============
+R1-5 (20-September-2020)
+-------------------
+* Changed the code and the Makefiles to avoid using shareLib.h from EPICS base.
+  Added new header file ADGenICamAPI.h that is used to control whether
+  functions, classes, and variables are definined internally to the library or externally. 
+  This is the mechanism now used in EPICS base 7.
+  It makes it much easier to avoid mistakes in the order of include files that cause external 
+  functions to be accidentally exported in the DLL or shareable library. 
+  This should work on all versions of base, and have no impact on user code.
+* Added fix for cameras that don't support GenICam feature AcquisitionMode=MultiFrame.
+* Added 0.1 second delay between the pausing of acquisition and setting camera parameter, and
+  0.1 second delay after setting a parameter and resuming acquisition.
+* Added support for new cameras:
+  - AVT_Mako_G158C.xml
+  - Basler_piA640_210gm.xml
+  - FLIR_BFS_70S7M.xml
+
 R1-4 (9-April-2020)
 -------------------
 * Added logic to pause and resume acquisition when any of the following parameters are changed:
