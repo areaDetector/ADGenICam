@@ -12,11 +12,24 @@ files respectively, in the configure/ directory of the appropriate release of th
 
 Release Notes
 =============
+R1-6 (XXX-September-2020)
+-------------------
+* Changed the `GenICamFeature::report()` function to print additional information:
+  - For Integer features it now prints the minimum, maximum, and increment.
+  - For Double features it now prints the minimum and maximum.
+  
+  These values are useful in determining the allow range and step size for features.
+  This information can be printed using the iocsh command:
+  `asynReport 2 [driverName]`
+  The output is quite lengthy, so it can be useful to send it to a file like this:
+  `asynReport 2 [driverName] > myFeatures.txt`
+
+
 R1-5 (20-September-2020)
 -------------------
 * Changed the code and the Makefiles to avoid using shareLib.h from EPICS base.
   Added new header file ADGenICamAPI.h that is used to control whether
-  functions, classes, and variables are definined internally to the library or externally. 
+  functions, classes, and variables are defined internally to the library or externally. 
   This is the mechanism now used in EPICS base 7.
   It makes it much easier to avoid mistakes in the order of include files that cause external 
   functions to be accidentally exported in the DLL or shareable library. 
