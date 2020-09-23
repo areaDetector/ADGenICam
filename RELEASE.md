@@ -21,11 +21,11 @@ R1-6 (XXX-September-2020)
   These values are useful in determining the allow range and step size for features.
   This information can be printed using the iocsh command:
 ```
-  asynReport 2 [driverName]
+asynReport 2 [driverName]
 ```
   The output is quite lengthy, so it can be useful to send it to a file like this:
 ```
-asynReport 2 [driverName] > myFeatures.txt`
+asynReport 2 [driverName] > myFeatures.txt
 ```
 
 R1-5 (20-September-2020)
