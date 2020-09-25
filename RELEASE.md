@@ -14,6 +14,11 @@ Release Notes
 =============
 R1-6 (XXX-September-2020)
 -------------------
+* Added new methods ADGenICam::decompressMono12Packed and ADGenICam::decompressMono12p.
+  These can be called from drivers to convert images from Mono12Packed or Mono12p
+  to UInt16.  These are now used by ADAravis.
+  ADSpinnaker and ADVimba currently use methods in the vendor SDKs for this function,
+  but they could also be changed to use these methods.
 * Changed the `GenICamFeature::report()` function to print additional information:
   - For Integer features it now prints the minimum, maximum, and increment.
   - For Double features it now prints the minimum and maximum.
