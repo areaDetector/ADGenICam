@@ -14,6 +14,9 @@ ADGenICam
 .. _ADSpinnaker:  https://github.com/areaDetector/ADSpinnaker
 .. _ADVimba:      https://github.com/areaDetector/ADVimba
 .. _ADSupport:    https://github.com/areaDetector/ADSupport
+.. _ADGenICam class: ../areaDetectorDoxygenHTML/class_a_d_gen_i_cam.html
+.. _meson:        https://mesonbuild.com
+.. _ninja:        https://ninja-build.org
 
 Overview
 --------
@@ -74,6 +77,8 @@ derived classes:
 - ADSpinnaker_: Driver that uses the FLIR Spinnaker SDK.  Runs on Windows and Linux Ubuntu 18. Controls only FLIR/Point Grey cameras.
 - ADVimba_: Driver that uses the AVT Vimba SDK.  Runs on Windows and most Linux systems.  Controls only AVT/Prosilica cameras.
 
+`ADGenICam class`_ describes this class in detail.
+
 ADGenICam and aravis
 --------------------
 A problem with the GenICam standard is that while it provides a reference implementation, it is not
@@ -97,22 +102,36 @@ the XML file from the camera, even when using drivers that are not based on arav
 ADSpinnaker_ driver or the ADVimba_ driver.  ADSpinnaker_ and ADVimba_ can run on Windows, but the XML
 file extraction must be done once on Linux.
 
-The following shows the steps to build and install aravis 0.6.3 on a Centos 7 machine running as root::
+aravis 0.7.x and higher use the meson_ and ninja_ build systems, rather than the autoconf and gnumake 
+systems used in previous versions.
+ 
+The following shows the steps to build and install aravis 0.8.1 on a Centos 7 machine running as root::
 
+  yum install ninja-build
+  yum install meson
+  yum install glib2-devel
   yum install gtk-doc
   yum install libxml2-devel  
-  yum install glib2-devel
+  yum install gtk3-devel
+  yum install gstreamer1
+  yum install gstreamer1-devel
+  yum install gstreamer1-plugins-base-devel
+  yum install libnotify-devel
+  yum install gtk-doc
+  yum install gobject-introspection-devel
   yum install zlib-devel
   cd /usr/local
   git clone https://github.com/AravisProject/aravis
   cd aravis/
-  git checkout ARAVIS_0_6_3
-  ./autogen.sh
-  make -sj
-  make install
+  git checkout ARAVIS_0_8_1
+  meson build
+  cd build
+  ninja-build
+  ninja-build install
 
 The steps above will be different if you do not have root access and need to install elsewhere,
 or if you are running another OS like Ubuntu where `apt install` is used in place of `yum install`.
+The names of the required packages will also be different on another OS like Ubuntu.
 
 .. _ADGenICam_Download_XML:
 
