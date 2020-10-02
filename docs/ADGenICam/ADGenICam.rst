@@ -149,23 +149,27 @@ driver or at run-time.
 To extract the XML file from the camera first run the arv-tool program to make a list of all the 
 GenICam cameras that are visible from the Linux system, for example::
 
-  TahoeU18:/corvette/home/epics/devel/areaDetector/ADGenICam> ../aravisGigE/bin/linux-x86_64/arv-tool-0.6
-  Allied Vision Technologies-02-2142A-06178 (164.54.160.58)
-  Allied Vision Technologies-02-2604A-07008 (164.54.160.104)
-  Allied Vision Technologies-50-0503317598 (164.54.160.62)
-  Allied Vision Technologies-50-0503419258 (164.54.160.21)
-  FLIR-18011754 (192.168.0.2)
-  PointGrey-13481965 (164.54.160.114)
+  TahoeU18:/corvette/home/epics/devel/areaDetector/ADGenICam> arv-tool-0.8
+  Allied Vision Technologies-GC1380H (02-2142A)-02-2142A-06178 (164.54.160.58)
+  Allied Vision Technologies-GT1380 (02-2604A)-02-2604A-07008 (164.54.160.104)
+  Allied Vision Technologies-Manta G-507B (E0022704)-50-0503479161 (164.54.160.4)
+  Allied Vision Technologies-Manta G-507C (E0022705)-50-0503419258 (164.54.160.21)
+  Allied Vision Technologies-Manta_G-146C (E0020011)-50-0503317598 (164.54.160.62)
+  FLIR-Oryx ORX-10G-51S5M-18011754 (192.168.0.2)
+
 
 Then download the XML file with the command `arv-tool -n cameraName genicam > XML_file_name`, for example::
 
-  TahoeU18:/corvette/home/epics/devel/areaDetector/ADGenICam> ../aravisGigE/bin/linux-x86_64/arv-tool-0.6 -n PointGrey-13481965 genicam > xml/PGR_Blackfly_20E4C.xml
+  TahoeU18:/corvette/home/epics/devel/areaDetector/ADGenICam> arv-tool-0.8 -n "Allied Vision Technologies-Manta G-507B (E0022704)-50-0503479161" genicam > xml/AVT_Manta_G507B.xml
   TahoeU18:/corvette/home/epics/devel/areaDetector/ADGenICam> ls -ltr xml
-  total 1780
-  -rw-rw-r-- 1 epics domain users 332287 Oct  7  2018 PGR_Blackfly_50S5C.xml
-  -rw-rw-r-- 1 epics domain users 231493 Oct 29  2018 AVT_Manta_G507C.xml
-  -rw-r--r-- 1 epics domain users 932059 May 31 10:16 FLIR_ORX_10G_51S5.xml
-  -rw-r--r-- 1 epics domain users 317859 Jun  2 09:17 PGR_Blackfly_20E4C.xml
+  total 19496
+  -rw-rw-r-- 1 epics domain users  332287 Oct  7  2018 PGR_Blackfly_50S5C.xml
+  -rw-r--r-- 1 epics domain users  317859 Jun  2  2019 PGR_Blackfly_20E4C.xml
+  ...
+  -rwxrwxr-x 1 epics domain users  202059 May 14 14:59 AVT_Mako_G158C.xml
+  -rw-rw-r-- 1 epics domain users  483863 Sep 15 18:32 Basler_piA640_210gm.xml
+  -rw-rw-r-- 1 epics domain users  924352 Sep 15 18:32 FLIR_BFS_70S7M.xml
+  -rw-r--r-- 1 epics domain users  232180 Sep 29 12:12 AVT_Manta_G507B.xml
 
 .. _ADGenICam_Python_scripts:
 
