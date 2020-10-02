@@ -23,7 +23,7 @@ R1-6 (2-October-2020)
   - For Integer features it now prints the minimum, maximum, and increment.
   - For Double features it now prints the minimum and maximum.
   
-  These values are useful in determining the allow range and step size for features.
+  These values are useful in determining the allowed range and step size for features.
   This information can be printed using the iocsh command:
 ```
 asynReport 2 [driverName]
