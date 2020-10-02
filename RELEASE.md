@@ -12,7 +12,7 @@ files respectively, in the configure/ directory of the appropriate release of th
 
 Release Notes
 =============
-R1-6 (XXX-September-2020)
+R1-6 (2-October-2020)
 -------------------
 * Added new methods ADGenICam::decompressMono12Packed and ADGenICam::decompressMono12p.
   These can be called from drivers to convert images from Mono12Packed or Mono12p
