@@ -533,29 +533,57 @@ asynStatus ADGenICam::addADDriverFeatures()
 
   This packing format is applied to: Mono12Packed, BayerGR12Packed, BayerRG12Packed, BayerGB12Packed and BayerBG12Packed.
 */
-void ADGenICam::decompressMono12p(int numPixels, epicsUInt8 *input, epicsUInt16 *output)
+
+/** Decompresses Mono12p to epicsUInt16
+ * \param[in] numPixels Number of pixels.
+ * \param[in] leftShift If true left shift 4 bits so bits 0-3 are zero.
+ * \param[in] input Pointer to the Mono12p packed input buffer.
+ * \param[out] output Pointer to the epicUInt16 output buffer that must have already been allocated.
+ */
+
+void ADGenICam::decompressMono12p(int numPixels, bool leftShift, epicsUInt8 *input, epicsUInt16 *output)
 {
-    /* Unpack a buffer that is packed with the USB3 Vision Mono12p compression
-     * This routine assumes that the output array has already been allocated */
     int i;
 
-    for (i=0; i<numPixels/2; i++) {
-        *output++ = (*input << 4) | ((*(input+1) & 0x0f) << 12);
-        *output++ = (*(input+1) & 0xf0) | (*(input+2) << 8);
-        input += 3;
+    if (leftShift) {
+        for (i=0; i<numPixels/2; i++) {
+            *output++ = (*input << 4) | ((*(input+1) & 0x0f) << 12);
+            *output++ = (*(input+1) & 0xf0) | (*(input+2) << 8);
+            input += 3;
+        }
+    } else {
+        for (i=0; i<numPixels/2; i++) {
+            *output++ = *input | ((*(input+1) & 0x0f) << 8);
+            *output++ = ((*(input+1) & 0xf0) >> 4) | (*(input+2) << 4);
+            input += 3;
+        }
     }
 }
 
-void ADGenICam::decompressMono12Packed(int numPixels, epicsUInt8 *input, epicsUInt16 *output)
+/** Decompresses Mono12Packed to epicsUInt16
+ * \param[in] numPixels Number of pixels.
+ * \param[in] leftShift If true left shift 4 bits so bits 0-3 are zero.
+ * \param[in] input Pointer to the Mono12Packed packed input buffer.
+ * \param[out] output Pointer to the epicUInt16 output buffer that must have already been allocated.
+ */
+
+void ADGenICam::decompressMono12Packed(int numPixels, bool leftShift, epicsUInt8 *input, epicsUInt16 *output)
 {
-    /* Unpack a buffer that is packed with the GigE Vision Mono12Packed compression
-     * This routine assumes that the output array has already been allocated */
     int i;
 
-    for (i=0; i<numPixels/2; i++) {
-        *output++ = (*input << 8) | ((*(input+1) & 0x0f) << 4);
-        *output++ = (*(input+1) & 0xf0) | (*(input+2) << 8);
-        input += 3;
+    if (leftShift) {
+        for (i=0; i<numPixels/2; i++) {
+            *output++ = (*input << 8) | ((*(input+1) & 0x0f) << 4);
+            *output++ = (*(input+1) & 0xf0) | (*(input+2) << 8);
+            input += 3;
+        }
+    } else {
+        for (i=0; i<numPixels/2; i++) {
+            *output++ = (*input << 4) | (*(input+1) & 0x0f);
+            *output++ = ((*(input+1) & 0xf0) >> 4) | (*(input+2) << 4);
+            input += 3;
+        }
     }
 }
+
 
