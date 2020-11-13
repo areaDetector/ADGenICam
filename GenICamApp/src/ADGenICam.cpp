@@ -508,3 +508,82 @@ asynStatus ADGenICam::addADDriverFeatures()
     return asynSuccess;
 }
 
+/* These functions convert Mono12p and Mono12Packed formats to UInt16.
+  The following description of these formats is from this document:
+  http://softwareservices.flir.com/BFS-U3-51S5P/latest/Model/public/ImageFormatControl.html
+   
+  12-bit pixel formats have two different packing formats as defined by USB3 Vision and GigE Vision. 
+  Note: the packing format is not related to the interface of the camera. Both may be available on USB3 or GigE devices.
+
+  The USB3 Vision method is designated with a p. 
+  It is a 12-bit format with its bit-stream following the bit packing method illustrated in Figure 3. 
+  The first byte of the packed stream contains the eight least significant bits (lsb) of the first pixel. 
+  The third byte contains the eight most significant bits (msb) of the second pixel. 
+  The four lsb of the second byte contains four msb of the first pixel, 
+  and the rest of the second byte is packed with the four lsb of the second pixel.
+
+  This packing format is applied to: Mono12p, BayerGR12p, BayerRG12p, BayerGB12p and BayerBG12p.
+
+  The GigE Vision method is designated with Packed. 
+  It is a 12-bit format with its bit-stream following the bit packing method illustrated in Figure 4. 
+  The first byte of the packed stream contains the eight msb of the first pixel. 
+  The third byte contains the eight msb of the second pixel. 
+  The four lsb of the second byte contains four lsb of the first pixel, 
+  and the rest of the second byte is packed with the four lsb of the second pixel.
+
+  This packing format is applied to: Mono12Packed, BayerGR12Packed, BayerRG12Packed, BayerGB12Packed and BayerBG12Packed.
+*/
+
+/** Decompresses Mono12p to epicsUInt16
+ * \param[in] numPixels Number of pixels.
+ * \param[in] leftShift If true left shift 4 bits so bits 0-3 are zero.
+ * \param[in] input Pointer to the Mono12p packed input buffer.
+ * \param[out] output Pointer to the epicUInt16 output buffer that must have already been allocated.
+ */
+
+void ADGenICam::decompressMono12p(int numPixels, bool leftShift, epicsUInt8 *input, epicsUInt16 *output)
+{
+    int i;
+
+    if (leftShift) {
+        for (i=0; i<numPixels/2; i++) {
+            *output++ = (*input << 4) | ((*(input+1) & 0x0f) << 12);
+            *output++ = (*(input+1) & 0xf0) | (*(input+2) << 8);
+            input += 3;
+        }
+    } else {
+        for (i=0; i<numPixels/2; i++) {
+            *output++ = *input | ((*(input+1) & 0x0f) << 8);
+            *output++ = ((*(input+1) & 0xf0) >> 4) | (*(input+2) << 4);
+            input += 3;
+        }
+    }
+}
+
+/** Decompresses Mono12Packed to epicsUInt16
+ * \param[in] numPixels Number of pixels.
+ * \param[in] leftShift If true left shift 4 bits so bits 0-3 are zero.
+ * \param[in] input Pointer to the Mono12Packed packed input buffer.
+ * \param[out] output Pointer to the epicUInt16 output buffer that must have already been allocated.
+ */
+
+void ADGenICam::decompressMono12Packed(int numPixels, bool leftShift, epicsUInt8 *input, epicsUInt16 *output)
+{
+    int i;
+
+    if (leftShift) {
+        for (i=0; i<numPixels/2; i++) {
+            *output++ = (*input << 8) | ((*(input+1) & 0x0f) << 4);
+            *output++ = (*(input+1) & 0xf0) | (*(input+2) << 8);
+            input += 3;
+        }
+    } else {
+        for (i=0; i<numPixels/2; i++) {
+            *output++ = (*input << 4) | (*(input+1) & 0x0f);
+            *output++ = ((*(input+1) & 0xf0) >> 4) | (*(input+2) << 4);
+            input += 3;
+        }
+    }
+}
+
+

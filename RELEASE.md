@@ -12,6 +12,50 @@ files respectively, in the configure/ directory of the appropriate release of th
 
 Release Notes
 =============
+R1-7 (XXX-October-2020)
+-------------------
+* Added bool leftShift argument to decompressMono12Packed() and decompressMono12p().
+  In R1-6 these functions always left shifted the output by 4 bits, and bits 0-3 were 0.
+  This 4-bit left-shift operation is now optional.
+
+R1-6 (2-October-2020)
+-------------------
+* Added new methods ADGenICam::decompressMono12Packed and ADGenICam::decompressMono12p.
+  These can be called from drivers to convert images from Mono12Packed or Mono12p
+  to UInt16.  These are now used by ADAravis.
+  ADSpinnaker and ADVimba currently use methods in the vendor SDKs for this function,
+  but they could also be changed to use these methods.
+* Changed the `GenICamFeature::report()` function to print additional information:
+  - For Integer features it now prints the minimum, maximum, and increment.
+  - For Double features it now prints the minimum and maximum.
+  
+  These values are useful in determining the allowed range and step size for features.
+  This information can be printed using the iocsh command:
+```
+asynReport 2 [driverName]
+```
+  The output is quite lengthy, so it can be useful to send it to a file like this:
+```
+asynReport 2 [driverName] > myFeatures.txt
+```
+
+R1-5 (20-September-2020)
+-------------------
+* Changed the code and the Makefiles to avoid using shareLib.h from EPICS base.
+  Added new header file ADGenICamAPI.h that is used to control whether
+  functions, classes, and variables are defined internally to the library or externally. 
+  This is the mechanism now used in EPICS base 7.
+  It makes it much easier to avoid mistakes in the order of include files that cause external 
+  functions to be accidentally exported in the DLL or shareable library. 
+  This should work on all versions of base, and have no impact on user code.
+* Added fix for cameras that don't support GenICam feature AcquisitionMode=MultiFrame.
+* Added 0.1 second delay between the pausing of acquisition and setting camera parameter, and
+  0.1 second delay after setting a parameter and resuming acquisition.
+* Added support for new cameras:
+  - AVT_Mako_G158C.xml
+  - Basler_piA640_210gm.xml
+  - FLIR_BFS_70S7M.xml
+
 R1-4 (9-April-2020)
 -------------------
 * Added logic to pause and resume acquisition when any of the following parameters are changed:

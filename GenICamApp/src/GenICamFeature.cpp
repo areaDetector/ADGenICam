@@ -593,6 +593,15 @@ void GenICamFeature::report (FILE *fp, int details)
         fprintf(fp, "    isAvailable: %s\n",   isAvailable()   ? "true" : "false");
         fprintf(fp, "     isReadable: %s\n",   isReadable()    ? "true" : "false");
         fprintf(fp, "     isWritable: %s\n",   isWritable()    ? "true" : "false");
+        if ((mFeatureType == GCFeatureTypeInteger) && isReadable()) {
+            fprintf(fp, "        minimum: %lld\n",   readIntegerMin());
+            fprintf(fp, "        maximum: %lld\n",   readIntegerMax());
+            fprintf(fp, "      increment: %lld\n",   readIncrement());
+        }
+        if ((mFeatureType == GCFeatureTypeDouble) && isReadable()) {
+            fprintf(fp, "        minimum: %f\n",   readDoubleMin());
+            fprintf(fp, "        maximum: %f\n",   readDoubleMax());
+        }
         if ((mFeatureType == GCFeatureTypeEnum) && (mEnumStrings.size() > 0)) {
             fprintf(fp, "          enums: %d: %s\n", mEnumValues[0], mEnumStrings[0].c_str());
             for (size_t i=1; i<mEnumStrings.size(); i++) {
