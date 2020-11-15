@@ -12,11 +12,12 @@ files respectively, in the configure/ directory of the appropriate release of th
 
 Release Notes
 =============
-R1-7 (XXX-October-2020)
+R1-7 (15-November-2020)
 -------------------
 * Added bool leftShift argument to decompressMono12Packed() and decompressMono12p().
   In R1-6 these functions always left shifted the output by 4 bits, and bits 0-3 were 0.
   This 4-bit left-shift operation is now optional.
+* Added 3 new FLIR cameras.
 
 R1-6 (2-October-2020)
 -------------------
