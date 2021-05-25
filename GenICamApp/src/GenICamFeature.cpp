@@ -303,7 +303,7 @@ int GenICamFeature::read(void *pValue, bool bSetParam)
                 char *enumStrings[1];
                 int enumValues[1];
                 int enumSeverities[1];
-                enumStrings[0] = epicsStrDup("N.A.");
+                enumStrings[0] = (char *)"N.A.";
                 enumValues[0] = 0;
                 enumSeverities[0] = 0;
                 mSet->getPortDriver()->doCallbacksEnum(enumStrings, enumValues, enumSeverities, 
@@ -372,7 +372,7 @@ int GenICamFeature::read(void *pValue, bool bSetParam)
                     int *enumValues = new int[numEnums];
                     int *enumSeverities = new int[numEnums];
                     for (int i=0; i<numEnums; i++) {
-                        enumStrings[i] = epicsStrDup(mEnumStrings[i].c_str());
+                        enumStrings[i] = (char *)mEnumStrings[i].c_str();
                         enumValues[i] = mEnumValues[i];
                         enumSeverities[i] = 0;
                     }
