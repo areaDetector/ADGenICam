@@ -231,7 +231,7 @@ asynStatus ADGenICam::readEnum(asynUser *pasynUser, char *strings[], int values[
     }
 
     *nIn = 0;
-    if (!pFeature->isImplemented() || !pFeature->isAvailable()) {
+    if (!pFeature->isImplemented() || !pFeature->isAvailable() || !pFeature->isReadable()) {
         if (strings[0]) free(strings[0]);
         strings[0] = epicsStrDup("N.A.");
         values[0] = 0;
@@ -244,13 +244,11 @@ asynStatus ADGenICam::readEnum(asynUser *pasynUser, char *strings[], int values[
     numEnums = (int)enumStrings.size();
 
     for (i=0; ((i<numEnums) && (i<(int)nElements)); i++) {
-        if (pFeature->isAvailable() && pFeature->isReadable()) {
-            if (strings[*nIn]) free(strings[*nIn]);
-            strings[*nIn] = epicsStrDup(enumStrings[i].c_str());
-            values[*nIn] = enumValues[i];
-            severities[*nIn] = 0;
-            (*nIn)++;
-        }
+        if (strings[*nIn]) free(strings[*nIn]);
+        strings[*nIn] = epicsStrDup(enumStrings[i].c_str());
+        values[*nIn] = enumValues[i];
+        severities[*nIn] = 0;
+        (*nIn)++;
     }
     return asynSuccess;   
 }

@@ -294,7 +294,7 @@ int GenICamFeature::read(void *pValue, bool bSetParam)
     FLOW_ARGS("reading %s", mFeatureName.c_str());
     try {
         if ((mFeatureType == GCFeatureTypeEnum) && (mAsynName != "IMAGE_MODE") &&
-            (!isImplemented() || !isAvailable() || !isWritable())) {
+            (!isImplemented() || !isAvailable() || !isReadable())) {
             if (mEnumStrings.empty() || (mEnumStrings[0] != "N.A.")) {
                 mEnumStrings.clear();
                 mEnumStrings.push_back("N.A.");
@@ -309,6 +309,7 @@ int GenICamFeature::read(void *pValue, bool bSetParam)
                 mSet->getPortDriver()->doCallbacksEnum(enumStrings, enumValues, enumSeverities, 
                                                        1, mAsynIndex, 0);
             }
+            return EXIT_SUCCESS;
         }
         if (!isImplemented()) {
              WARN_ARGS("node %s is not implemented\n", mFeatureName.c_str());
