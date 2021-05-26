@@ -12,6 +12,15 @@ files respectively, in the configure/ directory of the appropriate release of th
 
 Release Notes
 =============
+R1-7-1 (26-May-2021)
+-------------------
+* Fixed a memory leak due to calling epicsStrDup() in GenICamFeature.cpp and never freeing that memory.
+  The epicsStrDup() call was not needed and has been removed.
+* Made the treatment of enum features internally consistent.
+  If the feature is not implemented or not available or not readable then there is a single enum state, "N.A.".
+  Previously it used readable ADGenICam when reading enums, but writable when doing callbacks.
+* Improved the logic to eliminate unneeded callbacks when it has been set to N.A.
+
 R1-7 (15-November-2020)
 -------------------
 * Added bool leftShift argument to decompressMono12Packed() and decompressMono12p().
