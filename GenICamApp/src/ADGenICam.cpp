@@ -195,7 +195,12 @@ asynStatus ADGenICam::writeFloat64( asynUser *pasynUser, epicsFloat64 value)
 
     GenICamFeature *pFeature = mGCFeatureSet.getByIndex(function);
     if (pFeature) {
-        pFeature->write(&value, NULL, true);
+        if (pFeature->getFeatureType() == GCFeatureTypeInteger) {
+            epicsInt64 i64value = value;
+            pFeature->write(&i64value, NULL, true);
+        } else {
+            pFeature->write(&value, NULL, true);
+        }
         mGCFeatureSet.readAll();
     }
 
@@ -406,20 +411,17 @@ asynStatus ADGenICam::drvUserCreate(asynUser *pasynUser, const char *drvInfo,
 }
 
 asynStatus ADGenICam::createMultiFeature(std::string const & asynName, asynParamType asynType, int asynIndex,
-                                         std::string const & featureName1, std::string const & featureName2, 
-                                         GCFeatureType_t featureType)
+                                         std::vector<GCFeatureStruct_t> & features)
 {
-    std::string featureName = featureName1;
-    GenICamFeature *pFeature = createFeature(&mGCFeatureSet, asynName, asynType, asynIndex, featureName, featureType);
-    if (!pFeature->isImplemented()) {
-        featureName = featureName2;
-        pFeature = createFeature(&mGCFeatureSet, asynName, asynType, asynIndex, featureName, featureType);
-    }
-    if (pFeature->isImplemented()) {
-        mGCFeatureSet.insert(pFeature, featureName);
-        // Do an initial read of the feature so EPICS output records initialize to this value
-        pFeature->read(NULL, true);
-        return asynSuccess;
+    size_t numFeatures = features.size();
+    for (size_t i=0; i<numFeatures; i++) {
+        GenICamFeature *pFeature = createFeature(&mGCFeatureSet, asynName, asynType, asynIndex, features[i].featureName, features[i].featureType);
+        if (pFeature->isImplemented()) {
+            mGCFeatureSet.insert(pFeature, features[i].featureName);
+            // Do an initial read of the feature so EPICS output records initialize to this value
+            pFeature->read(NULL, true);
+            return asynSuccess;
+        }
     }
     return asynError;
 }
@@ -485,23 +487,33 @@ asynStatus ADGenICam::addADDriverFeatures()
         }
     }
     
+    std::vector<GCFeatureStruct_t> features;
     // Make a single parameter that maps to either AcquisitionFrameRateEnable or AcquisitionFrameRateEnabled
-    createMultiFeature(GCFrameRateEnableString, asynParamInt32, GCFrameRateEnable, 
-                       "AcquisitionFrameRateEnable", "AcquisitionFrameRateEnabled", GCFeatureTypeBoolean);
+    features = {{"AcquisitionFrameRateEnable",  GCFeatureTypeBoolean},
+                {"AcquisitionFrameRateEnabled", GCFeatureTypeBoolean}};
+    createMultiFeature(GCFrameRateEnableString, asynParamInt32, GCFrameRateEnable, features);
 
     // Make a single ADAcquire parameter that maps to either ExposureTime or ExposureTimeAbs
-    createMultiFeature(ADAcquireTimeString, asynParamFloat64, ADAcquireTime,
-                       "ExposureTime", "ExposureTimeAbs", GCFeatureTypeDouble);
+    features = {{"ExposureTime",    GCFeatureTypeDouble},
+                {"ExposureTimeAbs", GCFeatureTypeDouble}};
+    createMultiFeature(ADAcquireTimeString, asynParamFloat64, ADAcquireTime, features);
 
     // Make a single parameter that maps to either AcquisitionFrameRate or AcquisitionFrameRateAbs
-    createMultiFeature(GCFrameRateString, asynParamFloat64, GCFrameRate, 
-                       "AcquisitionFrameRate", "AcquisitionFrameRateAbs", GCFeatureTypeDouble);
-    createMultiFeature(ADAcquirePeriodString, asynParamFloat64, ADAcquirePeriod, 
-                       "AcquisitionFrameRate", "AcquisitionFrameRateAbs", GCFeatureTypeDouble);
+    features = {{"AcquisitionFrameRate",    GCFeatureTypeDouble},
+                {"AcquisitionFrameRateAbs", GCFeatureTypeDouble}};
+    createMultiFeature(GCFrameRateString, asynParamFloat64, GCFrameRate, features);
+    createMultiFeature(ADAcquirePeriodString, asynParamFloat64, ADAcquirePeriod, features);
 
     // Make a single parameter that maps to either DeviceSerialNumber or DeviceID (used by AVT)
-    createMultiFeature(ADSerialNumberString, asynParamOctet, ADSerialNumber,
-                       "DeviceSerialNumber", "DeviceID", GCFeatureTypeString);
+    features = {{"DeviceSerialNumber", GCFeatureTypeString},
+                {"DeviceID",           GCFeatureTypeString}};
+    createMultiFeature(ADSerialNumberString, asynParamOctet, ADSerialNumber, features);
+
+    // Make a single parameter that maps to either Gain, GainRaw, or GainRawChannelA
+    features = {{"Gain",            GCFeatureTypeDouble},
+                {"GainRaw",         GCFeatureTypeInteger},
+                {"GainRawChannelA", GCFeatureTypeInteger}};
+    createMultiFeature(ADGainString, asynParamFloat64, ADGain, features);
 
     return asynSuccess;
 }
