@@ -36,24 +36,54 @@ using std::pair;
 
 int GenICamFeature::getParam (epicsInt64 & value)
 {
+    int status = asynError;
     if (mAsynType == asynParamInt32) {
         epicsInt32 temp;
-        int status = mSet->getPortDriver()->getIntegerParam(mAsynIndex, &temp);
+        status = mSet->getPortDriver()->getIntegerParam(mAsynIndex, &temp);
         value = temp;
-        return status;
+    } else if (mAsynType == asynParamInt64) {
+        status = mSet->getPortDriver()->getInteger64Param(mAsynIndex, &value);
+    } else if (mAsynType == asynParamFloat64) {
+        epicsFloat64 temp;
+        status = mSet->getPortDriver()->getDoubleParam(mAsynIndex, &temp);
+        value = temp;
     }
-    return (int) mSet->getPortDriver()->getInteger64Param(mAsynIndex, &value);
-
+    return status;
 }
 
 int GenICamFeature::getParam (epicsInt32& value)
 {
-    return (int) mSet->getPortDriver()->getIntegerParam(mAsynIndex, &value);
+    int status = asynError;
+    if (mAsynType == asynParamInt32) {
+        status = mSet->getPortDriver()->getIntegerParam(mAsynIndex, &value);
+    } else if (mAsynType == asynParamInt64) {
+        epicsInt64 temp;
+        status = mSet->getPortDriver()->getInteger64Param(mAsynIndex, &temp);
+        value = temp;
+    } else if (mAsynType == asynParamFloat64) {
+        epicsFloat64 temp;
+        status = mSet->getPortDriver()->getDoubleParam(mAsynIndex, &temp);
+        value = temp;
+    }
+    return status;
 }
 
 int GenICamFeature::getParam (double & value)
 {
-    return (int) mSet->getPortDriver()->getDoubleParam(mAsynIndex, &value);
+
+    int status = asynError;
+    if (mAsynType == asynParamInt32) {
+        epicsInt32 temp;
+        status = mSet->getPortDriver()->getIntegerParam(mAsynIndex, &temp);
+        value = temp;
+    } else if (mAsynType == asynParamInt64) {
+        epicsInt64 temp;
+        status = mSet->getPortDriver()->getInteger64Param(mAsynIndex, &temp);
+        value = temp;
+    } else if (mAsynType == asynParamFloat64) {
+        status = mSet->getPortDriver()->getDoubleParam(mAsynIndex, &value);
+    }
+    return status;
 }
 
 int GenICamFeature::getParam (std::string & value)
@@ -63,20 +93,41 @@ int GenICamFeature::getParam (std::string & value)
 
 int GenICamFeature::setParam (epicsInt64 value)
 {
+    int status = asynError;
     if (mAsynType == asynParamInt32) {
-        return (int) mSet->getPortDriver()->setIntegerParam(mAsynIndex, (epicsInt32)value);
-    } 
-    return (int) mSet->getPortDriver()->setInteger64Param(mAsynIndex, value);
+       status = mSet->getPortDriver()->setIntegerParam(mAsynIndex, (epicsInt32)value);
+    } else if (mAsynType == asynParamInt64) {
+       status = mSet->getPortDriver()->setInteger64Param(mAsynIndex, value);
+    } else if (mAsynType == asynParamFloat64) {
+      status = mSet->getPortDriver()->setDoubleParam(mAsynIndex, (epicsFloat64)value);
+    }
+    return status;
 }
 
 int GenICamFeature::setParam (epicsInt32 value)
 {
-    return (int) mSet->getPortDriver()->setIntegerParam(mAsynIndex, value);
+    int status = asynError;
+    if (mAsynType == asynParamInt32) {
+       status = mSet->getPortDriver()->setIntegerParam(mAsynIndex, value);
+    } else if (mAsynType == asynParamInt64) {
+       status = mSet->getPortDriver()->setInteger64Param(mAsynIndex, (epicsInt64)value);
+    } else if (mAsynType == asynParamFloat64) {
+      status = mSet->getPortDriver()->setDoubleParam(mAsynIndex, (epicsFloat64)value);
+    }
+    return status;
 }
 
 int GenICamFeature::setParam (double value)
 {
-    return (int) mSet->getPortDriver()->setDoubleParam(mAsynIndex, value);
+    int status = asynError;
+    if (mAsynType == asynParamInt32) {
+       status = mSet->getPortDriver()->setIntegerParam(mAsynIndex, (epicsInt32)value);
+    } else if (mAsynType == asynParamInt64) {
+       status = mSet->getPortDriver()->setInteger64Param(mAsynIndex, (epicsInt64)value);
+    } else if (mAsynType == asynParamFloat64) {
+      status = mSet->getPortDriver()->setDoubleParam(mAsynIndex, value);
+    }
+    return status;
 }
 
 int GenICamFeature::setParam (std::string const & value)
