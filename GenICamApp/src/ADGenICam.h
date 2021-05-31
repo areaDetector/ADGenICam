@@ -16,6 +16,11 @@
 #define GCGainAutoString            "GC_GAIN_AUTO"              // asynParamInt32, R/W
 #define GCPixelFormatString         "GC_PIXEL_FORMAT"           // asynParamInt32, R/W
 
+typedef struct {
+    const char* featureName;
+    GCFeatureType_t featureType;
+} GCFeatureStruct_t;
+
 class ADGENICAM_API ADGenICam : public ADDriver
 {
 public:
@@ -62,8 +67,7 @@ protected:
     
 private:
     asynStatus createMultiFeature(std::string const & asynName, asynParamType asynType, int asynIndex,
-                                  std::string const & featureName1, std::string const & featureName2, 
-                                  GCFeatureType_t featureType);
+                                  std::vector<GCFeatureStruct_t> & features);
     int mFirstParam;
     bool mFirstDrvUserCreateCall;
     bool mWasAcquiring;
