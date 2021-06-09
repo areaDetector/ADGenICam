@@ -16,10 +16,10 @@ R1-8 (9-June-2021)
 -------------------
 * Improvements to allow the datatype of the asyn parameter datatype and the GenICam
   feature datatype to be different. Specifically, one can be an integer and the other a double.
-  - This is needed to map the areaDetector Gain feature (double) with GenICam cameras
+  - This is needed to map the areaDetector Gain feature (double) on GenICam cameras
     that do not implement the GenICam Gain feature (also a double), but rather only implement
     the GainRaw or GainRawChannelA features (both of which are integers).
-  - Some older Allied Vision Technologies/Prosolica cameras such as the GC1380H require this.
+  - Some older Allied Vision Technologies/Prosilica cameras such as the GC1380H require this.
   - This change was done in a general way, not treating Gain as a special case, so it could
     be useful for other GenICam features in the future.
   - The flag std=c++11 was added when compiling on Linux.  This needed for the new version of ADGenICam.cpp
