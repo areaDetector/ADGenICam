@@ -23,7 +23,7 @@ R1-8 (9-June-2021)
   - This change was done in a general way, not treating Gain as a special case, so it could
     be useful for other GenICam features in the future.
   - The flag std=c++11 was added when compiling on Linux.  This needed for the new version of ADGenICam.cpp
-    which uses extended initializer lists
+    which uses extended initializer lists.
 
 R1-7-1 (26-May-2021)
 -------------------
