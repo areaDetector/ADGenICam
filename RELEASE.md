@@ -18,7 +18,7 @@ R1-8 (9-June-2021)
   feature datatype to be different. Specifically, one can be an integer and the other a double.
   - This is needed to map the areaDetector Gain feature (double) with GenICam cameras
     that do not implement the GenICam Gain feature (also a double), but rather only implement
-    the GainRaw or GainRawChannelA (both of which are integers).
+    the GainRaw or GainRawChannelA features (both of which are integers).
   - Some older Allied Vision Technologies/Prosolica cameras such as the GC1380H require this.
   - This change was done in a general way, not treating Gain as a special case, so it could
     be useful for other GenICam features in the future.
