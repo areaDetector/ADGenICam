@@ -184,7 +184,7 @@ border-radius: 2px;
                     <x>5</x>
                     <y>40</y>
                     <width>480</width>
-                    <height>555</height>
+                    <height>580</height>
                 </rect>
             </property>
             <property name="foreground">
@@ -1224,7 +1224,7 @@ border-radius: 2px;
                 </color>
             </property>
             <property name="text">
-                <string>Gamma</string>
+                <string>BlackLevelClampingEnable</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
@@ -1237,24 +1237,21 @@ border-radius: 2px;
                     <x>10</x>
                     <y>245</y>
                     <width>220</width>
-                    <height>20</height>
+                    <height>16</height>
                 </rect>
             </property>
         </widget>
-        <widget class="caTextEntry" name="caTextEntry_4">
+        <widget class="caMenu" name="caMenu_3">
             <property name="geometry">
                 <rect>
                     <x>235</x>
                     <y>245</y>
-                    <width>60</width>
+                    <width>120</width>
                     <height>20</height>
                 </rect>
             </property>
-            <property name="fontScaleMode">
-                <enum>caLineEdit::WidthAndHeight</enum>
-            </property>
             <property name="channel">
-                <string>$(P)$(R)GC_Gamma</string>
+                <string>$(P)$(R)GC_BlaLevClaEnable</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -1270,32 +1267,14 @@ border-radius: 2px;
                     <blue>255</blue>
                 </color>
             </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="precisionMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="minValue">
-                <double>0.0</double>
-            </property>
-            <property name="maxValue">
-                <double>1.0</double>
-            </property>
             <property name="colorMode">
-                <enum>caLineEdit::Static</enum>
-            </property>
-            <property name="formatType">
-                <enum>decimal</enum>
+                <enum>caMenu::Static</enum>
             </property>
         </widget>
         <widget class="caLineEdit" name="caLineEdit_7">
             <property name="geometry">
                 <rect>
-                    <x>300</x>
+                    <x>360</x>
                     <y>245</y>
                     <width>120</width>
                     <height>18</height>
@@ -1305,7 +1284,7 @@ border-radius: 2px;
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_Gamma_RBV</string>
+                <string>$(P)$(R)GC_BlaLevClaEnable_RBV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -1365,7 +1344,7 @@ border-radius: 2px;
                 </color>
             </property>
             <property name="text">
-                <string>GammaEnabled</string>
+                <string>Gamma</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
@@ -1382,17 +1361,20 @@ border-radius: 2px;
                 </rect>
             </property>
         </widget>
-        <widget class="caMenu" name="caMenu_3">
+        <widget class="caTextEntry" name="caTextEntry_4">
             <property name="geometry">
                 <rect>
                     <x>235</x>
                     <y>270</y>
-                    <width>120</width>
+                    <width>60</width>
                     <height>20</height>
                 </rect>
             </property>
+            <property name="fontScaleMode">
+                <enum>caLineEdit::WidthAndHeight</enum>
+            </property>
             <property name="channel">
-                <string>$(P)$(R)GC_GammaEnabled</string>
+                <string>$(P)$(R)GC_Gamma</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -1408,14 +1390,32 @@ border-radius: 2px;
                     <blue>255</blue>
                 </color>
             </property>
+            <property name="limitsMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="limitsMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="precisionMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="minValue">
+                <double>0.0</double>
+            </property>
+            <property name="maxValue">
+                <double>1.0</double>
+            </property>
             <property name="colorMode">
-                <enum>caMenu::Static</enum>
+                <enum>caLineEdit::Static</enum>
+            </property>
+            <property name="formatType">
+                <enum>decimal</enum>
             </property>
         </widget>
         <widget class="caLineEdit" name="caLineEdit_8">
             <property name="geometry">
                 <rect>
-                    <x>360</x>
+                    <x>300</x>
                     <y>270</y>
                     <width>120</width>
                     <height>18</height>
@@ -1425,7 +1425,7 @@ border-radius: 2px;
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_GammaEnabled_RBV</string>
+                <string>$(P)$(R)GC_Gamma_RBV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -1485,7 +1485,7 @@ border-radius: 2px;
                 </color>
             </property>
             <property name="text">
-                <string>Sharpness</string>
+                <string>GammaEnabled</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
@@ -1502,20 +1502,17 @@ border-radius: 2px;
                 </rect>
             </property>
         </widget>
-        <widget class="caTextEntry" name="caTextEntry_5">
+        <widget class="caMenu" name="caMenu_4">
             <property name="geometry">
                 <rect>
                     <x>235</x>
                     <y>295</y>
-                    <width>60</width>
+                    <width>120</width>
                     <height>20</height>
                 </rect>
             </property>
-            <property name="fontScaleMode">
-                <enum>caLineEdit::WidthAndHeight</enum>
-            </property>
             <property name="channel">
-                <string>$(P)$(R)GC_Sharpness</string>
+                <string>$(P)$(R)GC_GammaEnabled</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -1531,32 +1528,14 @@ border-radius: 2px;
                     <blue>255</blue>
                 </color>
             </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="precisionMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="minValue">
-                <double>0.0</double>
-            </property>
-            <property name="maxValue">
-                <double>1.0</double>
-            </property>
             <property name="colorMode">
-                <enum>caLineEdit::Static</enum>
-            </property>
-            <property name="formatType">
-                <enum>decimal</enum>
+                <enum>caMenu::Static</enum>
             </property>
         </widget>
         <widget class="caLineEdit" name="caLineEdit_9">
             <property name="geometry">
                 <rect>
-                    <x>300</x>
+                    <x>360</x>
                     <y>295</y>
                     <width>120</width>
                     <height>18</height>
@@ -1566,7 +1545,7 @@ border-radius: 2px;
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_Sharpness_RBV</string>
+                <string>$(P)$(R)GC_GammaEnabled_RBV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -1626,7 +1605,7 @@ border-radius: 2px;
                 </color>
             </property>
             <property name="text">
-                <string>SharpnessEnabled</string>
+                <string>Sharpness</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
@@ -1643,17 +1622,20 @@ border-radius: 2px;
                 </rect>
             </property>
         </widget>
-        <widget class="caMenu" name="caMenu_4">
+        <widget class="caTextEntry" name="caTextEntry_5">
             <property name="geometry">
                 <rect>
                     <x>235</x>
                     <y>320</y>
-                    <width>120</width>
+                    <width>60</width>
                     <height>20</height>
                 </rect>
             </property>
+            <property name="fontScaleMode">
+                <enum>caLineEdit::WidthAndHeight</enum>
+            </property>
             <property name="channel">
-                <string>$(P)$(R)GC_SharpnessEnabled</string>
+                <string>$(P)$(R)GC_Sharpness</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -1669,14 +1651,32 @@ border-radius: 2px;
                     <blue>255</blue>
                 </color>
             </property>
+            <property name="limitsMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="limitsMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="precisionMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="minValue">
+                <double>0.0</double>
+            </property>
+            <property name="maxValue">
+                <double>1.0</double>
+            </property>
             <property name="colorMode">
-                <enum>caMenu::Static</enum>
+                <enum>caLineEdit::Static</enum>
+            </property>
+            <property name="formatType">
+                <enum>decimal</enum>
             </property>
         </widget>
         <widget class="caLineEdit" name="caLineEdit_10">
             <property name="geometry">
                 <rect>
-                    <x>360</x>
+                    <x>300</x>
                     <y>320</y>
                     <width>120</width>
                     <height>18</height>
@@ -1686,7 +1686,7 @@ border-radius: 2px;
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_SharpnessEnabled_RBV</string>
+                <string>$(P)$(R)GC_Sharpness_RBV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -1746,7 +1746,7 @@ border-radius: 2px;
                 </color>
             </property>
             <property name="text">
-                <string>SharpnessAuto</string>
+                <string>SharpnessEnabled</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
@@ -1773,7 +1773,7 @@ border-radius: 2px;
                 </rect>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_SharpnessAuto</string>
+                <string>$(P)$(R)GC_SharpnessEnabled</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -1806,7 +1806,7 @@ border-radius: 2px;
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_SharpnessAuto_RBV</string>
+                <string>$(P)$(R)GC_SharpnessEnabled_RBV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -1866,7 +1866,7 @@ border-radius: 2px;
                 </color>
             </property>
             <property name="text">
-                <string>Hue</string>
+                <string>SharpnessAuto</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
@@ -1883,20 +1883,17 @@ border-radius: 2px;
                 </rect>
             </property>
         </widget>
-        <widget class="caTextEntry" name="caTextEntry_6">
+        <widget class="caMenu" name="caMenu_6">
             <property name="geometry">
                 <rect>
                     <x>235</x>
                     <y>370</y>
-                    <width>60</width>
+                    <width>120</width>
                     <height>20</height>
                 </rect>
             </property>
-            <property name="fontScaleMode">
-                <enum>caLineEdit::WidthAndHeight</enum>
-            </property>
             <property name="channel">
-                <string>$(P)$(R)GC_Hue</string>
+                <string>$(P)$(R)GC_SharpnessAuto</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -1912,32 +1909,14 @@ border-radius: 2px;
                     <blue>255</blue>
                 </color>
             </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="precisionMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="minValue">
-                <double>0.0</double>
-            </property>
-            <property name="maxValue">
-                <double>1.0</double>
-            </property>
             <property name="colorMode">
-                <enum>caLineEdit::Static</enum>
-            </property>
-            <property name="formatType">
-                <enum>decimal</enum>
+                <enum>caMenu::Static</enum>
             </property>
         </widget>
         <widget class="caLineEdit" name="caLineEdit_12">
             <property name="geometry">
                 <rect>
-                    <x>300</x>
+                    <x>360</x>
                     <y>370</y>
                     <width>120</width>
                     <height>18</height>
@@ -1947,7 +1926,7 @@ border-radius: 2px;
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_Hue_RBV</string>
+                <string>$(P)$(R)GC_SharpnessAuto_RBV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -2007,7 +1986,7 @@ border-radius: 2px;
                 </color>
             </property>
             <property name="text">
-                <string>HueEnabled</string>
+                <string>Hue</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
@@ -2024,17 +2003,20 @@ border-radius: 2px;
                 </rect>
             </property>
         </widget>
-        <widget class="caMenu" name="caMenu_6">
+        <widget class="caTextEntry" name="caTextEntry_6">
             <property name="geometry">
                 <rect>
                     <x>235</x>
                     <y>395</y>
-                    <width>120</width>
+                    <width>60</width>
                     <height>20</height>
                 </rect>
             </property>
+            <property name="fontScaleMode">
+                <enum>caLineEdit::WidthAndHeight</enum>
+            </property>
             <property name="channel">
-                <string>$(P)$(R)GC_HueEnabled</string>
+                <string>$(P)$(R)GC_Hue</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -2050,14 +2032,32 @@ border-radius: 2px;
                     <blue>255</blue>
                 </color>
             </property>
+            <property name="limitsMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="limitsMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="precisionMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="minValue">
+                <double>0.0</double>
+            </property>
+            <property name="maxValue">
+                <double>1.0</double>
+            </property>
             <property name="colorMode">
-                <enum>caMenu::Static</enum>
+                <enum>caLineEdit::Static</enum>
+            </property>
+            <property name="formatType">
+                <enum>decimal</enum>
             </property>
         </widget>
         <widget class="caLineEdit" name="caLineEdit_13">
             <property name="geometry">
                 <rect>
-                    <x>360</x>
+                    <x>300</x>
                     <y>395</y>
                     <width>120</width>
                     <height>18</height>
@@ -2067,7 +2067,7 @@ border-radius: 2px;
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_HueEnabled_RBV</string>
+                <string>$(P)$(R)GC_Hue_RBV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -2127,7 +2127,7 @@ border-radius: 2px;
                 </color>
             </property>
             <property name="text">
-                <string>HueAuto</string>
+                <string>HueEnabled</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
@@ -2154,7 +2154,7 @@ border-radius: 2px;
                 </rect>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_HueAuto</string>
+                <string>$(P)$(R)GC_HueEnabled</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -2187,7 +2187,7 @@ border-radius: 2px;
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_HueAuto_RBV</string>
+                <string>$(P)$(R)GC_HueEnabled_RBV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -2247,7 +2247,7 @@ border-radius: 2px;
                 </color>
             </property>
             <property name="text">
-                <string>Saturation</string>
+                <string>HueAuto</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
@@ -2264,20 +2264,17 @@ border-radius: 2px;
                 </rect>
             </property>
         </widget>
-        <widget class="caTextEntry" name="caTextEntry_7">
+        <widget class="caMenu" name="caMenu_8">
             <property name="geometry">
                 <rect>
                     <x>235</x>
                     <y>445</y>
-                    <width>60</width>
+                    <width>120</width>
                     <height>20</height>
                 </rect>
             </property>
-            <property name="fontScaleMode">
-                <enum>caLineEdit::WidthAndHeight</enum>
-            </property>
             <property name="channel">
-                <string>$(P)$(R)GC_Saturation</string>
+                <string>$(P)$(R)GC_HueAuto</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -2293,32 +2290,14 @@ border-radius: 2px;
                     <blue>255</blue>
                 </color>
             </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="precisionMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="minValue">
-                <double>0.0</double>
-            </property>
-            <property name="maxValue">
-                <double>1.0</double>
-            </property>
             <property name="colorMode">
-                <enum>caLineEdit::Static</enum>
-            </property>
-            <property name="formatType">
-                <enum>decimal</enum>
+                <enum>caMenu::Static</enum>
             </property>
         </widget>
         <widget class="caLineEdit" name="caLineEdit_15">
             <property name="geometry">
                 <rect>
-                    <x>300</x>
+                    <x>360</x>
                     <y>445</y>
                     <width>120</width>
                     <height>18</height>
@@ -2328,7 +2307,7 @@ border-radius: 2px;
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_Saturation_RBV</string>
+                <string>$(P)$(R)GC_HueAuto_RBV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -2388,7 +2367,7 @@ border-radius: 2px;
                 </color>
             </property>
             <property name="text">
-                <string>SaturationEnabled</string>
+                <string>Saturation</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
@@ -2405,17 +2384,20 @@ border-radius: 2px;
                 </rect>
             </property>
         </widget>
-        <widget class="caMenu" name="caMenu_8">
+        <widget class="caTextEntry" name="caTextEntry_7">
             <property name="geometry">
                 <rect>
                     <x>235</x>
                     <y>470</y>
-                    <width>120</width>
+                    <width>60</width>
                     <height>20</height>
                 </rect>
             </property>
+            <property name="fontScaleMode">
+                <enum>caLineEdit::WidthAndHeight</enum>
+            </property>
             <property name="channel">
-                <string>$(P)$(R)GC_SaturationEnabled</string>
+                <string>$(P)$(R)GC_Saturation</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -2431,14 +2413,32 @@ border-radius: 2px;
                     <blue>255</blue>
                 </color>
             </property>
+            <property name="limitsMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="limitsMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="precisionMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="minValue">
+                <double>0.0</double>
+            </property>
+            <property name="maxValue">
+                <double>1.0</double>
+            </property>
             <property name="colorMode">
-                <enum>caMenu::Static</enum>
+                <enum>caLineEdit::Static</enum>
+            </property>
+            <property name="formatType">
+                <enum>decimal</enum>
             </property>
         </widget>
         <widget class="caLineEdit" name="caLineEdit_16">
             <property name="geometry">
                 <rect>
-                    <x>360</x>
+                    <x>300</x>
                     <y>470</y>
                     <width>120</width>
                     <height>18</height>
@@ -2448,7 +2448,7 @@ border-radius: 2px;
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_SaturationEnabled_RBV</string>
+                <string>$(P)$(R)GC_Saturation_RBV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -2508,7 +2508,7 @@ border-radius: 2px;
                 </color>
             </property>
             <property name="text">
-                <string>SaturationAuto</string>
+                <string>SaturationEnabled</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
@@ -2535,7 +2535,7 @@ border-radius: 2px;
                 </rect>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_SaturationAuto</string>
+                <string>$(P)$(R)GC_SaturationEnabled</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -2568,7 +2568,7 @@ border-radius: 2px;
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_SaturationAuto_RBV</string>
+                <string>$(P)$(R)GC_SaturationEnabled_RBV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -2628,7 +2628,7 @@ border-radius: 2px;
                 </color>
             </property>
             <property name="text">
-                <string>BalanceWhiteAuto</string>
+                <string>SaturationAuto</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
@@ -2655,7 +2655,7 @@ border-radius: 2px;
                 </rect>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_BalanceWhiteAuto</string>
+                <string>$(P)$(R)GC_SaturationAuto</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -2688,7 +2688,7 @@ border-radius: 2px;
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_BalanceWhiteAuto_RBV</string>
+                <string>$(P)$(R)GC_SaturationAuto_RBV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -2748,7 +2748,7 @@ border-radius: 2px;
                 </color>
             </property>
             <property name="text">
-                <string>BalanceRatioSelector</string>
+                <string>BalanceWhiteAuto</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
@@ -2775,7 +2775,7 @@ border-radius: 2px;
                 </rect>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_BalRatioSelector</string>
+                <string>$(P)$(R)GC_BalanceWhiteAuto</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -2808,7 +2808,7 @@ border-radius: 2px;
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_BalRatioSelector_RBV</string>
+                <string>$(P)$(R)GC_BalanceWhiteAuto_RBV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -2868,7 +2868,7 @@ border-radius: 2px;
                 </color>
             </property>
             <property name="text">
-                <string>BalanceRatio</string>
+                <string>BalanceRatioSelector</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
@@ -2885,11 +2885,131 @@ border-radius: 2px;
                 </rect>
             </property>
         </widget>
-        <widget class="caTextEntry" name="caTextEntry_8">
+        <widget class="caMenu" name="caMenu_12">
             <property name="geometry">
                 <rect>
                     <x>235</x>
                     <y>570</y>
+                    <width>120</width>
+                    <height>20</height>
+                </rect>
+            </property>
+            <property name="channel">
+                <string>$(P)$(R)GC_BalRatioSelector</string>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="255">
+                    <red>115</red>
+                    <green>223</green>
+                    <blue>255</blue>
+                </color>
+            </property>
+            <property name="colorMode">
+                <enum>caMenu::Static</enum>
+            </property>
+        </widget>
+        <widget class="caLineEdit" name="caLineEdit_20">
+            <property name="geometry">
+                <rect>
+                    <x>360</x>
+                    <y>570</y>
+                    <width>120</width>
+                    <height>18</height>
+                </rect>
+            </property>
+            <property name="fontScaleMode">
+                <enum>caLineEdit::WidthAndHeight</enum>
+            </property>
+            <property name="channel">
+                <string>$(P)$(R)GC_BalRatioSelector_RBV</string>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>10</red>
+                    <green>0</green>
+                    <blue>184</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="255">
+                    <red>187</red>
+                    <green>187</green>
+                    <blue>187</blue>
+                </color>
+            </property>
+            <property name="alignment">
+                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+            <property name="limitsMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="limitsMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="precisionMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="minValue">
+                <double>0.0</double>
+            </property>
+            <property name="maxValue">
+                <double>1.0</double>
+            </property>
+            <property name="formatType">
+                <enum>decimal</enum>
+            </property>
+            <property name="colorMode">
+                <enum>caLineEdit::Static</enum>
+            </property>
+        </widget>
+        <widget class="caLabel" name="caLabel_23">
+            <property name="frameShape">
+                <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="0">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="text">
+                <string>BalanceRatio</string>
+            </property>
+            <property name="fontScaleMode">
+                <enum>ESimpleLabel::WidthAndHeight</enum>
+            </property>
+            <property name="alignment">
+                <set>Qt::AlignAbsolute|Qt::AlignRight|Qt::AlignVCenter</set>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>10</x>
+                    <y>595</y>
+                    <width>220</width>
+                    <height>20</height>
+                </rect>
+            </property>
+        </widget>
+        <widget class="caTextEntry" name="caTextEntry_8">
+            <property name="geometry">
+                <rect>
+                    <x>235</x>
+                    <y>595</y>
                     <width>60</width>
                     <height>20</height>
                 </rect>
@@ -2936,11 +3056,11 @@ border-radius: 2px;
                 <enum>decimal</enum>
             </property>
         </widget>
-        <widget class="caLineEdit" name="caLineEdit_20">
+        <widget class="caLineEdit" name="caLineEdit_21">
             <property name="geometry">
                 <rect>
                     <x>300</x>
-                    <y>570</y>
+                    <y>595</y>
                     <width>120</width>
                     <height>18</height>
                 </rect>
@@ -3060,7 +3180,7 @@ border-radius: 2px;
                 <enum>Solid</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_23">
+        <widget class="caLabel" name="caLabel_24">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -3096,7 +3216,7 @@ border-radius: 2px;
                 </rect>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_24">
+        <widget class="caLabel" name="caLabel_25">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -3132,7 +3252,7 @@ border-radius: 2px;
                 </rect>
             </property>
         </widget>
-        <widget class="caLineEdit" name="caLineEdit_21">
+        <widget class="caLineEdit" name="caLineEdit_22">
             <property name="geometry">
                 <rect>
                     <x>720</x>
@@ -3146,96 +3266,6 @@ border-radius: 2px;
             </property>
             <property name="channel">
                 <string>$(P)$(R)GC_DeviceVendorName_RBV</string>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>10</red>
-                    <green>0</green>
-                    <blue>184</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>187</red>
-                    <green>187</green>
-                    <blue>187</blue>
-                </color>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="precisionMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="minValue">
-                <double>0.0</double>
-            </property>
-            <property name="maxValue">
-                <double>1.0</double>
-            </property>
-            <property name="formatType">
-                <enum>decimal</enum>
-            </property>
-            <property name="colorMode">
-                <enum>caLineEdit::Static</enum>
-            </property>
-        </widget>
-        <widget class="caLabel" name="caLabel_25">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>DeviceModelName</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignRight|Qt::AlignVCenter</set>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>495</x>
-                    <y>95</y>
-                    <width>220</width>
-                    <height>20</height>
-                </rect>
-            </property>
-        </widget>
-        <widget class="caLineEdit" name="caLineEdit_22">
-            <property name="geometry">
-                <rect>
-                    <x>720</x>
-                    <y>95</y>
-                    <width>240</width>
-                    <height>18</height>
-                </rect>
-            </property>
-            <property name="fontScaleMode">
-                <enum>caLineEdit::WidthAndHeight</enum>
-            </property>
-            <property name="channel">
-                <string>$(P)$(R)GC_DeviceModelName_RBV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -3295,7 +3325,7 @@ border-radius: 2px;
                 </color>
             </property>
             <property name="text">
-                <string>DeviceVersion</string>
+                <string>DeviceModelName</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
@@ -3306,7 +3336,7 @@ border-radius: 2px;
             <property name="geometry">
                 <rect>
                     <x>495</x>
-                    <y>120</y>
+                    <y>95</y>
                     <width>220</width>
                     <height>20</height>
                 </rect>
@@ -3316,7 +3346,7 @@ border-radius: 2px;
             <property name="geometry">
                 <rect>
                     <x>720</x>
-                    <y>120</y>
+                    <y>95</y>
                     <width>240</width>
                     <height>18</height>
                 </rect>
@@ -3325,7 +3355,7 @@ border-radius: 2px;
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_DeviceVersion_RBV</string>
+                <string>$(P)$(R)GC_DeviceModelName_RBV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -3385,7 +3415,7 @@ border-radius: 2px;
                 </color>
             </property>
             <property name="text">
-                <string>DeviceSerialNumber</string>
+                <string>DeviceVersion</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
@@ -3396,7 +3426,7 @@ border-radius: 2px;
             <property name="geometry">
                 <rect>
                     <x>495</x>
-                    <y>145</y>
+                    <y>120</y>
                     <width>220</width>
                     <height>20</height>
                 </rect>
@@ -3406,7 +3436,7 @@ border-radius: 2px;
             <property name="geometry">
                 <rect>
                     <x>720</x>
-                    <y>145</y>
+                    <y>120</y>
                     <width>240</width>
                     <height>18</height>
                 </rect>
@@ -3415,7 +3445,7 @@ border-radius: 2px;
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_DevSerialNumber_RBV</string>
+                <string>$(P)$(R)GC_DeviceVersion_RBV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -3475,7 +3505,7 @@ border-radius: 2px;
                 </color>
             </property>
             <property name="text">
-                <string>DeviceID</string>
+                <string>DeviceSerialNumber</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
@@ -3486,7 +3516,7 @@ border-radius: 2px;
             <property name="geometry">
                 <rect>
                     <x>495</x>
-                    <y>170</y>
+                    <y>145</y>
                     <width>220</width>
                     <height>20</height>
                 </rect>
@@ -3496,7 +3526,7 @@ border-radius: 2px;
             <property name="geometry">
                 <rect>
                     <x>720</x>
-                    <y>170</y>
+                    <y>145</y>
                     <width>240</width>
                     <height>18</height>
                 </rect>
@@ -3505,7 +3535,7 @@ border-radius: 2px;
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_DeviceID_RBV</string>
+                <string>$(P)$(R)GC_DevSerialNumber_RBV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -3565,6 +3595,96 @@ border-radius: 2px;
                 </color>
             </property>
             <property name="text">
+                <string>DeviceID</string>
+            </property>
+            <property name="fontScaleMode">
+                <enum>ESimpleLabel::WidthAndHeight</enum>
+            </property>
+            <property name="alignment">
+                <set>Qt::AlignAbsolute|Qt::AlignRight|Qt::AlignVCenter</set>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>495</x>
+                    <y>170</y>
+                    <width>220</width>
+                    <height>20</height>
+                </rect>
+            </property>
+        </widget>
+        <widget class="caLineEdit" name="caLineEdit_26">
+            <property name="geometry">
+                <rect>
+                    <x>720</x>
+                    <y>170</y>
+                    <width>240</width>
+                    <height>18</height>
+                </rect>
+            </property>
+            <property name="fontScaleMode">
+                <enum>caLineEdit::WidthAndHeight</enum>
+            </property>
+            <property name="channel">
+                <string>$(P)$(R)GC_DeviceID_RBV</string>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>10</red>
+                    <green>0</green>
+                    <blue>184</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="255">
+                    <red>187</red>
+                    <green>187</green>
+                    <blue>187</blue>
+                </color>
+            </property>
+            <property name="alignment">
+                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+            <property name="limitsMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="limitsMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="precisionMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="minValue">
+                <double>0.0</double>
+            </property>
+            <property name="maxValue">
+                <double>1.0</double>
+            </property>
+            <property name="formatType">
+                <enum>decimal</enum>
+            </property>
+            <property name="colorMode">
+                <enum>caLineEdit::Static</enum>
+            </property>
+        </widget>
+        <widget class="caLabel" name="caLabel_30">
+            <property name="frameShape">
+                <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="0">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="text">
                 <string>DeviceUserID</string>
             </property>
             <property name="fontScaleMode">
@@ -3582,7 +3702,7 @@ border-radius: 2px;
                 </rect>
             </property>
         </widget>
-        <widget class="caLineEdit" name="caLineEdit_26">
+        <widget class="caLineEdit" name="caLineEdit_27">
             <property name="geometry">
                 <rect>
                     <x>720</x>
@@ -3636,7 +3756,7 @@ border-radius: 2px;
                 <enum>caLineEdit::Static</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_30">
+        <widget class="caLabel" name="caLabel_31">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -3723,7 +3843,7 @@ border-radius: 2px;
                 <enum>decimal</enum>
             </property>
         </widget>
-        <widget class="caLineEdit" name="caLineEdit_27">
+        <widget class="caLineEdit" name="caLineEdit_28">
             <property name="geometry">
                 <rect>
                     <x>785</x>
@@ -3777,7 +3897,7 @@ border-radius: 2px;
                 <enum>caLineEdit::Static</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_31">
+        <widget class="caLabel" name="caLabel_32">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -3864,7 +3984,7 @@ border-radius: 2px;
                 <enum>decimal</enum>
             </property>
         </widget>
-        <widget class="caLineEdit" name="caLineEdit_28">
+        <widget class="caLineEdit" name="caLineEdit_29">
             <property name="geometry">
                 <rect>
                     <x>785</x>
@@ -3918,7 +4038,7 @@ border-radius: 2px;
                 <enum>caLineEdit::Static</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_32">
+        <widget class="caLabel" name="caLabel_33">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -3954,7 +4074,7 @@ border-radius: 2px;
                 </rect>
             </property>
         </widget>
-        <widget class="caLineEdit" name="caLineEdit_29">
+        <widget class="caLineEdit" name="caLineEdit_30">
             <property name="geometry">
                 <rect>
                     <x>720</x>
@@ -4008,7 +4128,7 @@ border-radius: 2px;
                 <enum>caLineEdit::Static</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_33">
+        <widget class="caLabel" name="caLabel_34">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -4095,7 +4215,7 @@ border-radius: 2px;
                 <enum>decimal</enum>
             </property>
         </widget>
-        <widget class="caLineEdit" name="caLineEdit_30">
+        <widget class="caLineEdit" name="caLineEdit_31">
             <property name="geometry">
                 <rect>
                     <x>785</x>
@@ -4149,7 +4269,7 @@ border-radius: 2px;
                 <enum>caLineEdit::Static</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_34">
+        <widget class="caLabel" name="caLabel_35">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -4224,7 +4344,7 @@ border-radius: 2px;
                 <enum>caMessageButton::Static</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_35">
+        <widget class="caLabel" name="caLabel_36">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -4311,7 +4431,7 @@ border-radius: 2px;
                 <enum>decimal</enum>
             </property>
         </widget>
-        <widget class="caLineEdit" name="caLineEdit_31">
+        <widget class="caLineEdit" name="caLineEdit_32">
             <property name="geometry">
                 <rect>
                     <x>785</x>
@@ -4325,96 +4445,6 @@ border-radius: 2px;
             </property>
             <property name="channel">
                 <string>$(P)$(R)GC_TimIncrement_RBV</string>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>10</red>
-                    <green>0</green>
-                    <blue>184</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>187</red>
-                    <green>187</green>
-                    <blue>187</blue>
-                </color>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="precisionMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="minValue">
-                <double>0.0</double>
-            </property>
-            <property name="maxValue">
-                <double>1.0</double>
-            </property>
-            <property name="formatType">
-                <enum>decimal</enum>
-            </property>
-            <property name="colorMode">
-                <enum>caLineEdit::Static</enum>
-            </property>
-        </widget>
-        <widget class="caLabel" name="caLabel_36">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>pgrSensorDescription</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignRight|Qt::AlignVCenter</set>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>495</x>
-                    <y>370</y>
-                    <width>220</width>
-                    <height>20</height>
-                </rect>
-            </property>
-        </widget>
-        <widget class="caLineEdit" name="caLineEdit_32">
-            <property name="geometry">
-                <rect>
-                    <x>720</x>
-                    <y>370</y>
-                    <width>240</width>
-                    <height>18</height>
-                </rect>
-            </property>
-            <property name="fontScaleMode">
-                <enum>caLineEdit::WidthAndHeight</enum>
-            </property>
-            <property name="channel">
-                <string>$(P)$(R)GC_pSenDescription_RBV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -4474,7 +4504,7 @@ border-radius: 2px;
                 </color>
             </property>
             <property name="text">
-                <string>DeviceSVNVersion</string>
+                <string>pgrSensorDescription</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
@@ -4485,7 +4515,7 @@ border-radius: 2px;
             <property name="geometry">
                 <rect>
                     <x>495</x>
-                    <y>395</y>
+                    <y>370</y>
                     <width>220</width>
                     <height>20</height>
                 </rect>
@@ -4495,7 +4525,7 @@ border-radius: 2px;
             <property name="geometry">
                 <rect>
                     <x>720</x>
-                    <y>395</y>
+                    <y>370</y>
                     <width>240</width>
                     <height>18</height>
                 </rect>
@@ -4504,7 +4534,7 @@ border-radius: 2px;
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_DeviceSVNVersion_RBV</string>
+                <string>$(P)$(R)GC_pSenDescription_RBV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -4564,7 +4594,7 @@ border-radius: 2px;
                 </color>
             </property>
             <property name="text">
-                <string>DeviceFirmwareVersion</string>
+                <string>DeviceSVNVersion</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
@@ -4575,7 +4605,7 @@ border-radius: 2px;
             <property name="geometry">
                 <rect>
                     <x>495</x>
-                    <y>420</y>
+                    <y>395</y>
                     <width>220</width>
                     <height>20</height>
                 </rect>
@@ -4585,7 +4615,7 @@ border-radius: 2px;
             <property name="geometry">
                 <rect>
                     <x>720</x>
-                    <y>420</y>
+                    <y>395</y>
                     <width>240</width>
                     <height>18</height>
                 </rect>
@@ -4594,7 +4624,7 @@ border-radius: 2px;
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_DevFirVersion_RBV</string>
+                <string>$(P)$(R)GC_DeviceSVNVersion_RBV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -4654,6 +4684,96 @@ border-radius: 2px;
                 </color>
             </property>
             <property name="text">
+                <string>DeviceFirmwareVersion</string>
+            </property>
+            <property name="fontScaleMode">
+                <enum>ESimpleLabel::WidthAndHeight</enum>
+            </property>
+            <property name="alignment">
+                <set>Qt::AlignAbsolute|Qt::AlignRight|Qt::AlignVCenter</set>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>495</x>
+                    <y>420</y>
+                    <width>220</width>
+                    <height>20</height>
+                </rect>
+            </property>
+        </widget>
+        <widget class="caLineEdit" name="caLineEdit_35">
+            <property name="geometry">
+                <rect>
+                    <x>720</x>
+                    <y>420</y>
+                    <width>240</width>
+                    <height>18</height>
+                </rect>
+            </property>
+            <property name="fontScaleMode">
+                <enum>caLineEdit::WidthAndHeight</enum>
+            </property>
+            <property name="channel">
+                <string>$(P)$(R)GC_DevFirVersion_RBV</string>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>10</red>
+                    <green>0</green>
+                    <blue>184</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="255">
+                    <red>187</red>
+                    <green>187</green>
+                    <blue>187</blue>
+                </color>
+            </property>
+            <property name="alignment">
+                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+            <property name="limitsMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="limitsMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="precisionMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="minValue">
+                <double>0.0</double>
+            </property>
+            <property name="maxValue">
+                <double>1.0</double>
+            </property>
+            <property name="formatType">
+                <enum>decimal</enum>
+            </property>
+            <property name="colorMode">
+                <enum>caLineEdit::Static</enum>
+            </property>
+        </widget>
+        <widget class="caLabel" name="caLabel_40">
+            <property name="frameShape">
+                <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="0">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="text">
                 <string>DeviceScanType</string>
             </property>
             <property name="fontScaleMode">
@@ -4671,7 +4791,7 @@ border-radius: 2px;
                 </rect>
             </property>
         </widget>
-        <widget class="caMenu" name="caMenu_12">
+        <widget class="caMenu" name="caMenu_13">
             <property name="geometry">
                 <rect>
                     <x>720</x>
@@ -4701,7 +4821,7 @@ border-radius: 2px;
                 <enum>caMenu::Static</enum>
             </property>
         </widget>
-        <widget class="caLineEdit" name="caLineEdit_35">
+        <widget class="caLineEdit" name="caLineEdit_36">
             <property name="geometry">
                 <rect>
                     <x>845</x>
@@ -4755,7 +4875,7 @@ border-radius: 2px;
                 <enum>caLineEdit::Static</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_40">
+        <widget class="caLabel" name="caLabel_41">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -4842,7 +4962,7 @@ border-radius: 2px;
                 <enum>decimal</enum>
             </property>
         </widget>
-        <widget class="caLineEdit" name="caLineEdit_36">
+        <widget class="caLineEdit" name="caLineEdit_37">
             <property name="geometry">
                 <rect>
                     <x>785</x>
@@ -4896,7 +5016,7 @@ border-radius: 2px;
                 <enum>caLineEdit::Static</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_41">
+        <widget class="caLabel" name="caLabel_42">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -4971,7 +5091,7 @@ border-radius: 2px;
                 <enum>caMessageButton::Static</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_42">
+        <widget class="caLabel" name="caLabel_43">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -5058,7 +5178,7 @@ border-radius: 2px;
                 <enum>decimal</enum>
             </property>
         </widget>
-        <widget class="caLineEdit" name="caLineEdit_37">
+        <widget class="caLineEdit" name="caLineEdit_38">
             <property name="geometry">
                 <rect>
                     <x>785</x>
@@ -5112,7 +5232,7 @@ border-radius: 2px;
                 <enum>caLineEdit::Static</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_43">
+        <widget class="caLabel" name="caLabel_44">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -5148,7 +5268,7 @@ border-radius: 2px;
                 </rect>
             </property>
         </widget>
-        <widget class="caMenu" name="caMenu_13">
+        <widget class="caMenu" name="caMenu_14">
             <property name="geometry">
                 <rect>
                     <x>720</x>
@@ -5178,7 +5298,7 @@ border-radius: 2px;
                 <enum>caMenu::Static</enum>
             </property>
         </widget>
-        <widget class="caLineEdit" name="caLineEdit_38">
+        <widget class="caLineEdit" name="caLineEdit_39">
             <property name="geometry">
                 <rect>
                     <x>845</x>
@@ -5232,7 +5352,7 @@ border-radius: 2px;
                 <enum>caLineEdit::Static</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_44">
+        <widget class="caLabel" name="caLabel_45">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -5319,7 +5439,7 @@ border-radius: 2px;
                 <enum>decimal</enum>
             </property>
         </widget>
-        <widget class="caLineEdit" name="caLineEdit_39">
+        <widget class="caLineEdit" name="caLineEdit_40">
             <property name="geometry">
                 <rect>
                     <x>785</x>
@@ -5373,7 +5493,7 @@ border-radius: 2px;
                 <enum>caLineEdit::Static</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_45">
+        <widget class="caLabel" name="caLabel_46">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -5460,7 +5580,7 @@ border-radius: 2px;
                 <enum>decimal</enum>
             </property>
         </widget>
-        <widget class="caLineEdit" name="caLineEdit_40">
+        <widget class="caLineEdit" name="caLineEdit_41">
             <property name="geometry">
                 <rect>
                     <x>785</x>
@@ -5514,7 +5634,7 @@ border-radius: 2px;
                 <enum>caLineEdit::Static</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_46">
+        <widget class="caLabel" name="caLabel_47">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -5601,7 +5721,7 @@ border-radius: 2px;
                 <enum>decimal</enum>
             </property>
         </widget>
-        <widget class="caLineEdit" name="caLineEdit_41">
+        <widget class="caLineEdit" name="caLineEdit_42">
             <property name="geometry">
                 <rect>
                     <x>785</x>
@@ -5655,7 +5775,7 @@ border-radius: 2px;
                 <enum>caLineEdit::Static</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_47">
+        <widget class="caLabel" name="caLabel_48">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -5742,7 +5862,7 @@ border-radius: 2px;
                 <enum>decimal</enum>
             </property>
         </widget>
-        <widget class="caLineEdit" name="caLineEdit_42">
+        <widget class="caLineEdit" name="caLineEdit_43">
             <property name="geometry">
                 <rect>
                     <x>785</x>
@@ -5756,126 +5876,6 @@ border-radius: 2px;
             </property>
             <property name="channel">
                 <string>$(P)$(R)GC_AutFunAOIOffsetY_RBV</string>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>10</red>
-                    <green>0</green>
-                    <blue>184</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>187</red>
-                    <green>187</green>
-                    <blue>187</blue>
-                </color>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="precisionMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="minValue">
-                <double>0.0</double>
-            </property>
-            <property name="maxValue">
-                <double>1.0</double>
-            </property>
-            <property name="formatType">
-                <enum>decimal</enum>
-            </property>
-            <property name="colorMode">
-                <enum>caLineEdit::Static</enum>
-            </property>
-        </widget>
-        <widget class="caLabel" name="caLabel_48">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>pgrDevicePowerSupplySelector</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignRight|Qt::AlignVCenter</set>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>495</x>
-                    <y>670</y>
-                    <width>220</width>
-                    <height>16</height>
-                </rect>
-            </property>
-        </widget>
-        <widget class="caMenu" name="caMenu_14">
-            <property name="geometry">
-                <rect>
-                    <x>720</x>
-                    <y>670</y>
-                    <width>120</width>
-                    <height>20</height>
-                </rect>
-            </property>
-            <property name="channel">
-                <string>$(P)$(R)GC_pDevPowSupSel</string>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>115</red>
-                    <green>223</green>
-                    <blue>255</blue>
-                </color>
-            </property>
-            <property name="colorMode">
-                <enum>caMenu::Static</enum>
-            </property>
-        </widget>
-        <widget class="caLineEdit" name="caLineEdit_43">
-            <property name="geometry">
-                <rect>
-                    <x>845</x>
-                    <y>670</y>
-                    <width>120</width>
-                    <height>18</height>
-                </rect>
-            </property>
-            <property name="fontScaleMode">
-                <enum>caLineEdit::WidthAndHeight</enum>
-            </property>
-            <property name="channel">
-                <string>$(P)$(R)GC_pDevPowSupSel_RBV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -5935,7 +5935,7 @@ border-radius: 2px;
                 </color>
             </property>
             <property name="text">
-                <string>pgrPowerSourcePresent</string>
+                <string>pgrDevicePowerSupplySelector</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
@@ -5946,9 +5946,9 @@ border-radius: 2px;
             <property name="geometry">
                 <rect>
                     <x>495</x>
-                    <y>695</y>
+                    <y>670</y>
                     <width>220</width>
-                    <height>20</height>
+                    <height>16</height>
                 </rect>
             </property>
         </widget>
@@ -5956,13 +5956,13 @@ border-radius: 2px;
             <property name="geometry">
                 <rect>
                     <x>720</x>
-                    <y>695</y>
+                    <y>670</y>
                     <width>120</width>
                     <height>20</height>
                 </rect>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_pPowSourcePresent</string>
+                <string>$(P)$(R)GC_pDevPowSupSel</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -5986,7 +5986,7 @@ border-radius: 2px;
             <property name="geometry">
                 <rect>
                     <x>845</x>
-                    <y>695</y>
+                    <y>670</y>
                     <width>120</width>
                     <height>18</height>
                 </rect>
@@ -5995,7 +5995,7 @@ border-radius: 2px;
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_pPowSourcePresent_RBV</string>
+                <string>$(P)$(R)GC_pDevPowSupSel_RBV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -6055,6 +6055,126 @@ border-radius: 2px;
                 </color>
             </property>
             <property name="text">
+                <string>pgrPowerSourcePresent</string>
+            </property>
+            <property name="fontScaleMode">
+                <enum>ESimpleLabel::WidthAndHeight</enum>
+            </property>
+            <property name="alignment">
+                <set>Qt::AlignAbsolute|Qt::AlignRight|Qt::AlignVCenter</set>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>495</x>
+                    <y>695</y>
+                    <width>220</width>
+                    <height>20</height>
+                </rect>
+            </property>
+        </widget>
+        <widget class="caMenu" name="caMenu_16">
+            <property name="geometry">
+                <rect>
+                    <x>720</x>
+                    <y>695</y>
+                    <width>120</width>
+                    <height>20</height>
+                </rect>
+            </property>
+            <property name="channel">
+                <string>$(P)$(R)GC_pPowSourcePresent</string>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="255">
+                    <red>115</red>
+                    <green>223</green>
+                    <blue>255</blue>
+                </color>
+            </property>
+            <property name="colorMode">
+                <enum>caMenu::Static</enum>
+            </property>
+        </widget>
+        <widget class="caLineEdit" name="caLineEdit_45">
+            <property name="geometry">
+                <rect>
+                    <x>845</x>
+                    <y>695</y>
+                    <width>120</width>
+                    <height>18</height>
+                </rect>
+            </property>
+            <property name="fontScaleMode">
+                <enum>caLineEdit::WidthAndHeight</enum>
+            </property>
+            <property name="channel">
+                <string>$(P)$(R)GC_pPowSourcePresent_RBV</string>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>10</red>
+                    <green>0</green>
+                    <blue>184</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="255">
+                    <red>187</red>
+                    <green>187</green>
+                    <blue>187</blue>
+                </color>
+            </property>
+            <property name="alignment">
+                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+            <property name="limitsMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="limitsMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="precisionMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="minValue">
+                <double>0.0</double>
+            </property>
+            <property name="maxValue">
+                <double>1.0</double>
+            </property>
+            <property name="formatType">
+                <enum>decimal</enum>
+            </property>
+            <property name="colorMode">
+                <enum>caLineEdit::Static</enum>
+            </property>
+        </widget>
+        <widget class="caLabel" name="caLabel_51">
+            <property name="frameShape">
+                <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="0">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="text">
                 <string>pgrPowerSupplyEnable</string>
             </property>
             <property name="fontScaleMode">
@@ -6072,7 +6192,7 @@ border-radius: 2px;
                 </rect>
             </property>
         </widget>
-        <widget class="caMenu" name="caMenu_16">
+        <widget class="caMenu" name="caMenu_17">
             <property name="geometry">
                 <rect>
                     <x>720</x>
@@ -6102,7 +6222,7 @@ border-radius: 2px;
                 <enum>caMenu::Static</enum>
             </property>
         </widget>
-        <widget class="caLineEdit" name="caLineEdit_45">
+        <widget class="caLineEdit" name="caLineEdit_46">
             <property name="geometry">
                 <rect>
                     <x>845</x>
@@ -6156,7 +6276,7 @@ border-radius: 2px;
                 <enum>caLineEdit::Static</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_51">
+        <widget class="caLabel" name="caLabel_52">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -6243,7 +6363,7 @@ border-radius: 2px;
                 <enum>decimal</enum>
             </property>
         </widget>
-        <widget class="caLineEdit" name="caLineEdit_46">
+        <widget class="caLineEdit" name="caLineEdit_47">
             <property name="geometry">
                 <rect>
                     <x>785</x>
@@ -6297,7 +6417,7 @@ border-radius: 2px;
                 <enum>caLineEdit::Static</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_52">
+        <widget class="caLabel" name="caLabel_53">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -6384,7 +6504,7 @@ border-radius: 2px;
                 <enum>decimal</enum>
             </property>
         </widget>
-        <widget class="caLineEdit" name="caLineEdit_47">
+        <widget class="caLineEdit" name="caLineEdit_48">
             <property name="geometry">
                 <rect>
                     <x>785</x>
@@ -6438,7 +6558,7 @@ border-radius: 2px;
                 <enum>caLineEdit::Static</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_53">
+        <widget class="caLabel" name="caLabel_54">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -6525,7 +6645,7 @@ border-radius: 2px;
                 <enum>decimal</enum>
             </property>
         </widget>
-        <widget class="caLineEdit" name="caLineEdit_48">
+        <widget class="caLineEdit" name="caLineEdit_49">
             <property name="geometry">
                 <rect>
                     <x>785</x>
@@ -6579,7 +6699,7 @@ border-radius: 2px;
                 <enum>caLineEdit::Static</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_54">
+        <widget class="caLabel" name="caLabel_55">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -6666,7 +6786,7 @@ border-radius: 2px;
                 <enum>decimal</enum>
             </property>
         </widget>
-        <widget class="caLineEdit" name="caLineEdit_49">
+        <widget class="caLineEdit" name="caLineEdit_50">
             <property name="geometry">
                 <rect>
                     <x>785</x>
@@ -6720,7 +6840,7 @@ border-radius: 2px;
                 <enum>caLineEdit::Static</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_55">
+        <widget class="caLabel" name="caLabel_56">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -6807,7 +6927,7 @@ border-radius: 2px;
                 <enum>decimal</enum>
             </property>
         </widget>
-        <widget class="caLineEdit" name="caLineEdit_50">
+        <widget class="caLineEdit" name="caLineEdit_51">
             <property name="geometry">
                 <rect>
                     <x>785</x>
@@ -6931,7 +7051,7 @@ border-radius: 2px;
                 <enum>Solid</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_56">
+        <widget class="caLabel" name="caLabel_57">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -6967,7 +7087,7 @@ border-radius: 2px;
                 </rect>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_57">
+        <widget class="caLabel" name="caLabel_58">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -7003,7 +7123,7 @@ border-radius: 2px;
                 </rect>
             </property>
         </widget>
-        <widget class="caMenu" name="caMenu_17">
+        <widget class="caMenu" name="caMenu_18">
             <property name="geometry">
                 <rect>
                     <x>1205</x>
@@ -7033,7 +7153,7 @@ border-radius: 2px;
                 <enum>caMenu::Static</enum>
             </property>
         </widget>
-        <widget class="caLineEdit" name="caLineEdit_51">
+        <widget class="caLineEdit" name="caLineEdit_52">
             <property name="geometry">
                 <rect>
                     <x>1330</x>
@@ -7047,126 +7167,6 @@ border-radius: 2px;
             </property>
             <property name="channel">
                 <string>$(P)$(R)GC_UserNameAvailable_RBV</string>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>10</red>
-                    <green>0</green>
-                    <blue>184</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>187</red>
-                    <green>187</green>
-                    <blue>187</blue>
-                </color>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="precisionMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="minValue">
-                <double>0.0</double>
-            </property>
-            <property name="maxValue">
-                <double>1.0</double>
-            </property>
-            <property name="formatType">
-                <enum>decimal</enum>
-            </property>
-            <property name="colorMode">
-                <enum>caLineEdit::Static</enum>
-            </property>
-        </widget>
-        <widget class="caLabel" name="caLabel_58">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>AccessPrivilegeAvailable</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignRight|Qt::AlignVCenter</set>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>980</x>
-                    <y>95</y>
-                    <width>220</width>
-                    <height>16</height>
-                </rect>
-            </property>
-        </widget>
-        <widget class="caMenu" name="caMenu_18">
-            <property name="geometry">
-                <rect>
-                    <x>1205</x>
-                    <y>95</y>
-                    <width>120</width>
-                    <height>20</height>
-                </rect>
-            </property>
-            <property name="channel">
-                <string>$(P)$(R)GC_AccPriAvailable</string>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>115</red>
-                    <green>223</green>
-                    <blue>255</blue>
-                </color>
-            </property>
-            <property name="colorMode">
-                <enum>caMenu::Static</enum>
-            </property>
-        </widget>
-        <widget class="caLineEdit" name="caLineEdit_52">
-            <property name="geometry">
-                <rect>
-                    <x>1330</x>
-                    <y>95</y>
-                    <width>120</width>
-                    <height>18</height>
-                </rect>
-            </property>
-            <property name="fontScaleMode">
-                <enum>caLineEdit::WidthAndHeight</enum>
-            </property>
-            <property name="channel">
-                <string>$(P)$(R)GC_AccPriAvailable_RBV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -7226,7 +7226,7 @@ border-radius: 2px;
                 </color>
             </property>
             <property name="text">
-                <string>MessageChannelSupported</string>
+                <string>AccessPrivilegeAvailable</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
@@ -7237,7 +7237,7 @@ border-radius: 2px;
             <property name="geometry">
                 <rect>
                     <x>980</x>
-                    <y>120</y>
+                    <y>95</y>
                     <width>220</width>
                     <height>16</height>
                 </rect>
@@ -7247,13 +7247,13 @@ border-radius: 2px;
             <property name="geometry">
                 <rect>
                     <x>1205</x>
-                    <y>120</y>
+                    <y>95</y>
                     <width>120</width>
                     <height>20</height>
                 </rect>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_MesChaSupported</string>
+                <string>$(P)$(R)GC_AccPriAvailable</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -7277,7 +7277,7 @@ border-radius: 2px;
             <property name="geometry">
                 <rect>
                     <x>1330</x>
-                    <y>120</y>
+                    <y>95</y>
                     <width>120</width>
                     <height>18</height>
                 </rect>
@@ -7286,7 +7286,7 @@ border-radius: 2px;
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_MesChaSupported_RBV</string>
+                <string>$(P)$(R)GC_AccPriAvailable_RBV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -7346,6 +7346,126 @@ border-radius: 2px;
                 </color>
             </property>
             <property name="text">
+                <string>MessageChannelSupported</string>
+            </property>
+            <property name="fontScaleMode">
+                <enum>ESimpleLabel::WidthAndHeight</enum>
+            </property>
+            <property name="alignment">
+                <set>Qt::AlignAbsolute|Qt::AlignRight|Qt::AlignVCenter</set>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>980</x>
+                    <y>120</y>
+                    <width>220</width>
+                    <height>16</height>
+                </rect>
+            </property>
+        </widget>
+        <widget class="caMenu" name="caMenu_20">
+            <property name="geometry">
+                <rect>
+                    <x>1205</x>
+                    <y>120</y>
+                    <width>120</width>
+                    <height>20</height>
+                </rect>
+            </property>
+            <property name="channel">
+                <string>$(P)$(R)GC_MesChaSupported</string>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="255">
+                    <red>115</red>
+                    <green>223</green>
+                    <blue>255</blue>
+                </color>
+            </property>
+            <property name="colorMode">
+                <enum>caMenu::Static</enum>
+            </property>
+        </widget>
+        <widget class="caLineEdit" name="caLineEdit_54">
+            <property name="geometry">
+                <rect>
+                    <x>1330</x>
+                    <y>120</y>
+                    <width>120</width>
+                    <height>18</height>
+                </rect>
+            </property>
+            <property name="fontScaleMode">
+                <enum>caLineEdit::WidthAndHeight</enum>
+            </property>
+            <property name="channel">
+                <string>$(P)$(R)GC_MesChaSupported_RBV</string>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>10</red>
+                    <green>0</green>
+                    <blue>184</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="255">
+                    <red>187</red>
+                    <green>187</green>
+                    <blue>187</blue>
+                </color>
+            </property>
+            <property name="alignment">
+                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+            <property name="limitsMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="limitsMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="precisionMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="minValue">
+                <double>0.0</double>
+            </property>
+            <property name="maxValue">
+                <double>1.0</double>
+            </property>
+            <property name="formatType">
+                <enum>decimal</enum>
+            </property>
+            <property name="colorMode">
+                <enum>caLineEdit::Static</enum>
+            </property>
+        </widget>
+        <widget class="caLabel" name="caLabel_61">
+            <property name="frameShape">
+                <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="0">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="text">
                 <string>TimestampSupported</string>
             </property>
             <property name="fontScaleMode">
@@ -7363,7 +7483,7 @@ border-radius: 2px;
                 </rect>
             </property>
         </widget>
-        <widget class="caMenu" name="caMenu_20">
+        <widget class="caMenu" name="caMenu_21">
             <property name="geometry">
                 <rect>
                     <x>1205</x>
@@ -7393,7 +7513,7 @@ border-radius: 2px;
                 <enum>caMenu::Static</enum>
             </property>
         </widget>
-        <widget class="caLineEdit" name="caLineEdit_54">
+        <widget class="caLineEdit" name="caLineEdit_55">
             <property name="geometry">
                 <rect>
                     <x>1330</x>
@@ -7447,7 +7567,7 @@ border-radius: 2px;
                 <enum>caLineEdit::Static</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_61">
+        <widget class="caLabel" name="caLabel_62">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -7534,7 +7654,7 @@ border-radius: 2px;
                 <enum>decimal</enum>
             </property>
         </widget>
-        <widget class="caLineEdit" name="caLineEdit_55">
+        <widget class="caLineEdit" name="caLineEdit_56">
             <property name="geometry">
                 <rect>
                     <x>1270</x>
@@ -7548,126 +7668,6 @@ border-radius: 2px;
             </property>
             <property name="channel">
                 <string>$(P)$(R)GC_StringEncoding_RBV</string>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>10</red>
-                    <green>0</green>
-                    <blue>184</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>187</red>
-                    <green>187</green>
-                    <blue>187</blue>
-                </color>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="precisionMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="minValue">
-                <double>0.0</double>
-            </property>
-            <property name="maxValue">
-                <double>1.0</double>
-            </property>
-            <property name="formatType">
-                <enum>decimal</enum>
-            </property>
-            <property name="colorMode">
-                <enum>caLineEdit::Static</enum>
-            </property>
-        </widget>
-        <widget class="caLabel" name="caLabel_62">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>FamilyRegisterAvailable</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignRight|Qt::AlignVCenter</set>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>980</x>
-                    <y>195</y>
-                    <width>220</width>
-                    <height>16</height>
-                </rect>
-            </property>
-        </widget>
-        <widget class="caMenu" name="caMenu_21">
-            <property name="geometry">
-                <rect>
-                    <x>1205</x>
-                    <y>195</y>
-                    <width>120</width>
-                    <height>20</height>
-                </rect>
-            </property>
-            <property name="channel">
-                <string>$(P)$(R)GC_FamRegAvailable</string>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>115</red>
-                    <green>223</green>
-                    <blue>255</blue>
-                </color>
-            </property>
-            <property name="colorMode">
-                <enum>caMenu::Static</enum>
-            </property>
-        </widget>
-        <widget class="caLineEdit" name="caLineEdit_56">
-            <property name="geometry">
-                <rect>
-                    <x>1330</x>
-                    <y>195</y>
-                    <width>120</width>
-                    <height>18</height>
-                </rect>
-            </property>
-            <property name="fontScaleMode">
-                <enum>caLineEdit::WidthAndHeight</enum>
-            </property>
-            <property name="channel">
-                <string>$(P)$(R)GC_FamRegAvailable_RBV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -7727,7 +7727,7 @@ border-radius: 2px;
                 </color>
             </property>
             <property name="text">
-                <string>SBRMSupported</string>
+                <string>FamilyRegisterAvailable</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
@@ -7738,9 +7738,9 @@ border-radius: 2px;
             <property name="geometry">
                 <rect>
                     <x>980</x>
-                    <y>220</y>
+                    <y>195</y>
                     <width>220</width>
-                    <height>20</height>
+                    <height>16</height>
                 </rect>
             </property>
         </widget>
@@ -7748,13 +7748,13 @@ border-radius: 2px;
             <property name="geometry">
                 <rect>
                     <x>1205</x>
-                    <y>220</y>
+                    <y>195</y>
                     <width>120</width>
                     <height>20</height>
                 </rect>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_SBRMSupported</string>
+                <string>$(P)$(R)GC_FamRegAvailable</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -7778,7 +7778,7 @@ border-radius: 2px;
             <property name="geometry">
                 <rect>
                     <x>1330</x>
-                    <y>220</y>
+                    <y>195</y>
                     <width>120</width>
                     <height>18</height>
                 </rect>
@@ -7787,7 +7787,7 @@ border-radius: 2px;
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_SBRMSupported_RBV</string>
+                <string>$(P)$(R)GC_FamRegAvailable_RBV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -7847,7 +7847,7 @@ border-radius: 2px;
                 </color>
             </property>
             <property name="text">
-                <string>EndianessRegistersSupported</string>
+                <string>SBRMSupported</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
@@ -7858,9 +7858,9 @@ border-radius: 2px;
             <property name="geometry">
                 <rect>
                     <x>980</x>
-                    <y>245</y>
+                    <y>220</y>
                     <width>220</width>
-                    <height>16</height>
+                    <height>20</height>
                 </rect>
             </property>
         </widget>
@@ -7868,13 +7868,13 @@ border-radius: 2px;
             <property name="geometry">
                 <rect>
                     <x>1205</x>
-                    <y>245</y>
+                    <y>220</y>
                     <width>120</width>
                     <height>20</height>
                 </rect>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_EndRegSupported</string>
+                <string>$(P)$(R)GC_SBRMSupported</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -7898,7 +7898,7 @@ border-radius: 2px;
             <property name="geometry">
                 <rect>
                     <x>1330</x>
-                    <y>245</y>
+                    <y>220</y>
                     <width>120</width>
                     <height>18</height>
                 </rect>
@@ -7907,7 +7907,7 @@ border-radius: 2px;
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)$(R)GC_EndRegSupported_RBV</string>
+                <string>$(P)$(R)GC_SBRMSupported_RBV</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -7967,6 +7967,126 @@ border-radius: 2px;
                 </color>
             </property>
             <property name="text">
+                <string>EndianessRegistersSupported</string>
+            </property>
+            <property name="fontScaleMode">
+                <enum>ESimpleLabel::WidthAndHeight</enum>
+            </property>
+            <property name="alignment">
+                <set>Qt::AlignAbsolute|Qt::AlignRight|Qt::AlignVCenter</set>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>980</x>
+                    <y>245</y>
+                    <width>220</width>
+                    <height>16</height>
+                </rect>
+            </property>
+        </widget>
+        <widget class="caMenu" name="caMenu_24">
+            <property name="geometry">
+                <rect>
+                    <x>1205</x>
+                    <y>245</y>
+                    <width>120</width>
+                    <height>20</height>
+                </rect>
+            </property>
+            <property name="channel">
+                <string>$(P)$(R)GC_EndRegSupported</string>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="255">
+                    <red>115</red>
+                    <green>223</green>
+                    <blue>255</blue>
+                </color>
+            </property>
+            <property name="colorMode">
+                <enum>caMenu::Static</enum>
+            </property>
+        </widget>
+        <widget class="caLineEdit" name="caLineEdit_59">
+            <property name="geometry">
+                <rect>
+                    <x>1330</x>
+                    <y>245</y>
+                    <width>120</width>
+                    <height>18</height>
+                </rect>
+            </property>
+            <property name="fontScaleMode">
+                <enum>caLineEdit::WidthAndHeight</enum>
+            </property>
+            <property name="channel">
+                <string>$(P)$(R)GC_EndRegSupported_RBV</string>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>10</red>
+                    <green>0</green>
+                    <blue>184</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="255">
+                    <red>187</red>
+                    <green>187</green>
+                    <blue>187</blue>
+                </color>
+            </property>
+            <property name="alignment">
+                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+            <property name="limitsMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="limitsMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="precisionMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="minValue">
+                <double>0.0</double>
+            </property>
+            <property name="maxValue">
+                <double>1.0</double>
+            </property>
+            <property name="formatType">
+                <enum>decimal</enum>
+            </property>
+            <property name="colorMode">
+                <enum>caLineEdit::Static</enum>
+            </property>
+        </widget>
+        <widget class="caLabel" name="caLabel_66">
+            <property name="frameShape">
+                <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="0">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="text">
                 <string>WrittenLengthFieldSupported</string>
             </property>
             <property name="fontScaleMode">
@@ -7984,7 +8104,7 @@ border-radius: 2px;
                 </rect>
             </property>
         </widget>
-        <widget class="caMenu" name="caMenu_24">
+        <widget class="caMenu" name="caMenu_25">
             <property name="geometry">
                 <rect>
                     <x>1205</x>
@@ -8014,7 +8134,7 @@ border-radius: 2px;
                 <enum>caMenu::Static</enum>
             </property>
         </widget>
-        <widget class="caLineEdit" name="caLineEdit_59">
+        <widget class="caLineEdit" name="caLineEdit_60">
             <property name="geometry">
                 <rect>
                     <x>1330</x>
@@ -8094,9 +8214,9 @@ border-radius: 2px;
         <zorder>caLabel_20</zorder>
         <zorder>caLabel_21</zorder>
         <zorder>caLabel_22</zorder>
+        <zorder>caLabel_23</zorder>
         <zorder>caRectangle_3</zorder>
         <zorder>caRectangle_4</zorder>
-        <zorder>caLabel_23</zorder>
         <zorder>caLabel_24</zorder>
         <zorder>caLabel_25</zorder>
         <zorder>caLabel_26</zorder>
@@ -8129,9 +8249,9 @@ border-radius: 2px;
         <zorder>caLabel_53</zorder>
         <zorder>caLabel_54</zorder>
         <zorder>caLabel_55</zorder>
+        <zorder>caLabel_56</zorder>
         <zorder>caRectangle_5</zorder>
         <zorder>caRectangle_6</zorder>
-        <zorder>caLabel_56</zorder>
         <zorder>caLabel_57</zorder>
         <zorder>caLabel_58</zorder>
         <zorder>caLabel_59</zorder>
@@ -8141,6 +8261,7 @@ border-radius: 2px;
         <zorder>caLabel_63</zorder>
         <zorder>caLabel_64</zorder>
         <zorder>caLabel_65</zorder>
+        <zorder>caLabel_66</zorder>
         <zorder>caMenu_0</zorder>
         <zorder>caLineEdit_0</zorder>
         <zorder>caMenu_1</zorder>
@@ -8155,25 +8276,25 @@ border-radius: 2px;
         <zorder>caLineEdit_5</zorder>
         <zorder>caMenu_2</zorder>
         <zorder>caLineEdit_6</zorder>
-        <zorder>caTextEntry_4</zorder>
-        <zorder>caLineEdit_7</zorder>
         <zorder>caMenu_3</zorder>
+        <zorder>caLineEdit_7</zorder>
+        <zorder>caTextEntry_4</zorder>
         <zorder>caLineEdit_8</zorder>
-        <zorder>caTextEntry_5</zorder>
-        <zorder>caLineEdit_9</zorder>
         <zorder>caMenu_4</zorder>
+        <zorder>caLineEdit_9</zorder>
+        <zorder>caTextEntry_5</zorder>
         <zorder>caLineEdit_10</zorder>
         <zorder>caMenu_5</zorder>
         <zorder>caLineEdit_11</zorder>
-        <zorder>caTextEntry_6</zorder>
-        <zorder>caLineEdit_12</zorder>
         <zorder>caMenu_6</zorder>
+        <zorder>caLineEdit_12</zorder>
+        <zorder>caTextEntry_6</zorder>
         <zorder>caLineEdit_13</zorder>
         <zorder>caMenu_7</zorder>
         <zorder>caLineEdit_14</zorder>
-        <zorder>caTextEntry_7</zorder>
-        <zorder>caLineEdit_15</zorder>
         <zorder>caMenu_8</zorder>
+        <zorder>caLineEdit_15</zorder>
+        <zorder>caTextEntry_7</zorder>
         <zorder>caLineEdit_16</zorder>
         <zorder>caMenu_9</zorder>
         <zorder>caLineEdit_17</zorder>
@@ -8181,61 +8302,61 @@ border-radius: 2px;
         <zorder>caLineEdit_18</zorder>
         <zorder>caMenu_11</zorder>
         <zorder>caLineEdit_19</zorder>
-        <zorder>caTextEntry_8</zorder>
+        <zorder>caMenu_12</zorder>
         <zorder>caLineEdit_20</zorder>
+        <zorder>caTextEntry_8</zorder>
         <zorder>caLineEdit_21</zorder>
         <zorder>caLineEdit_22</zorder>
         <zorder>caLineEdit_23</zorder>
         <zorder>caLineEdit_24</zorder>
         <zorder>caLineEdit_25</zorder>
         <zorder>caLineEdit_26</zorder>
-        <zorder>caTextEntry_9</zorder>
         <zorder>caLineEdit_27</zorder>
-        <zorder>caTextEntry_10</zorder>
+        <zorder>caTextEntry_9</zorder>
         <zorder>caLineEdit_28</zorder>
+        <zorder>caTextEntry_10</zorder>
         <zorder>caLineEdit_29</zorder>
-        <zorder>caTextEntry_11</zorder>
         <zorder>caLineEdit_30</zorder>
+        <zorder>caTextEntry_11</zorder>
+        <zorder>caLineEdit_31</zorder>
         <zorder>caMessageButton_0</zorder>
         <zorder>caTextEntry_12</zorder>
-        <zorder>caLineEdit_31</zorder>
         <zorder>caLineEdit_32</zorder>
         <zorder>caLineEdit_33</zorder>
         <zorder>caLineEdit_34</zorder>
-        <zorder>caMenu_12</zorder>
         <zorder>caLineEdit_35</zorder>
-        <zorder>caTextEntry_13</zorder>
+        <zorder>caMenu_13</zorder>
         <zorder>caLineEdit_36</zorder>
+        <zorder>caTextEntry_13</zorder>
+        <zorder>caLineEdit_37</zorder>
         <zorder>caMessageButton_1</zorder>
         <zorder>caTextEntry_14</zorder>
-        <zorder>caLineEdit_37</zorder>
-        <zorder>caMenu_13</zorder>
         <zorder>caLineEdit_38</zorder>
-        <zorder>caTextEntry_15</zorder>
-        <zorder>caLineEdit_39</zorder>
-        <zorder>caTextEntry_16</zorder>
-        <zorder>caLineEdit_40</zorder>
-        <zorder>caTextEntry_17</zorder>
-        <zorder>caLineEdit_41</zorder>
-        <zorder>caTextEntry_18</zorder>
-        <zorder>caLineEdit_42</zorder>
         <zorder>caMenu_14</zorder>
+        <zorder>caLineEdit_39</zorder>
+        <zorder>caTextEntry_15</zorder>
+        <zorder>caLineEdit_40</zorder>
+        <zorder>caTextEntry_16</zorder>
+        <zorder>caLineEdit_41</zorder>
+        <zorder>caTextEntry_17</zorder>
+        <zorder>caLineEdit_42</zorder>
+        <zorder>caTextEntry_18</zorder>
         <zorder>caLineEdit_43</zorder>
         <zorder>caMenu_15</zorder>
         <zorder>caLineEdit_44</zorder>
         <zorder>caMenu_16</zorder>
         <zorder>caLineEdit_45</zorder>
-        <zorder>caTextEntry_19</zorder>
-        <zorder>caLineEdit_46</zorder>
-        <zorder>caTextEntry_20</zorder>
-        <zorder>caLineEdit_47</zorder>
-        <zorder>caTextEntry_21</zorder>
-        <zorder>caLineEdit_48</zorder>
-        <zorder>caTextEntry_22</zorder>
-        <zorder>caLineEdit_49</zorder>
-        <zorder>caTextEntry_23</zorder>
-        <zorder>caLineEdit_50</zorder>
         <zorder>caMenu_17</zorder>
+        <zorder>caLineEdit_46</zorder>
+        <zorder>caTextEntry_19</zorder>
+        <zorder>caLineEdit_47</zorder>
+        <zorder>caTextEntry_20</zorder>
+        <zorder>caLineEdit_48</zorder>
+        <zorder>caTextEntry_21</zorder>
+        <zorder>caLineEdit_49</zorder>
+        <zorder>caTextEntry_22</zorder>
+        <zorder>caLineEdit_50</zorder>
+        <zorder>caTextEntry_23</zorder>
         <zorder>caLineEdit_51</zorder>
         <zorder>caMenu_18</zorder>
         <zorder>caLineEdit_52</zorder>
@@ -8243,9 +8364,9 @@ border-radius: 2px;
         <zorder>caLineEdit_53</zorder>
         <zorder>caMenu_20</zorder>
         <zorder>caLineEdit_54</zorder>
-        <zorder>caTextEntry_24</zorder>
-        <zorder>caLineEdit_55</zorder>
         <zorder>caMenu_21</zorder>
+        <zorder>caLineEdit_55</zorder>
+        <zorder>caTextEntry_24</zorder>
         <zorder>caLineEdit_56</zorder>
         <zorder>caMenu_22</zorder>
         <zorder>caLineEdit_57</zorder>
@@ -8253,6 +8374,8 @@ border-radius: 2px;
         <zorder>caLineEdit_58</zorder>
         <zorder>caMenu_24</zorder>
         <zorder>caLineEdit_59</zorder>
+        <zorder>caMenu_25</zorder>
+        <zorder>caLineEdit_60</zorder>
     </widget>
 </widget>
 </ui>

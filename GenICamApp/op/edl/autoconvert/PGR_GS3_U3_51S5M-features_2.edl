@@ -6,7 +6,7 @@ release 1
 x 50
 y 50
 w 1460
-h 775
+h 875
 font "helvetica-medium-r-18.0"
 ctlFont "helvetica-bold-r-10.0"
 btnFont "helvetica-medium-r-18.0"
@@ -69,7 +69,7 @@ release 0
 x 5
 y 40
 w 480
-h 730
+h 830
 lineColor rgb 0 0 0
 fillColor rgb 0 0 0
 lineWidth 0
@@ -107,7 +107,7 @@ fgColor rgb 2560 0 47104
 bgColor index 3
 useDisplayBg
 value {
-  "  AcquisitionControl"
+  "  AcquisitionControl1"
 }
 endObjectProperties
 
@@ -1531,6 +1531,234 @@ newPos
 objType "controls"
 endObjectProperties
 
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 10
+y 770
+w 220
+h 20
+font "helvetica-medium-r-14.0"
+fontAlign "right"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "TransmitFrameCount"
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 235
+y 770
+w 60
+h 20
+controlPv "$(P)$(R)GC_TraFrameCount"
+format "decimal"
+font "helvetica-medium-r-12.0"
+fontAlign "left"
+fgColor rgb 0 0 0
+bgColor rgb 29440 57088 65280
+editable
+motifWidget
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 300
+y 770
+w 120
+h 18
+controlPv "$(P)$(R)GC_TraFrameCount_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 10
+y 795
+w 220
+h 20
+font "helvetica-medium-r-14.0"
+fontAlign "right"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "pgrHDRModeEnabled"
+}
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 360
+y 795
+w 120
+h 18
+controlPv "$(P)$(R)GC_pgrHDRModeEnabled_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 10
+y 820
+w 220
+h 20
+font "helvetica-medium-r-14.0"
+fontAlign "right"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "pgrHDRImageSelector"
+}
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 360
+y 820
+w 120
+h 18
+controlPv "$(P)$(R)GC_pHDRImageSelector_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 10
+y 845
+w 220
+h 20
+font "helvetica-medium-r-14.0"
+fontAlign "right"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "pgrHDR_ExposureTimeAbs"
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 235
+y 845
+w 60
+h 20
+controlPv "$(P)$(R)GC_pHDR_ExpTimeAbs"
+format "decimal"
+font "helvetica-medium-r-12.0"
+fontAlign "left"
+fgColor rgb 0 0 0
+bgColor rgb 29440 57088 65280
+editable
+motifWidget
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 300
+y 845
+w 120
+h 18
+controlPv "$(P)$(R)GC_pHDR_ExpTimeAbs_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
 # (Rectangle)
 object activeRectangleClass
 beginObjectProperties
@@ -1540,7 +1768,7 @@ release 0
 x 490
 y 40
 w 480
-h 630
+h 55
 lineColor rgb 0 0 0
 fillColor rgb 0 0 0
 lineWidth 0
@@ -1578,7 +1806,7 @@ fgColor rgb 2560 0 47104
 bgColor index 3
 useDisplayBg
 value {
-  "  ImageFormatControl"
+  "  AcquisitionControl2"
 }
 endObjectProperties
 
@@ -1598,6 +1826,127 @@ fgColor rgb 0 0 0
 bgColor index 3
 useDisplayBg
 value {
+  "pgrHDR_GainAbs"
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 720
+y 70
+w 60
+h 20
+controlPv "$(P)$(R)GC_pgrHDR_GainAbs"
+format "decimal"
+font "helvetica-medium-r-12.0"
+fontAlign "left"
+fgColor rgb 0 0 0
+bgColor rgb 29440 57088 65280
+editable
+motifWidget
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 785
+y 70
+w 120
+h 18
+controlPv "$(P)$(R)GC_pgrHDR_GainAbs_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 490
+y 100
+w 480
+h 655
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
+lineWidth 0
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 495
+y 105
+w 469
+h 19
+lineColor rgb 55808 55808 55808
+fill
+fillColor rgb 55808 55808 55808
+lineWidth 0
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 495
+y 105
+w 470
+h 20
+font "helvetica-medium-r-14.0"
+fontAlign "center"
+fgColor rgb 2560 0 47104
+bgColor index 3
+useDisplayBg
+value {
+  "  ImageFormatControl"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 495
+y 130
+w 220
+h 20
+font "helvetica-medium-r-14.0"
+fontAlign "right"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
   "PixelFormat"
 }
 endObjectProperties
@@ -1609,7 +1958,7 @@ major 4
 minor 7
 release 0
 x 845
-y 70
+y 130
 w 120
 h 18
 controlPv "$(P)$(R)GC_PixelFormat_RBV"
@@ -1633,7 +1982,7 @@ major 4
 minor 1
 release 1
 x 495
-y 95
+y 155
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -1653,7 +2002,7 @@ major 4
 minor 7
 release 0
 x 845
-y 95
+y 155
 w 120
 h 18
 controlPv "$(P)$(R)GC_PixelCoding_RBV"
@@ -1677,7 +2026,7 @@ major 4
 minor 1
 release 1
 x 495
-y 120
+y 180
 w 220
 h 16
 font "helvetica-medium-r-14.0"
@@ -1697,7 +2046,7 @@ major 4
 minor 7
 release 0
 x 845
-y 120
+y 180
 w 120
 h 18
 controlPv "$(P)$(R)GC_OnBoaColProEna_RBV"
@@ -1721,7 +2070,7 @@ major 4
 minor 1
 release 1
 x 495
-y 145
+y 205
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -1741,7 +2090,7 @@ major 4
 minor 7
 release 0
 x 720
-y 145
+y 205
 w 60
 h 20
 controlPv "$(P)$(R)GC_Width"
@@ -1767,7 +2116,7 @@ major 4
 minor 7
 release 0
 x 785
-y 145
+y 205
 w 120
 h 18
 controlPv "$(P)$(R)GC_Width_RBV"
@@ -1791,7 +2140,7 @@ major 4
 minor 1
 release 1
 x 495
-y 170
+y 230
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -1811,7 +2160,7 @@ major 4
 minor 7
 release 0
 x 720
-y 170
+y 230
 w 60
 h 20
 controlPv "$(P)$(R)GC_Height"
@@ -1837,7 +2186,7 @@ major 4
 minor 7
 release 0
 x 785
-y 170
+y 230
 w 120
 h 18
 controlPv "$(P)$(R)GC_Height_RBV"
@@ -1861,7 +2210,7 @@ major 4
 minor 1
 release 1
 x 495
-y 195
+y 255
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -1881,7 +2230,7 @@ major 4
 minor 7
 release 0
 x 720
-y 195
+y 255
 w 60
 h 20
 controlPv "$(P)$(R)GC_OffsetX"
@@ -1907,7 +2256,7 @@ major 4
 minor 7
 release 0
 x 785
-y 195
+y 255
 w 120
 h 18
 controlPv "$(P)$(R)GC_OffsetX_RBV"
@@ -1931,7 +2280,7 @@ major 4
 minor 1
 release 1
 x 495
-y 220
+y 280
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -1951,7 +2300,7 @@ major 4
 minor 7
 release 0
 x 720
-y 220
+y 280
 w 60
 h 20
 controlPv "$(P)$(R)GC_OffsetY"
@@ -1977,7 +2326,7 @@ major 4
 minor 7
 release 0
 x 785
-y 220
+y 280
 w 120
 h 18
 controlPv "$(P)$(R)GC_OffsetY_RBV"
@@ -2001,7 +2350,7 @@ major 4
 minor 1
 release 1
 x 495
-y 245
+y 305
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -2021,7 +2370,7 @@ major 4
 minor 7
 release 0
 x 720
-y 245
+y 305
 w 60
 h 20
 controlPv "$(P)$(R)GC_SensorWidth"
@@ -2047,7 +2396,7 @@ major 4
 minor 7
 release 0
 x 785
-y 245
+y 305
 w 120
 h 18
 controlPv "$(P)$(R)GC_SensorWidth_RBV"
@@ -2071,7 +2420,7 @@ major 4
 minor 1
 release 1
 x 495
-y 270
+y 330
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -2091,7 +2440,7 @@ major 4
 minor 7
 release 0
 x 720
-y 270
+y 330
 w 60
 h 20
 controlPv "$(P)$(R)GC_SensorHeight"
@@ -2117,7 +2466,7 @@ major 4
 minor 7
 release 0
 x 785
-y 270
+y 330
 w 120
 h 18
 controlPv "$(P)$(R)GC_SensorHeight_RBV"
@@ -2141,7 +2490,7 @@ major 4
 minor 1
 release 1
 x 495
-y 295
+y 355
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -2161,7 +2510,7 @@ major 4
 minor 7
 release 0
 x 845
-y 295
+y 355
 w 120
 h 18
 controlPv "$(P)$(R)GC_SensorShutterMode_RBV"
@@ -2185,7 +2534,7 @@ major 4
 minor 1
 release 1
 x 495
-y 320
+y 380
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -2205,7 +2554,7 @@ major 4
 minor 7
 release 0
 x 720
-y 320
+y 380
 w 60
 h 20
 controlPv "$(P)$(R)GC_WidthMax"
@@ -2231,7 +2580,7 @@ major 4
 minor 7
 release 0
 x 785
-y 320
+y 380
 w 120
 h 18
 controlPv "$(P)$(R)GC_WidthMax_RBV"
@@ -2255,7 +2604,7 @@ major 4
 minor 1
 release 1
 x 495
-y 345
+y 405
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -2275,7 +2624,7 @@ major 4
 minor 7
 release 0
 x 720
-y 345
+y 405
 w 60
 h 20
 controlPv "$(P)$(R)GC_HeightMax"
@@ -2301,7 +2650,7 @@ major 4
 minor 7
 release 0
 x 785
-y 345
+y 405
 w 120
 h 18
 controlPv "$(P)$(R)GC_HeightMax_RBV"
@@ -2325,7 +2674,7 @@ major 4
 minor 1
 release 1
 x 495
-y 370
+y 430
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -2345,7 +2694,7 @@ major 4
 minor 7
 release 0
 x 845
-y 370
+y 430
 w 120
 h 18
 controlPv "$(P)$(R)GC_VideoMode_RBV"
@@ -2369,7 +2718,7 @@ major 4
 minor 1
 release 1
 x 495
-y 395
+y 455
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -2389,7 +2738,7 @@ major 4
 minor 7
 release 0
 x 720
-y 395
+y 455
 w 60
 h 20
 controlPv "$(P)$(R)GC_BinningHorizontal"
@@ -2415,7 +2764,7 @@ major 4
 minor 7
 release 0
 x 785
-y 395
+y 455
 w 120
 h 18
 controlPv "$(P)$(R)GC_BinningHorizontal_RBV"
@@ -2439,7 +2788,7 @@ major 4
 minor 1
 release 1
 x 495
-y 420
+y 480
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -2459,7 +2808,7 @@ major 4
 minor 7
 release 0
 x 720
-y 420
+y 480
 w 60
 h 20
 controlPv "$(P)$(R)GC_BinningVertical"
@@ -2485,7 +2834,7 @@ major 4
 minor 7
 release 0
 x 785
-y 420
+y 480
 w 120
 h 18
 controlPv "$(P)$(R)GC_BinningVertical_RBV"
@@ -2509,7 +2858,51 @@ major 4
 minor 1
 release 1
 x 495
-y 445
+y 505
+w 220
+h 20
+font "helvetica-medium-r-14.0"
+fontAlign "right"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "BinningControl"
+}
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 845
+y 505
+w 120
+h 18
+controlPv "$(P)$(R)GC_BinningControl_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 495
+y 530
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -2529,7 +2922,7 @@ major 4
 minor 7
 release 0
 x 720
-y 445
+y 530
 w 60
 h 20
 controlPv "$(P)$(R)GC_DecHorizontal"
@@ -2555,7 +2948,7 @@ major 4
 minor 7
 release 0
 x 785
-y 445
+y 530
 w 120
 h 18
 controlPv "$(P)$(R)GC_DecHorizontal_RBV"
@@ -2579,7 +2972,7 @@ major 4
 minor 1
 release 1
 x 495
-y 470
+y 555
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -2599,7 +2992,7 @@ major 4
 minor 7
 release 0
 x 720
-y 470
+y 555
 w 60
 h 20
 controlPv "$(P)$(R)GC_DecVertical"
@@ -2625,7 +3018,7 @@ major 4
 minor 7
 release 0
 x 785
-y 470
+y 555
 w 120
 h 18
 controlPv "$(P)$(R)GC_DecVertical_RBV"
@@ -2649,7 +3042,7 @@ major 4
 minor 1
 release 1
 x 495
-y 495
+y 580
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -2669,7 +3062,7 @@ major 4
 minor 7
 release 0
 x 845
-y 495
+y 580
 w 120
 h 18
 controlPv "$(P)$(R)GC_ReverseX_RBV"
@@ -2693,7 +3086,7 @@ major 4
 minor 1
 release 1
 x 495
-y 520
+y 605
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -2713,7 +3106,7 @@ major 4
 minor 7
 release 0
 x 845
-y 520
+y 605
 w 120
 h 18
 controlPv "$(P)$(R)GC_PixelSize_RBV"
@@ -2737,7 +3130,7 @@ major 4
 minor 1
 release 1
 x 495
-y 545
+y 630
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -2757,7 +3150,7 @@ major 4
 minor 7
 release 0
 x 845
-y 545
+y 630
 w 120
 h 18
 controlPv "$(P)$(R)GC_PixelColorFilter_RBV"
@@ -2781,7 +3174,7 @@ major 4
 minor 1
 release 1
 x 495
-y 570
+y 655
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -2801,7 +3194,7 @@ major 4
 minor 7
 release 0
 x 720
-y 570
+y 655
 w 60
 h 20
 controlPv "$(P)$(R)GC_PixDynRangeMin"
@@ -2827,7 +3220,7 @@ major 4
 minor 7
 release 0
 x 785
-y 570
+y 655
 w 120
 h 18
 controlPv "$(P)$(R)GC_PixDynRangeMin_RBV"
@@ -2851,7 +3244,7 @@ major 4
 minor 1
 release 1
 x 495
-y 595
+y 680
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -2871,7 +3264,7 @@ major 4
 minor 7
 release 0
 x 720
-y 595
+y 680
 w 60
 h 20
 controlPv "$(P)$(R)GC_PixDynRangeMax"
@@ -2897,7 +3290,7 @@ major 4
 minor 7
 release 0
 x 785
-y 595
+y 680
 w 120
 h 18
 controlPv "$(P)$(R)GC_PixDynRangeMax_RBV"
@@ -2921,7 +3314,7 @@ major 4
 minor 1
 release 1
 x 495
-y 620
+y 705
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -2941,7 +3334,7 @@ major 4
 minor 7
 release 0
 x 845
-y 620
+y 705
 w 120
 h 18
 controlPv "$(P)$(R)GC_TestImageSelector_RBV"
@@ -2965,7 +3358,7 @@ major 4
 minor 1
 release 1
 x 495
-y 645
+y 730
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -2985,7 +3378,7 @@ major 4
 minor 7
 release 0
 x 845
-y 645
+y 730
 w 120
 h 18
 controlPv "$(P)$(R)GC_TestPattern_RBV"
@@ -4580,8 +4973,48 @@ beginObjectProperties
 major 4
 minor 0
 release 0
+x 235
+y 795
+w 120
+h 20
+fgColor rgb 0 0 0
+bgColor rgb 29440 57088 65280
+inconsistentColor rgb 17920 17920 17920
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+controlPv "$(P)$(R)GC_pgrHDRModeEnabled"
+indicatorPv "$(P)$(R)GC_pgrHDRModeEnabled"
+font "helvetica-medium-r-12.0"
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 235
+y 820
+w 120
+h 20
+fgColor rgb 0 0 0
+bgColor rgb 29440 57088 65280
+inconsistentColor rgb 17920 17920 17920
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+controlPv "$(P)$(R)GC_pHDRImageSelector"
+indicatorPv "$(P)$(R)GC_pHDRImageSelector"
+font "helvetica-medium-r-12.0"
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
 x 720
-y 70
+y 130
 w 120
 h 20
 fgColor rgb 0 0 0
@@ -4601,7 +5034,7 @@ major 4
 minor 0
 release 0
 x 720
-y 95
+y 155
 w 120
 h 20
 fgColor rgb 0 0 0
@@ -4621,7 +5054,7 @@ major 4
 minor 0
 release 0
 x 720
-y 120
+y 180
 w 120
 h 20
 fgColor rgb 0 0 0
@@ -4641,7 +5074,7 @@ major 4
 minor 0
 release 0
 x 720
-y 295
+y 355
 w 120
 h 20
 fgColor rgb 0 0 0
@@ -4661,7 +5094,7 @@ major 4
 minor 0
 release 0
 x 720
-y 370
+y 430
 w 120
 h 20
 fgColor rgb 0 0 0
@@ -4681,7 +5114,27 @@ major 4
 minor 0
 release 0
 x 720
-y 495
+y 505
+w 120
+h 20
+fgColor rgb 0 0 0
+bgColor rgb 29440 57088 65280
+inconsistentColor rgb 17920 17920 17920
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+controlPv "$(P)$(R)GC_BinningControl"
+indicatorPv "$(P)$(R)GC_BinningControl"
+font "helvetica-medium-r-12.0"
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 720
+y 580
 w 120
 h 20
 fgColor rgb 0 0 0
@@ -4701,7 +5154,7 @@ major 4
 minor 0
 release 0
 x 720
-y 520
+y 605
 w 120
 h 20
 fgColor rgb 0 0 0
@@ -4721,7 +5174,7 @@ major 4
 minor 0
 release 0
 x 720
-y 545
+y 630
 w 120
 h 20
 fgColor rgb 0 0 0
@@ -4741,7 +5194,7 @@ major 4
 minor 0
 release 0
 x 720
-y 620
+y 705
 w 120
 h 20
 fgColor rgb 0 0 0
@@ -4761,7 +5214,7 @@ major 4
 minor 0
 release 0
 x 720
-y 645
+y 730
 w 120
 h 20
 fgColor rgb 0 0 0

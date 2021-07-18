@@ -6,7 +6,7 @@ release 1
 x 50
 y 50
 w 1460
-h 830
+h 855
 font "helvetica-medium-r-18.0"
 ctlFont "helvetica-bold-r-10.0"
 btnFont "helvetica-medium-r-18.0"
@@ -69,7 +69,7 @@ release 0
 x 5
 y 40
 w 480
-h 305
+h 355
 lineColor rgb 0 0 0
 fillColor rgb 0 0 0
 lineWidth 0
@@ -627,7 +627,7 @@ fgColor rgb 0 0 0
 bgColor index 3
 useDisplayBg
 value {
-  "UserOutputSelector"
+  "ExposureActiveMode"
 }
 endObjectProperties
 
@@ -639,6 +639,50 @@ minor 7
 release 0
 x 360
 y 295
+w 120
+h 18
+controlPv "$(P)$(R)GC_ExpActiveMode_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 10
+y 320
+w 220
+h 20
+font "helvetica-medium-r-14.0"
+fontAlign "right"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "UserOutputSelector"
+}
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 360
+y 320
 w 120
 h 18
 controlPv "$(P)$(R)GC_UseOutputSelector_RBV"
@@ -662,7 +706,7 @@ major 4
 minor 1
 release 1
 x 10
-y 320
+y 345
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -682,10 +726,54 @@ major 4
 minor 7
 release 0
 x 360
-y 320
+y 345
 w 120
 h 18
 controlPv "$(P)$(R)GC_UserOutputValue_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 10
+y 370
+w 220
+h 20
+font "helvetica-medium-r-14.0"
+fontAlign "right"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "V3_3Enable"
+}
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 360
+y 370
+w 120
+h 18
+controlPv "$(P)$(R)GC_V3_3Enable_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "left"
@@ -706,7 +794,7 @@ major 4
 minor 0
 release 0
 x 5
-y 350
+y 400
 w 480
 h 155
 lineColor rgb 0 0 0
@@ -721,7 +809,7 @@ major 4
 minor 0
 release 0
 x 10
-y 355
+y 405
 w 469
 h 19
 lineColor rgb 55808 55808 55808
@@ -737,7 +825,7 @@ major 4
 minor 1
 release 1
 x 10
-y 355
+y 405
 w 470
 h 20
 font "helvetica-medium-r-14.0"
@@ -757,7 +845,7 @@ major 4
 minor 1
 release 1
 x 10
-y 380
+y 430
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -777,7 +865,7 @@ major 4
 minor 7
 release 0
 x 360
-y 380
+y 430
 w 120
 h 18
 controlPv "$(P)$(R)GC_LUTSelector_RBV"
@@ -801,7 +889,7 @@ major 4
 minor 1
 release 1
 x 10
-y 405
+y 455
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -821,7 +909,7 @@ major 4
 minor 7
 release 0
 x 360
-y 405
+y 455
 w 120
 h 18
 controlPv "$(P)$(R)GC_LUTEnable_RBV"
@@ -845,7 +933,7 @@ major 4
 minor 1
 release 1
 x 10
-y 430
+y 480
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -865,7 +953,7 @@ major 4
 minor 7
 release 0
 x 235
-y 430
+y 480
 w 60
 h 20
 controlPv "$(P)$(R)GC_LUTIndex"
@@ -891,7 +979,7 @@ major 4
 minor 7
 release 0
 x 300
-y 430
+y 480
 w 120
 h 18
 controlPv "$(P)$(R)GC_LUTIndex_RBV"
@@ -915,7 +1003,7 @@ major 4
 minor 1
 release 1
 x 10
-y 455
+y 505
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -935,7 +1023,7 @@ major 4
 minor 7
 release 0
 x 235
-y 455
+y 505
 w 60
 h 20
 controlPv "$(P)$(R)GC_LUTValue"
@@ -961,7 +1049,7 @@ major 4
 minor 7
 release 0
 x 300
-y 455
+y 505
 w 120
 h 18
 controlPv "$(P)$(R)GC_LUTValue_RBV"
@@ -985,7 +1073,7 @@ major 4
 minor 1
 release 1
 x 10
-y 480
+y 530
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -2584,7 +2672,7 @@ release 0
 x 975
 y 40
 w 480
-h 455
+h 480
 lineColor rgb 0 0 0
 fillColor rgb 0 0 0
 lineWidth 0
@@ -3651,14 +3739,14 @@ release 1
 x 980
 y 470
 w 220
-h 20
+h 16
 font "helvetica-medium-r-14.0"
 fontAlign "right"
 fgColor rgb 0 0 0
 bgColor index 3
 useDisplayBg
 value {
-  "ChunkTimestamp"
+  "ChunkTransmitFrameCount"
 }
 endObjectProperties
 
@@ -3672,7 +3760,7 @@ x 1205
 y 470
 w 60
 h 20
-controlPv "$(P)$(R)GC_ChunkTimestamp"
+controlPv "$(P)$(R)GC_ChuTraFrameCount"
 format "decimal"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -3698,6 +3786,76 @@ x 1270
 y 470
 w 120
 h 18
+controlPv "$(P)$(R)GC_ChuTraFrameCount_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 980
+y 495
+w 220
+h 20
+font "helvetica-medium-r-14.0"
+fontAlign "right"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "ChunkTimestamp"
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 1205
+y 495
+w 60
+h 20
+controlPv "$(P)$(R)GC_ChunkTimestamp"
+format "decimal"
+font "helvetica-medium-r-12.0"
+fontAlign "left"
+fgColor rgb 0 0 0
+bgColor rgb 29440 57088 65280
+editable
+motifWidget
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 1270
+y 495
+w 120
+h 18
 controlPv "$(P)$(R)GC_ChunkTimestamp_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
@@ -3719,7 +3877,7 @@ major 4
 minor 0
 release 0
 x 975
-y 500
+y 525
 w 480
 h 105
 lineColor rgb 0 0 0
@@ -3734,7 +3892,7 @@ major 4
 minor 0
 release 0
 x 980
-y 505
+y 530
 w 469
 h 19
 lineColor rgb 55808 55808 55808
@@ -3750,7 +3908,7 @@ major 4
 minor 1
 release 1
 x 980
-y 505
+y 530
 w 470
 h 20
 font "helvetica-medium-r-14.0"
@@ -3770,7 +3928,7 @@ major 4
 minor 1
 release 1
 x 980
-y 530
+y 555
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -3790,54 +3948,10 @@ major 4
 minor 7
 release 0
 x 1330
-y 530
+y 555
 w 120
 h 18
 controlPv "$(P)$(R)GC_EventSelector_RBV"
-format "decimal"
-font "helvetica-medium-r-14.0"
-fontAlign "left"
-fgColor rgb 2560 0 47104
-bgColor rgb 47872 47872 47872
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 980
-y 555
-w 220
-h 20
-font "helvetica-medium-r-14.0"
-fontAlign "right"
-fgColor rgb 0 0 0
-bgColor index 3
-useDisplayBg
-value {
-  "EventNotification"
-}
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 1330
-y 555
-w 120
-h 18
-controlPv "$(P)$(R)GC_EventNotification_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "left"
@@ -3867,6 +3981,50 @@ fgColor rgb 0 0 0
 bgColor index 3
 useDisplayBg
 value {
+  "EventNotification"
+}
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 1330
+y 580
+w 120
+h 18
+controlPv "$(P)$(R)GC_EventNotification_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 980
+y 605
+w 220
+h 20
+font "helvetica-medium-r-14.0"
+fontAlign "right"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
   "TriggerEventTest"
 }
 endObjectProperties
@@ -3878,7 +4036,7 @@ major 4
 minor 0
 release 0
 x 975
-y 610
+y 635
 w 480
 h 105
 lineColor rgb 0 0 0
@@ -3893,7 +4051,7 @@ major 4
 minor 0
 release 0
 x 980
-y 615
+y 640
 w 469
 h 19
 lineColor rgb 55808 55808 55808
@@ -3909,7 +4067,7 @@ major 4
 minor 1
 release 1
 x 980
-y 615
+y 640
 w 470
 h 20
 font "helvetica-medium-r-14.0"
@@ -3929,7 +4087,7 @@ major 4
 minor 1
 release 1
 x 980
-y 640
+y 665
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -3949,7 +4107,7 @@ major 4
 minor 7
 release 0
 x 1205
-y 640
+y 665
 w 60
 h 20
 controlPv "$(P)$(R)GC_EveAcqStart"
@@ -3975,7 +4133,7 @@ major 4
 minor 7
 release 0
 x 1270
-y 640
+y 665
 w 120
 h 18
 controlPv "$(P)$(R)GC_EveAcqStart_RBV"
@@ -3999,7 +4157,7 @@ major 4
 minor 1
 release 1
 x 980
-y 665
+y 690
 w 220
 h 14
 font "helvetica-medium-r-12.0"
@@ -4019,7 +4177,7 @@ major 4
 minor 7
 release 0
 x 1205
-y 665
+y 690
 w 60
 h 20
 controlPv "$(P)$(R)GC_EveAcqStaTim"
@@ -4045,7 +4203,7 @@ major 4
 minor 7
 release 0
 x 1270
-y 665
+y 690
 w 120
 h 18
 controlPv "$(P)$(R)GC_EveAcqStaTim_RBV"
@@ -4069,7 +4227,7 @@ major 4
 minor 1
 release 1
 x 980
-y 690
+y 715
 w 220
 h 16
 font "helvetica-medium-r-14.0"
@@ -4089,7 +4247,7 @@ major 4
 minor 7
 release 0
 x 1205
-y 690
+y 715
 w 60
 h 20
 controlPv "$(P)$(R)GC_EveAcqStaFrameID"
@@ -4115,7 +4273,7 @@ major 4
 minor 7
 release 0
 x 1270
-y 690
+y 715
 w 120
 h 18
 controlPv "$(P)$(R)GC_EveAcqStaFrameID_RBV"
@@ -4139,7 +4297,7 @@ major 4
 minor 0
 release 0
 x 975
-y 720
+y 745
 w 480
 h 105
 lineColor rgb 0 0 0
@@ -4154,7 +4312,7 @@ major 4
 minor 0
 release 0
 x 980
-y 725
+y 750
 w 469
 h 19
 lineColor rgb 55808 55808 55808
@@ -4170,7 +4328,7 @@ major 4
 minor 1
 release 1
 x 980
-y 725
+y 750
 w 470
 h 20
 font "helvetica-medium-r-14.0"
@@ -4190,7 +4348,7 @@ major 4
 minor 1
 release 1
 x 980
-y 750
+y 775
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -4210,7 +4368,7 @@ major 4
 minor 7
 release 0
 x 1205
-y 750
+y 775
 w 60
 h 20
 controlPv "$(P)$(R)GC_EveAcquisitionEnd"
@@ -4236,7 +4394,7 @@ major 4
 minor 7
 release 0
 x 1270
-y 750
+y 775
 w 120
 h 18
 controlPv "$(P)$(R)GC_EveAcquisitionEnd_RBV"
@@ -4260,7 +4418,7 @@ major 4
 minor 1
 release 1
 x 980
-y 775
+y 800
 w 220
 h 16
 font "helvetica-medium-r-14.0"
@@ -4280,7 +4438,7 @@ major 4
 minor 7
 release 0
 x 1205
-y 775
+y 800
 w 60
 h 20
 controlPv "$(P)$(R)GC_EveAcqEndTim"
@@ -4306,7 +4464,7 @@ major 4
 minor 7
 release 0
 x 1270
-y 775
+y 800
 w 120
 h 18
 controlPv "$(P)$(R)GC_EveAcqEndTim_RBV"
@@ -4330,7 +4488,7 @@ major 4
 minor 1
 release 1
 x 980
-y 800
+y 825
 w 220
 h 16
 font "helvetica-medium-r-14.0"
@@ -4350,7 +4508,7 @@ major 4
 minor 7
 release 0
 x 1205
-y 800
+y 825
 w 60
 h 20
 controlPv "$(P)$(R)GC_EveAcqEndFrameID"
@@ -4376,7 +4534,7 @@ major 4
 minor 7
 release 0
 x 1270
-y 800
+y 825
 w 120
 h 18
 controlPv "$(P)$(R)GC_EveAcqEndFrameID_RBV"
@@ -4508,6 +4666,26 @@ bgColor rgb 29440 57088 65280
 inconsistentColor rgb 17920 17920 17920
 topShadowColor rgb 55808 55808 55808
 botShadowColor rgb 17920 17920 17920
+controlPv "$(P)$(R)GC_ExpActiveMode"
+indicatorPv "$(P)$(R)GC_ExpActiveMode"
+font "helvetica-medium-r-12.0"
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 235
+y 320
+w 120
+h 20
+fgColor rgb 0 0 0
+bgColor rgb 29440 57088 65280
+inconsistentColor rgb 17920 17920 17920
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
 controlPv "$(P)$(R)GC_UseOutputSelector"
 indicatorPv "$(P)$(R)GC_UseOutputSelector"
 font "helvetica-medium-r-12.0"
@@ -4520,7 +4698,7 @@ major 4
 minor 0
 release 0
 x 235
-y 320
+y 345
 w 120
 h 20
 fgColor rgb 0 0 0
@@ -4540,7 +4718,27 @@ major 4
 minor 0
 release 0
 x 235
-y 380
+y 370
+w 120
+h 20
+fgColor rgb 0 0 0
+bgColor rgb 29440 57088 65280
+inconsistentColor rgb 17920 17920 17920
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+controlPv "$(P)$(R)GC_V3_3Enable"
+indicatorPv "$(P)$(R)GC_V3_3Enable"
+font "helvetica-medium-r-12.0"
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 235
+y 430
 w 120
 h 20
 fgColor rgb 0 0 0
@@ -4560,7 +4758,7 @@ major 4
 minor 0
 release 0
 x 235
-y 405
+y 455
 w 120
 h 20
 fgColor rgb 0 0 0
@@ -4765,7 +4963,7 @@ major 4
 minor 0
 release 0
 x 1205
-y 530
+y 555
 w 120
 h 20
 fgColor rgb 0 0 0
@@ -4785,7 +4983,7 @@ major 4
 minor 0
 release 0
 x 1205
-y 555
+y 580
 w 120
 h 20
 fgColor rgb 0 0 0
@@ -4805,7 +5003,7 @@ major 4
 minor 0
 release 0
 x 1205
-y 580
+y 605
 w 200
 h 20
 fgColor rgb 0 0 0

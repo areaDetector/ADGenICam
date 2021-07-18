@@ -69,7 +69,7 @@ release 0
 x 5
 y 40
 w 480
-h 555
+h 580
 lineColor rgb 0 0 0
 fillColor rgb 0 0 0
 lineWidth 0
@@ -532,6 +532,50 @@ release 1
 x 10
 y 245
 w 220
+h 16
+font "helvetica-medium-r-14.0"
+fontAlign "right"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "BlackLevelClampingEnable"
+}
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 360
+y 245
+w 120
+h 18
+controlPv "$(P)$(R)GC_BlaLevClaEnable_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 10
+y 270
+w 220
 h 20
 font "helvetica-medium-r-14.0"
 fontAlign "right"
@@ -550,7 +594,7 @@ major 4
 minor 7
 release 0
 x 235
-y 245
+y 270
 w 60
 h 20
 controlPv "$(P)$(R)GC_Gamma"
@@ -576,7 +620,7 @@ major 4
 minor 7
 release 0
 x 300
-y 245
+y 270
 w 120
 h 18
 controlPv "$(P)$(R)GC_Gamma_RBV"
@@ -600,7 +644,7 @@ major 4
 minor 1
 release 1
 x 10
-y 270
+y 295
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -620,7 +664,7 @@ major 4
 minor 7
 release 0
 x 360
-y 270
+y 295
 w 120
 h 18
 controlPv "$(P)$(R)GC_GammaEnabled_RBV"
@@ -644,7 +688,7 @@ major 4
 minor 1
 release 1
 x 10
-y 295
+y 320
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -664,7 +708,7 @@ major 4
 minor 7
 release 0
 x 235
-y 295
+y 320
 w 60
 h 20
 controlPv "$(P)$(R)GC_Sharpness"
@@ -690,7 +734,7 @@ major 4
 minor 7
 release 0
 x 300
-y 295
+y 320
 w 120
 h 18
 controlPv "$(P)$(R)GC_Sharpness_RBV"
@@ -714,7 +758,7 @@ major 4
 minor 1
 release 1
 x 10
-y 320
+y 345
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -734,7 +778,7 @@ major 4
 minor 7
 release 0
 x 360
-y 320
+y 345
 w 120
 h 18
 controlPv "$(P)$(R)GC_SharpnessEnabled_RBV"
@@ -758,7 +802,7 @@ major 4
 minor 1
 release 1
 x 10
-y 345
+y 370
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -778,7 +822,7 @@ major 4
 minor 7
 release 0
 x 360
-y 345
+y 370
 w 120
 h 18
 controlPv "$(P)$(R)GC_SharpnessAuto_RBV"
@@ -802,7 +846,7 @@ major 4
 minor 1
 release 1
 x 10
-y 370
+y 395
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -822,7 +866,7 @@ major 4
 minor 7
 release 0
 x 235
-y 370
+y 395
 w 60
 h 20
 controlPv "$(P)$(R)GC_Hue"
@@ -848,7 +892,7 @@ major 4
 minor 7
 release 0
 x 300
-y 370
+y 395
 w 120
 h 18
 controlPv "$(P)$(R)GC_Hue_RBV"
@@ -872,7 +916,7 @@ major 4
 minor 1
 release 1
 x 10
-y 395
+y 420
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -892,7 +936,7 @@ major 4
 minor 7
 release 0
 x 360
-y 395
+y 420
 w 120
 h 18
 controlPv "$(P)$(R)GC_HueEnabled_RBV"
@@ -916,7 +960,7 @@ major 4
 minor 1
 release 1
 x 10
-y 420
+y 445
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -936,7 +980,7 @@ major 4
 minor 7
 release 0
 x 360
-y 420
+y 445
 w 120
 h 18
 controlPv "$(P)$(R)GC_HueAuto_RBV"
@@ -960,7 +1004,7 @@ major 4
 minor 1
 release 1
 x 10
-y 445
+y 470
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -980,7 +1024,7 @@ major 4
 minor 7
 release 0
 x 235
-y 445
+y 470
 w 60
 h 20
 controlPv "$(P)$(R)GC_Saturation"
@@ -1006,7 +1050,7 @@ major 4
 minor 7
 release 0
 x 300
-y 445
+y 470
 w 120
 h 18
 controlPv "$(P)$(R)GC_Saturation_RBV"
@@ -1030,7 +1074,7 @@ major 4
 minor 1
 release 1
 x 10
-y 470
+y 495
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -1050,7 +1094,7 @@ major 4
 minor 7
 release 0
 x 360
-y 470
+y 495
 w 120
 h 18
 controlPv "$(P)$(R)GC_SaturationEnabled_RBV"
@@ -1074,7 +1118,7 @@ major 4
 minor 1
 release 1
 x 10
-y 495
+y 520
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -1094,7 +1138,7 @@ major 4
 minor 7
 release 0
 x 360
-y 495
+y 520
 w 120
 h 18
 controlPv "$(P)$(R)GC_SaturationAuto_RBV"
@@ -1118,7 +1162,7 @@ major 4
 minor 1
 release 1
 x 10
-y 520
+y 545
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -1138,7 +1182,7 @@ major 4
 minor 7
 release 0
 x 360
-y 520
+y 545
 w 120
 h 18
 controlPv "$(P)$(R)GC_BalanceWhiteAuto_RBV"
@@ -1162,7 +1206,7 @@ major 4
 minor 1
 release 1
 x 10
-y 545
+y 570
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -1182,7 +1226,7 @@ major 4
 minor 7
 release 0
 x 360
-y 545
+y 570
 w 120
 h 18
 controlPv "$(P)$(R)GC_BalRatioSelector_RBV"
@@ -1206,7 +1250,7 @@ major 4
 minor 1
 release 1
 x 10
-y 570
+y 595
 w 220
 h 20
 font "helvetica-medium-r-14.0"
@@ -1226,7 +1270,7 @@ major 4
 minor 7
 release 0
 x 235
-y 570
+y 595
 w 60
 h 20
 controlPv "$(P)$(R)GC_BalanceRatio"
@@ -1252,7 +1296,7 @@ major 4
 minor 7
 release 0
 x 300
-y 570
+y 595
 w 120
 h 18
 controlPv "$(P)$(R)GC_BalanceRatio_RBV"
@@ -3610,7 +3654,27 @@ major 4
 minor 0
 release 0
 x 235
-y 270
+y 245
+w 120
+h 20
+fgColor rgb 0 0 0
+bgColor rgb 29440 57088 65280
+inconsistentColor rgb 17920 17920 17920
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+controlPv "$(P)$(R)GC_BlaLevClaEnable"
+indicatorPv "$(P)$(R)GC_BlaLevClaEnable"
+font "helvetica-medium-r-12.0"
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 235
+y 295
 w 120
 h 20
 fgColor rgb 0 0 0
@@ -3630,7 +3694,7 @@ major 4
 minor 0
 release 0
 x 235
-y 320
+y 345
 w 120
 h 20
 fgColor rgb 0 0 0
@@ -3650,7 +3714,7 @@ major 4
 minor 0
 release 0
 x 235
-y 345
+y 370
 w 120
 h 20
 fgColor rgb 0 0 0
@@ -3670,7 +3734,7 @@ major 4
 minor 0
 release 0
 x 235
-y 395
+y 420
 w 120
 h 20
 fgColor rgb 0 0 0
@@ -3690,7 +3754,7 @@ major 4
 minor 0
 release 0
 x 235
-y 420
+y 445
 w 120
 h 20
 fgColor rgb 0 0 0
@@ -3710,7 +3774,7 @@ major 4
 minor 0
 release 0
 x 235
-y 470
+y 495
 w 120
 h 20
 fgColor rgb 0 0 0
@@ -3730,7 +3794,7 @@ major 4
 minor 0
 release 0
 x 235
-y 495
+y 520
 w 120
 h 20
 fgColor rgb 0 0 0
@@ -3750,7 +3814,7 @@ major 4
 minor 0
 release 0
 x 235
-y 520
+y 545
 w 120
 h 20
 fgColor rgb 0 0 0
@@ -3770,7 +3834,7 @@ major 4
 minor 0
 release 0
 x 235
-y 545
+y 570
 w 120
 h 20
 fgColor rgb 0 0 0

@@ -135,6 +135,23 @@ record(mbbo, "$(P)$(R)GC_BlackLevelAuto") {
   field(DISA, "0")
 }
 
+record(bi, "$(P)$(R)GC_BlaLevClaEnable_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_B_BlackLevelClampingEnable")
+  field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(bo, "$(P)$(R)GC_BlaLevClaEnable") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_B_BlackLevelClampingEnable")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
 record(ai, "$(P)$(R)GC_Gamma_RBV") {
   field(DTYP, "asynFloat64")
   field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_D_Gamma")
@@ -370,8 +387,10 @@ record(mbbi, "$(P)$(R)GC_BalRatioSelector_RBV") {
   field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_E_BalanceRatioSelector")
   field(ZRST, "Red")
   field(ZRVL, "0")
-  field(ONST, "Blue")
-  field(ONVL, "2")
+  field(ONST, "Green")
+  field(ONVL, "1")
+  field(TWST, "Blue")
+  field(TWVL, "2")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
@@ -382,8 +401,10 @@ record(mbbo, "$(P)$(R)GC_BalRatioSelector") {
   field(DOL,  "0")
   field(ZRST, "Red")
   field(ZRVL, "0")
-  field(ONST, "Blue")
-  field(ONVL, "2")
+  field(ONST, "Green")
+  field(ONVL, "1")
+  field(TWST, "Blue")
+  field(TWVL, "2")
   field(DISA, "0")
 }
 
@@ -1465,6 +1486,96 @@ record(mbbo, "$(P)$(R)GC_SinFraAcqMode") {
   field(DISA, "0")
 }
 
+record(ai, "$(P)$(R)GC_TraFrameCount_RBV") {
+  field(DTYP, "asynInt64")
+  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_I_TransmitFrameCount")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(ao, "$(P)$(R)GC_TraFrameCount") {
+  field(DTYP, "asynInt64")
+  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_I_TransmitFrameCount")
+  field(DISA, "0")
+}
+
+record(bi, "$(P)$(R)GC_pgrHDRModeEnabled_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_B_pgrHDRModeEnabled")
+  field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(bo, "$(P)$(R)GC_pgrHDRModeEnabled") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_B_pgrHDRModeEnabled")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)GC_pHDRImageSelector_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_E_pgrHDRImageSelector")
+  field(ZRST, "Image1")
+  field(ZRVL, "0")
+  field(ONST, "Image2")
+  field(ONVL, "1")
+  field(TWST, "Image3")
+  field(TWVL, "2")
+  field(THST, "Image4")
+  field(THVL, "3")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)GC_pHDRImageSelector") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_E_pgrHDRImageSelector")
+  field(DOL,  "0")
+  field(ZRST, "Image1")
+  field(ZRVL, "0")
+  field(ONST, "Image2")
+  field(ONVL, "1")
+  field(TWST, "Image3")
+  field(TWVL, "2")
+  field(THST, "Image4")
+  field(THVL, "3")
+  field(DISA, "0")
+}
+
+record(ai, "$(P)$(R)GC_pHDR_ExpTimeAbs_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_D_pgrHDR_ExposureTimeAbs")
+  field(PREC, "3")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(ao, "$(P)$(R)GC_pHDR_ExpTimeAbs") {
+  field(DTYP, "asynFloat64")
+  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_D_pgrHDR_ExposureTimeAbs")
+  field(PREC, "3")
+  field(DISA, "0")
+}
+
+record(ai, "$(P)$(R)GC_pgrHDR_GainAbs_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_D_pgrHDR_GainAbs")
+  field(PREC, "3")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(ao, "$(P)$(R)GC_pgrHDR_GainAbs") {
+  field(DTYP, "asynFloat64")
+  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_D_pgrHDR_GainAbs")
+  field(PREC, "3")
+  field(DISA, "0")
+}
+
 record(mbbi, "$(P)$(R)GC_PixelFormat_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_E_PixelFormat")
@@ -1684,7 +1795,7 @@ record(mbbi, "$(P)$(R)GC_SensorShutterMode_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_E_SensorShutterMode")
   field(ZRST, "Global")
-  field(ZRVL, "1")
+  field(ZRVL, "0")
   field(ONST, "Rolling")
   field(ONVL, "1")
   field(TWST, "GlobalReset")
@@ -1696,9 +1807,9 @@ record(mbbi, "$(P)$(R)GC_SensorShutterMode_RBV") {
 record(mbbo, "$(P)$(R)GC_SensorShutterMode") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_E_SensorShutterMode")
-  field(DOL,  "1")
+  field(DOL,  "0")
   field(ZRST, "Global")
-  field(ZRVL, "1")
+  field(ZRVL, "0")
   field(ONST, "Rolling")
   field(ONVL, "1")
   field(TWST, "GlobalReset")
@@ -1833,6 +1944,28 @@ record(ai, "$(P)$(R)GC_BinningVertical_RBV") {
 record(ao, "$(P)$(R)GC_BinningVertical") {
   field(DTYP, "asynInt64")
   field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_I_BinningVertical")
+  field(DISA, "0")
+}
+
+record(mbbi, "$(P)$(R)GC_BinningControl_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_E_BinningControl")
+  field(ZRST, "Additive")
+  field(ZRVL, "0")
+  field(ONST, "Average")
+  field(ONVL, "1")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)GC_BinningControl") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_E_BinningControl")
+  field(DOL,  "0")
+  field(ZRST, "Additive")
+  field(ZRVL, "0")
+  field(ONST, "Average")
+  field(ONVL, "1")
   field(DISA, "0")
 }
 
@@ -2498,6 +2631,32 @@ record(ao, "$(P)$(R)GC_LineStatusAll") {
   field(DISA, "0")
 }
 
+record(mbbi, "$(P)$(R)GC_ExpActiveMode_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_E_ExposureActiveMode")
+  field(ZRST, "Line1")
+  field(ZRVL, "0")
+  field(ONST, "AnyPixels")
+  field(ONVL, "1")
+  field(TWST, "AllPixels")
+  field(TWVL, "2")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(mbbo, "$(P)$(R)GC_ExpActiveMode") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_E_ExposureActiveMode")
+  field(DOL,  "0")
+  field(ZRST, "Line1")
+  field(ZRVL, "0")
+  field(ONST, "AnyPixels")
+  field(ONVL, "1")
+  field(TWST, "AllPixels")
+  field(TWVL, "2")
+  field(DISA, "0")
+}
+
 record(mbbi, "$(P)$(R)GC_UseOutputSelector_RBV") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_E_UserOutputSelector")
@@ -2536,6 +2695,23 @@ record(bi, "$(P)$(R)GC_UserOutputValue_RBV") {
 record(bo, "$(P)$(R)GC_UserOutputValue") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_B_UserOutputValue")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(bi, "$(P)$(R)GC_V3_3Enable_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_B_V3_3Enable")
+  field(SCAN, "I/O Intr")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(DISA, "0")
+}
+
+record(bo, "$(P)$(R)GC_V3_3Enable") {
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_B_V3_3Enable")
   field(ZNAM, "No")
   field(ONAM, "Yes")
   field(DISA, "0")
@@ -2994,8 +3170,10 @@ record(mbbi, "$(P)$(R)GC_ChunkSelector_RBV") {
   field(ELVL, "11")
   field(TVST, "DynamicPixelRang")
   field(TVVL, "12")
-  field(TTST, "Timestamp")
+  field(TTST, "TransmitFrameCou")
   field(TTVL, "13")
+  field(FTST, "Timestamp")
+  field(FTVL, "14")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
@@ -3030,8 +3208,10 @@ record(mbbo, "$(P)$(R)GC_ChunkSelector") {
   field(ELVL, "11")
   field(TVST, "DynamicPixelRang")
   field(TVVL, "12")
-  field(TTST, "Timestamp")
+  field(TTST, "TransmitFrameCou")
   field(TTVL, "13")
+  field(FTST, "Timestamp")
+  field(FTVL, "14")
   field(DISA, "0")
 }
 
@@ -3292,6 +3472,19 @@ record(ao, "$(P)$(R)GC_ChuPixDynRangeMax") {
   field(DISA, "0")
 }
 
+record(ai, "$(P)$(R)GC_ChuTraFrameCount_RBV") {
+  field(DTYP, "asynInt64")
+  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_I_ChunkTransmitFrameCount")
+  field(SCAN, "I/O Intr")
+  field(DISA, "0")
+}
+
+record(ao, "$(P)$(R)GC_ChuTraFrameCount") {
+  field(DTYP, "asynInt64")
+  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_I_ChunkTransmitFrameCount")
+  field(DISA, "0")
+}
+
 record(ai, "$(P)$(R)GC_ChunkTimestamp_RBV") {
   field(DTYP, "asynInt64")
   field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_I_ChunkTimestamp")
@@ -3312,8 +3505,10 @@ record(mbbi, "$(P)$(R)GC_EventSelector_RBV") {
   field(ZRVL, "40000")
   field(ONST, "AcquisitionEnd")
   field(ONVL, "40001")
-  field(TWST, "ExposureEnd")
-  field(TWVL, "40003")
+  field(TWST, "ExposureStart")
+  field(TWVL, "40002")
+  field(THST, "ExposureEnd")
+  field(THVL, "40003")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
 }
@@ -3326,8 +3521,10 @@ record(mbbo, "$(P)$(R)GC_EventSelector") {
   field(ZRVL, "40000")
   field(ONST, "AcquisitionEnd")
   field(ONVL, "40001")
-  field(TWST, "ExposureEnd")
-  field(TWVL, "40003")
+  field(TWST, "ExposureStart")
+  field(TWVL, "40002")
+  field(THST, "ExposureEnd")
+  field(THVL, "40003")
   field(DISA, "0")
 }
 

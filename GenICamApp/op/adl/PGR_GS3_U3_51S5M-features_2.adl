@@ -8,7 +8,7 @@
     		x=50
     		y=50
     		width=1460
-    		height=775
+    		height=875
     	}
     	clr=14
     	bclr=4
@@ -119,7 +119,7 @@
     		x=5
     		y=40
     		width=480
-    		height=730
+    		height=830
     	}
     	"basic attribute" {
     		clr=14
@@ -148,7 +148,7 @@
     	"basic attribute" {
     		clr=54
     	}
-    	textix="  AcquisitionControl"
+    	textix="  AcquisitionControl1"
     	align="horiz. centered"
     }
     
@@ -1414,13 +1414,201 @@
 			limits {
 			}
 		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=770
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="TransmitFrameCount"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=770
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_TraFrameCount"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=770
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_TraFrameCount_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=795
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="pgrHDRModeEnabled"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=795
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_pgrHDRModeEnabled"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=795
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_pgrHDRModeEnabled_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=820
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="pgrHDRImageSelector"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=820
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_pHDRImageSelector"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=820
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_pHDRImageSelector_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=845
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="pgrHDR_ExposureTimeAbs"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=845
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_pHDR_ExpTimeAbs"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=845
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_pHDR_ExpTimeAbs_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
     # (Rectangle)
     rectangle {
     	object {
     		x=490
     		y=40
     		width=480
-    		height=630
+    		height=55
     	}
     	"basic attribute" {
     		clr=14
@@ -1449,7 +1637,7 @@
     	"basic attribute" {
     		clr=54
     	}
-    	textix="  ImageFormatControl"
+    	textix="  AcquisitionControl2"
     	align="horiz. centered"
     }
     
@@ -1464,6 +1652,92 @@
 			"basic attribute" {
 				clr=14
 			}
+			textix="pgrHDR_GainAbs"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=720
+				y=70
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_pgrHDR_GainAbs"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=785
+				y=70
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_pgrHDR_GainAbs_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    # (Rectangle)
+    rectangle {
+    	object {
+    		x=490
+    		y=100
+    		width=480
+    		height=655
+    	}
+    	"basic attribute" {
+    		clr=14
+    		fill="outline"
+    	}
+    }
+    
+    rectangle {
+    	object {
+    		x=495
+    		y=105
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=2
+    	}
+    }
+    text {
+    	object {
+    		x=495
+    		y=105
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=54
+    	}
+    	textix="  ImageFormatControl"
+    	align="horiz. centered"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=130
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
 			textix="PixelFormat"
 			align="horiz. right"
 		}
@@ -1471,7 +1745,7 @@
 		menu {
 			object {
 				x=720
-				y=70
+				y=130
 				width=120
 				height=20
 			}
@@ -1485,7 +1759,7 @@
 		"text update" {
 			object {
 				x=845
-				y=70
+				y=130
 				width=120
 				height=18
 			}
@@ -1503,7 +1777,7 @@
 		text {
 			object {
 				x=495
-				y=95
+				y=155
 				width=220
 				height=20
 			}
@@ -1517,7 +1791,7 @@
 		menu {
 			object {
 				x=720
-				y=95
+				y=155
 				width=120
 				height=20
 			}
@@ -1531,7 +1805,7 @@
 		"text update" {
 			object {
 				x=845
-				y=95
+				y=155
 				width=120
 				height=18
 			}
@@ -1549,7 +1823,7 @@
 		text {
 			object {
 				x=495
-				y=120
+				y=180
 				width=220
 				height=16
 			}
@@ -1563,7 +1837,7 @@
 		menu {
 			object {
 				x=720
-				y=120
+				y=180
 				width=120
 				height=20
 			}
@@ -1577,7 +1851,7 @@
 		"text update" {
 			object {
 				x=845
-				y=120
+				y=180
 				width=120
 				height=18
 			}
@@ -1595,7 +1869,7 @@
 		text {
 			object {
 				x=495
-				y=145
+				y=205
 				width=220
 				height=20
 			}
@@ -1609,7 +1883,7 @@
 		"text entry" {
 			object {
 				x=720
-				y=145
+				y=205
 				width=60
 				height=20
 			}
@@ -1625,7 +1899,7 @@
 		"text update" {
 			object {
 				x=785
-				y=145
+				y=205
 				width=120
 				height=18
 			}
@@ -1643,7 +1917,7 @@
 		text {
 			object {
 				x=495
-				y=170
+				y=230
 				width=220
 				height=20
 			}
@@ -1657,7 +1931,7 @@
 		"text entry" {
 			object {
 				x=720
-				y=170
+				y=230
 				width=60
 				height=20
 			}
@@ -1673,7 +1947,7 @@
 		"text update" {
 			object {
 				x=785
-				y=170
+				y=230
 				width=120
 				height=18
 			}
@@ -1691,7 +1965,7 @@
 		text {
 			object {
 				x=495
-				y=195
+				y=255
 				width=220
 				height=20
 			}
@@ -1705,7 +1979,7 @@
 		"text entry" {
 			object {
 				x=720
-				y=195
+				y=255
 				width=60
 				height=20
 			}
@@ -1721,7 +1995,7 @@
 		"text update" {
 			object {
 				x=785
-				y=195
+				y=255
 				width=120
 				height=18
 			}
@@ -1739,7 +2013,7 @@
 		text {
 			object {
 				x=495
-				y=220
+				y=280
 				width=220
 				height=20
 			}
@@ -1753,7 +2027,7 @@
 		"text entry" {
 			object {
 				x=720
-				y=220
+				y=280
 				width=60
 				height=20
 			}
@@ -1769,7 +2043,7 @@
 		"text update" {
 			object {
 				x=785
-				y=220
+				y=280
 				width=120
 				height=18
 			}
@@ -1787,7 +2061,7 @@
 		text {
 			object {
 				x=495
-				y=245
+				y=305
 				width=220
 				height=20
 			}
@@ -1801,7 +2075,7 @@
 		"text entry" {
 			object {
 				x=720
-				y=245
+				y=305
 				width=60
 				height=20
 			}
@@ -1817,7 +2091,7 @@
 		"text update" {
 			object {
 				x=785
-				y=245
+				y=305
 				width=120
 				height=18
 			}
@@ -1835,7 +2109,7 @@
 		text {
 			object {
 				x=495
-				y=270
+				y=330
 				width=220
 				height=20
 			}
@@ -1849,7 +2123,7 @@
 		"text entry" {
 			object {
 				x=720
-				y=270
+				y=330
 				width=60
 				height=20
 			}
@@ -1865,7 +2139,7 @@
 		"text update" {
 			object {
 				x=785
-				y=270
+				y=330
 				width=120
 				height=18
 			}
@@ -1883,7 +2157,7 @@
 		text {
 			object {
 				x=495
-				y=295
+				y=355
 				width=220
 				height=20
 			}
@@ -1897,7 +2171,7 @@
 		menu {
 			object {
 				x=720
-				y=295
+				y=355
 				width=120
 				height=20
 			}
@@ -1911,7 +2185,7 @@
 		"text update" {
 			object {
 				x=845
-				y=295
+				y=355
 				width=120
 				height=18
 			}
@@ -1929,7 +2203,7 @@
 		text {
 			object {
 				x=495
-				y=320
+				y=380
 				width=220
 				height=20
 			}
@@ -1943,7 +2217,7 @@
 		"text entry" {
 			object {
 				x=720
-				y=320
+				y=380
 				width=60
 				height=20
 			}
@@ -1959,7 +2233,7 @@
 		"text update" {
 			object {
 				x=785
-				y=320
+				y=380
 				width=120
 				height=18
 			}
@@ -1977,7 +2251,7 @@
 		text {
 			object {
 				x=495
-				y=345
+				y=405
 				width=220
 				height=20
 			}
@@ -1991,7 +2265,7 @@
 		"text entry" {
 			object {
 				x=720
-				y=345
+				y=405
 				width=60
 				height=20
 			}
@@ -2007,7 +2281,7 @@
 		"text update" {
 			object {
 				x=785
-				y=345
+				y=405
 				width=120
 				height=18
 			}
@@ -2025,7 +2299,7 @@
 		text {
 			object {
 				x=495
-				y=370
+				y=430
 				width=220
 				height=20
 			}
@@ -2039,7 +2313,7 @@
 		menu {
 			object {
 				x=720
-				y=370
+				y=430
 				width=120
 				height=20
 			}
@@ -2053,7 +2327,7 @@
 		"text update" {
 			object {
 				x=845
-				y=370
+				y=430
 				width=120
 				height=18
 			}
@@ -2071,7 +2345,7 @@
 		text {
 			object {
 				x=495
-				y=395
+				y=455
 				width=220
 				height=20
 			}
@@ -2085,7 +2359,7 @@
 		"text entry" {
 			object {
 				x=720
-				y=395
+				y=455
 				width=60
 				height=20
 			}
@@ -2101,7 +2375,7 @@
 		"text update" {
 			object {
 				x=785
-				y=395
+				y=455
 				width=120
 				height=18
 			}
@@ -2119,7 +2393,7 @@
 		text {
 			object {
 				x=495
-				y=420
+				y=480
 				width=220
 				height=20
 			}
@@ -2133,7 +2407,7 @@
 		"text entry" {
 			object {
 				x=720
-				y=420
+				y=480
 				width=60
 				height=20
 			}
@@ -2149,7 +2423,7 @@
 		"text update" {
 			object {
 				x=785
-				y=420
+				y=480
 				width=120
 				height=18
 			}
@@ -2167,7 +2441,53 @@
 		text {
 			object {
 				x=495
-				y=445
+				y=505
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="BinningControl"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=720
+				y=505
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)GC_BinningControl"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=505
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)GC_BinningControl_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=530
 				width=220
 				height=20
 			}
@@ -2181,7 +2501,7 @@
 		"text entry" {
 			object {
 				x=720
-				y=445
+				y=530
 				width=60
 				height=20
 			}
@@ -2197,7 +2517,7 @@
 		"text update" {
 			object {
 				x=785
-				y=445
+				y=530
 				width=120
 				height=18
 			}
@@ -2215,7 +2535,7 @@
 		text {
 			object {
 				x=495
-				y=470
+				y=555
 				width=220
 				height=20
 			}
@@ -2229,7 +2549,7 @@
 		"text entry" {
 			object {
 				x=720
-				y=470
+				y=555
 				width=60
 				height=20
 			}
@@ -2245,7 +2565,7 @@
 		"text update" {
 			object {
 				x=785
-				y=470
+				y=555
 				width=120
 				height=18
 			}
@@ -2263,7 +2583,7 @@
 		text {
 			object {
 				x=495
-				y=495
+				y=580
 				width=220
 				height=20
 			}
@@ -2277,7 +2597,7 @@
 		menu {
 			object {
 				x=720
-				y=495
+				y=580
 				width=120
 				height=20
 			}
@@ -2291,7 +2611,7 @@
 		"text update" {
 			object {
 				x=845
-				y=495
+				y=580
 				width=120
 				height=18
 			}
@@ -2309,7 +2629,7 @@
 		text {
 			object {
 				x=495
-				y=520
+				y=605
 				width=220
 				height=20
 			}
@@ -2323,7 +2643,7 @@
 		menu {
 			object {
 				x=720
-				y=520
+				y=605
 				width=120
 				height=20
 			}
@@ -2337,7 +2657,7 @@
 		"text update" {
 			object {
 				x=845
-				y=520
+				y=605
 				width=120
 				height=18
 			}
@@ -2355,7 +2675,7 @@
 		text {
 			object {
 				x=495
-				y=545
+				y=630
 				width=220
 				height=20
 			}
@@ -2369,7 +2689,7 @@
 		menu {
 			object {
 				x=720
-				y=545
+				y=630
 				width=120
 				height=20
 			}
@@ -2383,7 +2703,7 @@
 		"text update" {
 			object {
 				x=845
-				y=545
+				y=630
 				width=120
 				height=18
 			}
@@ -2401,7 +2721,7 @@
 		text {
 			object {
 				x=495
-				y=570
+				y=655
 				width=220
 				height=20
 			}
@@ -2415,7 +2735,7 @@
 		"text entry" {
 			object {
 				x=720
-				y=570
+				y=655
 				width=60
 				height=20
 			}
@@ -2431,7 +2751,7 @@
 		"text update" {
 			object {
 				x=785
-				y=570
+				y=655
 				width=120
 				height=18
 			}
@@ -2449,7 +2769,7 @@
 		text {
 			object {
 				x=495
-				y=595
+				y=680
 				width=220
 				height=20
 			}
@@ -2463,7 +2783,7 @@
 		"text entry" {
 			object {
 				x=720
-				y=595
+				y=680
 				width=60
 				height=20
 			}
@@ -2479,7 +2799,7 @@
 		"text update" {
 			object {
 				x=785
-				y=595
+				y=680
 				width=120
 				height=18
 			}
@@ -2497,7 +2817,7 @@
 		text {
 			object {
 				x=495
-				y=620
+				y=705
 				width=220
 				height=20
 			}
@@ -2511,7 +2831,7 @@
 		menu {
 			object {
 				x=720
-				y=620
+				y=705
 				width=120
 				height=20
 			}
@@ -2525,7 +2845,7 @@
 		"text update" {
 			object {
 				x=845
-				y=620
+				y=705
 				width=120
 				height=18
 			}
@@ -2543,7 +2863,7 @@
 		text {
 			object {
 				x=495
-				y=645
+				y=730
 				width=220
 				height=20
 			}
@@ -2557,7 +2877,7 @@
 		menu {
 			object {
 				x=720
-				y=645
+				y=730
 				width=120
 				height=20
 			}
@@ -2571,7 +2891,7 @@
 		"text update" {
 			object {
 				x=845
-				y=645
+				y=730
 				width=120
 				height=18
 			}
