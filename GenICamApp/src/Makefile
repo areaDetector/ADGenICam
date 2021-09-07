@@ -10,7 +10,9 @@ INC += ADGenICamAPI.h
 # This flag is what switches to declspec(dllexport) when building the library
 USR_CPPFLAGS += -DBUILDING_ADGenICam_API
 
-LIBRARY_IOC += ADGenICam
+LIBRARY_IOC_WIN32 += ADGenICam
+LIBRARY_IOC_Linux += ADGenICam
+LIBRARY_IOC_Darwin += ADGenICam
 
 LIB_SRCS += GenICamFeature.cpp
 LIB_SRCS += ADGenICam.cpp
