@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Note, this needs a recent version of Python to handle UTF-8 characters in the XML file.
+# On RHEL7 I use "conda activate base" to get a working version.
+
 # Use this line for int64out and int64in records.  Requires EPICS base 3.16.1 or later, or EPICS 7.
 #python scripts/makeDb.py xml/$1.xml --devInt64 GenICamApp/Db/$1.template
 
