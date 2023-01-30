@@ -82,13 +82,13 @@ asynStatus ADGenICam::writeInt32( asynUser *pasynUser, epicsInt32 value)
     asynStatus status = asynSuccess;
     int function = pasynUser->reason;
     static const char *functionName = "writeInt32";
-    bool isAcquiring;
+    int detectorState;
 
     // Set the value in the parameter library.  This may change later but that's OK
     status = setIntegerParam(function, value);
 
     // Get the current acquiring status.
-    status = getIntegerParam(ADAcquire, &isAcquiring);
+    status = getIntegerParam(ADStatus, &detectorState);
 
     if (function < mFirstParam) {
         // If this parameter belongs to a base class call its method
@@ -97,7 +97,7 @@ asynStatus ADGenICam::writeInt32( asynUser *pasynUser, epicsInt32 value)
 
     if (function == ADAcquire) {
         if (value) {
-            if(!isAcquiring) {
+            if(detectorState == ADStatusIdle) {
                 // start acquisition
                 status = startCapture();
             }
