@@ -66,6 +66,9 @@ ADGenICam::ADGenICam(const char *portName, size_t maxMemory, int priority, int s
     setIntegerParam(ADMinY, 0);
     setStringParam(ADStringToServer, "<not used by driver>");
     setStringParam(ADStringFromServer, "<not used by driver>");
+
+    // At initial state, we are not acquiring.
+    isAcquiring = false;
     
     return;
 }
@@ -82,13 +85,14 @@ asynStatus ADGenICam::writeInt32( asynUser *pasynUser, epicsInt32 value)
     asynStatus status = asynSuccess;
     int function = pasynUser->reason;
     static const char *functionName = "writeInt32";
-    int detectorState;
+    // int isAcquiring;
+
+    // Get the current acquiring status.
+    // status = getIntegerParam(ADAcquireBusy, &isAcquiring);
+    // printf("Acquire state: %d\n", isAcquiring);
 
     // Set the value in the parameter library.  This may change later but that's OK
     status = setIntegerParam(function, value);
-
-    // Get the current acquiring status.
-    status = getIntegerParam(ADStatus, &detectorState);
 
     if (function < mFirstParam) {
         // If this parameter belongs to a base class call its method
@@ -97,12 +101,14 @@ asynStatus ADGenICam::writeInt32( asynUser *pasynUser, epicsInt32 value)
 
     if (function == ADAcquire) {
         if (value) {
-            if(detectorState == ADStatusIdle) {
+            if(!isAcquiring) {
                 // start acquisition
                 status = startCapture();
+                isAcquiring = true;
             }
         } else {
             status = stopCapture();
+            isAcquiring = false;
         }
     } 
     else if ((function == ADSizeX)       ||

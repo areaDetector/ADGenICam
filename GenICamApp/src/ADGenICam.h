@@ -71,6 +71,7 @@ private:
     int mFirstParam;
     bool mFirstDrvUserCreateCall;
     bool mWasAcquiring;
+    bool isAcquiring;
 };
 
 #endif
