@@ -81,7 +81,12 @@ asynStatus ADGenICam::writeInt32( asynUser *pasynUser, epicsInt32 value)
 {
     asynStatus status = asynSuccess;
     int function = pasynUser->reason;
+    int acquiring;
     static const char *functionName = "writeInt32";
+
+    //Get current value of acquiring before possibly setting it
+    getIntegerParam(ADAcquire, &acquiring);
+    asynPrint(pasynUserSelf, ASYN_TRACEIO_DRIVER, "%s%s: entry acquiring=%d\n", driverName, functionName, acquiring);
 
     // Set the value in the parameter library.  This may change later but that's OK
     status = setIntegerParam(function, value);
@@ -93,10 +98,16 @@ asynStatus ADGenICam::writeInt32( asynUser *pasynUser, epicsInt32 value)
 
     if (function == ADAcquire) {
         if (value) {
-            // start acquisition
-            status = startCapture();
+            if (!acquiring) {
+                // start acquisition
+                status = startCapture();
+                asynPrint(pasynUserSelf, ASYN_TRACEIO_DRIVER, "%s%s: called startCapture()\n", driverName, functionName);
+            }
         } else {
-            status = stopCapture();
+            if (acquiring) {
+                status = stopCapture();
+                asynPrint(pasynUserSelf, ASYN_TRACEIO_DRIVER, "%s%s: called stopCapture()\n", driverName, functionName);
+            }
         }
     } 
     else if ((function == ADSizeX)       ||
