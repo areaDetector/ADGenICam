@@ -17,5 +17,5 @@ The following drivers currently derive from this base class:
   from AVT/Prosilica on Linux and Windows.  It uses the [Allied Vision's Vimba SDK](https://www.alliedvision.com/en/products/software.html).
 
 Additional information:
-* [Documentation](https://areadetector.github.io/master/ADGenICam/ADGenICam.html)
+* [Documentation](https://areadetector.github.io/areaDetector/ADGenICam/ADGenICam.html)
 * [Release notes](RELEASE.md)
