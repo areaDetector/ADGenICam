@@ -1,0 +1,27 @@
+Index: adgenicam-1.8/configure/RELEASE
+===================================================================
+--- adgenicam-1.8.orig/configure/RELEASE
++++ adgenicam-1.8/configure/RELEASE
+@@ -2,6 +2,9 @@
+ # Run "gnumake clean uninstall install" in the application
+ # top directory each time this file is changed.
+ 
++EPICS_BASE=/usr/lib/epics
++ADCORE=/etc/epics/configure
++
+ -include $(TOP)/../configure/RELEASE_LIBS_INCLUDE
+ -include $(TOP)/RELEASE.local
+ -include $(TOP)/configure/RELEASE.local
+Index: adgenicam-1.8/GenICamApp/src/Makefile
+===================================================================
+--- adgenicam-1.8.orig/GenICamApp/src/Makefile
++++ adgenicam-1.8/GenICamApp/src/Makefile
+@@ -18,7 +18,7 @@ LIB_SRCS += GenICamFeature.cpp
+ LIB_SRCS += ADGenICam.cpp
+ USR_CXXFLAGS_Linux += -std=c++11
+ 
+-include $(ADCORE)/ADApp/commonLibraryMakefile
++include $(ADCORE)/commonLibraryMakefile
+ 
+ #=============================
+ 
