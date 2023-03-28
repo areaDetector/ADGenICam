@@ -1,0 +1,121 @@
+Index: adgenicam-1.8/GenICamApp/Db/ADGenICam.template
+===================================================================
+--- adgenicam-1.8.orig/GenICamApp/Db/ADGenICam.template
++++ adgenicam-1.8/GenICamApp/Db/ADGenICam.template
+@@ -51,54 +51,6 @@ record(bi, "$(P)$(R)FrameRateEnable_RBV"
+    field(ONAM, "Yes")
+ }
+ 
+-# This record is used to ensure there is a record for TriggerSource even if there is no such GenICam feature
+-record(mbbo, "$(P)$(R)TriggerSource")
+-{
+-   field(PINI, "YES")
+-   field(DTYP, "asynInt32")
+-   field(OUT,  "@asyn($(PORT) 0)GC_TRIGGER_SOURCE")
+-   field(ZRST, "N.A.")
+-   field(ZRVL, "0")
+-}
+-
+-record(mbbi, "$(P)$(R)TriggerSource_RBV")
+-{
+-   field(DTYP, "asynInt32")
+-   field(INP,  "@asyn($(PORT) 0)GC_TRIGGER_SOURCE")
+-   field(ZRST, "N.A.")
+-   field(ZRVL, "0")
+-   field(SCAN, "I/O Intr")
+-}
+-
+-# This record is used to ensure there is a record for TriggerOverlap even if there is no such GenICam feature
+-record(mbbo, "$(P)$(R)TriggerOverlap")
+-{
+-   field(PINI, "YES")
+-   field(DTYP, "asynInt32")
+-   field(OUT,  "@asyn($(PORT) 0)GC_TRIGGER_OVERLAP")
+-   field(ZRST, "N.A.")
+-   field(ZRVL, "0")
+-}
+-
+-record(mbbi, "$(P)$(R)TriggerOverlap_RBV")
+-{
+-   field(DTYP, "asynInt32")
+-   field(INP,  "@asyn($(PORT) 0)GC_TRIGGER_OVERLAP")
+-   field(SCAN, "I/O Intr")
+-   field(ZRST, "N.A.")
+-   field(ZRVL, "0")
+-}
+-
+-# This record is used to ensure there is a record for TriggerSoftware even if there is no such GenICam feature
+-record(bo, "$(P)$(R)TriggerSoftware")
+-{
+-   field(PINI, "YES")
+-   field(DTYP, "asynInt32")
+-   field(OUT,  "@asyn($(PORT) 0)GC_TRIGGER_SOFTWARE")
+-   field(ZNAM, "Done")
+-   field(ONAM, "Trigger")
+-}
+-
+ # This record is used to ensure there is a record for ExposureMode even if there is no such GenICam feature
+ record(mbbo, "$(P)$(R)ExposureMode")
+ {
+@@ -116,61 +68,4 @@ record(mbbi, "$(P)$(R)ExposureMode_RBV")
+    field(ZRST, "N.A.")
+    field(ZRVL, "0")
+    field(SCAN, "I/O Intr")
+-}
+-
+-# This record is used to ensure there is a record for ExposureAuto even if there is no such GenICam feature
+-record(mbbo, "$(P)$(R)ExposureAuto")
+-{
+-   field(PINI, "YES")
+-   field(DTYP, "asynInt32")
+-   field(OUT,  "@asyn($(PORT) 0)GC_EXPOSURE_AUTO")
+-   field(ZRST, "N.A.")
+-   field(ZRVL, "0")
+-}
+-
+-record(mbbi, "$(P)$(R)ExposureAuto_RBV")
+-{
+-   field(DTYP, "asynInt32")
+-   field(INP,  "@asyn($(PORT) 0)GC_EXPOSURE_AUTO")
+-   field(SCAN, "I/O Intr")
+-   field(ZRST, "N.A.")
+-   field(ZRVL, "0")
+-}
+-
+-# This record is used to ensure there is a record for GainAuto even if there is no such GenICam feature
+-record(mbbo, "$(P)$(R)GainAuto")
+-{
+-   field(PINI, "YES")
+-   field(DTYP, "asynInt32")
+-   field(OUT,  "@asyn($(PORT) 0)GC_GAIN_AUTO")
+-   field(ZRST, "N.A.")
+-   field(ZRVL, "0")
+-}
+-
+-record(mbbi, "$(P)$(R)GainAuto_RBV")
+-{
+-   field(DTYP, "asynInt32")
+-   field(INP,  "@asyn($(PORT) 0)GC_GAIN_AUTO")
+-   field(SCAN, "I/O Intr")
+-   field(ZRST, "N.A.")
+-   field(ZRVL, "0")
+-}
+-
+-# This record is used to ensure there is a record for PixelFormat even if there is no such GenICam feature
+-record(mbbo, "$(P)$(R)PixelFormat")
+-{
+-   field(PINI, "YES")
+-   field(DTYP, "asynInt32")
+-   field(OUT,  "@asyn($(PORT) 0)GC_PIXEL_FORMAT")
+-   field(ZRST, "N.A.")
+-   field(ZRVL, "0")
+-}
+-
+-record(mbbi, "$(P)$(R)PixelFormat_RBV")
+-{
+-   field(DTYP, "asynInt32")
+-   field(INP,  "@asyn($(PORT) 0)GC_PIXEL_FORMAT")
+-   field(ZRST, "N.A.")
+-   field(ZRVL, "0")
+-   field(SCAN, "I/O Intr")
+ }

@@ -4367,7 +4367,7 @@ Index: adgenicam-1.8/GenICamApp/Db/TIS_dmk_33GX174.template
 +  field(DTYP, "asynInt32")
 +  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_E_AcquisitionMode")
 +  field(ZRST, "Continuous")
-+  field(ZRVL, "0x00000000")
++  field(ZRVL, "0x00000002")
 +  field(SCAN, "I/O Intr")
 +  field(DISA, "0")
 +}
@@ -4375,9 +4375,9 @@ Index: adgenicam-1.8/GenICamApp/Db/TIS_dmk_33GX174.template
 +record(mbbo, "$(P)$(R)AcquisitionMode") {
 +  field(DTYP, "asynInt32")
 +  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_E_AcquisitionMode")
-+  field(DOL,  "0x00000000")
++  field(DOL,  "0x00000002")
 +  field(ZRST, "Continuous")
-+  field(ZRVL, "0x00000000")
++  field(ZRVL, "0x00000002")
 +  field(DISA, "0")
 +}
 +
