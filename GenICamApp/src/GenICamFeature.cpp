@@ -598,7 +598,6 @@ int GenICamFeature::convertEnum(epicsInt32 inputValue, GCConvertDirection_t dire
                     outputValue = mSet->mAcquisitionModeContinuous;
                     break;
             }
-            printf("%d\n", inputValue);
             // Need to store the mode that was set because readback won't work if not all modes are supported
             mImageMode = inputValue;
         }
