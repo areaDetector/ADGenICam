@@ -529,7 +529,7 @@ for name, nodes in structure:
         nx += labelWidth + 5
         if ro:
             text += make_ro()
-        elif node.nodeName in ["Integer", "IntReg", "Float", "Converter", "IntConverter", "IntSwissKnife", "SwissKnife", "StringReg"]:
+        elif node.nodeName in ["Integer", "IntReg", "Float", "Converter", "IntConverter", "IntSwissKnife", "SwissKnife", "StringReg", "String"]:
             text += make_demand()
             nx += textEntryWidth + 5 
             text += make_rbv() 
