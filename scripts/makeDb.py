@@ -157,7 +157,7 @@ print()
 for node in doneNodes:
     nodeName = str(node.getAttribute("Name"))
     ro = is_node_readonly(node)
-    if node.nodeName in ["Integer", "IntConverter", "IntSwissKnife"]:
+    if node.nodeName in ["Integer", "IntReg", "IntConverter", "IntSwissKnife"]:
         print('record(%s, "$(P)$(R)%s_RBV") {' % (GCIntegerInputRecordType, records[nodeName]))
         print('  field(DTYP, "asynInt64")')
         print('  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_I_%s")' % nodeName)
