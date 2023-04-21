@@ -527,9 +527,9 @@ for name, nodes in structure:
             labelHeight = 10
         text += make_label()
         nx += labelWidth + 5
-        if node.nodeName in ["StringReg"] or ro:
+        if ro:
             text += make_ro()
-        elif node.nodeName in ["Integer", "IntReg", "Float", "Converter", "IntConverter", "IntSwissKnife", "SwissKnife"]:  
+        elif node.nodeName in ["Integer", "IntReg", "Float", "Converter", "IntConverter", "IntSwissKnife", "SwissKnife", "StringReg"]:
             text += make_demand()
             nx += textEntryWidth + 5 
             text += make_rbv() 

@@ -219,6 +219,14 @@ for node in doneNodes:
         print('  field(DISA, "0")')
         print('}')
         print()
+        if ro:
+            continue
+        print('record(stringout, "$(P)$(R)%s") {' % records[nodeName])
+        print('  field(DTYP, "asynOctetWrite")')
+        print('  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_S_%s")' % nodeName)
+        print('  field(DISA, "0")')
+        print('}')
+        print()
     elif node.nodeName in ["Command"]:
         print('record(longout, "$(P)$(R)%s") {' % records[nodeName])
         print('  field(DTYP, "asynInt32")')
