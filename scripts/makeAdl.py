@@ -116,6 +116,24 @@ def handle_category(category):
 for category in categories:
     handle_category(category)
 
+def is_node_readonly(node):
+    ro = False
+    referenced_node_name = ''
+    for n in elements(node):
+        if str(n.nodeName) in ["AccessMode", "ImposedAccessMode"]:
+            ro = (getText(n) == "RO")
+            break
+        elif str(n.nodeName) == "pValue":
+            referenced_node_name = getText(n)
+    else:
+        referenced_node = lookup.get(referenced_node_name)
+        if referenced_node:
+            ro = is_node_readonly(referenced_node)
+        # SwissKnife performs a once-way conversion
+        elif node.nodeName in ["SwissKnife", "IntSwissKnife"]:
+            ro = True
+    return ro
+
 def quoteString(string):
     escape_list = ["\\","{","}",'"']
     for e in escape_list:
@@ -475,11 +493,9 @@ for name, nodes in structure:
     for node in nodes:
         nodeName = str(node.getAttribute("Name"))
         recordName = records[nodeName]
-        ro = False
+        ro = is_node_readonly(node)
         desc = ""
         for n in elements(node):
-            if str(n.nodeName) == "AccessMode" and getText(n) == "RO":
-                ro = True
             if str(n.nodeName) in ["ToolTip", "Description"]:
                 desc = getText(n)
         descs = ["%s: "% nodeName, "", "", "", "", ""]
