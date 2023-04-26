@@ -1,0 +1,26 @@
+Index: adgenicam-1.8/GenICamApp/Db/Makefile
+===================================================================
+--- adgenicam-1.8.orig/GenICamApp/Db/Makefile
++++ adgenicam-1.8/GenICamApp/Db/Makefile
+@@ -8,6 +8,7 @@ include $(TOP)/configure/CONFIG
+ #DB_OPT = YES
+ 
+ DB += $(patsubst ../%, %, $(wildcard ../*.template))
++DB += ADGenICam_settings.req
+ 
+ include $(TOP)/configure/RULES
+ #----------------------------------------
+Index: adgenicam-1.8/GenICamApp/Db/ADGenICam_settings.req
+===================================================================
+--- adgenicam-1.8.orig/GenICamApp/Db/ADGenICam_settings.req
++++ adgenicam-1.8/GenICamApp/Db/ADGenICam_settings.req
+@@ -1,8 +1,6 @@
+-file "ADBase_settings.req", P=$(P), R=$(R)
+ $(P)$(R)FrameRateEnable
+-$(P)$(R)TriggerSource
+-$(P)$(R)TriggerOverlap
+ $(P)$(R)ExposureMode
+ $(P)$(R)ExposureAuto
+ $(P)$(R)GainAuto
+ $(P)$(R)PixelFormat
++file "ADBase_settings.req", P=$(P), R=$(R)
