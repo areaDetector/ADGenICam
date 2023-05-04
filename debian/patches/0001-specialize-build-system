@@ -1,21 +1,21 @@
-Index: adgenicam-1.8/configure/RELEASE
+Index: adgenicam/configure/RELEASE
 ===================================================================
---- adgenicam-1.8.orig/configure/RELEASE
-+++ adgenicam-1.8/configure/RELEASE
+--- adgenicam.orig/configure/RELEASE
++++ adgenicam/configure/RELEASE
 @@ -2,6 +2,9 @@
  # Run "gnumake clean uninstall install" in the application
  # top directory each time this file is changed.
  
 +EPICS_BASE=/usr/lib/epics
-+ADCORE=/etc/epics/configure
++ADCORE=/usr/lib/epics
 +
  -include $(TOP)/../configure/RELEASE_LIBS_INCLUDE
  -include $(TOP)/RELEASE.local
  -include $(TOP)/configure/RELEASE.local
-Index: adgenicam-1.8/GenICamApp/src/Makefile
+Index: adgenicam/GenICamApp/src/Makefile
 ===================================================================
---- adgenicam-1.8.orig/GenICamApp/src/Makefile
-+++ adgenicam-1.8/GenICamApp/src/Makefile
+--- adgenicam.orig/GenICamApp/src/Makefile
++++ adgenicam/GenICamApp/src/Makefile
 @@ -18,7 +18,7 @@ LIB_SRCS += GenICamFeature.cpp
  LIB_SRCS += ADGenICam.cpp
  USR_CXXFLAGS_Linux += -std=c++11
@@ -25,3 +25,16 @@ Index: adgenicam-1.8/GenICamApp/src/Makefile
  
  #=============================
  
+Index: adgenicam/configure/CONFIG_SITE
+===================================================================
+--- adgenicam.orig/configure/CONFIG_SITE
++++ adgenicam/configure/CONFIG_SITE
+@@ -19,7 +19,7 @@ CHECK_RELEASE = YES
+ # Set this when you only want to compile this application
+ #   for a subset of the cross-compiled target architectures
+ #   that Base is built for.
+-#CROSS_COMPILER_TARGET_ARCHS = vxWorks-68040
++CROSS_COMPILER_TARGET_ARCHS = linux-x86_64-debug
+ 
+ # To install files into a location other than $(TOP) define
+ #   INSTALL_LOCATION here.
