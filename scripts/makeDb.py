@@ -120,7 +120,25 @@ def handle_category(category):
 
 for category in categories:
     handle_category(category)
-    
+
+def is_node_readonly(node):
+    ro = False
+    referenced_node_name = ''
+    for n in elements(node):
+        if str(n.nodeName) in ["AccessMode", "ImposedAccessMode"]:
+            ro = (getText(n) == "RO")
+            break
+        elif str(n.nodeName) == "pValue":
+            referenced_node_name = getText(n)
+    else:
+        referenced_node = lookup.get(referenced_node_name)
+        if referenced_node:
+            ro = is_node_readonly(referenced_node)
+        # SwissKnife performs a once-way conversion
+        elif node.nodeName in ["SwissKnife", "IntSwissKnife"]:
+            ro = True
+    return ro
+
 # Spit out a database file
 db_file = open(db_filename, "w")
 stdout = sys.stdout
@@ -138,11 +156,8 @@ print()
 # for each node
 for node in doneNodes:
     nodeName = str(node.getAttribute("Name"))
-    ro = False
-    for n in elements(node):
-        if str(n.nodeName) == "AccessMode" and getText(n) == "RO":
-            ro = True
-    if node.nodeName in ["Integer", "IntConverter", "IntSwissKnife"]:
+    ro = is_node_readonly(node)
+    if node.nodeName in ["Integer", "IntReg", "IntConverter", "IntSwissKnife"]:
         print('record(%s, "$(P)$(R)%s_RBV") {' % (GCIntegerInputRecordType, records[nodeName]))
         print('  field(DTYP, "asynInt64")')
         print('  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_I_%s")' % nodeName)
@@ -196,11 +211,19 @@ for node in doneNodes:
         print('  field(DISA, "0")')
         print('}')
         print()
-    elif node.nodeName in ["StringReg"]:
+    elif node.nodeName in ["StringReg", "String"]:
         print('record(stringin, "$(P)$(R)%s_RBV") {' % records[nodeName])
         print('  field(DTYP, "asynOctetRead")')
         print('  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_S_%s")' % nodeName)
         print('  field(SCAN, "I/O Intr")')
+        print('  field(DISA, "0")')
+        print('}')
+        print()
+        if ro:
+            continue
+        print('record(stringout, "$(P)$(R)%s") {' % records[nodeName])
+        print('  field(DTYP, "asynOctetWrite")')
+        print('  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_S_%s")' % nodeName)
         print('  field(DISA, "0")')
         print('}')
         print()
