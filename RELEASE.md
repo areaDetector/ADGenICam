@@ -12,17 +12,19 @@ files respectively, in the configure/ directory of the appropriate release of th
 
 Release Notes
 =============
-R1-9 (April XXX, 2023)
+R1-9 (July 20, 2023)
 ----------------------
 * Added XML, database and OPI files for many new cameras:
-  - AVT Manta GT1290
-  - Basler acA1300-60gm, acA1920-25gm, acA640-90gm
+  - AVT Manta GT1290, Alvium 1800 U-811
+  - Basler acA1300-60gm, acA1920-25gm, acA640-90gm, acA1300-75gm, acA3088-16gm, acA640-300gm
   - FLIR A25, ORX_10G_123S6M, ORX_10G_245S8M, ORX_10G_310S9M, ORX_10G_71S7M, SC6700
   - Point Grey GS3_U3_51S5M, GS3_U3_89S6M_C
 * ADGenICam
   - Fix problem where startCapture() could be called when the camera was already acquiring.
     This caused resource leaks in ADAravis, and perhaps other drivers.
-- Changed documentation link on Github pages.
+* Improved Python scripts to process XML files.  Added support for IntReg and String features.
+  Thanks to Xiaoqiang Wang for this.
+* Changed documentation link on Github pages.
 
 R1-8 (9-June-2021)
 -------------------
