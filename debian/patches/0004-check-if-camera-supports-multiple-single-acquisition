@@ -1,8 +1,8 @@
-Index: adgenicam-1.8/GenICamApp/src/GenICamFeature.cpp
+Index: adgenicam/GenICamApp/src/GenICamFeature.cpp
 ===================================================================
---- adgenicam-1.8.orig/GenICamApp/src/GenICamFeature.cpp
-+++ adgenicam-1.8/GenICamApp/src/GenICamFeature.cpp
-@@ -524,41 +524,81 @@ double GenICamFeature::convertDoubleUnit
+--- adgenicam.orig/GenICamApp/src/GenICamFeature.cpp
++++ adgenicam/GenICamApp/src/GenICamFeature.cpp
+@@ -524,38 +524,77 @@ double GenICamFeature::convertDoubleUnit
  int GenICamFeature::convertEnum(epicsInt32 inputValue, GCConvertDirection_t direction)
  {
      epicsInt32 outputValue = inputValue;
@@ -101,7 +101,3 @@ Index: adgenicam-1.8/GenICamApp/src/GenICamFeature.cpp
                      outputValue = mSet->mAcquisitionModeContinuous;
                      break;
              }
-+            printf("%d\n", inputValue);
-             // Need to store the mode that was set because readback won't work if not all modes are supported
-             mImageMode = inputValue;
-         }
