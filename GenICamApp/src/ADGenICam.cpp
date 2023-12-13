@@ -207,7 +207,7 @@ asynStatus ADGenICam::writeFloat64( asynUser *pasynUser, epicsFloat64 value)
     GenICamFeature *pFeature = mGCFeatureSet.getByIndex(function);
     if (pFeature) {
         if (pFeature->getFeatureType() == GCFeatureTypeInteger) {
-            epicsInt64 i64value = value;
+            epicsInt64 i64value = (epicsInt64)value;
             pFeature->write(&i64value, NULL, true);
         } else {
             pFeature->write(&value, NULL, true);
@@ -446,7 +446,6 @@ asynStatus ADGenICam::addADDriverFeatures()
     } stdParam;
     stdParam params[] = {
         {ADImageMode,         "AcquisitionMode",       GCFeatureTypeEnum},
-        {ADFirmwareVersion,   "DeviceFirmwareVersion", GCFeatureTypeString},
         {ADManufacturer,      "DeviceVendorName",      GCFeatureTypeString},
         {ADModel,             "DeviceModelName",       GCFeatureTypeString},
         {ADMaxSizeX,          "WidthMax",              GCFeatureTypeInteger},
@@ -519,6 +518,11 @@ asynStatus ADGenICam::addADDriverFeatures()
     features = {{"DeviceSerialNumber", GCFeatureTypeString},
                 {"DeviceID",           GCFeatureTypeString}};
     createMultiFeature(ADSerialNumberString, asynParamOctet, ADSerialNumber, features);
+
+    // Make a single parameter that maps to either DeviceFirmwareVersion or DeviceVersion (used by Mikrotron)
+    features = {{"DeviceFirmwareVersion", GCFeatureTypeString},
+                {"DeviceVersion",         GCFeatureTypeString}};
+    createMultiFeature(ADFirmwareVersionString, asynParamOctet, ADFirmwareVersion, features);
 
     // Make a single parameter that maps to either Gain, GainRaw, or GainRawChannelA
     features = {{"Gain",            GCFeatureTypeDouble},
