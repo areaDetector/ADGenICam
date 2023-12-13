@@ -46,7 +46,7 @@ int GenICamFeature::getParam (epicsInt64 & value)
     } else if (mAsynType == asynParamFloat64) {
         epicsFloat64 temp;
         status = mSet->getPortDriver()->getDoubleParam(mAsynIndex, &temp);
-        value = temp;
+        value = (epicsInt64)temp;
     }
     return status;
 }
@@ -59,11 +59,11 @@ int GenICamFeature::getParam (epicsInt32& value)
     } else if (mAsynType == asynParamInt64) {
         epicsInt64 temp;
         status = mSet->getPortDriver()->getInteger64Param(mAsynIndex, &temp);
-        value = temp;
+        value = (epicsInt32)temp;
     } else if (mAsynType == asynParamFloat64) {
         epicsFloat64 temp;
         status = mSet->getPortDriver()->getDoubleParam(mAsynIndex, &temp);
-        value = temp;
+        value = (epicsInt32)temp;
     }
     return status;
 }
@@ -79,7 +79,7 @@ int GenICamFeature::getParam (double & value)
     } else if (mAsynType == asynParamInt64) {
         epicsInt64 temp;
         status = mSet->getPortDriver()->getInteger64Param(mAsynIndex, &temp);
-        value = temp;
+        value = (double)temp;
     } else if (mAsynType == asynParamFloat64) {
         status = mSet->getPortDriver()->getDoubleParam(mAsynIndex, &value);
     }
@@ -537,15 +537,22 @@ int GenICamFeature::convertEnum(epicsInt32 inputValue, GCConvertDirection_t dire
             else if (inputValue == mSet->mAcquisitionModeContinuous) {
                 outputValue = ADImageContinuous;
             }
-            // If MultiFrame is not supported then we can't use readback.
-            // Use the value that was last stored when converting from EPICS
-            if (mSet->mAcquisitionModeMultiFrame == -1) {
-                outputValue = mImageMode;
+            // If any mode is not supported then we can't use readback.
+            // Use the value the current EPICS value
+            if ((mSet->mAcquisitionModeSingleFrame == -1) ||
+                (mSet->mAcquisitionModeMultiFrame == -1)  ||
+                (mSet->mAcquisitionModeContinuous == -1)) {
+                getParam(outputValue);
             }
         } else {
             switch (inputValue) {
                 case ADImageSingle:
-                    outputValue = mSet->mAcquisitionModeSingleFrame;
+                    // Some cameras, e.g. Mikrotron don't support SingleFrame so we convert to Continuous
+                    if (mSet->mAcquisitionModeSingleFrame != -1) {
+                        outputValue = mSet->mAcquisitionModeSingleFrame;
+                    } else {
+                        outputValue = mSet->mAcquisitionModeContinuous;
+                    }
                     break;
                 case ADImageMultiple:
                     // Some cameras, e.g. JAI don't support MultiFrame so we convert to Continuous
@@ -559,8 +566,6 @@ int GenICamFeature::convertEnum(epicsInt32 inputValue, GCConvertDirection_t dire
                     outputValue = mSet->mAcquisitionModeContinuous;
                     break;
             }
-            // Need to store the mode that was set because readback won't work if not all modes are supported
-            mImageMode = inputValue;
         }
     }
     return outputValue;
