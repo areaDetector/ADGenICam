@@ -538,7 +538,7 @@ int GenICamFeature::convertEnum(epicsInt32 inputValue, GCConvertDirection_t dire
                 outputValue = ADImageContinuous;
             }
             // If any mode is not supported then we can't use readback.
-            // Use the value the current EPICS value
+            // Use the current EPICS value
             if ((mSet->mAcquisitionModeSingleFrame == -1) ||
                 (mSet->mAcquisitionModeMultiFrame == -1)  ||
                 (mSet->mAcquisitionModeContinuous == -1)) {
