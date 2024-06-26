@@ -41,6 +41,7 @@ public:
     virtual asynStatus setImageParams();
     virtual asynStatus pauseAcquisition();
     virtual asynStatus resumeAcquisition();
+    virtual void showFeature(std::string const & featureName);
     virtual void decompressMono12p(int numPixels, bool leftShift, epicsUInt8 *input, epicsUInt16 *output);
     virtual void decompressMono12Packed(int numPixels, bool leftShift, epicsUInt8 *input, epicsUInt16 *output);
 
