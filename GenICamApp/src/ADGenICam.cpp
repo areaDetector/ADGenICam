@@ -22,6 +22,7 @@
 #include <cantProceed.h>
 #include <epicsString.h>
 #include <epicsExit.h>
+#include <iocsh.h>
 
 #include "ADDriver.h"
 
@@ -336,12 +337,23 @@ asynStatus ADGenICam::readStatus()
 
 void ADGenICam::report(FILE *fp, int details)
 {
-  
     //static const char *functionName = "report";
 
     if (details > 0) mGCFeatureSet.report(fp, details);
     ADDriver::report(fp, details);
-    return;
+}
+
+void ADGenICam::showFeature(std::string const &featureName)
+{
+    static const char *functionName = "showFeature";
+    GenICamFeature *pFeature = mGCFeatureSet.getByName(featureName);
+    if (!pFeature) {
+        asynPrint(pasynUserSelf, ASYN_TRACE_ERROR,
+                  "%s::%s cannot find feature %s\n", 
+                  driverName, functionName, featureName.c_str());
+        return;
+    }
+    pFeature->report(stdout, 2);
 }
 
 asynStatus ADGenICam::drvUserCreate(asynUser *pasynUser, const char *drvInfo,
@@ -611,4 +623,32 @@ void ADGenICam::decompressMono12Packed(int numPixels, bool leftShift, epicsUInt8
     }
 }
 
+static void genicamShowFeature(const char *portName, const char *featureName)
+{
+    ADGenICam *pDriver = findDerivedAsynPortDriver<ADGenICam>(portName);
+    if (!pDriver) {
+        printf("ADGenICam::showFeature cannot find port %s\n", portName);
+        return;
+    }
+    pDriver->showFeature(featureName);
+}
+
+static const iocshArg arg0 = {"Port name", iocshArgString};
+static const iocshArg arg1 = {"Feature name", iocshArgString};
+static const iocshArg * const args[] = {&arg0, &arg1};
+static const iocshFuncDef showFeature = {"genicamShowFeature", 2, args};
+static void genicamShowFeatureCallFunc(const iocshArgBuf *args)
+{
+    genicamShowFeature(args[0].sval, args[1].sval);
+}
+
+
+static void ADGenICamRegister(void)
+{
+    iocshRegister(&showFeature, genicamShowFeatureCallFunc);
+}
+
+extern "C" {
+epicsExportRegistrar(ADGenICamRegister);
+}
 
