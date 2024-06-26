@@ -14,6 +14,8 @@ LIBRARY_IOC_WIN32 += ADGenICam
 LIBRARY_IOC_Linux += ADGenICam
 LIBRARY_IOC_Darwin += ADGenICam
 
+DBD += ADGenICamSupport.dbd
+
 LIB_SRCS += GenICamFeature.cpp
 LIB_SRCS += ADGenICam.cpp
 USR_CXXFLAGS_Linux += -std=c++11
