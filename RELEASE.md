@@ -12,6 +12,23 @@ files respectively, in the configure/ directory of the appropriate release of th
 
 Release Notes
 =============
+R1-10 (July 26, 2024)
+----------------------
+* Added XML, database and OPI files for many new cameras:
+  - AVT Manta G146B
+  - Adimec Q12A180CXP
+  - Basler-a2A2600-20gm, scA1400-30gm, scA640-70gm
+  - FLIR BFS-PGE-13Y3C, BFS-PGE-13Y3M, BFS-PGE-23S6C, BFS-U3-161S7M, BFS_PGE_19S4M, 
+    BFS_PGE_244S8C, BFS_PGE_88S6M, PGR_BFS_PGE_13S2M, BFS_PGE_16S2C, Flea3_GE_28S4C
+  - Mikrotron CXP_MC206xS11
+  - ViewWorks VNP604
+* ADGenICam
+  - Fix driver for cameras (e.g. Mikrotron) that don't support AcquisitionModeSingleFrame.
+    Use Continuous mode and stop after 1 frame when reading out.
+  - Handle cameras (e.g. Miktrotron) that use DeviceVersion rather than DeviceFirmwareVersion.
+  - Added new iocsh command "genicamShowFeature portName featureName".
+    This prints out the detailed information for a single GenICam feature.
+
 R1-9 (July 20, 2023)
 ----------------------
 * Added XML, database and OPI files for many new cameras:
