@@ -140,7 +140,7 @@ int GenICamFeature::setParam (bool value)
     return (int) mSet->getPortDriver()->setIntegerParam(mAsynIndex, (int) value);
 }
 
-GenICamFeature::GenICamFeature (GenICamFeatureSet *set, 
+GenICamFeature::GenICamFeature (GenICamFeatureSet *set,
         string const & asynName, asynParamType asynType, int asynIndex,
         string const &featureName, GCFeatureType_t featureType)
 : mAsynName(asynName), mAsynType(asynType), mAsynIndex(asynIndex),
@@ -207,7 +207,7 @@ int GenICamFeature::write(void *pValue, void *pReadbackValue, bool bSetParam)
                 epicsInt64 value;
                 if (pValue)
                     value = *(epicsInt64*)pValue;
-                else 
+                else
                     getParam(value);
                 // Check against the min and max
                 epicsInt64 max = readIntegerMax();
@@ -238,7 +238,7 @@ int GenICamFeature::write(void *pValue, void *pReadbackValue, bool bSetParam)
             }
             case GCFeatureTypeBoolean: {
                 epicsInt32 value;
-                if (pValue) 
+                if (pValue)
                     value = *(epicsInt32*)pValue;
                 else
                     getParam(value);
@@ -255,7 +255,7 @@ int GenICamFeature::write(void *pValue, void *pReadbackValue, bool bSetParam)
             }
             case GCFeatureTypeDouble: {
                 epicsFloat64 value;
-                if (pValue) 
+                if (pValue)
                     value = *(epicsFloat64*)pValue;
                 else
                     getParam(value);
@@ -286,7 +286,7 @@ int GenICamFeature::write(void *pValue, void *pReadbackValue, bool bSetParam)
             }
             case GCFeatureTypeEnum: {
                 epicsInt32 value;
-                if (pValue) 
+                if (pValue)
                     value = *(epicsInt32*)pValue;
                 else
                     getParam(value);
@@ -304,7 +304,7 @@ int GenICamFeature::write(void *pValue, void *pReadbackValue, bool bSetParam)
             }
             case GCFeatureTypeString: {
                 const char *value;
-                if (pValue) 
+                if (pValue)
                     value = (const char*)pValue;
                 else {
                     std::string temp;
@@ -357,7 +357,7 @@ int GenICamFeature::read(void *pValue, bool bSetParam)
                 enumStrings[0] = (char *)"N.A.";
                 enumValues[0] = 0;
                 enumSeverities[0] = 0;
-                mSet->getPortDriver()->doCallbacksEnum(enumStrings, enumValues, enumSeverities, 
+                mSet->getPortDriver()->doCallbacksEnum(enumStrings, enumValues, enumSeverities,
                                                        1, mAsynIndex, 0);
             }
             return EXIT_SUCCESS;
@@ -428,7 +428,7 @@ int GenICamFeature::read(void *pValue, bool bSetParam)
                         enumValues[i] = mEnumValues[i];
                         enumSeverities[i] = 0;
                     }
-                    mSet->getPortDriver()->doCallbacksEnum(enumStrings, enumValues, enumSeverities, 
+                    mSet->getPortDriver()->doCallbacksEnum(enumStrings, enumValues, enumSeverities,
                                                            numEnums, mAsynIndex, 0);
                     delete [] enumStrings; delete [] enumValues; delete [] enumSeverities;
                 }
@@ -460,7 +460,7 @@ std::string GenICamFeature::getValueAsString()
 //    static const char *functionName = "GenICamFeature::getValueAsString";
     std::string valueString = "Not available";
     char buff[100];
-    
+
     if (isImplemented() && isReadable()) {
         switch (mFeatureType) {
             case GCFeatureTypeString: {
@@ -471,9 +471,9 @@ std::string GenICamFeature::getValueAsString()
                 epicsInt64 temp = readInteger();
                 sprintf(buff, "%lld", temp);
                 valueString = buff;
-                break; 
+                break;
                 }
-    
+
             case GCFeatureTypeDouble: {
                 double temp = readDouble();
                 sprintf(buff, "%f", temp);
@@ -495,7 +495,7 @@ std::string GenICamFeature::getValueAsString()
                 break;
                }
             default:
-               break; 
+               break;
         }
     }
     return valueString;
@@ -513,7 +513,7 @@ double GenICamFeature::convertDoubleUnits(double inputValue, GCConvertDirection_
             outputValue = inputValue / 1.e6;
         else
             outputValue = inputValue * 1.e6;
-    } 
+    }
     else if (mAsynName == "ACQ_PERIOD") {
         // EPICS uses period in seconds, GenICam uses rate in Hz
         outputValue = 1. / inputValue;
@@ -530,7 +530,7 @@ int GenICamFeature::convertEnum(epicsInt32 inputValue, GCConvertDirection_t dire
         if (direction == GCConvertToEPICS) {
             if (inputValue == mSet->mAcquisitionModeSingleFrame) {
                 outputValue = ADImageSingle;
-            } 
+            }
             else if (inputValue == mSet->mAcquisitionModeMultiFrame) {
                 outputValue = ADImageMultiple;
             }

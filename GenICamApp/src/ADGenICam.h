@@ -32,7 +32,7 @@ public:
     virtual asynStatus writeFloat64( asynUser *pasynUser, epicsFloat64 value);
     //virtual asynStatus writeOctet(asynUser *pasynUser, const char *value,
     //                              size_t nChars, size_t *nActual);
-    virtual asynStatus readEnum(asynUser *pasynUser, char *strings[], int values[], int severities[], 
+    virtual asynStatus readEnum(asynUser *pasynUser, char *strings[], int values[], int severities[],
                                 size_t nElements, size_t *nIn);
     void report(FILE *fp, int details);
     virtual asynStatus drvUserCreate(asynUser *pasynUser, const char *drvInfo,
@@ -46,7 +46,7 @@ public:
     virtual void decompressMono12Packed(int numPixels, bool leftShift, epicsUInt8 *input, epicsUInt16 *output);
 
     // Pure virtual functions that all drivers must implement
-    virtual GenICamFeature *createFeature(GenICamFeatureSet *set, 
+    virtual GenICamFeature *createFeature(GenICamFeatureSet *set,
                                           std::string const & asynName, asynParamType asynType, int asynIndex,
                                           std::string const & featureName, GCFeatureType_t featureType) = 0;
     virtual asynStatus addADDriverFeatures();
@@ -65,7 +65,7 @@ protected:
     int GCPixelFormat;
 
     GenICamFeatureSet mGCFeatureSet;
-    
+
 private:
     asynStatus createMultiFeature(std::string const & asynName, asynParamType asynType, int asynIndex,
                                   std::vector<GCFeatureStruct_t> & features);

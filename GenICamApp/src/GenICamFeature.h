@@ -9,7 +9,7 @@
 
 #include "ADGenICamAPI.h"
 
-typedef enum 
+typedef enum
 {
     GCFeatureTypeInteger,
     GCFeatureTypeBoolean,
@@ -22,7 +22,7 @@ typedef enum
     GCFeatureTypeUnknown
 } GCFeatureType_t;
 
-typedef enum 
+typedef enum
 {
     GCConvertToEPICS,
     GCConvertFromEPICS,
@@ -65,7 +65,7 @@ protected:
     GenICamFeatureSet *mSet;
 
 public:
-    GenICamFeature (GenICamFeatureSet *set, 
+    GenICamFeature (GenICamFeatureSet *set,
                     std::string const & asynName, asynParamType asynType, int asynIndex,
                     std::string const & featureName, GCFeatureType_t featureType);
 
@@ -93,7 +93,7 @@ public:
     virtual std::string readString(void) = 0;
     virtual void writeString(std::string const & value) = 0;
     virtual void writeCommand(void) = 0;
-   
+
     // Put the value both to the detector (if it is connected to a detector
     // parameter) and to the underlying asyn parameter if successful. Update
     // other modified parameters automatically.
@@ -110,7 +110,7 @@ public:
     asynParamType getAsynType(void);
     std::string getFeatureName(void);
     std::string getValueAsString(void);
-    GCFeatureType_t getFeatureType(void); 
+    GCFeatureType_t getFeatureType(void);
 
     virtual epicsInt32 convertEnum(epicsInt32 inputValue, GCConvertDirection_t direction);
     virtual double convertDoubleUnits(double inputValue, GCConvertDirection_t direction);
@@ -140,7 +140,7 @@ public:
     int readAll (void);
     int readFeatures (std::vector<std::string> const & params);
     void report (FILE *fp, int details);
-    
+
     // These are used for mapping between areaDetector ImageMode and GenICam AcquisitionMode
     int mAcquisitionModeSingleFrame;
     int mAcquisitionModeMultiFrame;

@@ -1,7 +1,7 @@
 /*
  * ADGenICam.cpp
  *
- * This is a base class driver for GenICam cameras 
+ * This is a base class driver for GenICam cameras
  *
  * Author: Mark Rivers
  *         University of Chicago
@@ -41,7 +41,7 @@ static const char *driverName = "ADGenICam";
  */
 ADGenICam::ADGenICam(const char *portName, size_t maxMemory, int priority, int stackSize)
     : ADDriver(portName, 1, 0, 0, maxMemory,
-            asynInt64Mask | asynEnumMask, 
+            asynInt64Mask | asynEnumMask,
             asynInt64Mask | asynEnumMask,
             ASYN_CANBLOCK, 1, priority, stackSize),
     mGCFeatureSet(this, pasynUserSelf), mFirstDrvUserCreateCall(true)
@@ -58,7 +58,7 @@ ADGenICam::ADGenICam(const char *portName, size_t maxMemory, int priority, int s
     createParam(GCExposureAutoString,    asynParamInt32,   &GCExposureAuto);
     createParam(GCGainAutoString,        asynParamInt32,   &GCGainAuto);
     createParam(GCPixelFormatString,     asynParamInt32,   &GCPixelFormat);
-    
+
     /* Set initial values of some parameters */
     setIntegerParam(NDDataType, NDUInt8);
     setIntegerParam(NDColorMode, NDColorModeMono);
@@ -67,13 +67,13 @@ ADGenICam::ADGenICam(const char *portName, size_t maxMemory, int priority, int s
     setIntegerParam(ADMinY, 0);
     setStringParam(ADStringToServer, "<not used by driver>");
     setStringParam(ADStringFromServer, "<not used by driver>");
-    
+
     return;
 }
 
 /** Sets an int32 parameter.
-  * \param[in] pasynUser asynUser structure that contains the function code in pasynUser->reason. 
-  * \param[in] value The value for this parameter 
+  * \param[in] pasynUser asynUser structure that contains the function code in pasynUser->reason.
+  * \param[in] value The value for this parameter
   *
   * Takes action if the function code requires it.  ADAcquire, ADSizeX, and many other
   * function codes make calls to the underlying library from this function. */
@@ -95,7 +95,7 @@ asynStatus ADGenICam::writeInt32( asynUser *pasynUser, epicsInt32 value)
     if (function < mFirstParam) {
         // If this parameter belongs to a base class call its method
         status = ADDriver::writeInt32(pasynUser, value);
-    } 
+    }
 
     if (function == ADAcquire) {
         if (value) {
@@ -110,18 +110,18 @@ asynStatus ADGenICam::writeInt32( asynUser *pasynUser, epicsInt32 value)
                 asynPrint(pasynUserSelf, ASYN_TRACEIO_DRIVER, "%s%s: called stopCapture()\n", driverName, functionName);
             }
         }
-    } 
+    }
     else if ((function == ADSizeX)       ||
              (function == ADSizeY)       ||
              (function == ADMinX)        ||
              (function == ADMinY)        ||
              (function == ADBinX)        ||
-             (function == ADBinY)) {    
+             (function == ADBinY)) {
         status = setImageParams();
     }
     else if (function == ADReadStatus) {
         status = readStatus();
-    } 
+    }
    if ((function == GCPixelFormat) ||
        (function == ADNumImages)) {
        pauseAcquisition();
@@ -143,17 +143,17 @@ asynStatus ADGenICam::writeInt32( asynUser *pasynUser, epicsInt32 value)
        resumeAcquisition();
     }
 
-    asynPrint(pasynUserSelf, ASYN_TRACEIO_DRIVER, 
+    asynPrint(pasynUserSelf, ASYN_TRACEIO_DRIVER,
         "%s::%s function=%d, value=%d, status=%d\n",
         driverName, functionName, function, value, status);
-            
+
     callParamCallbacks();
     return status;
 }
 
 /** Sets an int64 parameter.
-  * \param[in] pasynUser asynUser structure that contains the function code in pasynUser->reason. 
-  * \param[in] value The value for this parameter 
+  * \param[in] pasynUser asynUser structure that contains the function code in pasynUser->reason.
+  * \param[in] value The value for this parameter
   */
 
 asynStatus ADGenICam::writeInt64( asynUser *pasynUser, epicsInt64 value)
@@ -168,7 +168,7 @@ asynStatus ADGenICam::writeInt64( asynUser *pasynUser, epicsInt64 value)
     if (function < mFirstParam) {
         // If this parameter belongs to a base class call its method
         status = ADDriver::writeInt64(pasynUser, value);
-    } 
+    }
 
     GenICamFeature *pFeature = mGCFeatureSet.getByIndex(function);
     if (pFeature) {
@@ -176,18 +176,18 @@ asynStatus ADGenICam::writeInt64( asynUser *pasynUser, epicsInt64 value)
         mGCFeatureSet.readAll();
     }
 
-    asynPrint(pasynUserSelf, ASYN_TRACEIO_DRIVER, 
+    asynPrint(pasynUserSelf, ASYN_TRACEIO_DRIVER,
         "%s::%s function=%d, value=%lld, status=%d\n",
         driverName, functionName, function, value, status);
-            
+
     callParamCallbacks();
     return status;
 }
 
 
 /** Sets an float64 parameter.
-  * \param[in] pasynUser asynUser structure that contains the function code in pasynUser->reason. 
-  * \param[in] value The value for this parameter 
+  * \param[in] pasynUser asynUser structure that contains the function code in pasynUser->reason.
+  * \param[in] value The value for this parameter
   *
   * Takes action if the function code requires it. */
 
@@ -196,14 +196,14 @@ asynStatus ADGenICam::writeFloat64( asynUser *pasynUser, epicsFloat64 value)
     asynStatus status = asynSuccess;
     int function = pasynUser->reason;
     static const char *functionName = "writeFloat64";
-    
+
    // Set the value in the parameter library.  This may change later but that's OK
     status = setDoubleParam(function, value);
 
     if (function < mFirstParam) {
         // If this parameter belongs to a base class call its method
         status = ADDriver::writeFloat64(pasynUser, value);
-    } 
+    }
 
     GenICamFeature *pFeature = mGCFeatureSet.getByIndex(function);
     if (pFeature) {
@@ -216,14 +216,14 @@ asynStatus ADGenICam::writeFloat64( asynUser *pasynUser, epicsFloat64 value)
         mGCFeatureSet.readAll();
     }
 
-    asynPrint(pasynUser, ASYN_TRACEIO_DRIVER, 
+    asynPrint(pasynUser, ASYN_TRACEIO_DRIVER,
         "%s::%s function=%d, value=%f, status=%d\n",
         driverName, functionName, function, value, status);
     callParamCallbacks();
     return status;
 }
 
-asynStatus ADGenICam::readEnum(asynUser *pasynUser, char *strings[], int values[], int severities[], 
+asynStatus ADGenICam::readEnum(asynUser *pasynUser, char *strings[], int values[], int severities[],
                                size_t nElements, size_t *nIn)
 {
     int function = pasynUser->reason;
@@ -238,7 +238,7 @@ asynStatus ADGenICam::readEnum(asynUser *pasynUser, char *strings[], int values[
     if (pFeature == 0) {
         return asynError;
     }
-    if ((pFeature->getFeatureType() != GCFeatureTypeEnum) && 
+    if ((pFeature->getFeatureType() != GCFeatureTypeEnum) &&
         (pFeature->getFeatureType() != GCFeatureTypeUnknown)) {
         return asynError;
     }
@@ -267,7 +267,7 @@ asynStatus ADGenICam::readEnum(asynUser *pasynUser, char *strings[], int values[
         severities[*nIn] = 0;
         (*nIn)++;
     }
-    return asynSuccess;   
+    return asynSuccess;
 }
 
 asynStatus ADGenICam::pauseAcquisition()
@@ -297,7 +297,7 @@ asynStatus ADGenICam::setImageParams()
     //bool resumeAcquire;
     unsigned i;
     //if (!pCamera_) return asynError;
-    
+
     pauseAcquisition();
     paramIndices.push_back(ADSizeX);
     paramIndices.push_back(ADSizeY);
@@ -331,7 +331,7 @@ asynStatus ADGenICam::readStatus()
 
 /** Print out a report; calls ADDriver::report to get base class report as well.
   * \param[in] fp File pointer to write output to
-  * \param[in] details Level of detail desired.  If >1 prints information about 
+  * \param[in] details Level of detail desired.  If >1 prints information about
                supported video formats and modes, etc.
  */
 
@@ -349,7 +349,7 @@ void ADGenICam::showFeature(std::string const &featureName)
     GenICamFeature *pFeature = mGCFeatureSet.getByName(featureName);
     if (!pFeature) {
         asynPrint(pasynUserSelf, ASYN_TRACE_ERROR,
-                  "%s::%s cannot find feature %s\n", 
+                  "%s::%s cannot find feature %s\n",
                   driverName, functionName, featureName.c_str());
         return;
     }
@@ -385,7 +385,7 @@ asynStatus ADGenICam::drvUserCreate(asynUser *pasynUser, const char *drvInfo,
 
         asynParamType asynType;
         GCFeatureType_t featureType;
-        
+
         switch(drvInfo[3])
         {
         case 'B':
@@ -413,8 +413,8 @@ asynStatus ADGenICam::drvUserCreate(asynUser *pasynUser, const char *drvInfo,
             asynType = asynParamOctet;
             break;
         default:
-            asynPrint(pasynUserSelf, ASYN_TRACE_ERROR, 
-                "%s::%s [%s] couldn't match %c to an asyn type", 
+            asynPrint(pasynUserSelf, ASYN_TRACE_ERROR,
+                "%s::%s [%s] couldn't match %c to an asyn type",
                 driverName, functionName, drvInfo,  drvInfo[3]);
             return asynError;
         }
@@ -428,7 +428,7 @@ asynStatus ADGenICam::drvUserCreate(asynUser *pasynUser, const char *drvInfo,
         mGCFeatureSet.insert(pFeature, featureName);
         // Do an initial read of the feature so EPICS output records initialize to this value
         pFeature->read(NULL, true);
-        
+
     }
     return ADDriver::drvUserCreate(pasynUser, drvInfo, pptypeName, psize);
 }
@@ -452,7 +452,7 @@ asynStatus ADGenICam::createMultiFeature(std::string const & asynName, asynParam
 asynStatus ADGenICam::addADDriverFeatures()
 {
     typedef struct {
-        int index; 
+        int index;
         std::string featureName;
         GCFeatureType_t featureType;
     } stdParam;
@@ -488,7 +488,7 @@ asynStatus ADGenICam::addADDriverFeatures()
         const char *paramName;
         getParamType(params[i].index, &paramType);
         getParamName(params[i].index, &paramName);
-        pFeature = createFeature(&mGCFeatureSet, paramName, paramType, params[i].index, 
+        pFeature = createFeature(&mGCFeatureSet, paramName, paramType, params[i].index,
                                  params[i].featureName, params[i].featureType);
         if (pFeature->isImplemented()) {
             mGCFeatureSet.insert(pFeature, params[i].featureName);
@@ -508,7 +508,7 @@ asynStatus ADGenICam::addADDriverFeatures()
             pFeature->read(NULL, true);
         }
     }
-    
+
     std::vector<GCFeatureStruct_t> features;
     // Make a single parameter that maps to either AcquisitionFrameRateEnable or AcquisitionFrameRateEnabled
     features = {{"AcquisitionFrameRateEnable",  GCFeatureTypeBoolean},
@@ -548,24 +548,24 @@ asynStatus ADGenICam::addADDriverFeatures()
 /* These functions convert Mono12p and Mono12Packed formats to UInt16.
   The following description of these formats is from this document:
   http://softwareservices.flir.com/BFS-U3-51S5P/latest/Model/public/ImageFormatControl.html
-   
-  12-bit pixel formats have two different packing formats as defined by USB3 Vision and GigE Vision. 
+
+  12-bit pixel formats have two different packing formats as defined by USB3 Vision and GigE Vision.
   Note: the packing format is not related to the interface of the camera. Both may be available on USB3 or GigE devices.
 
-  The USB3 Vision method is designated with a p. 
-  It is a 12-bit format with its bit-stream following the bit packing method illustrated in Figure 3. 
-  The first byte of the packed stream contains the eight least significant bits (lsb) of the first pixel. 
-  The third byte contains the eight most significant bits (msb) of the second pixel. 
-  The four lsb of the second byte contains four msb of the first pixel, 
+  The USB3 Vision method is designated with a p.
+  It is a 12-bit format with its bit-stream following the bit packing method illustrated in Figure 3.
+  The first byte of the packed stream contains the eight least significant bits (lsb) of the first pixel.
+  The third byte contains the eight most significant bits (msb) of the second pixel.
+  The four lsb of the second byte contains four msb of the first pixel,
   and the rest of the second byte is packed with the four lsb of the second pixel.
 
   This packing format is applied to: Mono12p, BayerGR12p, BayerRG12p, BayerGB12p and BayerBG12p.
 
-  The GigE Vision method is designated with Packed. 
-  It is a 12-bit format with its bit-stream following the bit packing method illustrated in Figure 4. 
-  The first byte of the packed stream contains the eight msb of the first pixel. 
-  The third byte contains the eight msb of the second pixel. 
-  The four lsb of the second byte contains four lsb of the first pixel, 
+  The GigE Vision method is designated with Packed.
+  It is a 12-bit format with its bit-stream following the bit packing method illustrated in Figure 4.
+  The first byte of the packed stream contains the eight msb of the first pixel.
+  The third byte contains the eight msb of the second pixel.
+  The four lsb of the second byte contains four lsb of the first pixel,
   and the rest of the second byte is packed with the four lsb of the second pixel.
 
   This packing format is applied to: Mono12Packed, BayerGR12Packed, BayerRG12Packed, BayerGB12Packed and BayerBG12Packed.
