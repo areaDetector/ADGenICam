@@ -46,7 +46,7 @@ int GenICamFeature::getParam (epicsInt64 & value)
     } else if (mAsynType == asynParamFloat64) {
         epicsFloat64 temp;
         status = mSet->getPortDriver()->getDoubleParam(mAsynIndex, &temp);
-        value = temp;
+        value = (epicsInt64)temp;
     }
     return status;
 }
@@ -59,11 +59,11 @@ int GenICamFeature::getParam (epicsInt32& value)
     } else if (mAsynType == asynParamInt64) {
         epicsInt64 temp;
         status = mSet->getPortDriver()->getInteger64Param(mAsynIndex, &temp);
-        value = temp;
+        value = (epicsInt32)temp;
     } else if (mAsynType == asynParamFloat64) {
         epicsFloat64 temp;
         status = mSet->getPortDriver()->getDoubleParam(mAsynIndex, &temp);
-        value = temp;
+        value = (epicsInt32)temp;
     }
     return status;
 }
@@ -79,7 +79,7 @@ int GenICamFeature::getParam (double & value)
     } else if (mAsynType == asynParamInt64) {
         epicsInt64 temp;
         status = mSet->getPortDriver()->getInteger64Param(mAsynIndex, &temp);
-        value = temp;
+        value = (double)temp;
     } else if (mAsynType == asynParamFloat64) {
         status = mSet->getPortDriver()->getDoubleParam(mAsynIndex, &value);
     }
@@ -140,7 +140,7 @@ int GenICamFeature::setParam (bool value)
     return (int) mSet->getPortDriver()->setIntegerParam(mAsynIndex, (int) value);
 }
 
-GenICamFeature::GenICamFeature (GenICamFeatureSet *set, 
+GenICamFeature::GenICamFeature (GenICamFeatureSet *set,
         string const & asynName, asynParamType asynType, int asynIndex,
         string const &featureName, GCFeatureType_t featureType)
 : mAsynName(asynName), mAsynType(asynType), mAsynIndex(asynIndex),
@@ -207,7 +207,7 @@ int GenICamFeature::write(void *pValue, void *pReadbackValue, bool bSetParam)
                 epicsInt64 value;
                 if (pValue)
                     value = *(epicsInt64*)pValue;
-                else 
+                else
                     getParam(value);
                 // Check against the min and max
                 epicsInt64 max = readIntegerMax();
@@ -238,7 +238,7 @@ int GenICamFeature::write(void *pValue, void *pReadbackValue, bool bSetParam)
             }
             case GCFeatureTypeBoolean: {
                 epicsInt32 value;
-                if (pValue) 
+                if (pValue)
                     value = *(epicsInt32*)pValue;
                 else
                     getParam(value);
@@ -255,7 +255,7 @@ int GenICamFeature::write(void *pValue, void *pReadbackValue, bool bSetParam)
             }
             case GCFeatureTypeDouble: {
                 epicsFloat64 value;
-                if (pValue) 
+                if (pValue)
                     value = *(epicsFloat64*)pValue;
                 else
                     getParam(value);
@@ -286,7 +286,7 @@ int GenICamFeature::write(void *pValue, void *pReadbackValue, bool bSetParam)
             }
             case GCFeatureTypeEnum: {
                 epicsInt32 value;
-                if (pValue) 
+                if (pValue)
                     value = *(epicsInt32*)pValue;
                 else
                     getParam(value);
@@ -304,7 +304,7 @@ int GenICamFeature::write(void *pValue, void *pReadbackValue, bool bSetParam)
             }
             case GCFeatureTypeString: {
                 const char *value;
-                if (pValue) 
+                if (pValue)
                     value = (const char*)pValue;
                 else {
                     std::string temp;
@@ -357,7 +357,7 @@ int GenICamFeature::read(void *pValue, bool bSetParam)
                 enumStrings[0] = (char *)"N.A.";
                 enumValues[0] = 0;
                 enumSeverities[0] = 0;
-                mSet->getPortDriver()->doCallbacksEnum(enumStrings, enumValues, enumSeverities, 
+                mSet->getPortDriver()->doCallbacksEnum(enumStrings, enumValues, enumSeverities,
                                                        1, mAsynIndex, 0);
             }
             return EXIT_SUCCESS;
@@ -428,7 +428,7 @@ int GenICamFeature::read(void *pValue, bool bSetParam)
                         enumValues[i] = mEnumValues[i];
                         enumSeverities[i] = 0;
                     }
-                    mSet->getPortDriver()->doCallbacksEnum(enumStrings, enumValues, enumSeverities, 
+                    mSet->getPortDriver()->doCallbacksEnum(enumStrings, enumValues, enumSeverities,
                                                            numEnums, mAsynIndex, 0);
                     delete [] enumStrings; delete [] enumValues; delete [] enumSeverities;
                 }
@@ -460,7 +460,7 @@ std::string GenICamFeature::getValueAsString()
 //    static const char *functionName = "GenICamFeature::getValueAsString";
     std::string valueString = "Not available";
     char buff[100];
-    
+
     if (isImplemented() && isReadable()) {
         switch (mFeatureType) {
             case GCFeatureTypeString: {
@@ -471,9 +471,9 @@ std::string GenICamFeature::getValueAsString()
                 epicsInt64 temp = readInteger();
                 sprintf(buff, "%lld", temp);
                 valueString = buff;
-                break; 
+                break;
                 }
-    
+
             case GCFeatureTypeDouble: {
                 double temp = readDouble();
                 sprintf(buff, "%f", temp);
@@ -495,7 +495,7 @@ std::string GenICamFeature::getValueAsString()
                 break;
                }
             default:
-               break; 
+               break;
         }
     }
     return valueString;
@@ -513,7 +513,7 @@ double GenICamFeature::convertDoubleUnits(double inputValue, GCConvertDirection_
             outputValue = inputValue / 1.e6;
         else
             outputValue = inputValue * 1.e6;
-    } 
+    }
     else if (mAsynName == "ACQ_PERIOD") {
         // EPICS uses period in seconds, GenICam uses rate in Hz
         outputValue = 1. / inputValue;
@@ -530,22 +530,29 @@ int GenICamFeature::convertEnum(epicsInt32 inputValue, GCConvertDirection_t dire
         if (direction == GCConvertToEPICS) {
             if (inputValue == mSet->mAcquisitionModeSingleFrame) {
                 outputValue = ADImageSingle;
-            } 
+            }
             else if (inputValue == mSet->mAcquisitionModeMultiFrame) {
                 outputValue = ADImageMultiple;
             }
             else if (inputValue == mSet->mAcquisitionModeContinuous) {
                 outputValue = ADImageContinuous;
             }
-            // If MultiFrame is not supported then we can't use readback.
-            // Use the value that was last stored when converting from EPICS
-            if (mSet->mAcquisitionModeMultiFrame == -1) {
-                outputValue = mImageMode;
+            // If any mode is not supported then we can't use readback.
+            // Use the current EPICS value
+            if ((mSet->mAcquisitionModeSingleFrame == -1) ||
+                (mSet->mAcquisitionModeMultiFrame == -1)  ||
+                (mSet->mAcquisitionModeContinuous == -1)) {
+                getParam(outputValue);
             }
         } else {
             switch (inputValue) {
                 case ADImageSingle:
-                    outputValue = mSet->mAcquisitionModeSingleFrame;
+                    // Some cameras, e.g. Mikrotron don't support SingleFrame so we convert to Continuous
+                    if (mSet->mAcquisitionModeSingleFrame != -1) {
+                        outputValue = mSet->mAcquisitionModeSingleFrame;
+                    } else {
+                        outputValue = mSet->mAcquisitionModeContinuous;
+                    }
                     break;
                 case ADImageMultiple:
                     // Some cameras, e.g. JAI don't support MultiFrame so we convert to Continuous
@@ -559,8 +566,6 @@ int GenICamFeature::convertEnum(epicsInt32 inputValue, GCConvertDirection_t dire
                     outputValue = mSet->mAcquisitionModeContinuous;
                     break;
             }
-            // Need to store the mode that was set because readback won't work if not all modes are supported
-            mImageMode = inputValue;
         }
     }
     return outputValue;
