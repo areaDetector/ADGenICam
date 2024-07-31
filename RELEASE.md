@@ -12,6 +12,37 @@ files respectively, in the configure/ directory of the appropriate release of th
 
 Release Notes
 =============
+R1-10 (July 26, 2024)
+----------------------
+* Added XML, database and OPI files for many new cameras:
+  - AVT Manta G146B
+  - Adimec Q12A180CXP
+  - Basler-a2A2600-20gm, scA1400-30gm, scA640-70gm
+  - FLIR BFS-PGE-13Y3C, BFS-PGE-13Y3M, BFS-PGE-23S6C, BFS-U3-161S7M, BFS_PGE_19S4M, 
+    BFS_PGE_244S8C, BFS_PGE_88S6M, PGR_BFS_PGE_13S2M, BFS_PGE_16S2C, Flea3_GE_28S4C
+  - Mikrotron CXP_MC206xS11
+  - ViewWorks VNP604
+* ADGenICam
+  - Fix driver for cameras (e.g. Mikrotron) that don't support AcquisitionModeSingleFrame.
+    Use Continuous mode and stop after 1 frame when reading out.
+  - Handle cameras (e.g. Miktrotron) that use DeviceVersion rather than DeviceFirmwareVersion.
+  - Added new iocsh command "genicamShowFeature portName featureName".
+    This prints out the detailed information for a single GenICam feature.
+
+R1-9 (July 20, 2023)
+----------------------
+* Added XML, database and OPI files for many new cameras:
+  - AVT Manta GT1290, Alvium 1800 U-811
+  - Basler acA1300-60gm, acA1920-25gm, acA640-90gm, acA1300-75gm, acA3088-16gm, acA640-300gm
+  - FLIR A25, ORX_10G_123S6M, ORX_10G_245S8M, ORX_10G_310S9M, ORX_10G_71S7M, SC6700
+  - Point Grey GS3_U3_51S5M, GS3_U3_89S6M_C
+* ADGenICam
+  - Fix problem where startCapture() could be called when the camera was already acquiring.
+    This caused resource leaks in ADAravis, and perhaps other drivers.
+* Improved Python scripts to process XML files.  Added support for IntReg and String features.
+  Thanks to Xiaoqiang Wang for this.
+* Changed documentation link on Github pages.
+
 R1-8 (9-June-2021)
 -------------------
 * Improvements to allow the asyn parameter datatype and the GenICam feature datatype to be different. 
