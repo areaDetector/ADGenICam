@@ -1,15 +1,12 @@
 #!/usr/bin/env python3
 
-
-import phoebusgen
-
-
 import os
 import sys
 import re
 from xml.dom.minidom import parseString
 from optparse import OptionParser
 
+import phoebusgen
 import phoebusgen.screen
 import phoebusgen.widget
 
