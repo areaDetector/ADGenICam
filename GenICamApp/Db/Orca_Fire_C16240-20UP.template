@@ -116,12 +116,15 @@ record(longout, "$(P)$(R)GC_AcquisitionStop") {
   field(DISA, "0")
 }
 
+# The Orca camera does not follow the GenICam standard which requires the units of ExposureTime be microseconds.
+# It uses seconds instead.  Do the conversion here using ASLO.
 record(ai, "$(P)$(R)GC_ExposureTime_RBV") {
   field(DTYP, "asynFloat64")
   field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_D_ExposureTime")
   field(PREC, "3")
   field(SCAN, "I/O Intr")
   field(DISA, "0")
+  field(ASLO, "1e6")
 }
 
 record(ao, "$(P)$(R)GC_ExposureTime") {
@@ -129,5 +132,13 @@ record(ao, "$(P)$(R)GC_ExposureTime") {
   field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_D_ExposureTime")
   field(PREC, "3")
   field(DISA, "0")
+  field(ASLO, "1e6")
 }
 
+record(ai, "$(P)$(R)AcquireTime_RBV") {
+  field(ASLO, "1e6")
+}
+
+record(ao, "$(P)$(R)AcquireTime") {
+  field(ASLO, "1e6")
+}
