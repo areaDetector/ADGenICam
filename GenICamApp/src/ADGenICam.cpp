@@ -231,7 +231,7 @@ asynStatus ADGenICam::readEnum(asynUser *pasynUser, char *strings[], int values[
     int i;
     std::vector<std::string> enumStrings;
     std::vector<int> enumValues;
-    //static const char *functionName = "readEnum";
+    static const char *functionName = "readEnum";
 
     GenICamFeature *pFeature = mGCFeatureSet.getByIndex(function);
 
@@ -260,12 +260,19 @@ asynStatus ADGenICam::readEnum(asynUser *pasynUser, char *strings[], int values[
 
     numEnums = (int)enumStrings.size();
 
-    for (i=0; ((i<numEnums) && (i<(int)nElements)); i++) {
-        if (strings[*nIn]) free(strings[*nIn]);
-        strings[*nIn] = epicsStrDup(enumStrings[i].c_str());
-        values[*nIn] = enumValues[i];
-        severities[*nIn] = 0;
-        (*nIn)++;
+    for (i=0; i<numEnums; i++) {
+        if (i<(int)nElements) {
+            if (strings[*nIn]) free(strings[*nIn]);
+            strings[*nIn] = epicsStrDup(enumStrings[i].c_str());
+            values[*nIn] = enumValues[i];
+            severities[*nIn] = 0;
+            (*nIn)++;
+        }
+        else {
+            asynPrint(pasynUserSelf, ASYN_TRACE_ERROR, 
+                "%s::%s too many enum choices, ignoring string:%s value:%d\n",
+                driverName, functionName, enumStrings[i].c_str(), enumValues[i]);
+        }
     }
     return asynSuccess;
 }
