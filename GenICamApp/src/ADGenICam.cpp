@@ -260,6 +260,11 @@ asynStatus ADGenICam::readEnum(asynUser *pasynUser, char *strings[], int values[
 
     numEnums = (int)enumStrings.size();
 
+    if (numEnums > (int)nElements) {
+        asynPrint(pasynUserSelf, ASYN_TRACE_WARNING, 
+            "%s::%s feature:%s too many enums:%d maximum allowed:%d\n",
+            driverName, functionName, (pFeature->getFeatureName()).c_str(), numEnums, (int)nElements);
+    }
     for (i=0; i<numEnums; i++) {
         if (i<(int)nElements) {
             if (strings[*nIn]) free(strings[*nIn]);
@@ -269,9 +274,9 @@ asynStatus ADGenICam::readEnum(asynUser *pasynUser, char *strings[], int values[
             (*nIn)++;
         }
         else {
-            asynPrint(pasynUserSelf, ASYN_TRACE_ERROR, 
-                "%s::%s too many enum choices, ignoring string:%s value:%d\n",
-                driverName, functionName, enumStrings[i].c_str(), enumValues[i]);
+            asynPrint(pasynUserSelf, ASYN_TRACE_WARNING, 
+                "    ignoring string:%s value:%d\n",
+                enumStrings[i].c_str(), enumValues[i]);
         }
     }
     return asynSuccess;
