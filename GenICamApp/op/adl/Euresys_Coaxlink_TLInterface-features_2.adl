@@ -1,0 +1,3415 @@
+
+    file {
+    	name="/home/epics/devel/areaDetector-3-3-1/aravisGigE/aravisGigEApp/op/adl/aravisCamera.adl"
+    	version=030109
+    }
+    display {
+    	object {
+    		x=50
+    		y=50
+    		width=1460
+    		height=840
+    	}
+    	clr=14
+    	bclr=4
+    	cmap=""
+    	gridSpacing=5
+    	gridOn=0
+    	snapToGrid=0
+    }
+    "color map" {
+    	ncolors=65
+    	colors {
+    		ffffff,
+    		ececec,
+    		dadada,
+    		c8c8c8,
+    		bbbbbb,
+    		aeaeae,
+    		9e9e9e,
+    		919191,
+    		858585,
+    		787878,
+    		696969,
+    		5a5a5a,
+    		464646,
+    		2d2d2d,
+    		000000,
+    		00d800,
+    		1ebb00,
+    		339900,
+    		2d7f00,
+    		216c00,
+    		fd0000,
+    		de1309,
+    		be190b,
+    		a01207,
+    		820400,
+    		5893ff,
+    		597ee1,
+    		4b6ec7,
+    		3a5eab,
+    		27548d,
+    		fbf34a,
+    		f9da3c,
+    		eeb62b,
+    		e19015,
+    		cd6100,
+    		ffb0ff,
+    		d67fe2,
+    		ae4ebc,
+    		8b1a96,
+    		610a75,
+    		a4aaff,
+    		8793e2,
+    		6a73c1,
+    		4d52a4,
+    		343386,
+    		c7bb6d,
+    		b79d5c,
+    		a47e3c,
+    		7d5627,
+    		58340f,
+    		99ffff,
+    		73dfff,
+    		4ea5f9,
+    		2a63e4,
+    		0a00b8,
+    		ebf1b5,
+    		d4db9d,
+    		bbc187,
+    		a6a462,
+    		8b8239,
+    		73ff6b,
+    		52da3b,
+    		3cb420,
+    		289315,
+    		1a7309,
+    	}
+    }
+
+    rectangle {
+    	object {
+    		x=0
+    		y=4
+    		width=1460
+    		height=25
+    	}
+    	"basic attribute" {
+    		clr=2
+    	}
+    }
+    
+		text {
+			object {
+				x=0
+				y=5
+				width=1460
+				height=24
+			}
+			"basic attribute" {
+				clr=54
+			}
+			textix="Euresys_Coaxlink_TLInterface Features Screen #2 - $(P)$(R)"
+			align="horiz. centered"
+		}
+    # (Rectangle)
+    rectangle {
+    	object {
+    		x=5
+    		y=40
+    		width=480
+    		height=305
+    	}
+    	"basic attribute" {
+    		clr=14
+    		fill="outline"
+    	}
+    }
+    
+    rectangle {
+    	object {
+    		x=10
+    		y=45
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=2
+    	}
+    }
+    text {
+    	object {
+    		x=10
+    		y=45
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=54
+    	}
+    	textix="  DigitalIOControl"
+    	align="horiz. centered"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=70
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="LineSelector"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=70
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_LineSelector"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=70
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_LineSelector_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=95
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="LineFormat"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=235
+				y=95
+				width=240
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_LineFormat_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=120
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="LineMode"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=120
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_LineMode"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=120
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_LineMode_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=145
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="LineInverter"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=145
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_LineInverter"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=145
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_LineInverter_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=170
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="LineFilterStrength"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=170
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_LinFilterStrength"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=170
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_LinFilterStrength_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=195
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="LineFilterDelay"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=235
+				y=195
+				width=240
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_LineFilterDelay_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=220
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="LineStatus"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=235
+				y=220
+				width=240
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_LineStatus_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=245
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="LineStatusAll"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=235
+				y=245
+				width=240
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_LineStatusAll_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=270
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="LineSource"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=270
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_LineSource"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=270
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_LineSource_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=295
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="LineSourceInitialOffset"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=295
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_LinSouIniOffset"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=295
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_LinSouIniOffset_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=320
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="LineSourceDivisionFactor"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=235
+				y=320
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_LinSouDivFactor"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=300
+				y=320
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_LinSouDivFactor_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    # (Rectangle)
+    rectangle {
+    	object {
+    		x=5
+    		y=350
+    		width=480
+    		height=205
+    	}
+    	"basic attribute" {
+    		clr=14
+    		fill="outline"
+    	}
+    }
+    
+    rectangle {
+    	object {
+    		x=10
+    		y=355
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=2
+    	}
+    }
+    text {
+    	object {
+    		x=10
+    		y=355
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=54
+    	}
+    	textix="  IOExtensionModule"
+    	align="horiz. centered"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=380
+				width=220
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="IOExtensionModuleConfiguration"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=380
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_IOExtModCon"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=380
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_IOExtModCon_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=405
+				width=220
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="IOExtensionModuleLineSelector"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=405
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_IOExtModLinSel"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=405
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_IOExtModLinSel_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=430
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="IOExtensionModuleLineFormat"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=430
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_IOExtModLinFormat"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=430
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_IOExtModLinFormat_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=455
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="IOExtensionModuleLineMode"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=455
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_IOExtModLineMode"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=455
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_IOExtModLineMode_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=480
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="IOExtensionModuleLineStatus"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=235
+				y=480
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_IOExtModLinStatus"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=360
+				y=480
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_IOExtModLinStatus_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=505
+				width=220
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="IOExtensionModuleLineToRepair"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=235
+				y=505
+				width=240
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_IOExtModLinToRep_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=530
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="IOExtensionModuleErrorCount"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=235
+				y=530
+				width=240
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_IOExtModErrCount_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    # (Rectangle)
+    rectangle {
+    	object {
+    		x=5
+    		y=560
+    		width=480
+    		height=155
+    	}
+    	"basic attribute" {
+    		clr=14
+    		fill="outline"
+    	}
+    }
+    
+    rectangle {
+    	object {
+    		x=10
+    		y=565
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=2
+    	}
+    }
+    text {
+    	object {
+    		x=10
+    		y=565
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=54
+    	}
+    	textix="  IOExtensionModuleInformation"
+    	align="horiz. centered"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=590
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="IOExtensionModuleProductCode"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=235
+				y=590
+				width=240
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_IOExtModProCode_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=615
+				width=220
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="IOExtensionModuleSerialNumber"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=235
+				y=615
+				width=240
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_IOExtModSerNumber_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=640
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="IOExtensionModulePartNumber"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=235
+				y=640
+				width=240
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_IOExtModParNumber_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=665
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="IOExtensionModuleRevision"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=235
+				y=665
+				width=240
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_IOExtModRevision_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=10
+				y=690
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="IOExtensionModuleVariant"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=235
+				y=690
+				width=240
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_IOExtModVariant_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    # (Rectangle)
+    rectangle {
+    	object {
+    		x=490
+    		y=40
+    		width=480
+    		height=305
+    	}
+    	"basic attribute" {
+    		clr=14
+    		fill="outline"
+    	}
+    }
+    
+    rectangle {
+    	object {
+    		x=495
+    		y=45
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=2
+    	}
+    }
+    text {
+    	object {
+    		x=495
+    		y=45
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=54
+    	}
+    	textix="  UserOutputRegister"
+    	align="horiz. centered"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=70
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="UserOutputValueAll"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=720
+				y=70
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_UseOutputValueAll"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=785
+				y=70
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_UseOutputValueAll_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=95
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="UserActions"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=720
+				y=95
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_UserActions"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=785
+				y=95
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_UserActions_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=120
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="AddUserAction"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=720
+				y=120
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_AddUserAction"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=120
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_AddUserAction_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=145
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="ClearUserActions"
+			align="horiz. right"
+		}
+    # (Message Button)
+    "message button" {
+    	object {
+    		x=720
+    		y=145
+    		width=200
+    		height=20
+    	}
+    	control {
+    		chan="$(P)$(R)IF_ClearUserActions.PROC"
+    		clr=14
+    		bclr=51
+    	}
+    	label="ClearUserActions"
+    	press_msg="1"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=170
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="ExecuteUserActions"
+			align="horiz. right"
+		}
+    # (Message Button)
+    "message button" {
+    	object {
+    		x=720
+    		y=170
+    		width=200
+    		height=20
+    	}
+    	control {
+    		chan="$(P)$(R)IF_ExeUserActions.PROC"
+    		clr=14
+    		bclr=51
+    	}
+    	label="ExecuteUserActions"
+    	press_msg="1"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=195
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="InternalTime"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=720
+				y=195
+				width=240
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_InternalTime_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=220
+				width=220
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="UserActionsSchedulerToolSelector"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=720
+				y=220
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_UseActSchTooSel"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=220
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_UseActSchTooSel_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=245
+				width=220
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="UserActionsSchedulerReference"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=720
+				y=245
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_UseActSchRef"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=245
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_UseActSchRef_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=270
+				width=220
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="ScheduledUserActionsPoolStatus"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=720
+				y=270
+				width=240
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_SchUseActPooSta_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=295
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="ScheduleUserActions"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=720
+				y=295
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_SchUserActions"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=785
+				y=295
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_SchUserActions_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=320
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DiscardScheduledUserActions"
+			align="horiz. right"
+		}
+    # (Message Button)
+    "message button" {
+    	object {
+    		x=720
+    		y=320
+    		width=200
+    		height=20
+    	}
+    	control {
+    		chan="$(P)$(R)IF_DisSchUserActions.PROC"
+    		clr=14
+    		bclr=51
+    	}
+    	label="DiscardScheduledUserActions"
+    	press_msg="1"
+    }
+    # (Rectangle)
+    rectangle {
+    	object {
+    		x=490
+    		y=350
+    		width=480
+    		height=105
+    	}
+    	"basic attribute" {
+    		clr=14
+    		fill="outline"
+    	}
+    }
+    
+    rectangle {
+    	object {
+    		x=495
+    		y=355
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=2
+    	}
+    }
+    text {
+    	object {
+    		x=495
+    		y=355
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=54
+    	}
+    	textix="  LineInputTool"
+    	align="horiz. centered"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=380
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="LineInputToolSelector"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=720
+				y=380
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_LinInpTooSelector"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=380
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_LinInpTooSelector_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=405
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="LineInputToolSource"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=720
+				y=405
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_LinInpToolSource"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=405
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_LinInpToolSource_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=430
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="LineInputToolActivation"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=720
+				y=430
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_LinInpTooAct"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=430
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_LinInpTooAct_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    # (Rectangle)
+    rectangle {
+    	object {
+    		x=490
+    		y=460
+    		width=480
+    		height=205
+    	}
+    	"basic attribute" {
+    		clr=14
+    		fill="outline"
+    	}
+    }
+    
+    rectangle {
+    	object {
+    		x=495
+    		y=465
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=2
+    	}
+    }
+    text {
+    	object {
+    		x=495
+    		y=465
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=54
+    	}
+    	textix="  MultiplierDividerTool"
+    	align="horiz. centered"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=490
+				width=220
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="MultiplierDividerToolSelector"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=720
+				y=490
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_MulDivTooSelector"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=490
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_MulDivTooSelector_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=515
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="MultiplierDividerToolSource"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=720
+				y=515
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_MulDivToolSource"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=515
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_MulDivToolSource_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=540
+				width=220
+				height=12
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="MultiplierDividerToolOutputControl"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=720
+				y=540
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_MulDivTooOutCon"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=845
+				y=540
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_MulDivTooOutCon_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=565
+				width=220
+				height=10
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="MultiplierDividerToolMultiplicationFactor"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=720
+				y=565
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_MulDivTooMulFac"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=785
+				y=565
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_MulDivTooMulFac_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=590
+				width=220
+				height=12
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="MultiplierDividerToolDivisionFactor"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=720
+				y=590
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_MulDivTooDivFac"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=785
+				y=590
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_MulDivTooDivFac_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=615
+				width=220
+				height=10
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="MultiplierDividerToolEffectiveMultiplicationFactor"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=720
+				y=615
+				width=240
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_MulDivTooEffMulFa_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=495
+				y=640
+				width=220
+				height=10
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="MultiplierDividerToolEffectiveDivisionFactor"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=720
+				y=640
+				width=240
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_MulDivTooEffDivFa_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    # (Rectangle)
+    rectangle {
+    	object {
+    		x=975
+    		y=40
+    		width=480
+    		height=230
+    	}
+    	"basic attribute" {
+    		clr=14
+    		fill="outline"
+    	}
+    }
+    
+    rectangle {
+    	object {
+    		x=980
+    		y=45
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=2
+    	}
+    }
+    text {
+    	object {
+    		x=980
+    		y=45
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=54
+    	}
+    	textix="  QuadratureDecoderTool"
+    	align="horiz. centered"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=70
+				width=220
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="QuadratureDecoderToolSelector"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1205
+				y=70
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_QuaDecTooSelector"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=70
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_QuaDecTooSelector_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=95
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="QuadratureDecoderToolSources"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1205
+				y=95
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_QuaDecToolSources"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=95
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_QuaDecToolSources_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=120
+				width=220
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="QuadratureDecoderToolActivation"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1205
+				y=120
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_QuaDecTooAct"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=120
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_QuaDecTooAct_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=145
+				width=220
+				height=12
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="QuadratureDecoderToolForwardDirection"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1205
+				y=145
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_QuaDecTooForDir"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=145
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_QuaDecTooForDir_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=170
+				width=220
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="QuadratureDecoderToolOutputMode"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1205
+				y=170
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_QuaDecTooOutMode"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=170
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_QuaDecTooOutMode_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=195
+				width=220
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="QuadratureDecoderToolPosition"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1205
+				y=195
+				width=240
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_QuaDecTooPosition_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=220
+				width=220
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="QuadratureDecoderToolDirection"
+			align="horiz. right"
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1205
+				y=220
+				width=240
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_QuaDecTooDir_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=245
+				width=220
+				height=12
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="QuadratureDecoderToolPositionReset"
+			align="horiz. right"
+		}
+    # (Message Button)
+    "message button" {
+    	object {
+    		x=1205
+    		y=245
+    		width=200
+    		height=20
+    	}
+    	control {
+    		chan="$(P)$(R)IF_QuaDecTooPosReset.PROC"
+    		clr=14
+    		bclr=51
+    	}
+    	label="QuadratureDecoderToolPositionReset"
+    	press_msg="1"
+    }
+    # (Rectangle)
+    rectangle {
+    	object {
+    		x=975
+    		y=275
+    		width=480
+    		height=155
+    	}
+    	"basic attribute" {
+    		clr=14
+    		fill="outline"
+    	}
+    }
+    
+    rectangle {
+    	object {
+    		x=980
+    		y=280
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=2
+    	}
+    }
+    text {
+    	object {
+    		x=980
+    		y=280
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=54
+    	}
+    	textix="  DividerTool"
+    	align="horiz. centered"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=305
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DividerToolSelector"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1205
+				y=305
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_DivToolSelector"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=305
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_DivToolSelector_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=330
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DividerToolSource"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1205
+				y=330
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_DividerToolSource"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=330
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_DividerToolSource_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=355
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DividerToolEnableControl"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1205
+				y=355
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_DivTooEnaControl"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=355
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_DivTooEnaControl_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=380
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DividerToolDivisionFactor"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=1205
+				y=380
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_DivTooDivFactor"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1270
+				y=380
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_DivTooDivFactor_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=405
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DividerToolInitialOffset"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=1205
+				y=405
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_DivTooIniOffset"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1270
+				y=405
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_DivTooIniOffset_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    # (Rectangle)
+    rectangle {
+    	object {
+    		x=975
+    		y=435
+    		width=480
+    		height=155
+    	}
+    	"basic attribute" {
+    		clr=14
+    		fill="outline"
+    	}
+    }
+    
+    rectangle {
+    	object {
+    		x=980
+    		y=440
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=2
+    	}
+    }
+    text {
+    	object {
+    		x=980
+    		y=440
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=54
+    	}
+    	textix="  DelayTool"
+    	align="horiz. centered"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=465
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DelayToolSelector"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1205
+				y=465
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_DelayToolSelector"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=465
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_DelayToolSelector_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=490
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DelayToolSource1"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1205
+				y=490
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_DelayToolSource1"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=490
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_DelayToolSource1_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=515
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DelayToolSource2"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1205
+				y=515
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_DelayToolSource2"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=515
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_DelayToolSource2_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=540
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DelayToolClockSource"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1205
+				y=540
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_DelTooClockSource"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=540
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_DelTooClockSource_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=565
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="DelayToolDelayValue"
+			align="horiz. right"
+		}
+    # (Textentry)
+		"text entry" {
+			object {
+				x=1205
+				y=565
+				width=60
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_DelToolDelayValue"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1270
+				y=565
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_DelToolDelayValue_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    # (Rectangle)
+    rectangle {
+    	object {
+    		x=975
+    		y=595
+    		width=480
+    		height=105
+    	}
+    	"basic attribute" {
+    		clr=14
+    		fill="outline"
+    	}
+    }
+    
+    rectangle {
+    	object {
+    		x=980
+    		y=600
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=2
+    	}
+    }
+    text {
+    	object {
+    		x=980
+    		y=600
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=54
+    	}
+    	textix="  EventInputTool"
+    	align="horiz. centered"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=625
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="EventInputToolSelector"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1205
+				y=625
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_EveInpTooSelector"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=625
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_EveInpTooSelector_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=650
+				width=220
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="EventInputToolSource"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1205
+				y=650
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_EveInpToolSource"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=650
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_EveInpToolSource_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=675
+				width=220
+				height=16
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="EventInputToolActivation"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1205
+				y=675
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_EveInpTooAct"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=675
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_EveInpTooAct_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    # (Rectangle)
+    rectangle {
+    	object {
+    		x=975
+    		y=705
+    		width=480
+    		height=130
+    	}
+    	"basic attribute" {
+    		clr=14
+    		fill="outline"
+    	}
+    }
+    
+    rectangle {
+    	object {
+    		x=980
+    		y=710
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=2
+    	}
+    }
+    text {
+    	object {
+    		x=980
+    		y=710
+    		width=470
+    		height=20
+    	}
+    	"basic attribute" {
+    		clr=54
+    	}
+    	textix="  C2CLinkSynchronizationTool"
+    	align="horiz. centered"
+    }
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=735
+				width=220
+				height=12
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="C2CLinkSynchronizationToolSelector"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1205
+				y=735
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_C2CLinSynTooSel"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=735
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_C2CLinSynTooSel_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=760
+				width=220
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="C2CLinkSynchronizationToolSource"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1205
+				y=760
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_C2CLinSynTooSou"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=760
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_C2CLinSynTooSou_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=785
+				width=220
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="C2CLinkSynchronizationToolClock"
+			align="horiz. right"
+		}
+    # (Menu Button)
+		menu {
+			object {
+				x=1205
+				y=785
+				width=120
+				height=20
+			}
+			control {
+				chan="$(P)$(R)IF_C2CLinSynTooClock"
+				clr=14
+				bclr=51
+			}
+		}
+    # (Textupdate)
+		"text update" {
+			object {
+				x=1330
+				y=785
+				width=120
+				height=18
+			}
+			monitor {
+				chan="$(P)$(R)IF_C2CLinSynTooClock_RBV"
+				clr=54
+				bclr=4
+			}
+			align="horiz. left"
+			limits {
+			}
+		}
+    
+# (Static Text)
+		text {
+			object {
+				x=980
+				y=810
+				width=220
+				height=10
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="C2CLinkSynchronizationToolDiscardPendingEvent"
+			align="horiz. right"
+		}
+    # (Message Button)
+    "message button" {
+    	object {
+    		x=1205
+    		y=810
+    		width=200
+    		height=20
+    	}
+    	control {
+    		chan="$(P)$(R)IF_C2CLinSynTooDisPe.PROC"
+    		clr=14
+    		bclr=51
+    	}
+    	label="C2CLinkSynchronizationToolDiscardPendingEvent"
+    	press_msg="1"
+    }
+    
