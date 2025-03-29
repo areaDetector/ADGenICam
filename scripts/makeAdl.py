@@ -9,9 +9,15 @@ parser = OptionParser("""%prog <xmlFile> <adlFileBase>
 This script parses a GenICam xml file and creates medm screens to go with it. 
 The medm files will be called:
     <adlFile>-features_[1-N].adl""")
+parser.add_option("", "-p", "--prefix", dest="prefix",
+                  help="change record and drvInfo prefix from GC to another 2-character string.")
 options, args = parser.parse_args()
 if len(args) != 2:
     parser.error("Incorrect number of arguments")
+if (options.prefix):
+  prefix = options.prefix
+else:
+  prefix = "GC"
 
 # Check the first two lines of the feature xml file to see if arv-tool left
 # the camera id there, thus creating an unparsable file
@@ -52,8 +58,8 @@ def handle_node(node):
     elif node.hasAttribute("Name"):
         name = str(node.getAttribute("Name"))
         lookup[name] = node
-        # Add a leading GC_ to the name to prevent identical record names to those in ADBase.template
-        recordName = "GC_" + name
+        # Add a leading prefix to the name to prevent identical record names to those in ADBase.template
+        recordName = prefix + "_" + name
         if len(recordName) > 20:
             words=re.findall('[a-zA-Z][^A-Z]*', recordName)
             for i in range(len(words)):

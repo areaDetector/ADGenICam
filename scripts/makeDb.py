@@ -9,6 +9,8 @@ This script parses a GenICam xml file and creates an EPICS database template""")
 parser.add_option("", "--devInt64",
                   action="store_true", dest="devInt64", default=False,
                   help="use int64in and int64out records. Requires at least EPICS base 3.16.1 or EPICS 7.")
+parser.add_option("", "-p", "--prefix", dest="prefix",
+                  help="change record and drvInfo prefix from GC to another 2-character string.")
 options, args = parser.parse_args()
 if len(args) != 2:
     parser.error("Incorrect number of arguments")
@@ -18,6 +20,10 @@ if (options.devInt64):
 else:
   GCIntegerInputRecordType = "ai"
   GCIntegerOutputRecordType = "ao"
+if (options.prefix):
+  prefix = options.prefix
+else:
+  prefix = "GC"
 
 # Check the first two lines of the feature xml file to see if arv-tool left
 # the camera id there, thus creating an unparsable file
@@ -57,8 +63,8 @@ def handle_node(node):
     elif node.hasAttribute("Name"):
         name = str(node.getAttribute("Name"))
         lookup[name] = node
-        # Add a leading GC_ to the name to prevent identical record names to those in ADBase.template
-        recordName = "GC_" + name
+        # Add a leading prefix to the name to prevent identical record names to those in ADBase.template
+        recordName = prefix + "_" + name
         if len(recordName) > 20:
             words=re.findall('[a-zA-Z][^A-Z]*', recordName)
             for i in range(len(words)):
@@ -160,7 +166,7 @@ for node in doneNodes:
     if node.nodeName in ["Integer", "IntReg", "IntConverter", "IntSwissKnife"]:
         print('record(%s, "$(P)$(R)%s_RBV") {' % (GCIntegerInputRecordType, records[nodeName]))
         print('  field(DTYP, "asynInt64")')
-        print('  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_I_%s")' % nodeName)
+        print('  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))%s_I_%s")' % (prefix, nodeName))
         print('  field(SCAN, "I/O Intr")')
         print('  field(DISA, "0")')
         print('}')
@@ -169,14 +175,14 @@ for node in doneNodes:
             continue        
         print('record(%s, "$(P)$(R)%s") {' % (GCIntegerOutputRecordType, records[nodeName]))
         print('  field(DTYP, "asynInt64")')
-        print('  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_I_%s")' % nodeName)
+        print('  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))%s_I_%s")' % (prefix, nodeName))
         print('  field(DISA, "0")')
         print('}')
         print()
     elif node.nodeName in ["Boolean"]:
         print('record(bi, "$(P)$(R)%s_RBV") {' % records[nodeName])
         print('  field(DTYP, "asynInt32")')
-        print('  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_B_%s")' % nodeName)
+        print('  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))%s_B_%s")' % (prefix, nodeName))
         print('  field(SCAN, "I/O Intr")')
         print('  field(ZNAM, "No")')
         print('  field(ONAM, "Yes")'                        )
@@ -187,7 +193,7 @@ for node in doneNodes:
             continue        
         print('record(bo, "$(P)$(R)%s") {' % records[nodeName])
         print('  field(DTYP, "asynInt32")')
-        print('  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_B_%s")' % nodeName)
+        print('  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))%s_B_%s")' % (prefix, nodeName))
         print('  field(ZNAM, "No")')
         print('  field(ONAM, "Yes")'                                )
         print('  field(DISA, "0")')
@@ -196,7 +202,7 @@ for node in doneNodes:
     elif node.nodeName in ["Float", "Converter", "SwissKnife"]:
         print('record(ai, "$(P)$(R)%s_RBV") {' % records[nodeName])
         print('  field(DTYP, "asynFloat64")')
-        print('  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_D_%s")' % nodeName)
+        print('  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))%s_D_%s")' % (prefix, nodeName))
         print('  field(PREC, "3")'        )
         print('  field(SCAN, "I/O Intr")')
         print('  field(DISA, "0")')
@@ -206,7 +212,7 @@ for node in doneNodes:
             continue    
         print('record(ao, "$(P)$(R)%s") {' % records[nodeName])
         print('  field(DTYP, "asynFloat64")')
-        print('  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_D_%s")' % nodeName)
+        print('  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))%s_D_%s")' % (prefix, nodeName))
         print('  field(PREC, "3")')
         print('  field(DISA, "0")')
         print('}')
@@ -214,7 +220,7 @@ for node in doneNodes:
     elif node.nodeName in ["StringReg", "String"]:
         print('record(stringin, "$(P)$(R)%s_RBV") {' % records[nodeName])
         print('  field(DTYP, "asynOctetRead")')
-        print('  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_S_%s")' % nodeName)
+        print('  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))%s_S_%s")' % (prefix, nodeName))
         print('  field(SCAN, "I/O Intr")')
         print('  field(DISA, "0")')
         print('}')
@@ -223,14 +229,14 @@ for node in doneNodes:
             continue
         print('record(stringout, "$(P)$(R)%s") {' % records[nodeName])
         print('  field(DTYP, "asynOctetWrite")')
-        print('  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_S_%s")' % nodeName)
+        print('  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))%s_S_%s")' % (prefix, nodeName))
         print('  field(DISA, "0")')
         print('}')
         print()
     elif node.nodeName in ["Command"]:
         print('record(longout, "$(P)$(R)%s") {' % records[nodeName])
         print('  field(DTYP, "asynInt32")')
-        print('  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_C_%s")' % nodeName)
+        print('  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))%s_C_%s")' % (prefix, nodeName))
         print('  field(DISA, "0")')
         print('}')
         print()
@@ -255,7 +261,7 @@ for node in doneNodes:
                 i += 1                
         print('record(mbbi, "$(P)$(R)%s_RBV") {' % records[nodeName])
         print('  field(DTYP, "asynInt32")')
-        print('  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_E_%s")' % nodeName)
+        print('  field(INP,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))%s_E_%s")' % (prefix, nodeName))
         print(enumerations, end="")
         print('  field(SCAN, "I/O Intr")')
         print('  field(DISA, "0")')
@@ -265,7 +271,7 @@ for node in doneNodes:
             continue        
         print('record(mbbo, "$(P)$(R)%s") {' % records[nodeName])
         print('  field(DTYP, "asynInt32")')
-        print('  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))GC_E_%s")' % nodeName)
+        print('  field(OUT,  "@asyn($(PORT),$(ADDR=0),$(TIMEOUT=1))%s_E_%s")' % (prefix, nodeName))
         print('  field(DOL,  "%s")' % defaultVal)
         print(enumerations, end="")
         print('  field(DISA, "0")')
