@@ -382,18 +382,30 @@ asynStatus ADGenICam::drvUserCreate(asynUser *pasynUser, const char *drvInfo,
         addADDriverFeatures();
     }
 
-    if (findParam(drvInfo, &index) && strlen(drvInfo) > 3 && !strncmp(drvInfo, "GC_", 3))
+    /* GenICam feature parameters are of the format
+     *  YY_X_name
+     *
+     * Where:
+     *   YY is GC for camera features and may be something else for TL or other features
+     *   X is one of 'B': GCFeatureTypeBoolean, asynInt32
+     *               'C': GCFeatureTypeCmd,     asynInt32
+     *               'D': GCfeatureTypeDouble,  asynFloat64
+     *               'E': GCfeatureTypeEnum,    asynInt32
+     *               'I': GCFeatureTypeInt,     asynInt32
+     *               'S': GCFeatureTypeString,  asynOctet
+     *   name is the GenICam feature name
+     */
+
+    std::string info = drvInfo;
+    if ((findParam(drvInfo, &index) != 0) && // Not an existing parameter
+        (info.size() > 5) &&                 // More than 5 characters
+        ((info.find("_B_", 2) == 2) ||     // Contains one of these stings starting at index 2
+         (info.find("_C_", 2) == 2) ||
+         (info.find("_D_", 2) == 2) ||
+         (info.find("_E_", 2) == 2) ||
+         (info.find("_I_", 2) == 2) ||
+         (info.find("_S_", 2) == 2)))
     {
-        /* Parameters are of the format
-         *  GC_X_name
-         *
-         * Where:
-         *   X is one of 'B': GCFeatureTypeBoolean, asynInt32
-         *               'D': GCfeatureTypeDouble,  asynFloat64
-         *               'E': GCfeatureTypeEnum,    asynInt32
-         *               'I': GCFeatureTypeInt,     asynInt32
-         *               'S': GCFeatureTypeString,  asynOctet
-         */
 
         asynParamType asynType;
         GCFeatureType_t featureType;
