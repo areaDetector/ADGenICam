@@ -12,6 +12,25 @@ files respectively, in the configure/ directory of the appropriate release of th
 
 Release Notes
 =============
+R1-11 (April XXX, 2025)
+----------------------
+* ADGenICam
+  - Changed parser in drvUserCreate so it accepts any 2 character prefix, not just GC.
+    This allows drivers to use the prefix to access GenICam features in modules
+    other than the one for the remote camera.  For example, it is now used to
+    access features in various Transport Layer (TL) modules in the ADEuresys.
+* Python scripts
+  - The scripts that parse XML files to create database and OPI files now accept
+    an optional -p or --prefix argument.  The argument must be a 2 character string.
+    The default is GC, which was previously hardcoded.
+* addCamera script.
+  - Now passes the optional prefix options to the Python scripts.
+* Added XML, database and OPI files for the Transport Layer module for Euresys Coaxlink cards.
+  - Euresys_Coaxlink_TLDataStream
+  - Euresys_Coaxlink_TLDevice 
+  - Euresys_Coaxlink_TLInterface
+  - Euresys_Coaxlink_TLSystem
+
 R1-10 (July 26, 2024)
 ----------------------
 * Added XML, database and OPI files for many new cameras:
