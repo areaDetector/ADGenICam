@@ -1,0 +1,2563 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RegisterDescription 
+    ModelName="Dhyana_6060"
+    VendorName="Tucsen"
+    ToolTip="Tucsen CXP vision camera"
+	StandardNameSpace="GEV"
+	SchemaMajorVersion="1"
+	SchemaMinorVersion="1"
+	SchemaSubMinorVersion="0"
+	MajorVersion="1"
+	MinorVersion="1"
+	SubMinorVersion="0"
+	ProductGuid="AAAAAAAA-BBBB-CCCC-DDDD-EEEEEEEEEEEE"
+	VersionGuid="11111111-2222-3333-4444-555555555555"
+	xmlns="http://www.genicam.org/GenApi/Version_1_1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.genicam.org/GenApi/Version_1_1
+	http://www.genicam.org/GenApi/GenApiSchema_Version_1_1.xsd">	
+<!-- ***************************************** -->
+<!-- RootCategory -->
+<!-- ***************************************** -->
+	<Group Comment="RootCategory">
+		<Category Name="Root" NameSpace="Standard">
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RO</ImposedAccessMode>
+			<pFeature>DeviceControl</pFeature>
+			<pFeature>ImageFormatControl</pFeature>
+			<pFeature>AcquisitionControl</pFeature>
+            <pFeature>GPSControl</pFeature>
+            <pFeature>UserControl</pFeature>
+			<pFeature>Support</pFeature>
+			<pFeature>CoaXPress</pFeature>
+            <pFeature>Updata</pFeature>
+		</Category>
+	</Group>
+<!-- ***************************************** -->
+<!-- SubCategories -->
+<!-- ***************************************** -->
+	<Group Comment="SubCategories">
+		<Category Name="DeviceControl" NameSpace="Standard">
+			<ToolTip>Category for Device information and control.</ToolTip>
+            <Description>Category for Device information and control.</Description>
+            <DisplayName>DeviceControl</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+			<pFeature>DeviceVendorName</pFeature>
+			<pFeature>DeviceModelName</pFeature>
+			<pFeature>DeviceManufacturerInfo</pFeature>
+			<pFeature>DeviceVersion</pFeature>
+			<pFeature>DeviceID</pFeature>
+            <pFeature>DeviceUserID</pFeature>
+            <pFeature>DeviceScanType</pFeature>
+            <pFeature>DeviceInitStatus</pFeature>
+            <pFeature>DeviceWorkingTime</pFeature>
+            <pFeature>DeviceReset</pFeature>
+            <pFeature>DeviceLED</pFeature>
+            <pFeature>DeviceTemperatureControl</pFeature>
+		</Category>
+        <Category Name="DeviceTemperatureControl" NameSpace="Standard">
+            <ToolTip>Category for Device Temperature control.</ToolTip>
+            <Description>Category for Device Temperature control.</Description>
+            <DisplayName>DeviceTemperatureControl</DisplayName>
+            <pFeature>DeviceTemperature</pFeature>
+            <pFeature>DeviceWarningTemperature</pFeature>
+            <pFeature>SensorTemperature</pFeature>
+            <pFeature>SetSensorTemperature</pFeature>
+            <pFeature>SensorCoolType</pFeature>
+            <pFeature>SensorCooling</pFeature>
+            <!-- <pFeature>SensorCoolPower</pFeature> -->
+            <pFeature>FanAuto</pFeature>
+            <pFeature>FanSpeed</pFeature>
+            <pFeature>AntiDew</pFeature>
+            <pFeature>AmbientTemperature</pFeature>
+            <pFeature>Humidity</pFeature>
+        </Category> 
+		<Category Name="ImageFormatControl" NameSpace="Standard">
+			<ToolTip>Category for Image Format Control features.</ToolTip>
+			<Description>Category for Image Format Control features.</Description>
+			<DisplayName>ImageFormatControl</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RO</ImposedAccessMode>
+			<pFeature>SensorWidth</pFeature>
+			<pFeature>SensorHeight</pFeature>
+            <pFeature>SensorPixelSize</pFeature>
+            <pFeature>SensorShutterType</pFeature>
+            <pFeature>GainMode</pFeature>
+            <pFeature>TestPattern</pFeature>
+            <pFeature>SensorADWidth</pFeature>
+            <pFeature>SensorPGAHighGain</pFeature>
+            <pFeature>SensorPGALowGain</pFeature>
+            <pFeature>PixelFormat</pFeature>
+			<pFeature>Width</pFeature>
+			<pFeature>Height</pFeature>
+			<pFeature>OffsetX</pFeature>
+			<pFeature>OffsetY</pFeature>
+            <pFeature>Binning</pFeature>
+            <pFeature>BlackLevel</pFeature>	
+            <pFeature>DSNU</pFeature>
+            <pFeature>PRNU</pFeature>
+            <pFeature>DefectPixelCorrection</pFeature>
+            <pFeature>HorizontalFlip</pFeature>
+            <pFeature>TimeStamp</pFeature>
+		</Category>
+		<Category Name="AcquisitionControl" NameSpace="Standard">
+			<ToolTip>Category for the acquisition and trigger control features.</ToolTip>
+            <Description>Category for the acquisition and trigger control features.</Description>
+            <DisplayName>AcquisitionControl</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+			<pFeature>AcquisitionMode</pFeature>
+			<pFeature>AcquisitionStart</pFeature>
+			<pFeature>AcquisitionStop</pFeature>
+			<pFeature>AcquisitionFrameRate</pFeature>
+			<pFeature>AcquisitionExpTime</pFeature>
+            <pFeature>AcquisitionFrameSplit</pFeature>
+            <pFeature>AcquisitionFrameSplitNum</pFeature>
+            <pFeature>AcquisitionTrigMode</pFeature>
+            <pFeature>AcquisitionTriggerIn</pFeature>
+            <pFeature>AcquisitionTriggerOut</pFeature> 
+		</Category>	
+        <Category Name="AcquisitionTriggerIn" NameSpace="Standard">
+            <ToolTip>Category for Device TriggerIn control.</ToolTip>
+            <Description>Category for Device TriggerIn control.</Description>
+            <DisplayName>AcquisitionTriggerIn</DisplayName>
+            <pFeature>TrigEdge</pFeature>
+            <pFeature>TrigExpType</pFeature>
+            <pFeature>TrigDelay</pFeature>
+            <pFeature>TrigSoftwareSignal</pFeature>
+        </Category> 
+        <Category Name="AcquisitionTriggerOut" NameSpace="Standard">
+            <ToolTip>Category for Device TriggerOut control.</ToolTip>
+            <Description>Category for Device TriggerOut control.</Description>
+            <DisplayName>AcquisitionTriggerOut</DisplayName>
+            <pFeature>TrigOutputPort</pFeature>
+            <pFeature>TrigOutputKind</pFeature>
+            <pFeature>TrigOutputEdge</pFeature>
+            <pFeature>TrigOutputDelay</pFeature>
+            <pFeature>TrigOutputWidth</pFeature>
+        </Category>
+		<Category Name="GPSControl" NameSpace="Standard">
+            <ToolTip>Category that includes the GPS features.</ToolTip>
+            <Description>Category that includes the GPS features.</Description>
+            <DisplayName>GPSControl</DisplayName>
+            <Visibility>Expert</Visibility>
+            <pFeature>GpsStatus</pFeature>
+            <pFeature>GpsLatitudeRef</pFeature>
+            <pFeature>GpsLatitude</pFeature>
+            <pFeature>GpsLongitudeRef</pFeature>
+            <pFeature>GpsLongitude</pFeature>
+            <pFeature>GpsDate</pFeature>
+			<pFeature>GpsTime</pFeature>
+			<pFeature>GpsTrigStartTime</pFeature>
+			<pFeature>GpsTrigFrameNumber</pFeature>
+			<pFeature>GpsTrigIntervalTime</pFeature>
+        </Category>        
+        <Category Name="UserControl" NameSpace="Standard">
+            <ToolTip>Category for user control.</ToolTip>
+            <Description>Category for user control.</Description>
+            <DisplayName>UserControl</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <pFeature>UserParameterControl</pFeature>
+            <pFeature>GenerateMapControl</pFeature>
+        </Category>
+        <Category Name="UserParameterControl" NameSpace="Standard">
+            <ToolTip>Category for user parameter control.</ToolTip>
+            <Description>Category for user parameter control.</Description>
+            <DisplayName>UserParameterControl</DisplayName>
+		    <pFeature>UserSelect</pFeature>
+		    <pFeature>ParameterSave</pFeature>
+		    <pFeature>FactoryDefault</pFeature>
+        </Category>        
+        <Category Name="GenerateMapControl" NameSpace="Standard">
+            <ToolTip>Category for Device Generate Map control.</ToolTip>
+            <Description>Category for Device Generate Map control.</Description>
+            <DisplayName>GenerateMapControl</DisplayName>
+		    <pFeature>GenerateDSNUMap</pFeature>
+		    <pFeature>GeneratePRNUMap</pFeature>
+		    <pFeature>GenerateDPCMap</pFeature>
+            <pFeature>GenerateStop</pFeature>
+            <pFeature>GenerateStatus</pFeature>
+            <pFeature>GenerateGrayValue</pFeature>
+        </Category>
+		<!-- Support -->
+		<Category Name="Support" NameSpace="Standard">
+			<ToolTip>Category that contains the support features.</ToolTip>
+			<Description>Category that contains the support features.</Description>
+			<DisplayName>Support</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RO</ImposedAccessMode>
+			<pFeature>Standard</pFeature>
+			<pFeature>Revision</pFeature>
+			<pFeature>XmlManifestSize</pFeature>
+			<pFeature>XmlManifestSelector</pFeature>
+			<pFeature>XmlVersion</pFeature>
+			<pFeature>XmlSchemaVersion</pFeature>
+			<pFeature>XmlUrlAddress</pFeature>
+		</Category>		
+		<!-- CoaXPress -->
+		<Category Name="CoaXPress" NameSpace="Standard">
+			<ToolTip>Category that contains the CoaXPress features.</ToolTip>
+			<Description>Category that contains the CoaXPress features.</Description>
+			<DisplayName>CoaXPress</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RO</ImposedAccessMode>
+			<pFeature>DeviceLinkID</pFeature>
+			<pFeature>MasterHostLinkID</pFeature>
+			<pFeature>ControlPacketDataSize</pFeature>
+			<pFeature>StreamPacketDataSize</pFeature>
+			<pFeature>ConnectionConfig</pFeature>
+			<pFeature>ConnectionConfigDefault</pFeature>
+            <pFeature>ConnectionReset</pFeature>
+			<pFeature>TestMode</pFeature>
+			<pFeature>TestErrorCountSelector</pFeature>
+			<pFeature>TestErrorCount</pFeature>
+			<pFeature>TestTXCount</pFeature>
+			<pFeature>TestRXCount</pFeature>
+			<pFeature>VersionsSupported</pFeature>
+			<pFeature>VersionUsed</pFeature>
+			<pFeature>TapGeometry</pFeature>
+			<pFeature>Image1StreamID</pFeature>
+		</Category>
+	</Group>
+<!-- ***************************************** -->
+<!-- DeviceControl -->
+<!-- ***************************************** -->	
+	<Group Comment="DeviceControl">
+		<StringReg Name="DeviceVendorName" NameSpace="Standard">
+			<ToolTip>Name of the manufacturer of the device.</ToolTip>
+            <Description>Name of the manufacturer of the device.</Description>
+            <DisplayName>DeviceVendorName</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <Address>0x2000</Address>
+            <Length>32</Length>
+            <AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+		</StringReg>
+		<StringReg Name="DeviceModelName" NameSpace="Standard">
+			<ToolTip>Model of the device.</ToolTip>
+            <Description>Model of the device.</Description>
+            <DisplayName>DeviceModelName</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <Address>0x2020</Address>
+            <Length>32</Length>
+            <AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+		</StringReg>
+		<StringReg Name="DeviceManufacturerInfo" NameSpace="Standard">
+			<ToolTip>Manufacturer information about the device.</ToolTip>
+            <Description>Manufacturer information about the device.</Description>
+            <DisplayName>DeviceManufacturerInfo</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <Address>0x2040</Address>
+            <Length>48</Length>
+            <AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+		</StringReg>
+		<StringReg Name="DeviceVersion" NameSpace="Standard">
+			<ToolTip>Version of the device.</ToolTip>
+            <Description>Version of the device.</Description>
+            <DisplayName>DeviceVersion</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <Address>0x2070</Address>
+            <Length>32</Length>
+            <AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+		</StringReg>
+		<StringReg Name="DeviceID" NameSpace="Standard">
+            <ToolTip>Device identifier (serial number).</ToolTip>
+            <Description>Device identifier (serial number).</Description>
+            <DisplayName>DeviceID</DisplayName>
+            <Visibility>Expert</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <Address>0x20B0</Address>
+            <Length>16</Length>
+            <AccessMode>RO</AccessMode>
+            <pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+        </StringReg>
+		<StringReg Name="DeviceUserID" NameSpace="Standard">
+            <ToolTip>User-programmable device identifier.</ToolTip>
+            <Description>User-programmable device identifier.</Description>
+            <DisplayName>DeviceUserID</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <Address>0x20C0</Address>
+            <Length>16</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </StringReg>
+        
+        <Enumeration Name="DeviceScanType" NameSpace="Standard">
+            <ToolTip>Scan type of the sensor.</ToolTip>
+            <Description>Scan type of the sensor.</Description>
+            <DisplayName>DeviceScanType</DisplayName>
+            <Visibility>Expert</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <EnumEntry Name="Areascan" NameSpace="Standard">
+            <DisplayName>Areascan</DisplayName>
+            <Value>0</Value>
+            </EnumEntry>
+            <EnumEntry Name="Linescan" NameSpace="Standard">
+            <DisplayName>Linescan</DisplayName>
+            <Value>1</Value>
+            </EnumEntry>
+            <Value>0</Value>
+        </Enumeration>
+        <Integer Name="DeviceInitStatus" NameSpace="Standard">
+            <ToolTip>Device Init Status.</ToolTip>
+            <Description>Device Init Status.</Description>
+            <DisplayName>DeviceInitStatus</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <pValue>InitStatusReg</pValue>
+        </Integer>
+        <Integer Name="DeviceWorkingTime" NameSpace="Standard">
+            <ToolTip>Device Working Time of hours.</ToolTip>
+            <Description>Device Working Time of hours.</Description>
+            <DisplayName>DeviceWorkingTime(h)</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <pValue>WorkingTimeReg</pValue>
+        </Integer>
+        <Command Name="DeviceReset" NameSpace="Standard">
+            <ToolTip>Reset the device.</ToolTip>
+            <Description>Reset the device.</Description>
+			<DisplayName>DeviceReset</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RW</ImposedAccessMode>
+			<pValue>DeviceResetReg</pValue>
+			<CommandValue>1</CommandValue>
+		</Command>
+	    <Enumeration Name="DeviceLED">
+            <ToolTip>Control the camera led.</ToolTip>
+            <Description>Control the camera led.</Description>
+            <DisplayName>DeviceLED</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <EnumEntry Name="OFF"><DisplayName>OFF</DisplayName><Value>0</Value></EnumEntry>
+            <EnumEntry Name="ON"><DisplayName>ON</DisplayName><Value>1</Value></EnumEntry>
+            <pValue>DeviceLedReg</pValue>
+	    </Enumeration>           
+ 	    <Float Name="DeviceTemperature" NameSpace="Standard">
+            <ToolTip>Device temperature in degrees Celsius (C).</ToolTip>
+            <Description>Device temperature in degrees Celsius (C).</Description>
+            <DisplayName>DeviceTemperature</DisplayName>
+            <Visibility>Expert</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <pValue>DeviceTemperatureReg</pValue>
+            <Min>-100</Min>
+            <Max>150</Max>
+            <Inc>0.1</Inc>
+            <DisplayPrecision>1</DisplayPrecision>
+	    </Float>     
+ 	    <Float Name="DeviceWarningTemperature" NameSpace="Standard">
+            <ToolTip>Device Warning temperature in degrees Celsius (C).</ToolTip>
+            <Description>Device Warning temperature in degrees Celsius (C).</Description>
+            <DisplayName>DeviceWarningTemperature</DisplayName>
+            <Visibility>Expert</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <pValue>DeviceWarningTemperatureReg</pValue>
+            <Min>-100</Min>
+            <Max>150</Max>
+            <Inc>0.1</Inc>
+            <DisplayPrecision>1</DisplayPrecision>
+	    </Float>
+ 	    <Float Name="SensorTemperature" NameSpace="Standard">
+            <ToolTip>Sensor temperature in degrees Celsius (C).</ToolTip>
+            <Description>Sensor temperature in degrees Celsius (C).</Description>
+            <DisplayName>SensorTemperature</DisplayName>
+            <Visibility>Expert</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <pValue>SensorTemperatureReg</pValue>
+            <Min>-100</Min>
+            <Max>150</Max>
+            <Inc>0.1</Inc>
+            <DisplayPrecision>1</DisplayPrecision>
+	    </Float> 
+ 	    <Float Name="SetSensorTemperature" NameSpace="Standard">
+            <ToolTip>Set Sensor target  temperature in degrees Celsius (C).</ToolTip>
+            <Description>Set Sensor target temperature in degrees Celsius (C).</Description>
+            <DisplayName>SetSensorTemperature</DisplayName>
+            <Visibility>Expert</Visibility>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <pValue>SetSensorTemperatureReg</pValue>
+            <Min>-50</Min>
+            <Max>50</Max>
+            <Inc>0.1</Inc>
+            <DisplayPrecision>1</DisplayPrecision>
+	    </Float> 
+	    <Enumeration Name="SensorCoolType">
+            <ToolTip>Cooling type of Sensor.</ToolTip>
+            <Description>Cooling type of Sensor.</Description>
+            <DisplayName>SensorCoolType</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <EnumEntry Name="FanCool"><DisplayName>FanCool</DisplayName><Value>0</Value></EnumEntry>
+            <EnumEntry Name="WaterCool"><DisplayName>WaterCool</DisplayName><Value>1</Value></EnumEntry>
+            <pValue>SensorCoolTypeReg</pValue>
+	    </Enumeration>        
+	    <Enumeration Name="SensorCooling">
+            <ToolTip>Cooling of Sensor.</ToolTip>
+            <Description>Cooling of Sensor.</Description>
+            <DisplayName>SensorCooling</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <EnumEntry Name="OFF"><DisplayName>OFF</DisplayName><Value>0</Value></EnumEntry>
+            <EnumEntry Name="ON"><DisplayName>ON</DisplayName><Value>1</Value></EnumEntry>
+            <pValue>SensorCoolingReg</pValue>
+	    </Enumeration>
+        <Integer Name="SensorCoolPower" NameSpace="Standard">
+            <ToolTip>Sensor Cool Power Contral.</ToolTip>
+            <Description>Sensor Cool Power Contral.</Description>
+            <DisplayName>SensorCoolPower</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <pValue>SensorCoolPowerReg</pValue>
+            <Min>0</Min>
+            <Max>255</Max>
+        </Integer>
+        <IntSwissKnife Name="FanAutoLock">
+            <pVariable Name="Varfan">SensorCoolTypeReg</pVariable>
+            <Formula>(Varfan = 1)</Formula>
+        </IntSwissKnife>
+	    <Enumeration Name="FanAuto">
+            <ToolTip>Fan speed auto contral by camera.</ToolTip>
+            <Description>Fan speed auto contral by camera.</Description>
+            <DisplayName>FanAuto</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <pIsLocked>FanAutoLock</pIsLocked>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <EnumEntry Name="OFF"><DisplayName>OFF</DisplayName><Value>0</Value></EnumEntry>
+            <EnumEntry Name="ON"><DisplayName>ON</DisplayName><Value>1</Value></EnumEntry>
+            <pValue>FanAutoReg</pValue>
+	    </Enumeration>
+        <IntSwissKnife Name="FanLock">
+            <pVariable Name="Varfan">SensorCoolTypeReg</pVariable>
+            <pVariable Name="VarAutofan">FanAutoReg</pVariable>
+            <Formula>(Varfan = 1) || (VarAutofan = 1)</Formula>
+        </IntSwissKnife>
+        <Integer Name="FanSpeed" NameSpace="Standard">
+            <ToolTip>Fan control of the camera rejection of heat.</ToolTip>
+            <Description>Fan control of the camera rejection of heat.</Description>
+            <DisplayName>FanSpeed</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <pIsLocked>FanLock</pIsLocked>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <pValue>FanSpeedReg</pValue>
+        </Integer>
+	    <Enumeration Name="AntiDew">
+            <ToolTip>Heat windown avoid dew.</ToolTip>
+            <Description>Heat windown avoid dew.</Description>
+            <DisplayName>AntiDew</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <EnumEntry Name="OFF"><DisplayName>OFF</DisplayName><Value>0</Value></EnumEntry>
+            <EnumEntry Name="ON"><DisplayName>ON</DisplayName><Value>1</Value></EnumEntry>
+            <pValue>AntiDewReg</pValue>
+	    </Enumeration>
+        <Float Name="AmbientTemperature" NameSpace="Standard">
+            <ToolTip>Ambient Temperature in degrees Celsius (C).</ToolTip>
+            <Description>Ambient Temperature in degrees Celsius (C).</Description>
+            <DisplayName>AmbientTemperature</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <pValue>AmbientTemReg</pValue>
+            <Min>-100</Min>
+            <Max>150</Max>
+            <Inc>0.1</Inc>
+            <DisplayPrecision>1</DisplayPrecision>
+        </Float>
+        <Float Name="Humidity" NameSpace="Standard">
+            <ToolTip>Relative Humidity.</ToolTip>
+            <Description>Relative Humidity.</Description>
+            <DisplayName>Humidity(%)</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <pValue>HumidityReg</pValue>
+            <Min>0</Min>
+            <Max>100</Max>
+            <Inc>0.1</Inc>
+            <DisplayPrecision>1</DisplayPrecision>
+        </Float>
+	</Group>
+<!-- ***************************************** -->
+<!-- ImageFormatControl -->
+<!-- ***************************************** -->
+	<Group Comment="ImageFormatControl">
+		<Integer Name="SensorWidth" NameSpace="Standard">
+			<ToolTip>Effective width of the sensor in pixels.</ToolTip>
+			<Description>Effective width of the sensor in pixels. </Description>
+			<DisplayName>SensorWidth</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RO</ImposedAccessMode>
+			<pValue>SensorWidthReg</pValue>
+		</Integer>
+		<Integer Name="SensorHeight" NameSpace="Standard">
+            <ToolTip>Effective height of the sensor in pixels.</ToolTip>
+            <Description>Effective height of the sensor in pixels.</Description>
+			<DisplayName>SensorHeight</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RO</ImposedAccessMode>
+			<pValue>SensorHeightReg</pValue>
+		</Integer>
+        <Enumeration Name="SensorPixelSize">
+            <ToolTip>Sensor Pixel Size</ToolTip>
+            <Description>Sensor Pixel Size</Description>
+            <DisplayName>SensorPixelSize</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <EnumEntry Name="10umx10um"><DisplayName>10umx10um</DisplayName><Value>0</Value></EnumEntry>
+            <pValue>SensorPixelSizeReg</pValue>
+        </Enumeration>
+        <Enumeration Name="SensorShutterType">
+            <ToolTip>Sensor Shutter Type</ToolTip>
+            <Description>Sensor Shutter Type</Description>
+            <DisplayName>SensorShutterType</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <EnumEntry Name="Rolling"><DisplayName>Rolling</DisplayName><Value>0</Value></EnumEntry>
+            <pValue>SensorShutterTypeReg</pValue>
+        </Enumeration>
+        <Enumeration Name="GainMode">
+            <ToolTip>Image gain mode select</ToolTip>
+            <Description>Image gain mode select</Description>
+            <DisplayName>GainMode</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <!-- <pIsLocked>TLParamsLocked</pIsLocked> -->
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <EnumEntry Name="HDR_16bit"><DisplayName>HDR_16bit</DisplayName><Value>0</Value></EnumEntry>
+            <EnumEntry Name="HG_12bit"><DisplayName>HG_12bit</DisplayName><Value>1</Value></EnumEntry>
+            <EnumEntry Name="LG_12bit"><DisplayName>LG_12bit</DisplayName><Value>2</Value></EnumEntry>
+            <EnumEntry Name="HG_14bit"><DisplayName>HG_14bit</DisplayName><Value>3</Value></EnumEntry>
+            <EnumEntry Name="HG_HS_12bit"><DisplayName>HG_HS_12bit</DisplayName><Value>4</Value></EnumEntry>
+            <EnumEntry Name="LG_HS_12bit"><DisplayName>LG_HS_12bit</DisplayName><Value>5</Value></EnumEntry>
+            <pValue>GainModeReg</pValue>
+            <pSelected>SensorADWidth</pSelected>
+            <pSelected>SensorPGAHighGain</pSelected>
+            <pSelected>SensorPGALowGain</pSelected>
+            <pSelected>PixelFormat</pSelected>
+        </Enumeration>     
+        <Enumeration Name="TestPattern" NameSpace="Standard">
+            <ToolTip>Selects the type of test pattern that is sent by the device.</ToolTip>
+            <Description>Selects the type of test pattern that is sent by the device.</Description>
+            <DisplayName>TestPattern</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RW</ImposedAccessMode>            
+            <EnumEntry Name="Normal"><DisplayName>Normal</DisplayName><Value>0</Value></EnumEntry>
+            <EnumEntry Name="GreyHorizontalRamp"><DisplayName>GreyHorizontalRamp</DisplayName><Value>1</Value></EnumEntry>
+            <EnumEntry Name="GreyVerticalRamp"><DisplayName>GreyVerticalRamp</DisplayName><Value>2</Value></EnumEntry>
+            <EnumEntry Name="GreyDiogonalRamp"><DisplayName>GreyDiogonalRamp</DisplayName><Value>3</Value></EnumEntry>
+            <EnumEntry Name="GreyDiogonalRampMoving"><DisplayName>GreyDiogonalRampMoving</DisplayName><Value>4</Value></EnumEntry>
+            <pValue>TestPatternReg</pValue>
+        </Enumeration>
+		<Enumeration Name="SensorADWidth" NameSpace="Standard">
+            <ToolTip>Sensor AD Width.</ToolTip>
+            <Description>Sensor AD Width.</Description>
+            <DisplayName>SensorADWidth</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RO</ImposedAccessMode>
+            <EnumEntry Name="12bit" NameSpace="Standard"><DisplayName>12bit</DisplayName><Value>12</Value></EnumEntry>
+            <EnumEntry Name="14bit" NameSpace="Standard"><DisplayName>14bit</DisplayName><Value>14</Value></EnumEntry>
+			<pValue>SensorADWidthReg</pValue>
+		</Enumeration>
+		<Enumeration Name="SensorPGAHighGain" NameSpace="Standard">
+            <ToolTip>Sensor PGA High Gain.</ToolTip>
+            <Description>Sensor PGA High Gain.</Description>
+            <DisplayName>SensorPGAHighGain</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RO</ImposedAccessMode>
+            <EnumEntry Name="G0p8x" NameSpace="Standard"><DisplayName>0.8x</DisplayName><Value>0</Value></EnumEntry>
+            <EnumEntry Name="G2p0x" NameSpace="Standard"><DisplayName>2.0x</DisplayName><Value>1</Value></EnumEntry>
+            <EnumEntry Name="G6p0x" NameSpace="Standard"><DisplayName>6.0x</DisplayName><Value>2</Value></EnumEntry>
+            <EnumEntry Name="G6p6x" NameSpace="Standard"><DisplayName>6.6x</DisplayName><Value>3</Value></EnumEntry>
+			<pValue>SensorPGAHGReg</pValue>
+		</Enumeration>
+		<Enumeration Name="SensorPGALowGain" NameSpace="Standard">
+            <ToolTip>Sensor PGA Low Gain.</ToolTip>
+            <Description>Sensor PGA Low Gain.</Description>
+            <DisplayName>SensorPGALowGain</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RO</ImposedAccessMode>
+            <EnumEntry Name="G0p8x" NameSpace="Standard"><DisplayName>0.8x</DisplayName><Value>0</Value></EnumEntry>
+            <EnumEntry Name="G2p0x" NameSpace="Standard"><DisplayName>2.0x</DisplayName><Value>1</Value></EnumEntry>
+            <EnumEntry Name="G6p0x" NameSpace="Standard"><DisplayName>6.0x</DisplayName><Value>2</Value></EnumEntry>
+            <EnumEntry Name="G6p6x" NameSpace="Standard"><DisplayName>6.6x</DisplayName><Value>3</Value></EnumEntry>
+			<pValue>SensorPGALGReg</pValue>
+		</Enumeration>         
+		<Enumeration Name="PixelFormat" NameSpace="Standard">
+            <ToolTip>Format of the pixel to use for acquisition.</ToolTip>
+            <Description>Format of the pixel to use for acquisition. It represents all the informations provided by PixelCoding, PixelSize, PixelColorFilter but combined in one single value.</Description>
+            <DisplayName>PixelFormat</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RO</ImposedAccessMode>
+            <EnumEntry Name="Mono12" NameSpace="Standard"><DisplayName>Mono12</DisplayName><Value>0x00000103</Value></EnumEntry>
+            <EnumEntry Name="Mono14" NameSpace="Standard"><DisplayName>Mono14</DisplayName><Value>0x00000104</Value></EnumEntry>
+            <EnumEntry Name="Mono16" NameSpace="Standard"><DisplayName>Mono16</DisplayName><Value>0x00000105</Value></EnumEntry>
+			<pValue>PixelFormatReg</pValue>
+		</Enumeration>
+        <IntSwissKnife Name="ROILock">
+            <pVariable Name="VARSplit">FrameSplitEnReg</pVariable>
+            <pVariable Name="TL_LOCK">TLParamsLocked</pVariable>
+            <Formula>(VARSplit = 1) || TL_LOCK</Formula>
+        </IntSwissKnife>         
+		<Integer Name="Width" NameSpace="Standard">
+            <ToolTip>Width of the Image provided by the device (in pixels).</ToolTip>
+            <Description>Width of the Image provided by the device (in pixels).</Description>
+			<DisplayName>ROIWidth</DisplayName>
+			<Visibility>Beginner</Visibility>
+            <pIsLocked>ROILock</pIsLocked>
+			<ImposedAccessMode>RW</ImposedAccessMode>
+			<pValue>WidthReg</pValue>
+			<Min>64</Min>
+			<pMax>WidthMaxReg</pMax>
+		</Integer>
+		<Integer Name="Height" NameSpace="Standard">
+            <ToolTip>Height of the image provided by the device (in pixels).</ToolTip>
+            <Description>Height of the image provided by the device (in pixels).</Description>
+			<DisplayName>ROIHeight</DisplayName>
+			<Visibility>Beginner</Visibility>
+            <pIsLocked>ROILock</pIsLocked>
+			<ImposedAccessMode>RW</ImposedAccessMode>
+			<pValue>HeightReg</pValue>
+			<pMin>HeightMinReg</pMin>
+			<pMax>HeightMaxReg</pMax>
+		</Integer>
+		<Integer Name="OffsetX" NameSpace="Standard">
+            <ToolTip>Horizontal offset from the origin to the AOI (in pixels).</ToolTip>
+            <Description>Horizontal offset from the origin to the AOI (in pixels).</Description>
+            <DisplayName>ROIOffsetX</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <pIsLocked>ROILock</pIsLocked>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <pValue>OffsetXReg</pValue>
+            <pMax>WidthMaxReg</pMax>
+        </Integer>
+		<Integer Name="OffsetY" NameSpace="Standard">
+            <ToolTip>Vertical offset from the origin to the AOI (in pixels).</ToolTip>
+            <Description>Vertical offset from the origin to the AOI (in pixels).</Description>
+            <DisplayName>ROIOffsetY</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <pIsLocked>ROILock</pIsLocked>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <pValue>OffsetYReg</pValue>
+            <pMax>HeightMaxReg</pMax>
+        </Integer> 
+        <Enumeration Name="Binning">
+            <ToolTip>set the image binning.</ToolTip>
+            <Description>This enumeration controls the horizontal and vertical binning setting.</Description>
+            <DisplayName>Binning</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <pIsLocked>ROILock</pIsLocked>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <EnumEntry Name="BinOff"><DisplayName>BinOff</DisplayName><Value>0</Value></EnumEntry>
+            <EnumEntry Name="Bin2X2Sum"><DisplayName>Bin2X2Sum</DisplayName><Value>1</Value></EnumEntry>
+            <EnumEntry Name="Bin4X4Sum"><DisplayName>Bin4X4Sum</DisplayName><Value>2</Value></EnumEntry>
+            <pValue>BinningReg</pValue>
+            <pSelected>Width</pSelected>
+            <pSelected>Height</pSelected>
+            <pSelected>OffsetX</pSelected>
+            <pSelected>OffsetY</pSelected>
+        </Enumeration>  
+        <Integer Name="BlackLevel">
+            <ToolTip>Sets the camera's black level</ToolTip>
+            <Description>This value sets the camera's black level.</Description>
+            <DisplayName>BlackLevel</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <pValue>BlackLevelReg</pValue>
+            <Min>0</Min>
+            <Max>1023</Max>
+            <Inc>1</Inc>
+            <Representation>Linear</Representation>
+        </Integer>      
+        <Enumeration Name="DSNU">
+            <ToolTip>Deal with the image dark noise.</ToolTip>
+            <Description>Deal with the image dark noise.</Description>
+            <DisplayName>DSNU</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <EnumEntry Name="OFF"><DisplayName>OFF</DisplayName><Value>0</Value></EnumEntry>
+            <EnumEntry Name="ON"><DisplayName>ON</DisplayName><Value>1</Value></EnumEntry>
+            <pValue>ImageDsnuReg</pValue>
+        </Enumeration>
+        <Enumeration Name="PRNU">
+            <ToolTip>Deal with the image light noise.</ToolTip>
+            <Description>Deal with the image light noise.</Description>
+            <DisplayName>PRNU</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <EnumEntry Name="OFF"><DisplayName>OFF</DisplayName><Value>0</Value></EnumEntry>
+            <EnumEntry Name="ON"><DisplayName>ON</DisplayName><Value>1</Value></EnumEntry>
+            <pValue>ImagePrnuReg</pValue>
+        </Enumeration>
+        <Enumeration Name="DefectPixelCorrection">
+            <ToolTip>Deal with the image hot noise.</ToolTip>
+            <Description>Deal with the image hot noise.</Description>
+            <DisplayName>DefectPixelCorrection</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <EnumEntry Name="OFF"><DisplayName>OFF</DisplayName><Value>0</Value></EnumEntry>
+            <EnumEntry Name="Low"><DisplayName>Low</DisplayName><Value>1</Value></EnumEntry>
+            <EnumEntry Name="Medium"><DisplayName>Medium</DisplayName><Value>2</Value></EnumEntry>
+            <EnumEntry Name="High"><DisplayName>High</DisplayName><Value>3</Value></EnumEntry>
+            <pValue>ImageDpcReg</pValue>
+        </Enumeration>
+        <Enumeration Name="HorizontalFlip">
+            <ToolTip>set the image Horizontal Flip.</ToolTip>
+            <Description>This enumeration controls the horizontal Reverse setting.</Description>
+            <DisplayName>HorizontalFlip</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <EnumEntry Name="OFF"><DisplayName>OFF</DisplayName><Value>0</Value></EnumEntry>
+            <EnumEntry Name="ON"><DisplayName>ON</DisplayName><Value>1</Value></EnumEntry>
+            <pValue>ImageHflipReg</pValue>
+        </Enumeration>	
+        <Enumeration Name="TimeStamp">
+            <ToolTip>set the data at the start of image.</ToolTip>
+            <Description>Controls the switch of  the data at the start of image.</Description>
+            <DisplayName>TimeStamp</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <EnumEntry Name="OFF"><DisplayName>OFF</DisplayName><Value>0</Value></EnumEntry>
+            <EnumEntry Name="ON"><DisplayName>ON</DisplayName><Value>1</Value></EnumEntry>          
+            <pValue>ImageStampReg</pValue>
+        </Enumeration>         
+	</Group>
+<!-- ***************************************** -->
+<!-- AcquisitionControl -->
+<!-- ***************************************** -->
+	<Group Comment="AcquisitionControl">
+		<Enumeration Name="AcquisitionMode" NameSpace="Standard">
+            <ToolTip>Sets the acquisition mode of the device.</ToolTip>
+            <Description>Sets the acquisition mode of the device. It defines mainly the number of frames to capture during an acquisition and the way the acquisition stops.</Description>
+            <DisplayName>AcquisitionMode</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RW</ImposedAccessMode>
+			<EnumEntry Name="Continuous" NameSpace="Standard">
+			<DisplayName>Continuous</DisplayName>
+			<Value>0</Value>
+			</EnumEntry>
+			<pValue>AcquisitionModeReg</pValue>
+		</Enumeration>
+		<Command Name="AcquisitionStart" NameSpace="Standard">
+            <ToolTip>Starts the Acquisition of the device.</ToolTip>
+            <Description>Starts the Acquisition of the device. The number of frames captured is specified by AcquisitionMode.</Description>
+			<DisplayName>AcquisitionStart</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RW</ImposedAccessMode>
+			<pValue>AcqEnabledReg</pValue>
+			<CommandValue>1</CommandValue>
+		</Command>
+		<Command Name="AcquisitionStop" NameSpace="Standard">
+            <ToolTip>Stops the Acquisition of the device at the end of the current Frame.</ToolTip>
+            <Description>Stops the Acquisition of the device at the end of the current Frame. It is mainly used when AcquisitionMode is Continuous but can be used in any acquisition mode.</Description>
+			<DisplayName>AcquisitionStop</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RW</ImposedAccessMode>
+			<pValue>AcqEnabledReg</pValue>
+			<CommandValue>0</CommandValue>
+		</Command>
+		<Float Name="AcquisitionFrameRate" NameSpace="Standard">
+            <ToolTip>Controls the acquisition rate (in Hertz) at which the frames are captured.</ToolTip>
+            <Description>Controls the acquisition rate (in Hertz) at which the frames are captured.</Description>
+            <DisplayName>AcquisitionFrameRate</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <pValue>AcquisitionFrameRateReg</pValue>
+            <Min>0.0001</Min>
+			<Unit>Hz</Unit>
+			<Representation>PureNumber</Representation>
+            <DisplayNotation>Fixed</DisplayNotation>
+            <DisplayPrecision>4</DisplayPrecision>
+        </Float>
+		<Integer Name="AcquisitionExpTime" NameSpace="Standard">
+		    <ToolTip>Sets the camera's exposure time in us</ToolTip>
+		    <Description>This value sets the camera's exposure time in us.</Description>
+            <DisplayName>AcquisitionExpTime(us)</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <pValue>ExposureTimeReg</pValue>
+            <Max>3600000000</Max>
+            <Inc>1</Inc>
+			<Representation>Linear</Representation>
+        </Integer> 
+        <Enumeration Name="AcquisitionFrameSplit">
+            <ToolTip>Acquisition Frame Split Enable.</ToolTip>
+            <Description>Acquisition Frame Split Enable.</Description>
+            <DisplayName>AcquisitionFrameSplit</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <pIsLocked>TLParamsLocked</pIsLocked>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <EnumEntry Name="OFF"><DisplayName>OFF</DisplayName><Value>0</Value></EnumEntry>
+            <EnumEntry Name="ON"><DisplayName>ON</DisplayName><Value>1</Value></EnumEntry>
+            <pValue>FrameSplitEnReg</pValue>
+        </Enumeration>
+        <IntSwissKnife Name="FrameSplitLock">
+            <pVariable Name="VARSplit">FrameSplitEnReg</pVariable>
+            <pVariable Name="TL_LOCK">TLParamsLocked</pVariable>
+            <Formula>(VARSplit = 0) || TL_LOCK</Formula>
+        </IntSwissKnife>
+        <Integer Name="AcquisitionFrameSplitNum" NameSpace="Standard">
+		    <ToolTip>Acquisition Frame Split Number</ToolTip>
+		    <Description>Acquisition Frame Split Number.</Description>
+            <DisplayName>AcquisitionFrameSplitNum</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <pIsLocked>FrameSplitLock</pIsLocked>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <pValue>FrameSplitNumReg</pValue>
+            <Min>1</Min>
+            <pMax>SensorHeightReg</pMax>
+            <pSelected>Width</pSelected>
+            <pSelected>Height</pSelected>
+            <pSelected>OffsetX</pSelected>
+            <pSelected>OffsetY</pSelected>
+        </Integer>        
+        <IntSwissKnife Name="SoftTrigLock">
+            <pVariable Name="VAR">TrigModeReg</pVariable>
+            <Formula>(VAR = 0) || (VAR = 1) || (VAR = 3)</Formula>
+        </IntSwissKnife>
+        <IntSwissKnife Name="TrigSetLock">
+            <pVariable Name="VAR">TrigModeReg</pVariable>
+            <Formula>(VAR = 0) || (VAR = 2) || (VAR = 3)</Formula>
+        </IntSwissKnife>
+        <IntSwissKnife Name="TrigDelayLock">
+            <pVariable Name="VAR">TrigModeReg</pVariable>
+            <pVariable Name="VAR2">TrigExpTypeReg</pVariable>
+            <Formula>(VAR = 0) || (VAR = 2) || (VAR2 = 1)</Formula>
+        </IntSwissKnife>
+        <IntSwissKnife Name="hasOutedgeLock">
+            <pVariable Name="VAR1">SignalSelectReg</pVariable>
+            <Formula>(VAR1=0) || (VAR1=1)</Formula>
+        </IntSwissKnife>
+        <IntSwissKnife Name="hasOutwidthLock">
+            <pVariable Name="VAR1">SignalSelectReg</pVariable>
+            <Formula>(VAR1=0) || (VAR1=1) || (VAR1=3)</Formula>
+        </IntSwissKnife>               
+        
+        <Enumeration Name="AcquisitionTrigMode">
+            <ToolTip>Specifies the activation mode of the trigger.</ToolTip>
+            <Description>Specifies the activation mode of the trigger.</Description>
+            <DisplayName>AcquisitionTrigMode</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <EnumEntry Name="FreeRunning"><DisplayName>FreeRunning</DisplayName><Value>0</Value></EnumEntry>
+            <EnumEntry Name="Standard"><DisplayName>Standard</DisplayName><Value>1</Value></EnumEntry>
+            <EnumEntry Name="Software"><DisplayName>Software</DisplayName><Value>2</Value></EnumEntry>
+            <EnumEntry Name="Gps"><DisplayName>GPS</DisplayName><Value>3</Value></EnumEntry>
+            <pValue>TrigModeReg</pValue>
+        </Enumeration>
+        <Enumeration Name="TrigEdge">
+            <ToolTip>Specifies the activation polarity of the trigger.</ToolTip>
+            <Description>Specifies the activation polarity of the trigger.</Description>		
+            <DisplayName>TrigEdge</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <pIsLocked>TrigSetLock</pIsLocked>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <EnumEntry Name="RisingEdge"><DisplayName>RisingEdge</DisplayName><Value>0</Value></EnumEntry>
+            <EnumEntry Name="FallingEdge"><DisplayName>FallingEdge</DisplayName><Value>1</Value></EnumEntry>	
+            <pValue>TrigEdgeReg</pValue>
+        </Enumeration>
+        <Enumeration Name="TrigExpType">
+            <ToolTip>Sets the operation mode of the Exposure.</ToolTip>
+            <Description>Sets the operation mode of the Exposure.</Description>
+            <DisplayName>TrigExpType</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <pIsLocked>TrigSetLock</pIsLocked>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <EnumEntry Name="TrigTimed"><DisplayName>TrigTimed</DisplayName><Value>0</Value></EnumEntry>
+            <EnumEntry Name="TrigWidth"><DisplayName>TrigWidth</DisplayName><Value>1</Value></EnumEntry>		
+            <pValue>TrigExpTypeReg</pValue>
+        </Enumeration>
+        <Integer Name="TrigDelay">
+            <ToolTip>Specifies the delay in ms to apply after the trigger reception before activating it.</ToolTip>
+            <Description>Specifies the delay in us to apply after the trigger reception before activating it.</Description>
+            <DisplayName>TrigDelay(us)</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <pIsLocked>TrigDelayLock</pIsLocked>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <pValue>TrigDelayReg</pValue>
+            <Min>0</Min>
+            <Max>10000000</Max>
+            <Inc>1</Inc>
+        </Integer>
+        <Command Name="TrigSoftwareSignal">
+            <DisplayName>TrigSoftwareSignal</DisplayName>
+            <pIsLocked>SoftTrigLock</pIsLocked>
+            <pValue>TrigSoftwareSignalReg</pValue>
+            <CommandValue>1</CommandValue>
+        </Command>
+      
+        <Enumeration Name="TrigOutputPort">
+            <ToolTip>trigger output port select.</ToolTip>
+            <Description>trigger output port select.</Description>
+            <DisplayName>TrigOutputPort</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <EnumEntry Name="Port1"><DisplayName>Port1</DisplayName><Value>0</Value></EnumEntry>
+            <EnumEntry Name="Port2"><DisplayName>Port2</DisplayName><Value>1</Value></EnumEntry>
+            <EnumEntry Name="Port3"><DisplayName>Port3</DisplayName><Value>2</Value></EnumEntry>
+            <pValue>OutputPortReg</pValue>
+            <pSelected>TrigOutputKind</pSelected>
+            <pSelected>TrigOutputEdge</pSelected>
+            <pSelected>TrigOutputDelay</pSelected>
+            <pSelected>TrigOutputWidth</pSelected>
+        </Enumeration>
+        <Enumeration Name="TrigOutputKind">
+            <ToolTip>trigger output signal source select.</ToolTip>
+            <Description>trigger output signal source select.</Description>
+            <DisplayName>TrigOutputKind</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <EnumEntry Name="Low"><DisplayName>Low</DisplayName><Value>0</Value></EnumEntry>
+            <EnumEntry Name="High"><DisplayName>High</DisplayName><Value>1</Value></EnumEntry>
+            <EnumEntry Name="ExposureStart"><DisplayName>ExposureStart</DisplayName><Value>2</Value></EnumEntry>
+            <EnumEntry Name="GlobalExposure"><DisplayName>GlobalExposure</DisplayName><Value>3</Value></EnumEntry>
+            <EnumEntry Name="ReadoutEnd"><DisplayName>ReadoutEnd</DisplayName><Value>4</Value></EnumEntry>
+            <pValue>SignalSelectReg</pValue>
+        </Enumeration>
+        <Enumeration Name="TrigOutputEdge">
+            <ToolTip>trigger output SignalPolarity</ToolTip>
+            <Description>trigger output SignalPolarity</Description>
+            <DisplayName>TrigOutputEdge</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <pIsLocked>hasOutedgeLock</pIsLocked>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <EnumEntry Name="Rising"><DisplayName>Rising</DisplayName><Value>0</Value></EnumEntry>
+            <EnumEntry Name="Falling"><DisplayName>Falling</DisplayName><Value>1</Value></EnumEntry>		
+            <pValue>SignalPolarityReg</pValue>
+        </Enumeration>	
+        <Integer Name="TrigOutputDelay">
+            <ToolTip>Specifies the delay in us to apply after the trigger reception before activating it.</ToolTip>
+            <Description>Specifies the delay in us to apply after the trigger reception before activating it.</Description>
+            <DisplayName>TrigOutputDelay(us)</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <pIsLocked>hasOutedgeLock</pIsLocked>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <pValue>SignalDelayReg</pValue>
+            <Min>0</Min>
+            <Max>10000000</Max>
+            <Inc>1</Inc>
+        </Integer>	
+        <Integer Name="TrigOutputWidth">
+            <ToolTip>trigger output Signal width</ToolTip>
+            <Description>trigger output Signal width</Description>
+            <DisplayName>TrigOutputWidth(us)</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <pIsLocked>hasOutwidthLock</pIsLocked>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <pValue>SignalWidthReg</pValue>
+            <Min>1</Min>
+            <Max>10000000</Max>
+            <Inc>1</Inc>
+        </Integer>
+	</Group>
+    <Group Comment="GPSControl">
+        <Enumeration Name="GpsStatus">
+            <ToolTip>GPS Status.</ToolTip>
+            <Description>GPS Status.</Description>
+            <DisplayName>GPSStatus</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <EnumEntry Name="UnLocked"><DisplayName>V</DisplayName><Value>0</Value></EnumEntry>
+            <EnumEntry Name="Locked"><DisplayName>A</DisplayName><Value>1</Value></EnumEntry>
+            <EnumEntry Name="NoGps"><DisplayName>NoGPS</DisplayName><Value>2</Value></EnumEntry>
+            <pValue>GpsStatusReg</pValue>
+        </Enumeration>
+        <Enumeration Name="GpsLatitudeRef">
+            <ToolTip>GPS Latitude of north or south.</ToolTip>
+            <Description>GPS Latitude of north or south.</Description>
+            <DisplayName>GPSLatitudeRef</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <EnumEntry Name="North"><DisplayName>N</DisplayName><Value>0</Value></EnumEntry>
+            <EnumEntry Name="South"><DisplayName>S</DisplayName><Value>1</Value></EnumEntry>
+            <pValue>GpsLatitudeRefReg</pValue>
+        </Enumeration>
+        <Float Name="GpsLatitude" NameSpace="Standard">
+            <ToolTip>GPS Latitude in degree.</ToolTip>
+            <Description>GPS Latitude in degree.</Description>
+            <DisplayName>GPSLatitude</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <pValue>GpsLatitudeReg</pValue>
+            <Min>0</Min>
+            <Max>180</Max>
+	    </Float>
+        <Enumeration Name="GpsLongitudeRef">
+            <ToolTip>GPS Longitude of east or west.</ToolTip>
+            <Description>GPS Longitude of east or west.</Description>
+            <DisplayName>GPSLongitudeRef</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <EnumEntry Name="East"><DisplayName>E</DisplayName><Value>0</Value></EnumEntry>
+            <EnumEntry Name="West"><DisplayName>W</DisplayName><Value>1</Value></EnumEntry>
+            <pValue>GpsLongitudeRefReg</pValue>
+        </Enumeration>
+        <Float Name="GpsLongitude" NameSpace="Standard">
+            <ToolTip>GPS Longitude in degree.</ToolTip>
+            <Description>GPS Longitude in degree.</Description>
+            <DisplayName>GPSLongitude</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <pValue>GpsLongitudeReg</pValue>
+            <Min>0</Min>
+            <Max>180</Max>
+	    </Float> 
+        <Integer Name="GpsDate">
+            <ToolTip>GPS Trig Reference Date.</ToolTip>
+            <Description>GPS Trig Reference Date.</Description>
+            <DisplayName>GPSDate(yyMMdd)</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <pValue>GpsCurrentDateReg</pValue>
+        </Integer>       
+        <Integer Name="GpsTime">
+            <ToolTip>Curent Time of the GPS machine.</ToolTip>
+            <Description>Curent Time of the GPS machine.</Description>
+            <DisplayName>GPSTime(Hmmss)</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <pValue>GpsCurrentTimeReg</pValue>
+            <Min>0</Min>
+            <Max>4294967295</Max>
+            <Inc>1</Inc>
+        </Integer>
+        <IntSwissKnife Name="GpsLock">
+            <pVariable Name="VAR">TrigModeReg</pVariable>
+            <pVariable Name="VARStatus">GpsStatusReg</pVariable>
+            <Formula>(VAR=0) || (VAR=1) || (VAR=2) || (VARStatus=2)</Formula>
+        </IntSwissKnife>         
+        <Integer Name="GpsTrigStartTime">
+            <ToolTip>Set Trigger Start Time of the GPS machine.</ToolTip>
+            <Description>Set Trigger Start Time of the GPS machine.</Description>
+            <DisplayName>GPSTrigStartTime(Hmmss)</DisplayName>
+            <Visibility>Expert</Visibility>
+            <pIsLocked>GpsLock</pIsLocked>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <pValue>GpsTriggerTimeReg</pValue>
+            <Min>1</Min>
+            <Max>4294967295</Max>
+            <Inc>1</Inc>
+        </Integer>	
+        <Integer Name="GpsTrigFrameNumber">
+            <ToolTip>Set Trigger number of the GPS machine.</ToolTip>
+            <Description>Set Trigger number of the GPS machine.</Description>
+            <DisplayName>GPSTrigFrameNumber</DisplayName>
+            <Visibility>Expert</Visibility>
+            <pIsLocked>GpsLock</pIsLocked>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <pValue>GpsTriggerNumReg</pValue>
+            <Min>0</Min>
+            <Max>4294967295</Max>
+            <Inc>1</Inc>
+        </Integer>		
+        <Integer Name="GpsTrigIntervalTime">
+            <ToolTip>set the GPS Acquisition Interval Time.</ToolTip>
+            <Description>set the GPS Acquisition Interval Time.</Description>
+            <DisplayName>GPSTrigIntervalTime(us)</DisplayName>
+            <Visibility>Expert</Visibility>
+            <pIsLocked>GpsLock</pIsLocked>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <pValue>GpsIntervalTimeReg</pValue>
+            <Min>1</Min>
+            <Max>1000000000</Max>
+            <Inc>1</Inc>
+        </Integer>	
+    </Group>
+    
+<!-- ***************************************** -->
+<!-- UserControl -->
+<!-- ***************************************** -->
+  <Group Comment="UserControl">  
+      <Enumeration Name="UserSelect">
+        <ToolTip>User Set Selector</ToolTip>
+        <Description>User Set Selector</Description>
+        <DisplayName>UserSelect</DisplayName>
+        <Visibility>Beginner</Visibility>
+        <pIsLocked>TLParamsLocked</pIsLocked>
+        <ImposedAccessMode>RW</ImposedAccessMode>
+        <EnumEntry Name="Factory"><DisplayName>Factory</DisplayName><Value>0</Value></EnumEntry>	
+        <EnumEntry Name="User0"><DisplayName>User0</DisplayName><Value>1</Value></EnumEntry>
+        <EnumEntry Name="User1"><DisplayName>User1</DisplayName><Value>2</Value></EnumEntry>
+        <pValue>UserSetSelectorReg</pValue>
+      </Enumeration>
+	  <Command Name="ParameterSave">
+		  <DisplayName>ParameterSave</DisplayName>
+		  <pValue>UserSetSaveReg</pValue>
+		  <CommandValue>1</CommandValue>
+	  </Command>             
+	  <Command Name="FactoryDefault">
+		  <DisplayName>FactoryDefault</DisplayName>
+          <pIsLocked>TLParamsLocked</pIsLocked>
+		  <pValue>UserSetDefaultReg</pValue>
+		  <CommandValue>1</CommandValue>
+	  </Command>
+      <IntSwissKnife Name="GenMapLock">
+          <pVariable Name="VARSplit">FrameSplitEnReg</pVariable>
+          <Formula>(VARSplit = 1)</Formula>
+      </IntSwissKnife>      
+	  <Command Name="GenerateDSNUMap">
+		  <DisplayName>GenerateDSNUMap</DisplayName>
+          <pIsLocked>GenMapLock</pIsLocked>
+		  <pValue>GenerateDsnuMapReg</pValue>
+		  <CommandValue>0</CommandValue>
+	  </Command>      
+	  <Command Name="GeneratePRNUMap">
+		  <DisplayName>GeneratePRNUMap</DisplayName>
+          <pIsLocked>GenMapLock</pIsLocked>
+		  <pValue>GeneratePrnuMapReg</pValue>
+		  <CommandValue>0</CommandValue>
+	  </Command>  
+	  <Command Name="GenerateDPCMap">
+		  <DisplayName>GenerateDPCMap</DisplayName>
+          <pIsLocked>GenMapLock</pIsLocked>
+		  <pValue>GenerateDpcMapReg</pValue>
+		  <CommandValue>0</CommandValue>
+	  </Command>
+	  <Command Name="GenerateStop">
+		  <DisplayName>GenerateStop</DisplayName>
+          <pIsLocked>GenMapLock</pIsLocked>
+		  <pValue>GenerateStopReg</pValue>
+		  <CommandValue>0</CommandValue>
+	  </Command>
+      <Enumeration Name="GenerateStatus">
+        <ToolTip>Generate Map Status</ToolTip>
+        <Description>Generate Map Status</Description>
+        <DisplayName>GenerateStatus</DisplayName>
+        <Visibility>Beginner</Visibility>
+        <ImposedAccessMode>RO</ImposedAccessMode>
+        <EnumEntry Name="GenFree"><DisplayName>GenFree</DisplayName><Value>0</Value></EnumEntry>
+        <EnumEntry Name="GenBusy"><DisplayName>GenBusy</DisplayName><Value>1</Value></EnumEntry>
+        <EnumEntry Name="CalBusy"><DisplayName>CalBusy</DisplayName><Value>2</Value></EnumEntry>
+        <EnumEntry Name="WRBusy"><DisplayName>WRBusy</DisplayName><Value>3</Value></EnumEntry>
+        <EnumEntry Name="GenDone"><DisplayName>GenDone</DisplayName><Value>4</Value></EnumEntry>	
+        <EnumEntry Name="GenStop"><DisplayName>GenStop</DisplayName><Value>5</Value></EnumEntry>			
+        <pValue>GenerateStatusReg</pValue>
+      </Enumeration>
+      <Integer Name="GenerateGrayValue" NameSpace="Standard">
+        <ToolTip>Generate Gray Value</ToolTip>
+        <Description>Generate Gray Value.</Description>
+        <DisplayName>GenerateGrayValue</DisplayName>
+        <Visibility>Beginner</Visibility>
+        <ImposedAccessMode>RO</ImposedAccessMode>
+        <pValue>GenerateGrayValueReg</pValue>
+      </Integer>
+  </Group> 
+<!-- ***************************************** -->
+<!-- Support -->
+<!-- ***************************************** -->
+	<Group Comment="Support">
+		<Integer Name="Standard" NameSpace="Standard">
+			<ToolTip>Bootstrap register Standard.</ToolTip>
+			<Description>Bootstrap register Standard.</Description>
+			<DisplayName>Standard</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RO</ImposedAccessMode>
+			<pValue>StandardReg</pValue>
+		</Integer>
+		<IntReg Name="StandardReg">
+			<Visibility>Invisible</Visibility>
+			<Address>0x0000</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="Revision" NameSpace="Standard">
+			<ToolTip>Bootstrap register Revision.</ToolTip>
+			<Description>Bootstrap register Revision.</Description>
+			<DisplayName>Revision</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RO</ImposedAccessMode>
+			<pValue>RevisionReg</pValue>
+		</Integer>
+		<IntReg Name="RevisionReg">
+			<Visibility>Invisible</Visibility>
+			<Address>0x0004</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="XmlManifestSize" NameSpace="Standard">
+			<ToolTip>Bootstrap register XmlManifestSize.</ToolTip>
+			<Description>Bootstrap register XmlManifestSize.</Description>
+			<DisplayName>XmlManifestSize</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RO</ImposedAccessMode>
+			<pValue>XmlManifestSizeReg</pValue>
+		</Integer>
+		<IntReg Name="XmlManifestSizeReg">
+			<Visibility>Invisible</Visibility>
+			<Address>0x0008</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="XmlManifestSelector" NameSpace="Standard">
+			<ToolTip>Bootstrap register XmlManifestSelector.</ToolTip>
+			<Description>Bootstrap register XmlManifestSelector.</Description>
+			<DisplayName>XmlManifestSelector</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RW</ImposedAccessMode>
+			<pValue>XmlManifestSelectorReg</pValue>
+		</Integer>
+		<IntReg Name="XmlManifestSelectorReg">
+			<Visibility>Invisible</Visibility>
+			<Address>0x000C</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="XmlVersion" NameSpace="Standard">
+			<ToolTip>Bootstrap register XmlVersion.</ToolTip>
+			<Description>Bootstrap register XmlVersion.</Description>
+			<DisplayName>XmlVersion</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RO</ImposedAccessMode>
+			<pValue>XmlVersionReg</pValue>
+		</Integer>
+		<IntReg Name="XmlVersionReg">
+			<Visibility>Invisible</Visibility>
+			<Address>0x0010</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="XmlSchemaVersion" NameSpace="Standard">
+			<ToolTip>Bootstrap register XmlSchemaVersion.</ToolTip>
+			<Description>Bootstrap register XmlSchemaVersion.</Description>
+			<DisplayName>XmlSchemaVersion</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RO</ImposedAccessMode>
+			<pValue>XmlSchemaVersionReg</pValue>
+		</Integer>
+		<IntReg Name="XmlSchemaVersionReg">
+			<Visibility>Invisible</Visibility>
+			<Address>0x0014</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="XmlUrlAddress" NameSpace="Standard">
+			<ToolTip>Bootstrap register XmlUrlAddress.</ToolTip>
+			<Description>Bootstrap register XmlUrlAddress.</Description>
+			<DisplayName>XmlUrlAddress</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RO</ImposedAccessMode>
+			<pValue>XmlUrlAddressReg</pValue>
+		</Integer>
+		<IntReg Name="XmlUrlAddressReg">
+			<Visibility>Invisible</Visibility>
+			<Address>0x0018</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+	</Group>
+<!-- ***************************************** -->
+<!-- CoaXPress -->
+<!-- ***************************************** -->
+	<Group Comment="CoaXPress">
+		<Integer Name="DeviceLinkID" NameSpace="Standard">
+			<ToolTip>Bootstrap register DeviceLinkID.</ToolTip>
+			<Description>Bootstrap register DeviceLinkID.</Description>
+			<DisplayName>DeviceLinkID</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RO</ImposedAccessMode>
+			<pValue>DeviceLinkIDReg</pValue>
+		</Integer>
+		<IntReg Name="DeviceLinkIDReg">
+			<Visibility>Invisible</Visibility>
+			<Address>0x4004</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="MasterHostLinkID" NameSpace="Standard">
+			<ToolTip>Bootstrap register MasterHostLinkID.</ToolTip>
+			<Description>Bootstrap register MasterHostLinkID.</Description>
+			<DisplayName>MasterHostLinkID</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RW</ImposedAccessMode>
+			<pValue>MasterHostLinkIDReg</pValue>
+		</Integer>
+		<IntReg Name="MasterHostLinkIDReg">
+			<Visibility>Invisible</Visibility>
+			<Address>0x4008</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="ControlPacketDataSize" NameSpace="Standard">
+			<ToolTip>Bootstrap register ControlPacketDataSize.</ToolTip>
+			<Description>Bootstrap register ControlPacketDataSize.</Description>
+			<DisplayName>ControlPacketDataSize</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RO</ImposedAccessMode>
+			<pValue>ControlPacketDataSizeReg</pValue>
+		</Integer>
+		<IntReg Name="ControlPacketDataSizeReg">
+			<Visibility>Invisible</Visibility>
+			<Address>0x400C</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="StreamPacketDataSize" NameSpace="Standard">
+			<ToolTip>Bootstrap register StreamPacketDataSize.</ToolTip>
+			<Description>Bootstrap register StreamPacketDataSize.</Description>
+			<DisplayName>StreamPacketDataSize</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RW</ImposedAccessMode>
+			<pValue>StreamPacketDataSizeReg</pValue>
+		</Integer>
+		<IntReg Name="StreamPacketDataSizeReg">
+			<Visibility>Invisible</Visibility>
+			<Address>0x4010</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Enumeration Name="ConnectionConfig" NameSpace="Standard">
+			<ToolTip>Bootstrap register ConnectionConfig.</ToolTip>
+			<Description>Bootstrap register ConnectionConfig.</Description>
+			<DisplayName>ConnectionConfig</DisplayName>
+			<Visibility>Beginner</Visibility>
+            <pIsLocked>TLParamsLocked</pIsLocked>
+			<ImposedAccessMode>RW</ImposedAccessMode>
+			<EnumEntry Name="x1_CXP_1" NameSpace="Standard"><DisplayName>1 Link 1.250 Gbps</DisplayName><Value>0x00010028</Value></EnumEntry>
+			<EnumEntry Name="x1_CXP_2" NameSpace="Standard"><DisplayName>1 Link 2.500 Gbps</DisplayName><Value>0x00010030</Value></EnumEntry>
+			<EnumEntry Name="x1_CXP_3" NameSpace="Standard"><DisplayName>1 Link 3.125 Gbps</DisplayName><Value>0x00010038</Value></EnumEntry>
+			<EnumEntry Name="x1_CXP_5" NameSpace="Standard"><DisplayName>1 Link 5.0 Gbps</DisplayName><Value>0x00010040</Value></EnumEntry>
+			<EnumEntry Name="x1_CXP_6" NameSpace="Standard"><DisplayName>1 Link 6.25 Gbps</DisplayName><Value>0x00010048</Value></EnumEntry>
+			<!-- <EnumEntry Name="x1_CXP_10" NameSpace="Standard"><DisplayName>1 Link 10.0 Gbps</DisplayName><Value>0x00010050</Value></EnumEntry> -->
+			<!-- <EnumEntry Name="x1_CXP_12" NameSpace="Standard"><DisplayName>1 Link 12.5 Gbps</DisplayName><Value>0x00010058</Value></EnumEntry> -->
+			<EnumEntry Name="x2_CXP_1" NameSpace="Standard"><DisplayName>2 Link 1.250 Gbps</DisplayName><Value>0x00020028</Value></EnumEntry>
+			<EnumEntry Name="x2_CXP_2" NameSpace="Standard"><DisplayName>2 Link 2.500 Gbps</DisplayName><Value>0x00020030</Value></EnumEntry>
+			<EnumEntry Name="x2_CXP_3" NameSpace="Standard"><DisplayName>2 Link 3.125 Gbps</DisplayName><Value>0x00020038</Value></EnumEntry>
+			<EnumEntry Name="x2_CXP_5" NameSpace="Standard"><DisplayName>2 Link 5.0 Gbps</DisplayName><Value>0x00020040</Value></EnumEntry>
+			<EnumEntry Name="x2_CXP_6" NameSpace="Standard"><DisplayName>2 Link 6.25 Gbps</DisplayName><Value>0x00020048</Value></EnumEntry>
+			<!-- <EnumEntry Name="x2_CXP_10" NameSpace="Standard"><DisplayName>2 Link 10.0 Gbps</DisplayName><Value>0x00020050</Value></EnumEntry> -->
+			<!-- <EnumEntry Name="x2_CXP_12" NameSpace="Standard"><DisplayName>2 Link 12.5 Gbps</DisplayName><Value>0x00020058</Value></EnumEntry> -->
+			<EnumEntry Name="x4_CXP_1" NameSpace="Standard"><DisplayName>4 Link 1.250 Gbps</DisplayName><Value>0x00040028</Value></EnumEntry>
+			<EnumEntry Name="x4_CXP_2" NameSpace="Standard"><DisplayName>4 Link 2.500 Gbps</DisplayName><Value>0x00040030</Value></EnumEntry>
+			<EnumEntry Name="x4_CXP_3" NameSpace="Standard"><DisplayName>4 Link 3.125 Gbps</DisplayName><Value>0x00040038</Value></EnumEntry>
+			<EnumEntry Name="x4_CXP_5" NameSpace="Standard"><DisplayName>4 Link 5.0 Gbps</DisplayName><Value>0x00040040</Value></EnumEntry>
+			<EnumEntry Name="x4_CXP_6" NameSpace="Standard"><DisplayName>4 Link 6.25 Gbps</DisplayName><Value>0x00040048</Value></EnumEntry>
+			<!-- <EnumEntry Name="x4_CXP_10" NameSpace="Standard"><DisplayName>4 Link 10.0 Gbps</DisplayName><Value>0x00040050</Value></EnumEntry> -->
+			<!-- <EnumEntry Name="x4_CXP_12" NameSpace="Standard"><DisplayName>4 Link 12.5 Gbps</DisplayName><Value>0x00040058</Value></EnumEntry> -->
+			<pValue>ConnectionConfigReg</pValue>
+		</Enumeration>
+		<IntReg Name="ConnectionConfigReg">
+			<Visibility>Invisible</Visibility>
+			<Address>0x4014</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Enumeration Name="ConnectionConfigDefault" NameSpace="Standard">
+			<ToolTip>Bootstrap register ConnectionConfigDefault.</ToolTip>
+			<Description>Bootstrap register ConnectionConfigDefault.</Description>
+			<DisplayName>ConnectionConfigDefault</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RO</ImposedAccessMode>
+			<EnumEntry Name="x1_CXP_1" NameSpace="Standard"><DisplayName>1 Link 1.250 Gbps</DisplayName><Value>0x00010028</Value></EnumEntry>
+			<EnumEntry Name="x1_CXP_2" NameSpace="Standard"><DisplayName>1 Link 2.500 Gbps</DisplayName><Value>0x00010030</Value></EnumEntry>
+			<EnumEntry Name="x1_CXP_3" NameSpace="Standard"><DisplayName>1 Link 3.125 Gbps</DisplayName><Value>0x00010038</Value></EnumEntry>
+			<EnumEntry Name="x1_CXP_5" NameSpace="Standard"><DisplayName>1 Link 5.0 Gbps</DisplayName><Value>0x00010040</Value></EnumEntry>
+			<EnumEntry Name="x1_CXP_6" NameSpace="Standard"><DisplayName>1 Link 6.25 Gbps</DisplayName><Value>0x00010048</Value></EnumEntry>
+			<!-- <EnumEntry Name="x1_CXP_10" NameSpace="Standard"><DisplayName>1 Link 10.0 Gbps</DisplayName><Value>0x00010050</Value></EnumEntry> -->
+			<!-- <EnumEntry Name="x1_CXP_12" NameSpace="Standard"><DisplayName>1 Link 12.5 Gbps</DisplayName><Value>0x00010058</Value></EnumEntry> -->
+			<EnumEntry Name="x2_CXP_1" NameSpace="Standard"><DisplayName>2 Link 1.250 Gbps</DisplayName><Value>0x00020028</Value></EnumEntry>
+			<EnumEntry Name="x2_CXP_2" NameSpace="Standard"><DisplayName>2 Link 2.500 Gbps</DisplayName><Value>0x00020030</Value></EnumEntry>
+			<EnumEntry Name="x2_CXP_3" NameSpace="Standard"><DisplayName>2 Link 3.125 Gbps</DisplayName><Value>0x00020038</Value></EnumEntry>
+			<EnumEntry Name="x2_CXP_5" NameSpace="Standard"><DisplayName>2 Link 5.0 Gbps</DisplayName><Value>0x00020040</Value></EnumEntry>
+			<EnumEntry Name="x2_CXP_6" NameSpace="Standard"><DisplayName>2 Link 6.25 Gbps</DisplayName><Value>0x00020048</Value></EnumEntry>
+			<!-- <EnumEntry Name="x2_CXP_10" NameSpace="Standard"><DisplayName>2 Link 10.0 Gbps</DisplayName><Value>0x00020050</Value></EnumEntry> -->
+			<!-- <EnumEntry Name="x2_CXP_12" NameSpace="Standard"><DisplayName>2 Link 12.5 Gbps</DisplayName><Value>0x00020058</Value></EnumEntry> -->
+			<EnumEntry Name="x4_CXP_1" NameSpace="Standard"><DisplayName>4 Link 1.250 Gbps</DisplayName><Value>0x00040028</Value></EnumEntry>
+			<EnumEntry Name="x4_CXP_2" NameSpace="Standard"><DisplayName>4 Link 2.500 Gbps</DisplayName><Value>0x00040030</Value></EnumEntry>
+			<EnumEntry Name="x4_CXP_3" NameSpace="Standard"><DisplayName>4 Link 3.125 Gbps</DisplayName><Value>0x00040038</Value></EnumEntry>
+			<EnumEntry Name="x4_CXP_5" NameSpace="Standard"><DisplayName>4 Link 5.0 Gbps</DisplayName><Value>0x00040040</Value></EnumEntry>
+			<EnumEntry Name="x4_CXP_6" NameSpace="Standard"><DisplayName>4 Link 6.25 Gbps</DisplayName><Value>0x00040048</Value></EnumEntry>
+			<!-- <EnumEntry Name="x4_CXP_10" NameSpace="Standard"><DisplayName>4 Link 10.0 Gbps</DisplayName><Value>0x00040050</Value></EnumEntry> -->
+			<!-- <EnumEntry Name="x4_CXP_12" NameSpace="Standard"><DisplayName>4 Link 12.5 Gbps</DisplayName><Value>0x00040058</Value></EnumEntry> -->
+			<pValue>ConnectionConfigDefaultReg</pValue>
+		</Enumeration>
+		<IntReg Name="ConnectionConfigDefaultReg">
+			<Visibility>Invisible</Visibility>
+			<Address>0x4018</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+        <Command Name="ConnectionReset" NameSpace="Standard">
+            <ToolTip>Resets the device to its power up state.</ToolTip>
+            <Description>Resets the device to its power up state.</Description>
+            <DisplayName>ConnectionReset</DisplayName>
+            <Visibility>Guru</Visibility>
+            <pIsLocked>TLParamsLocked</pIsLocked>
+            <ImposedAccessMode>WO</ImposedAccessMode>
+            <pValue>ConnectionResetReg</pValue>
+            <CommandValue>1</CommandValue>
+        </Command>
+		<IntReg Name="ConnectionResetReg">
+			<Visibility>Invisible</Visibility>
+			<Address>0x4000</Address>
+			<Length>4</Length>
+			<AccessMode>WO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>   
+		<Integer Name="TestMode" NameSpace="Standard">
+			<ToolTip>Bootstrap register TestMode.</ToolTip>
+			<Description>Bootstrap register TestMode.</Description>
+			<DisplayName>TestMode</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RW</ImposedAccessMode>
+			<pValue>TestModeReg</pValue>
+		</Integer>
+		<IntReg Name="TestModeReg">
+			<Visibility>Invisible</Visibility>
+			<Address>0x401C</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="TestErrorCountSelector" NameSpace="Standard">
+			<ToolTip>Bootstrap register TestErrorCountSelector.</ToolTip>
+			<Description>Bootstrap register TestErrorCountSelector.</Description>
+			<DisplayName>TestErrorCountSelector</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RW</ImposedAccessMode>
+			<pValue>TestErrorCountSelectorReg</pValue>
+		</Integer>
+		<IntReg Name="TestErrorCountSelectorReg">
+			<Visibility>Invisible</Visibility>
+			<Address>0x4020</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="TestErrorCount" NameSpace="Standard">
+			<ToolTip>Bootstrap register TestErrorCount.</ToolTip>
+			<Description>Bootstrap register TestErrorCount.</Description>
+			<DisplayName>TestErrorCount</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RW</ImposedAccessMode>
+			<pValue>TestErrorCountReg</pValue>
+		</Integer>
+		<IntReg Name="TestErrorCountReg">
+			<Visibility>Invisible</Visibility>
+			<Address>0x4024</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="TestTXCount" NameSpace="Standard">
+			<ToolTip>Bootstrap register TestTXCount.</ToolTip>
+			<Description>Bootstrap register TestTXCount.</Description>
+			<DisplayName>TestTXCount</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RW</ImposedAccessMode>
+			<pValue>TestTXCountReg</pValue>
+		</Integer>
+		<IntReg Name="TestTXCountReg">
+			<Visibility>Invisible</Visibility>
+			<Address>0x4028</Address>
+			<Length>8</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="TestRXCount" NameSpace="Standard">
+			<ToolTip>Bootstrap register TestRXCount.</ToolTip>
+			<Description>Bootstrap register TestRXCount.</Description>
+			<DisplayName>TestRXCount</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RW</ImposedAccessMode>
+			<pValue>TestRXCountReg</pValue>
+		</Integer>
+		<IntReg Name="TestRXCountReg">
+			<Visibility>Invisible</Visibility>
+			<Address>0x4030</Address>
+			<Length>8</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="VersionsSupported" NameSpace="Standard">
+			<ToolTip>Bootstrap register VersionsSupported.</ToolTip>
+			<Description>Bootstrap register VersionsSupported.</Description>
+			<DisplayName>VersionsSupported</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RW</ImposedAccessMode>
+			<pValue>VersionsSupportedReg</pValue>
+			<Representation>HexNumber</Representation>
+		</Integer>
+		<IntReg Name="VersionsSupportedReg">
+			<Visibility>Invisible</Visibility>
+			<Address>0x4044</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Integer Name="VersionUsed" NameSpace="Standard">
+			<ToolTip>Bootstrap register VersionUsed.</ToolTip>
+			<Description>Bootstrap register VersionUsed.</Description>
+			<DisplayName>VersionUsed</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RW</ImposedAccessMode>
+			<pValue>VersionUsedReg</pValue>
+			<Representation>HexNumber</Representation>
+		</Integer>
+		<IntReg Name="VersionUsedReg">
+			<Visibility>Invisible</Visibility>
+			<Address>0x4048</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>BigEndian</Endianess>
+		</IntReg>
+		<Enumeration Name="TapGeometry" NameSpace="Standard">
+			<ToolTip>TapGeometry.</ToolTip>
+			<Description>TapGeometry.</Description>
+			<DisplayName>TapGeometry</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RO</ImposedAccessMode>
+			<EnumEntry Name="X1_1Y" NameSpace="Standard">
+			<DisplayName>1X-1Y</DisplayName>
+			<Value>0</Value>
+			</EnumEntry>
+			<pValue>TapGeometryReg</pValue>
+		</Enumeration>
+		<Integer Name="Image1StreamID" NameSpace="Standard">
+			<ToolTip>Image1StreamID</ToolTip>
+			<Description>Image1StreamID.</Description>
+			<DisplayName>Image1StreamID</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RO</ImposedAccessMode>
+            <pValue>Image1StreamIDReg</pValue>
+		</Integer>
+	</Group>
+    
+<!-- ********* Updata  *************** -->  
+    <Group Comment="Updata">
+        <Category Name="Updata" NameSpace="Standard">
+            <ToolTip>Sets the updata mode of the device.</ToolTip>
+            <Description>Sets the updata mode of the device.</Description>
+            <DisplayName>FPGAUpdataMode</DisplayName>
+            <Visibility>Invisible</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <pFeature>LED_Reg</pFeature>
+            <pFeature>HDR_KReg</pFeature>
+            <pFeature>COL12_BADReg</pFeature>
+            <pFeature>COL34_BADReg</pFeature>
+            <pFeature>COL56_BADReg</pFeature>
+            <pFeature>COL78_BADReg</pFeature>
+            <pFeature>COL910_BADReg</pFeature>	
+            <pFeature>COL1112_BADReg</pFeature>	            
+            <pFeature>ROW12_BADReg</pFeature>
+            <pFeature>ROW34_BADReg</pFeature>
+            <pFeature>ROW56_BADReg</pFeature>
+            <pFeature>ROW78_BADReg</pFeature>
+            <pFeature>ROW910_BADReg</pFeature>
+            <pFeature>ROW1112_BADReg</pFeature>
+            <pFeature>FPGA_RSTReg</pFeature>
+            <pFeature>Updata_Status</pFeature>
+            <pFeature>Factory_CoolType</pFeature>
+            <pFeature>Factory_CxpSpeed</pFeature>
+            <pFeature>Factory_TempComp</pFeature>
+            <pFeature>Factory_WorkingTime</pFeature>
+        </Category>
+        <Register Name="LED_Reg">
+            <Visibility>Invisible</Visibility>
+            <Address>0x6018</Address>
+            <Length>4</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </Register>
+        <Register Name="HDR_KReg">
+            <Visibility>Invisible</Visibility>
+            <Address>0x9000</Address>
+            <Length>4</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </Register>
+        <Register Name="COL12_BADReg">
+            <Visibility>Invisible</Visibility>
+            <Address>0x9010</Address>
+            <Length>4</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </Register>
+        <Register Name="COL34_BADReg">
+            <Visibility>Invisible</Visibility>
+            <Address>0x9014</Address>
+            <Length>4</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </Register>
+        <Register Name="COL56_BADReg">
+            <Visibility>Invisible</Visibility>
+            <Address>0x9018</Address>
+            <Length>4</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </Register>
+        <Register Name="COL78_BADReg">
+            <Visibility>Invisible</Visibility>
+            <Address>0x901C</Address>
+            <Length>4</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </Register>
+        <Register Name="COL910_BADReg">
+            <Visibility>Invisible</Visibility>
+            <Address>0x9020</Address>
+            <Length>4</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </Register>
+        <Register Name="COL1112_BADReg">
+            <Visibility>Invisible</Visibility>
+            <Address>0x9024</Address>
+            <Length>4</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </Register>
+        <Register Name="ROW12_BADReg">
+            <Visibility>Invisible</Visibility>
+            <Address>0x9030</Address>
+            <Length>4</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </Register>
+        <Register Name="ROW34_BADReg">
+            <Visibility>Invisible</Visibility>
+            <Address>0x9034</Address>
+            <Length>4</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </Register>	
+        <Register Name="ROW56_BADReg">
+            <Visibility>Invisible</Visibility>
+            <Address>0x9038</Address>
+            <Length>4</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </Register>	
+        <Register Name="ROW78_BADReg">
+            <Visibility>Invisible</Visibility>
+            <Address>0x903C</Address>
+            <Length>4</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </Register>	
+        <Register Name="ROW910_BADReg">
+            <Visibility>Invisible</Visibility>
+            <Address>0x9040</Address>
+            <Length>4</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </Register>	
+        <Register Name="ROW1112_BADReg">
+            <Visibility>Invisible</Visibility>
+            <Address>0x9044</Address>
+            <Length>4</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </Register>	
+        <Register Name="FPGA_RSTReg">
+            <Visibility>Invisible</Visibility>
+            <Address>0x9080</Address>
+            <Length>4</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </Register>	
+        <Register Name="Updata_Status">
+            <Visibility>Invisible</Visibility>
+            <Address>0x9090</Address>
+            <Length>4</Length>
+            <AccessMode>RO</AccessMode>
+            <pPort>Device</pPort>
+        </Register>	
+        <Register Name="Factory_CoolType">
+            <Visibility>Invisible</Visibility>
+            <Address>0x90A0</Address>
+            <Length>4</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </Register>
+        <Register Name="Factory_CxpSpeed">
+            <Visibility>Invisible</Visibility>
+            <Address>0x90A4</Address>
+            <Length>4</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </Register>	
+        <Register Name="Factory_TempComp">
+            <Visibility>Invisible</Visibility>
+            <Address>0x90A8</Address>
+            <Length>4</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </Register>
+        <Register Name="Factory_WorkingTime">
+            <Visibility>Invisible</Visibility>
+            <Address>0x90AC</Address>
+            <Length>4</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </Register>	         
+    </Group> 
+<!-- ***************************************** -->
+<!-- SpecialFeatures -->
+<!-- ***************************************** -->
+    <Group Comment="SpecialFeatures">
+      <Port Name="Device" NameSpace="Standard">
+          <Visibility>Invisible</Visibility>
+          <ImposedAccessMode>RW</ImposedAccessMode>
+      </Port>
+      <Integer Name="TLParamsLocked" NameSpace="Standard">
+          <Visibility>Invisible</Visibility>
+          <ImposedAccessMode>RW</ImposedAccessMode>
+          <Value>0</Value>
+      </Integer>    
+    </Group>	
+<!-- ***************************************** -->
+<!-- User Register Nodes -->
+<!-- ***************************************** -->  
+    <IntReg Name="TapGeometryReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x6000</Address>
+        <Length>4</Length>
+        <AccessMode>RO</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg> 
+    <IntReg Name="Image1StreamIDReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x6020</Address>
+        <Length>4</Length>
+        <AccessMode>RO</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg> 
+<!-- ***************************************** --> 
+    <IntReg Name="DeviceLedReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8000</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <FloatReg Name="DeviceTemperatureReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8004</Address>
+        <Length>4</Length>
+        <AccessMode>RO</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <PollingTime>1000</PollingTime>
+        <Endianess>BigEndian</Endianess>
+    </FloatReg>
+    <FloatReg Name="DeviceWarningTemperatureReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8008</Address>
+        <Length>4</Length>
+        <AccessMode>RO</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Endianess>BigEndian</Endianess>
+    </FloatReg> 
+    <FloatReg Name="SensorTemperatureReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x800C</Address>
+        <Length>4</Length>
+        <AccessMode>RO</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <PollingTime>1000</PollingTime>
+        <Endianess>BigEndian</Endianess>
+    </FloatReg>  
+    <FloatReg Name="SetSensorTemperatureReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8010</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Endianess>BigEndian</Endianess>
+    </FloatReg> 
+    <IntReg Name="SensorCoolingReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8014</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="FanSpeedReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8018</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <PollingTime>2000</PollingTime>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>  
+    <IntReg Name="AntiDewReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x801C</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <FloatReg Name="AmbientTemReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8020</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Endianess>BigEndian</Endianess>
+    </FloatReg>
+    <FloatReg Name="HumidityReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8024</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Endianess>BigEndian</Endianess>
+    </FloatReg>  
+    <IntReg Name="FanAutoReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8028</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>    
+    <IntReg Name="SensorCoolTypeReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8030</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="SensorCoolPowerReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8034</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="InitStatusReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8038</Address>
+        <Length>4</Length>
+        <AccessMode>RO</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="WorkingTimeReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x803C</Address>
+        <Length>4</Length>
+        <AccessMode>RO</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <PollingTime>100000</PollingTime>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+        <IntReg Name="DeviceResetReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8040</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+<!-- ***************************************** -->   
+    <IntReg Name="WidthMaxReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8100</Address>
+        <Length>4</Length>
+        <AccessMode>RO</AccessMode>
+        <pPort>Device</pPort>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg> 
+    <IntReg Name="HeightMaxReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8104</Address>
+        <Length>4</Length>
+        <AccessMode>RO</AccessMode>
+        <pPort>Device</pPort>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="GainModeReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x810C</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="TestPatternReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8110</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>   
+    <IntReg Name="PixelFormatReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8114</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>        
+    <IntReg Name="WidthReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8118</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="HeightReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x811C</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="OffsetXReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8120</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="OffsetYReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8124</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="BinningReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8128</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="BlackLevelReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x812C</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>     
+    <IntReg Name="ImageDsnuReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8130</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>    
+    <IntReg Name="ImagePrnuReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8134</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>    
+    <IntReg Name="ImageDpcReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8138</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>    
+    <IntReg Name="ImageHflipReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x813C</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>    
+    <IntReg Name="ImageStampReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8140</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="SensorWidthReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8150</Address>
+        <Length>4</Length>
+        <AccessMode>RO</AccessMode>
+        <pPort>Device</pPort>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg> 
+    <IntReg Name="SensorHeightReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8154</Address>
+        <Length>4</Length>
+        <AccessMode>RO</AccessMode>
+        <pPort>Device</pPort>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="HeightMinReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8158</Address>
+        <Length>4</Length>
+        <AccessMode>RO</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    
+    <IntReg Name="SensorPixelSizeReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8180</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="SensorShutterTypeReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8184</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="SensorADWidthReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8188</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="SensorPGAHGReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8190</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="SensorPGALGReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8194</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+<!-- ***************************************** -->      
+    <IntReg Name="AcquisitionModeReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8200</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+	</IntReg>
+    <MaskedIntReg Name="AcqEnabledReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8204</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <LSB>31</LSB>
+        <MSB>24</MSB>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </MaskedIntReg>
+    <FloatReg Name="AcquisitionFrameRateReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8208</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Endianess>BigEndian</Endianess>
+    </FloatReg>
+    <IntReg Name="ExposureTimeReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x820C</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="TrigModeReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8300</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="TrigEdgeReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8304</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="TrigExpTypeReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8308</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="TrigDelayReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x830C</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="TrigSoftwareSignalReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8310</Address>
+        <Length>4</Length>
+        <AccessMode>WO</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="OutputPortReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8400</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>	
+    <IntReg Name="SignalSelectReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8404</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>	
+    <IntReg Name="SignalPolarityReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8408</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>	
+    <IntReg Name="SignalDelayReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x840C</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>	
+    <IntReg Name="SignalWidthReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8410</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="FrameSplitEnReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8600</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="FrameSplitNumReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8604</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    
+    <IntReg Name="GpsStatusReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8800</Address>
+        <Length>4</Length>
+        <AccessMode>RO</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <PollingTime>1000</PollingTime>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="GpsLatitudeRefReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8804</Address>
+        <Length>4</Length>
+        <AccessMode>RO</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <PollingTime>1000</PollingTime>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <FloatReg Name="GpsLatitudeReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8808</Address>
+        <Length>4</Length>
+        <AccessMode>RO</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <PollingTime>1000</PollingTime>
+        <Endianess>BigEndian</Endianess>
+    </FloatReg>
+    <IntReg Name="GpsLongitudeRefReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x880C</Address>
+        <Length>4</Length>
+        <AccessMode>RO</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <PollingTime>1000</PollingTime>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <FloatReg Name="GpsLongitudeReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8810</Address>
+        <Length>4</Length>
+        <AccessMode>RO</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <PollingTime>1000</PollingTime>
+        <Endianess>BigEndian</Endianess>
+    </FloatReg>
+    <IntReg Name="GpsCurrentDateReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x881C</Address>
+        <Length>4</Length>
+        <AccessMode>RO</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <PollingTime>1000</PollingTime>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>  
+    <IntReg Name="GpsCurrentTimeReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8820</Address>
+        <Length>4</Length>
+        <AccessMode>RO</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <PollingTime>1000</PollingTime>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="GpsTriggerTimeReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8824</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="GpsTriggerNumReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x8828</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="GpsIntervalTimeReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x882C</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    
+    <IntReg Name="UserSetSelectorReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x9100</Address>
+        <Length>4</Length>
+        <AccessMode>RW</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg> 
+    <IntReg Name="UserSetSaveReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x9104</Address>
+        <Length>4</Length>
+        <AccessMode>WO</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>  
+    <IntReg Name="UserSetDefaultReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0x9108</Address>
+        <Length>4</Length>
+        <AccessMode>WO</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>    
+    <IntReg Name="GenerateDsnuMapReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0xA000</Address>
+        <Length>4</Length>
+        <AccessMode>WO</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="GeneratePrnuMapReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0xA004</Address>
+        <Length>4</Length>
+        <AccessMode>WO</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="GenerateDpcMapReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0xA008</Address>
+        <Length>4</Length>
+        <AccessMode>WO</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="GenerateStopReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0xA00C</Address>
+        <Length>4</Length>
+        <AccessMode>WO</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <Sign>Unsigned</Sign>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>    
+    <IntReg Name="GenerateStatusReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0xA010</Address>
+        <Length>4</Length>
+        <AccessMode>RO</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <PollingTime>1000</PollingTime>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>
+    <IntReg Name="GenerateGrayValueReg">
+        <Visibility>Invisible</Visibility>
+        <Address>0xA014</Address>
+        <Length>4</Length>
+        <AccessMode>RO</AccessMode>
+        <pPort>Device</pPort>
+        <Cachable>NoCache</Cachable>
+        <PollingTime>1000</PollingTime>
+        <Endianess>BigEndian</Endianess>
+    </IntReg>    
+</RegisterDescription>
