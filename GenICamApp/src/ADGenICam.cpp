@@ -495,7 +495,6 @@ asynStatus ADGenICam::addADDriverFeatures()
         {ADNumImages,         "AcquisitionFrameCount", GCFeatureTypeInteger},
         {ADGain,              "Gain",                  GCFeatureTypeDouble},
         {ADTriggerMode,       "TriggerMode",           GCFeatureTypeEnum},
-        {ADTemperatureActual, "DeviceTemperature",     GCFeatureTypeDouble},
         {GCTriggerSource,     "TriggerSource",         GCFeatureTypeEnum},
         {GCTriggerOverlap,    "TriggerOverlap",        GCFeatureTypeEnum},
         {GCTriggerSoftware,   "TriggerSoftware",       GCFeatureTypeCmd},
@@ -565,6 +564,11 @@ asynStatus ADGenICam::addADDriverFeatures()
                 {"GainRaw",         GCFeatureTypeInteger},
                 {"GainRawChannelA", GCFeatureTypeInteger}};
     createMultiFeature(ADGainString, asynParamFloat64, ADGain, features);
+
+    // Make a single parameter that maps to either DeviceTemperature or TemperatureAbs
+    features = {{"DeviceTemperature", GCFeatureTypeDouble},
+                {"TemperatureAbs",    GCFeatureTypeDouble}};
+    createMultiFeature(ADTemperatureActualString, asynParamFloat64, ADTemperatureActual, features);
 
     return asynSuccess;
 }
