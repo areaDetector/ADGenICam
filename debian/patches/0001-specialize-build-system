@@ -16,7 +16,7 @@ Index: adgenicam/GenICamApp/src/Makefile
 ===================================================================
 --- adgenicam.orig/GenICamApp/src/Makefile
 +++ adgenicam/GenICamApp/src/Makefile
-@@ -18,7 +18,7 @@ LIB_SRCS += GenICamFeature.cpp
+@@ -20,7 +20,7 @@ LIB_SRCS += GenICamFeature.cpp
  LIB_SRCS += ADGenICam.cpp
  USR_CXXFLAGS_Linux += -std=c++11
  
@@ -38,3 +38,54 @@ Index: adgenicam/configure/CONFIG_SITE
  
  # To install files into a location other than $(TOP) define
  #   INSTALL_LOCATION here.
+Index: adgenicam/addCamera.sh
+===================================================================
+--- adgenicam.orig/addCamera.sh
++++ adgenicam/addCamera.sh
+@@ -8,6 +8,44 @@
+ 
+ # Use this line for ao and ai records on older versions of EPICS base. 
+ # Limits GenICam Integer features to 52 bits because ao and ai records with 64-bit floats are used.
+-python3 scripts/makeDb.py xml/$1.xml GenICamApp/Db/$1.template
+ 
+-python3 scripts/makeAdl.py xml/$1.xml GenICamApp/op/adl/$1
++#series file has one commented line, so use this output as the prefix for next patch
++patchcount=$(wc -l debian/patches/series | cut -d' ' -f1)
++printf -v fpc "%04d" $patchcount
++
++patchname="debian/patches/${fpc}-${1}.patch"
++
++quilt push -a
++quilt new $patchname
++quilt add xml/$1.xml GenICamApp/Db/$1.template
++
++
++xmllint --pretty 1 ../$1.xml > xml/$1.xml
++
++python3 scripts/makeDb.py xml/$1.xml GenICamApp/Db/$1.template.in
++python3 scripts/makeAdl.py xml/$1.xml tmp_$1
++
++sed 's/\$(R)GC_/\$(R)/g' GenICamApp/Db/$1.template.in > GenICamApp/Db/$1.template
++
++for f in tmp_$1*.adl; do
++    out="${f#tmp_}"
++    fname="GenICamApp/op/adl/${out}"
++    quilt add $fname
++    sed 's/\$(R)GC_/\$(R)/g' "$f" > $fname
++    echo "create adl for $fname"
++    quilt refresh
++done
++
++rm tmp_*.adl
++rm GenICamApp/Db/$1.template.in
++
++quilt refresh
++quilt pop -a
++git add debian/patches/series
++git add $patchname
++
++git commit -m "Add device support for $1"
++dch -D unstable "Add device support for $1"
++
++git add debian/changelog
++git commit -m "changelog for $1 device support"
