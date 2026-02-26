@@ -24,7 +24,7 @@ typedef struct {
 class ADGENICAM_API ADGenICam : public ADDriver
 {
 public:
-    ADGenICam(const char *portName, size_t maxMemory, int priority, int stackSize);
+    ADGenICam(const char *portName, size_t maxMemory, int priority, int stackSize, int asynFlags = 0);
 
     // virtual methods to override from ADDriver
     virtual asynStatus writeInt32( asynUser *pasynUser, epicsInt32 value);

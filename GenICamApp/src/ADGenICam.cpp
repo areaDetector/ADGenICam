@@ -39,11 +39,12 @@ static const char *driverName = "ADGenICam";
  * \param[in] priority The EPICS thread priority for this driver.  0=use asyn default.
  * \param[in] stackSize The size of the stack for the EPICS port thread. 0=use asyn default.
  */
-ADGenICam::ADGenICam(const char *portName, size_t maxMemory, int priority, int stackSize)
+ADGenICam::ADGenICam(const char *portName, size_t maxMemory, int priority, int stackSize, int asynFlags)
     : ADDriver(portName, 1, 0, 0, maxMemory,
             asynInt64Mask | asynEnumMask,
             asynInt64Mask | asynEnumMask,
-            ASYN_CANBLOCK, 1, priority, stackSize),
+            asynFlags | ASYN_CANBLOCK,
+            1, priority, stackSize),
     mGCFeatureSet(this, pasynUserSelf), mFirstDrvUserCreateCall(true)
 {
     //static const char *functionName = "ADGenICam";
